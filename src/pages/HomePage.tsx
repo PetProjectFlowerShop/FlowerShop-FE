@@ -1,10 +1,10 @@
-import { Container, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { PageContainer } from "../components/common/PageContainer";
 
 export function HomePage() {
   return (
-    <Container sx={{ mt: 4 }}>
+    <PageContainer>
       <Typography variant="h4">Home</Typography>
-
-    </Container>
+    </PageContainer>
   );
 }
