@@ -17,7 +17,7 @@ export function Header() {
                 <Toolbar
                     disableGutters
                     sx={{
-                        justifyContent: 'space-between'
+                        justifyContent: 'space-between',
                     }}>
                     <Logo/>
                     <Menu/>

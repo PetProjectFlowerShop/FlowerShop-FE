@@ -5,14 +5,13 @@ export function SearchFlowers() {
     return (
         <Box
             sx={{
-                ml: 'auto',
                 width: 217,
+                height: 45,
                 border: '1px solid',
-                borderColor: 'divider',
+                borderColor: 'text.primary',
                 borderRadius: 20,
                 display: 'flex',
                 alignItems: 'center',
-                px: 1,
             }}
         >
             <InputBase
@@ -26,7 +25,12 @@ export function SearchFlowers() {
                 }}
                 endAdornment={
                     <InputAdornment position="end">
-                        <SearchIcon fontSize="small"/>
+                        <SearchIcon
+                            fontSize="small"
+                            sx={{
+                                color: 'text.primary',
+
+                            }}/>
                     </InputAdornment>
                 }
             />

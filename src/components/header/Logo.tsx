@@ -1,4 +1,4 @@
-import {Box, Typography} from "@mui/material";
+import {Box} from "@mui/material";
 
 export function Logo() {
     return (
@@ -7,24 +7,16 @@ export function Logo() {
                 display: 'flex',
                 alignItems: 'center'
             }}>
+
             <Box
                 component="img"
-                src="/images/logo.svg"
-                alt="logo"
+                src="/images/logo-name.svg"
+                alt="nameLogo"
                 sx={{
-                    width: 40,
-                    height: 40
-                }}/>
-
-            <Typography
-                sx={{
-                    fontSize: 18,
-                    fontWeight: 700,
-                    color: 'text.primary',
-                    ml: 1
-                }}>
-                Logoipsum
-            </Typography>
+                    width: 191,
+                    height: 60,
+                }}
+            />
         </Box>
     )
 }
