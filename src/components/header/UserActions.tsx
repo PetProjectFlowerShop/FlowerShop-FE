@@ -1,9 +1,13 @@
 import {Box, IconButton} from "@mui/material";
+import { useDrawer } from '../../hooks/useDrawer.ts'
+
 
 export function UserActions() {
+    const { toggleDrawer } = useDrawer()
+
     return (
         <Box sx={{ ml: 2 }}>
-            <IconButton sx={{color: 'text.primary'}}>
+            <IconButton sx={{color: 'text.primary'}} onClick={toggleDrawer(true)}>
                 <Box
                     component="img"
                     src="/images/my-account.svg"
