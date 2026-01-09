@@ -1,16 +1,16 @@
 import {Box, Button} from "@mui/material";
 import {Link, useLocation} from "react-router-dom"
+import {menuItems} from "./data/menu.data";
 
+type MenuProps = {
+    direction?: 'row' | 'column'
+    color?: 'light' | 'dark'
+}
 
-const menuItems = [
-    {label: 'About us', path: '/about-us'},
-    {label: 'Catalog', path: '/catalog'},
-    {label: 'Delivery&Payment', path: '/delivery-and-payment'},
-    {label: 'Blog', path: '/blog'},
-    {label: 'Contacts', path: '/contacts'},
-]
-
-export function Menu() {
+export function Menu({
+                         direction = 'row',
+                         color = 'dark',
+                     }: MenuProps) {
     const location = useLocation()
 
     return (
@@ -22,36 +22,45 @@ export function Menu() {
                 component="ul"
                 sx={{
                     display: 'flex',
-                    gap: 4,
+                    gap: direction === 'row' ? 4 : 2,
+                    flexDirection: direction,
                     listStyle: 'none',
                     p: 0,
                     m: 0
                 }}>
-                {menuItems.map(item => (
-                    <Box
-                        component="li"
-                        key={item.path}>
+                {menuItems.map(item => {
+                    const isActive = location.pathname === item.path
+                    return (
+                        <Box
+                            component="li"
+                            key={item.path}>
 
-                        <Button
-                            key={item.path}
-                            component={Link}
-                            to={item.path}
-                            sx={{
-                                color: location.pathname === item.path ? 'primary.main' : 'text.primary',
-                                textTransform: 'none',
-                                fontSize: 16,
-                                padding: 0,
-                                minWidth: 'auto',
-                                '&:hover': {
-                                    backgroundColor: 'transparent'
-                                }
-                            }}
-                        >
-                            {item.label}
-                        </Button>
-                    </Box>
-                ))}
+                            <Button
+                                component={Link}
+                                to={item.path}
+                                sx={{
+                                    textTransform: 'none',
+                                    fontSize: 20,
+                                    padding: 0,
+                                    justifyContent:
+                                        direction === 'column' ? 'flex-start' : 'center',
+                                    color:
+                                        isActive
+                                            ? 'primary.main' : color === 'light' ? 'common.white' : 'text.primary',
+
+                                    minWidth: 'auto',
+                                    '&:hover': {
+                                        backgroundColor: 'transparent'
+                                    }
+                                }}
+                            >
+                                {item.label}
+                            </Button>
+                        </Box>
+                    )
+
+                })}
             </Box>
         </Box>
-    )
+    );
 }
