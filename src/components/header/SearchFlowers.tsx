@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 export function SearchFlowers() {
     return (
-        <Box
+        <Box component="form"
             sx={{
                 width: 217,
                 height: 45,
@@ -16,6 +16,7 @@ export function SearchFlowers() {
         >
             <InputBase
                 placeholder="Search Flowers"
+                inputProps={{ 'aria-label': 'Search for flowers' }}
                 sx={{
                     flex: 1,
                     px: 2,
@@ -35,5 +36,5 @@ export function SearchFlowers() {
                 }
             />
         </Box>
-    )
+    );
 }

@@ -1,4 +1,4 @@
-import {PageContainer} from "../components/common/PageContainer";
+import {PageContainer} from "../../components/common/PageContainer";
 import {Typography} from "@mui/material";
 
 export function Contacts() {
@@ -6,5 +6,5 @@ export function Contacts() {
         <PageContainer>
             <Typography variant="h4">Contacts</Typography>
         </PageContainer>
-    )
+    );
 }
