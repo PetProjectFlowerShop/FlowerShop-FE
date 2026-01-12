@@ -13,7 +13,7 @@ const AppDrawer = ({ children }: Props) => {
     <Drawer
       anchor="right"
       open={isDrawerOpen}
-      onClose={toggleDrawer(false)}
+      onClose={toggleDrawer('auth', false)}
     >
       <Box display="flex" flexDirection="column" minWidth="40vw">
         {children}

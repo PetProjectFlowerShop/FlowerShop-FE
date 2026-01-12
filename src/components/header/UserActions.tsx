@@ -1,33 +1,31 @@
-import {Box, IconButton} from "@mui/material";
+import { Box, IconButton } from '@mui/material'
+import { userActions } from './data/actions.data'
 import { useDrawer } from '../../hooks/useDrawer.ts'
-
 
 export function UserActions() {
     const { toggleDrawer } = useDrawer()
 
     return (
-        <Box sx={{ ml: 2 }}>
-            <IconButton sx={{color: 'text.primary'}} onClick={toggleDrawer(true)}>
-                <Box
-                    component="img"
-                    src="/images/my-account.svg"
-                    alt="account"
-                    sx={{width: 21.33, height: 21.33}}/>
-            </IconButton>
-            <IconButton sx={{color: 'text.primary'}}>
-                <Box
-                    component="img"
-                    src="/images/favorite.svg"
-                    alt="favorite"
-                    sx={{width: 20, height: 17.16}}/>
-            </IconButton>
-            <IconButton sx={{color: 'text.primary'}}>
-                <Box
-                    component="img"
-                    src="/images/shopping-cart.svg"
-                    alt="shopping"
-                    sx={{width: 25.92, height: 21.33}}/>
-            </IconButton>
+        <Box sx={{ml: 2}}>
+            {userActions.map((action) => (
+                <IconButton
+                    key={action.label}
+                    aria-label={action.label}
+                    sx={{color: 'text.primary'}}
+                    onClick={toggleDrawer(action.type, true)}
+                >
+                    <Box
+                        component="img"
+                        src={action.icon}
+                        alt=""
+                        sx={{
+                            width: action.width,
+                            height: action.height
+                        }}
+                    >
+                    </Box>
+                </IconButton>
+            ))}
         </Box>
     )
 }
