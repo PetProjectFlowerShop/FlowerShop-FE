@@ -6,9 +6,13 @@ import {usersApi, User} from "../../api/users.api";
 export function Blog() {
     const [users, setUsers] = useState<User[]>([])
     useEffect(() => {
-        usersApi.getAll().then(res => {
-            setUsers(res.data)
-        })
+        usersApi.getAll()
+            .then(res => {
+                setUsers(res.data)
+            })
+            .catch(error => {
+                console.error("Failed to fetch users:", error);
+            });
     }, [])
     return (
         <PageContainer>
