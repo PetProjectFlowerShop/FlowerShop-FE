@@ -5,6 +5,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { theme } from '../theme'
+import DrawerProvider from '../providers/DrawerProvider'
 
 type Props = {
   children: React.ReactNode
@@ -14,8 +15,10 @@ export function AppProviders({ children }: Props) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
+        <DrawerProvider>
+          <CssBaseline />
+          {children}
+        </DrawerProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
