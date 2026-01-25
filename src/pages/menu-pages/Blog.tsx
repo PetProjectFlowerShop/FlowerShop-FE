@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { usersApi, type User } from "../../api/users.api";
 import { useLoading } from "../../providers/loading/useLoading";
 import { EmptyState } from "../../components/common/EmptyState";
+import { useError } from "../../providers/error/useError";
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { showLoading, hideLoading } = useLoading();
+
+  const { showError } = useError();
 
   useEffect(() => {
     if (!usersApi?.getAll) return;
@@ -21,8 +24,8 @@ export function Blog() {
 
         setUsers(result);
         setHasLoaded(true);
-      } catch (error) {
-        console.error("Failed to fetch users:", error);
+      } catch {
+        showError("Failed to load users");
         setHasLoaded(true);
       } finally {
         hideLoading();
@@ -30,7 +33,7 @@ export function Blog() {
     };
 
     loadUsers();
-  }, [showLoading, hideLoading]);
+  }, [showLoading, hideLoading, showError]);
 
   if (users.length === 0) {
     return (
@@ -47,7 +50,7 @@ export function Blog() {
   return (
     <PageContainer>
       <Typography variant="h4">Blog</Typography>
-      {users.length === 0 && hasLoaded &&  (
+      {hasLoaded && users.length === 0  && (
         <EmptyState
           title="No users yet"
           description="Users will appear here once they are created."

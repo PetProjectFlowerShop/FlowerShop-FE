@@ -7,6 +7,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { theme } from "../theme";
 import DrawerProvider from "../providers/DrawerProvider";
 import { LoadingProvider } from "./loading/LoadingProvider";
+import { ErrorProvider } from "./error/ErrorProvider";
 
 type Props = {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ export function AppProviders({ children }: Props) {
 
         <DrawerProvider>
           <LoadingProvider>
-            {children}
+            <ErrorProvider>{children}</ErrorProvider>
           </LoadingProvider>
         </DrawerProvider>
       </ThemeProvider>
