@@ -2,30 +2,61 @@ import { PageContainer } from "../../components/common/PageContainer";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { usersApi, type User } from "../../api/users.api";
+import { useLoading } from "../../providers/loading/useLoading";
+import { EmptyState } from "../../components/common/EmptyState";
+import { useError } from "../../providers/error/useError";
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const { showLoading, hideLoading } = useLoading();
+
+  const { showError } = useError();
+
   useEffect(() => {
     if (!usersApi?.getAll) return;
 
-    usersApi
-      .getAll()
-      .then((res) => {
-        const result = Array.isArray(res.data) ? res.data : (res.data ?? []);
+    const loadUsers = async () => {
+      try {
+        showLoading("Loading users...");
+        const res = await usersApi.getAll();
+        const result = res?.data ?? [];
 
         setUsers(result);
-      })
-      .catch((error) => {
-        console.error("Failed to fetch users:", error);
-      });
-  }, []);
+        setHasLoaded(true);
+      } catch {
+        showError("Failed to load users");
+        setHasLoaded(true);
+      } finally {
+        hideLoading();
+      }
+    };
 
+    loadUsers();
+  }, [showLoading, hideLoading, showError]);
+
+  if (users.length === 0) {
+    return (
+      <PageContainer>
+        <Typography variant="h4">Blog</Typography>
+
+        <EmptyState
+          title="No users yet"
+          description="Users will appear here once they are created."
+        />
+      </PageContainer>
+    );
+  }
   return (
     <PageContainer>
       <Typography variant="h4">Blog</Typography>
-
+      {hasLoaded && users.length === 0  && (
+        <EmptyState
+          title="No users yet"
+          description="Users will appear here once they are created."
+        />
+      )}
       {/*just test data, can be deleted*/}
-      <Typography variant="h5">Users</Typography>
       {Array.isArray(users) &&
         users.map((user) => (
           <Box key={user.id}>
