@@ -1,7 +1,7 @@
-import { PageContainer } from "../../components/common/PageContainer";
-import { Box, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { usersApi, type User } from "../../api/users.api";
+import { PageContainer } from '../../components/common/PageContainer';
+import { Box, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { usersApi, type User } from '../../api/users.api';
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);
@@ -16,7 +16,7 @@ export function Blog() {
         setUsers(result);
       })
       .catch((error) => {
-        console.error("Failed to fetch users:", error);
+        console.error('Failed to fetch users:', error);
       });
   }, []);
 
