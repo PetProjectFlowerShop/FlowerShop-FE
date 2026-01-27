@@ -2,14 +2,14 @@
 // This keeps main.tsx clean and makes it easy to add new global providers
 // (e.g. auth, data fetching, feature flags) in one place.
 
-import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider, CssBaseline } from '@mui/material'
-import { theme } from '../theme'
-import DrawerProvider from '../providers/DrawerProvider'
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { theme } from '../theme';
+import DrawerProvider from '../providers/DrawerProvider';
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export function AppProviders({ children }: Props) {
   return (
@@ -21,5 +21,5 @@ export function AppProviders({ children }: Props) {
         </DrawerProvider>
       </ThemeProvider>
     </BrowserRouter>
-  )
+  );
 }
