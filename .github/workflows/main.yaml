@@ -30,7 +30,18 @@ jobs:
         cache: npm
     # Install node dependencies
     - name: Install dependencies
-      run: npm ci
+      run: |
+        pwd
+        echo "package-lock exists?"; ls -la package-lock.json package.json
+        echo "npm prefix: $(npm prefix)"
+        echo "npm package-lock config: $(npm config get package-lock)"
+        echo "env NPM_CONFIG_PACKAGE_LOCK: ${NPM_CONFIG_PACKAGE_LOCK-<unset>}"
+        npm config list -l | grep -E "package-lock|lockfile|userconfig|globalconfig|prefix" || true
+
+        # Force lockfile usage (this is the likely fix)
+        npm config set package-lock true
+
+        npm ci --verbose
     # Run lint
     - name: Lint
       run: npm run lint
