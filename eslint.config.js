@@ -16,6 +16,7 @@ export default defineConfig([
       ...tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
+      prettierConfig,
     ],
     plugins: {
       prettier: prettierPlugin,
