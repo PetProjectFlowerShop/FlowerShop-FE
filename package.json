@@ -44,11 +44,11 @@
     "vite": "^7.2.4"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "src/**/*.{ts,tsx,js}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "src/**/*.{scss,css}": [
+    "src/**/*.{scss,css,json,md}": [
       "prettier --write"
     ]
   }
