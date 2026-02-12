@@ -1,12 +1,12 @@
-export type UserActionType = 'auth' | 'favorite' | 'cart'
+export type UserActionType = 'auth' | 'favorite' | 'cart';
 
 export type UserAction = {
-    type: UserActionType,
-    label: string,
-    icon: string,
-    width: number,
-    height: number,
-}
+  type: UserActionType;
+  label: string;
+  icon: string;
+  width: number;
+  height: number;
+};
 
 export const userActions: UserAction[] = [
   {
@@ -14,14 +14,14 @@ export const userActions: UserAction[] = [
     label: 'My account',
     icon: '/images/user-actions-img/my-account.svg',
     width: 21.33,
-    height: 21.33
+    height: 21.33,
   },
   {
     type: 'favorite',
     label: 'Favorites',
     icon: '/images/user-actions-img/favorite.svg',
     width: 20,
-    height: 17.16
+    height: 17.16,
   },
   {
     type: 'cart',
@@ -30,4 +30,4 @@ export const userActions: UserAction[] = [
     width: 25.92,
     height: 21.33,
   },
-]
+];

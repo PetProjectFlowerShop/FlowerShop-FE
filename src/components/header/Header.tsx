@@ -1,9 +1,9 @@
-import { Link as RouterLink } from "react-router-dom";
-import { AppBar, Toolbar, Box, Container } from "@mui/material";
-import { Logo } from "../common/Logo";
-import { Menu } from "./Menu";
-import { SearchFlowers } from "./SearchFlowers";
-import { UserActions } from "./UserActions";
+import { Link as RouterLink } from 'react-router-dom';
+import { AppBar, Toolbar, Box, Container } from '@mui/material';
+import { Logo } from '../common/Logo';
+import { Menu } from './Menu';
+import { SearchFlowers } from './SearchFlowers';
+import { UserActions } from './UserActions';
 
 export function Header() {
   return (
@@ -11,26 +11,26 @@ export function Header() {
       component="header"
       position="static"
       sx={{
-        backgroundColor: "background.paper",
-        color: "text.primary",
-        p: "15px 15px",
+        backgroundColor: 'background.paper',
+        color: 'text.primary',
+        p: '15px 15px',
       }}
     >
       <Container maxWidth="lg">
         <Toolbar
           disableGutters
           sx={{
-            justifyContent: "space-between",
+            justifyContent: 'space-between',
           }}
         >
           <Box
             component={RouterLink}
             to="/"
             sx={{
-              display: "inline-flex",
-              alignItems: "center",
-              textDecoration: "none",
-              color: "inherit",
+              display: 'inline-flex',
+              alignItems: 'center',
+              textDecoration: 'none',
+              color: 'inherit',
             }}
           >
             <Logo variant="black" />
@@ -38,8 +38,8 @@ export function Header() {
           <Menu />
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
             <SearchFlowers />

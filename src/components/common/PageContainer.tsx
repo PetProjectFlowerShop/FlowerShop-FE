@@ -23,11 +23,7 @@ type Props = ContainerProps & {
   asMain?: boolean;
 };
 
-export function PageContainer({
-  children,
-  asMain = true,
-  ...props
-}: Props) {
+export function PageContainer({ children, asMain = true, ...props }: Props) {
   return (
     <Container
       component={asMain ? 'main' : 'div'}

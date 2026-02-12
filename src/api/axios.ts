@@ -1,38 +1,39 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const apiClient = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL,
-    timeout: 10000,
-    headers: {
-        'Content-Type': 'application/json',
-    },
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
-apiClient.interceptors.request.use((config) => {
-        const token = localStorage.getItem('accessToken')
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken');
 
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`
-        }
-        return config
-    },
-    (error) => Promise.reject(error)
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
 );
 
 apiClient.interceptors.response.use(
-    (response) => response,
-    (error) => {
-        if (error.response?.status === 401) {
-            try {
-                localStorage.removeItem('accessToken');
-            } catch(e) {
-                // ignore storage errors
-                console.error('Storage error: ', e)
-            }
-            if (typeof window !== 'undefined') {
-                window.location.href = '/login';
-            }
-        }
-        return Promise.reject(error)
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      try {
+        localStorage.removeItem('accessToken');
+      } catch (e) {
+        // ignore storage errors
+        console.error('Storage error: ', e);
+      }
+      if (typeof window !== 'undefined') {
+        window.location.href = '/login';
+      }
     }
-)
+    return Promise.reject(error);
+  }
+);

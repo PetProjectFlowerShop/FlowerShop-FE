@@ -58,7 +58,6 @@ E2E tests verify core user flows such as:
 application startup
 page rendering
 navigation between routes
-handling of unknown routes (404)
 
 ### Run E2E tests locally
 npm run dev

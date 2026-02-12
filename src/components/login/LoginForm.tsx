@@ -10,7 +10,7 @@ export function LoginForm() {
   const { control, handleSubmit } = useForm<FormValues>();
 
   return (
-    <form onSubmit={handleSubmit(data => console.log(data))}>
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
       <Controller
         name="email"
         control={control}
