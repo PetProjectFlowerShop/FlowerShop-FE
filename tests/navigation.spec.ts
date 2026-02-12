@@ -5,7 +5,5 @@ test('navigate to blog page', async ({ page }) => {
 
   await page.getByRole('link', { name: /blog/i }).first().click();
 
-  await expect(
-    page.getByRole('heading', { name: /blog/i })
-  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: /blog/i })).toBeVisible();
 });
