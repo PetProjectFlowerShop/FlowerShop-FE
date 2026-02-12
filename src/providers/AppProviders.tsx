@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { theme } from '../theme';
 import DrawerProvider from '../providers/DrawerProvider';
+import { LoadingProvider } from './loading/LoadingProvider';
+import { NotificationProvider } from './notifications/NotificationProvider';
 
 type Props = {
   children: React.ReactNode;
@@ -15,9 +17,12 @@ export function AppProviders({ children }: Props) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
+
         <DrawerProvider>
-          <CssBaseline />
-          {children}
+          <LoadingProvider>
+            <NotificationProvider>{children}</NotificationProvider>
+          </LoadingProvider>
         </DrawerProvider>
       </ThemeProvider>
     </BrowserRouter>
