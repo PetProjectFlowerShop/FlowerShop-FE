@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { usersApi, type User } from "../../api/users.api";
 import { useLoading } from "../../providers/loading/useLoading";
 import { EmptyState } from "../../components/common/EmptyState";
-import { useError } from "../../providers/error/useError";
+import { useNotification } from "../../providers/notifications/useNotification";
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { showLoading, hideLoading } = useLoading();
 
-  const { showError } = useError();
+  const { showError } = useNotification();
 
   useEffect(() => {
     if (!usersApi?.getAll) return;

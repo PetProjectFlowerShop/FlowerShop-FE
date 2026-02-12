@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ErrorContext } from "./ErrorContext";
+import { NotificationContext } from "./NotificationContext";
 
-export function useError() {
-  const context = useContext(ErrorContext);
+export function useNotification() {
+  const context = useContext(NotificationContext);
 
   if (!context) {
     throw new Error("useError must be used within ErrorProvider");

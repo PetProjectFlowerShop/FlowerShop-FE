@@ -1,22 +1,31 @@
 import { Snackbar, Alert } from "@mui/material";
+import type { AlertColor } from "@mui/material";
 
 type Props = {
   open: boolean;
   message: string;
+  severity: AlertColor;
+  autoHideDuration: number;
   onClose: () => void;
 };
 
-export function ErrorSnackbar({ open, message, onClose }: Props) {
+export function NotificationSnackbar({
+  open,
+  message,
+  severity,
+  autoHideDuration,
+  onClose,
+}: Props) {
   return (
     <Snackbar
       open={open}
-      autoHideDuration={4000}
+      autoHideDuration={autoHideDuration}
       onClose={onClose}
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
     >
       <Alert
         onClose={onClose}
-        severity="error"
+        severity={severity}
         variant="filled"
         sx={{ width: "100%" }}
       >
