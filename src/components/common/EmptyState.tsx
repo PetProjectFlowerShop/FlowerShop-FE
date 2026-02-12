@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import type { ReactNode } from "react";
+import { Box, Typography } from '@mui/material';
+import type { ReactNode } from 'react';
 
 type Props = {
   title?: string;
@@ -7,11 +7,7 @@ type Props = {
   action?: ReactNode;
 };
 
-export function EmptyState({
-  title = "Nothing here yet",
-  description,
-  action,
-}: Props) {
+export function EmptyState({ title = 'Nothing here yet', description, action }: Props) {
   return (
     <Box
       py={6}

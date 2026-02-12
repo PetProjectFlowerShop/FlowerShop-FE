@@ -1,5 +1,5 @@
-import { Box, Button, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box, Button, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export function NotFoundPage() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export function NotFoundPage() {
         404 – Page not found
       </Typography>
 
-      <Button variant="contained" onClick={() => navigate("/")}>
+      <Button variant="contained" onClick={() => navigate('/')}>
         Go to home
       </Button>
     </Box>

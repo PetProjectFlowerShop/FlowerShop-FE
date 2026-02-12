@@ -1,10 +1,10 @@
-import { PageContainer } from "../../components/common/PageContainer";
-import { Box, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { usersApi, type User } from "../../api/users.api";
-import { useLoading } from "../../providers/loading/useLoading";
-import { EmptyState } from "../../components/common/EmptyState";
-import { useNotification } from "../../providers/notifications/useNotification";
+import { PageContainer } from '../../components/common/PageContainer';
+import { Box, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { usersApi, type User } from '../../api/users.api';
+import { useLoading } from '../../providers/loading/useLoading';
+import { EmptyState } from '../../components/common/EmptyState';
+import { useNotification } from '../../providers/notifications/useNotification';
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);
@@ -18,14 +18,14 @@ export function Blog() {
 
     const loadUsers = async () => {
       try {
-        showLoading("Loading users...");
+        showLoading('Loading users...');
         const res = await usersApi.getAll();
         const result = res?.data ?? [];
 
         setUsers(result);
         setHasLoaded(true);
       } catch {
-        showError("Failed to load users");
+        showError('Failed to load users');
         setHasLoaded(true);
       } finally {
         hideLoading();
@@ -50,7 +50,7 @@ export function Blog() {
   return (
     <PageContainer>
       <Typography variant="h4">Blog</Typography>
-      {hasLoaded && users.length === 0  && (
+      {hasLoaded && users.length === 0 && (
         <EmptyState
           title="No users yet"
           description="Users will appear here once they are created."

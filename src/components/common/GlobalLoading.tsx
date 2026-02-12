@@ -1,17 +1,17 @@
-import { Backdrop, Box, CircularProgress, Typography } from "@mui/material";
+import { Backdrop, Box, CircularProgress, Typography } from '@mui/material';
 
 type Props = {
   open: boolean;
   message?: string;
 };
 
-export function GlobalLoading({ open, message = "Loading..." }: Props) {
+export function GlobalLoading({ open, message = 'Loading...' }: Props) {
   return (
     <Backdrop
       open={open}
       sx={{
         zIndex: (theme) => theme.zIndex.modal + 1,
-        color: "common.white",
+        color: 'common.white',
       }}
     >
       <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
