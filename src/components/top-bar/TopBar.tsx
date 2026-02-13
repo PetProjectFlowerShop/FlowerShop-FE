@@ -19,7 +19,7 @@ export function TopBar() {
       }}
     >
       <Typography
-        variant="body"
+        variant="body1"
         sx={{
           color: 'secondary.contrastText',
           lineHeight: '140%',

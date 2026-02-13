@@ -1,5 +1,5 @@
-import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
-import { MyCustomArrow } from '../../../public/images/ArrowIcon';
+import { MenuItem, Select, type SelectChangeEvent } from '@mui/material';
+import { MyCustomArrow } from '../../assets/icons/ArrowIcon';
 import { useState } from 'react';
 
 export function SelectLanguage() {
