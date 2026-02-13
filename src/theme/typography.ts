@@ -54,7 +54,7 @@ export const typography = {
       fontSize: '20px',
     },
   },
-  body: {
+  body1: {
     fontSize: '16px',
     lineHeight: 1.5,
     [defaultTheme.breakpoints.up('md')]: {
