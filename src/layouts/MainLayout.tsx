@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../components/header/Header';
+import { TopBar } from '../components/top-bar/TopBar';
 import { Footer } from '../components/footer/Footer';
 import { LoginForm } from '../components/login/LoginForm';
 import AppDrawer from '../components/common/AppDrawer';
@@ -16,6 +17,7 @@ export function MainLayout() {
         {drawerView === 'favorite' && <div>favorite</div>}
         {drawerView === 'cart' && <div>cart</div>}
       </AppDrawer>
+      <TopBar />
       <Header />
 
       <Box flexGrow={1}>

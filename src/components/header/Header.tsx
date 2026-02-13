@@ -9,7 +9,7 @@ export function Header() {
   return (
     <AppBar
       component="header"
-      position="static"
+      position="sticky"
       sx={{
         backgroundColor: 'background.paper',
         color: 'text.primary',
