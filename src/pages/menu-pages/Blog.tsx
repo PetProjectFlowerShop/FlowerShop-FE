@@ -35,18 +35,6 @@ export function Blog() {
     loadUsers();
   }, [showLoading, hideLoading, showError]);
 
-  if (users.length === 0) {
-    return (
-      <PageContainer>
-        <Typography variant="h4">Blog</Typography>
-
-        <EmptyState
-          title="No users yet"
-          description="Users will appear here once they are created."
-        />
-      </PageContainer>
-    );
-  }
   return (
     <PageContainer>
       <Typography variant="h4">Blog</Typography>
@@ -60,7 +48,7 @@ export function Blog() {
       {Array.isArray(users) &&
         users.map((user) => (
           <Box key={user.id}>
-            {user?.name} - {user?.email}
+            {user.name} - {user.email}
           </Box>
         ))}
     </PageContainer>
