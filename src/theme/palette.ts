@@ -8,7 +8,7 @@ export const palette: PaletteOptions = {
   },
   primary: {
     main: '#849159',
-    dark: '#25291B',
+    dark: '#505933',
     light: '#EFF0EE',
     contrastText: '#FFFFFF',
   },
