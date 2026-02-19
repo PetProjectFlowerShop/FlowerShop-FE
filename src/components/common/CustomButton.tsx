@@ -7,7 +7,7 @@ type CustomButtonProps = ButtonProps & {
   children: ReactNode;
 };
 
-export const CustomButton = ({ variant = 'text', children, ...rest }: CustomButtonProps) => {
+export function CustomButton({ variant = 'text', children, ...rest }: CustomButtonProps) {
   const theme = useTheme();
   const shouldWrap = variant === 'outlined' || variant === 'text';
   const content = shouldWrap ? (
@@ -23,4 +23,4 @@ export const CustomButton = ({ variant = 'text', children, ...rest }: CustomButt
       {content}
     </Button>
   );
-};
+}

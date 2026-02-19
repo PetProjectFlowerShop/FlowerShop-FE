@@ -36,7 +36,7 @@ const variantStyles: Record<ButtonVariant, (theme: Theme) => SxProps<Theme>> = {
   }),
   filled: (theme) => ({
     backgroundColor: theme.palette.common.white,
-    borderRadius: 'full',
+    borderRadius: '50%',
     color: theme.palette.secondary.contrastText,
     boxShadow: theme.shadows[3],
     '&:hover': { backgroundColor: theme.palette.grey[100], boxShadow: theme.shadows[4] },
@@ -49,14 +49,22 @@ const variantStyles: Record<ButtonVariant, (theme: Theme) => SxProps<Theme>> = {
 };
 
 type CustomIconButtonProps = IconButtonProps & { variant?: ButtonVariant };
-export const CustomIconButton = ({
+
+export function CustomIconButton({
   variant = 'default',
   children,
   ...rest
-}: CustomIconButtonProps) => {
+}: CustomIconButtonProps) {
+  const { sx, ...iconButtonProps } = rest;
   return (
-    <IconButton {...rest} sx={(theme) => ({ ...variantStyles[variant](theme) })}>
+    <IconButton
+      {...iconButtonProps}
+      sx={(theme) => ({
+        ...variantStyles[variant](theme),
+        ...(typeof sx === 'function' ? sx(theme) : sx || {}),
+      })}
+    >
       {children}
     </IconButton>
   );
-};
+}

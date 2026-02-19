@@ -7,7 +7,6 @@ export const buttonOverrides: Components<Theme>['MuiButton'] = {
       padding: theme.spacing(2, 2.5),
       borderRadius: '24px',
       ...theme.typography.button,
-      fontSize: theme.typography.pxToRem(20),
     }),
   },
 };
