@@ -1,9 +1,10 @@
-import { Chip, type ChipProps } from '@mui/material';
-import { CancelIcon } from '../../assets/icons/CancelIcon';
+import { Chip, useTheme, type ChipProps } from '@mui/material';
+import { Icon } from './Icon';
 
 type CustomChipProps = ChipProps;
 
 export function CustomChip({ ...props }: CustomChipProps) {
+  const theme = useTheme();
   return (
     <Chip
       {...props}
@@ -18,7 +19,9 @@ export function CustomChip({ ...props }: CustomChipProps) {
           fontSize: 16,
         },
       }}
-      deleteIcon={<CancelIcon />}
+      deleteIcon={
+        <Icon style={{ color: theme.palette.text.primary }} width={16} height={16} name="cancel" />
+      }
     />
   );
 }
