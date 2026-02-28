@@ -1,5 +1,5 @@
 import { Box, InputAdornment, InputBase } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Icon } from '../common/Icon';
 
 export function SearchFlowers() {
   return (
@@ -26,11 +26,15 @@ export function SearchFlowers() {
           },
         }}
         endAdornment={
-          <InputAdornment position="end">
-            <SearchIcon
-              fontSize="small"
-              sx={{
-                color: 'text.primary',
+          <InputAdornment position="end" sx={{ pr: 1.5 }}>
+            <Icon
+              name="search"
+              width={24}
+              height={24}
+              style={{
+                color: 'var(--mui-palette-text-primary)',
+                fill: 'currentColor',
+                display: 'block',
               }}
             />
           </InputAdornment>
