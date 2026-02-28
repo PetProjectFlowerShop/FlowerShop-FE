@@ -10,6 +10,9 @@ export const listItemButtonOverrides: Components<Theme>['MuiListItemButton'] = {
       '&:hover': {
         backgroundColor: theme.palette.action.hover,
       },
+      '&.Mui-selected:hover': {
+        backgroundColor: theme.palette.action.selected,
+      },
       '&.Mui-focusVisible': {
         backgroundColor: theme.palette.action.focus,
       },
