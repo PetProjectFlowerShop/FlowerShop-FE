@@ -1,4 +1,5 @@
 export type IconName =
+  | 'logo'
   | 'cancel'
   | 'arrow'
   | 'active-no'
