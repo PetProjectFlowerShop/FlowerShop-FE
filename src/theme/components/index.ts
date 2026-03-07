@@ -11,6 +11,7 @@ import {
   formHelperTextOverrides,
 } from './TextField';
 import { switchOverrides } from './Switch';
+import { sliderOverrides } from './Slider';
 
 export const components = {
   MuiButton: buttonOverrides,
@@ -24,4 +25,5 @@ export const components = {
   MuiInputLabel: inputLabelOverrides,
   MuiFormHelperText: formHelperTextOverrides,
   MuiSwitch: switchOverrides,
+  MuiSlider: sliderOverrides,
 };
