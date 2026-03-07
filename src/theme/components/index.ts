@@ -10,6 +10,7 @@ import {
   inputLabelOverrides,
   formHelperTextOverrides,
 } from './TextField';
+import { switchOverrides } from './Switch';
 
 export const components = {
   MuiButton: buttonOverrides,
@@ -22,4 +23,5 @@ export const components = {
   MuiOutlinedInput: outlinedInputOverrides,
   MuiInputLabel: inputLabelOverrides,
   MuiFormHelperText: formHelperTextOverrides,
+  MuiSwitch: switchOverrides,
 };
