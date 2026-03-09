@@ -1,22 +1,23 @@
 import { Box } from '@mui/material';
+import { Icon } from './Icon';
 
 interface LogoProps {
   variant?: 'black' | 'white';
   width?: number | string;
+  height?: number | string;
 }
-export function Logo({ variant = 'black', width = 191 }: LogoProps) {
-  const logoSrc =
-    variant === 'black' ? '/images/logo-floria-black.svg' : '/images/logo-floria-white.svg';
-
+export function Logo({ variant = 'black', width = 122, height = 40 }: LogoProps) {
+  const logoColor = variant === 'black' ? 'text.primary' : 'common.white';
   return (
     <Box
-      component="img"
-      src={logoSrc}
-      alt="Floria Logo"
       sx={{
         width: width,
-        height: 'auto',
+        height: height,
+        display: 'inline-flex',
+        color: logoColor,
       }}
-    ></Box>
+    >
+      <Icon name="logo" width="100%" height="auto" style={{ display: 'block' }} />
+    </Box>
   );
 }

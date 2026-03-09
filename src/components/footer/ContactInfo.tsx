@@ -1,29 +1,28 @@
+import { Icon } from '../common/Icon';
 import { contacts, type ContactsData } from './data/contacts.data';
 import { Box, Typography, Link as MuiLink } from '@mui/material';
 
-function ContactRow({ icon, label, value, href, iconSize = 24 }: ContactsData) {
+function ContactRow({ icon, value, href, iconSize = 24 }: ContactsData) {
   const content = (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
+        color: 'common.white',
       }}
     >
-      <Box
-        component="img"
-        src={icon}
-        alt={label}
-        sx={{
-          width: iconSize,
-          height: iconSize,
-          flexShrink: 0,
-        }}
+      <Icon
+        name={icon}
+        width={iconSize}
+        height={iconSize}
+        style={{ flexShrink: 0, fill: 'currentColor' }}
       />
+
       <Typography
         sx={{
           fontSize: '20px',
-          color: 'common.white',
+          color: 'inherit',
         }}
       >
         {value}
