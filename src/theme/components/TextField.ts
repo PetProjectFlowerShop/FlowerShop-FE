@@ -16,9 +16,12 @@ export const textFieldOverrides: Components<Theme>['MuiTextField'] = {
 };
 
 export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
+  defaultProps: {
+    fullWidth: true,
+  },
   styleOverrides: {
     root: ({ theme }) => ({
-      width: '220px',
+      width: '100%',
       borderRadius: '8px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
