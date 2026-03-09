@@ -1,6 +1,7 @@
 import { Box, IconButton } from '@mui/material';
 import { userActions } from './data/actions.data';
 import { useDrawer } from '../../hooks/useDrawer.ts';
+import { Icon } from '../common/Icon.tsx';
 
 export function UserActions() {
   const { toggleDrawer } = useDrawer();
@@ -14,15 +15,12 @@ export function UserActions() {
           sx={{ color: 'text.primary' }}
           onClick={toggleDrawer(action.type, true)}
         >
-          <Box
-            component="img"
-            src={action.icon}
-            alt=""
-            sx={{
-              width: action.width,
-              height: action.height,
-            }}
-          ></Box>
+          <Icon
+            name={action.icon}
+            width={action.width}
+            height={action.height}
+            style={{ display: 'block', fill: 'currentColor' }}
+          />
         </IconButton>
       ))}
     </Box>

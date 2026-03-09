@@ -1,10 +1,12 @@
+import type { IconName } from '../../common/Icon';
+
 type SocialLink = {
   name: string;
-  icon: string;
+  icon: IconName;
   href: string;
 };
 export const socialLinks: SocialLink[] = [
-  { name: 'Facebook', icon: '/images/social-link-img/facebook.svg', href: '#' },
-  { name: 'Instagram', icon: '/images/social-link-img/instagram.svg', href: '#' },
-  { name: 'Telegram', icon: '/images/social-link-img/telegram.svg', href: '#' },
+  { name: 'Facebook', icon: 'facebook', href: '#' },
+  { name: 'Instagram', icon: 'instagram', href: '#' },
+  { name: 'Telegram', icon: 'telegram', href: '#' },
 ];

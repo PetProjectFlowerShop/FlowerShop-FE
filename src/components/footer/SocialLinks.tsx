@@ -1,5 +1,6 @@
 import { Box, IconButton } from '@mui/material';
 import { socialLinks } from './data/social-link.data';
+import { Icon } from '../common/Icon';
 
 export function SocialLinks() {
   return (
@@ -13,10 +14,10 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           sx={{
-            width: 36,
-            height: 36,
-            p: '8px 12px',
-            gap: '10px',
+            width: 40,
+            height: 40,
+            p: '8px',
+            gap: '12px',
             borderRadius: '12px',
             backgroundColor: '#FBF4F3',
             '&:hover': {
@@ -24,7 +25,12 @@ export function SocialLinks() {
             },
           }}
         >
-          <Box component="img" src={item.icon} alt={item.name} />
+          <Icon
+            name={item.icon}
+            width={24}
+            height={24}
+            style={{ fill: 'currentColor', display: 'block' }}
+          />
         </IconButton>
       ))}
     </Box>

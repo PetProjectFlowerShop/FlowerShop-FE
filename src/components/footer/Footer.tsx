@@ -37,7 +37,7 @@ export function Footer() {
               justifyContent: 'space-between',
             }}
           >
-            <Logo variant="white" />
+            <Logo variant="white" width="180" height="60" />
             <SocialLinks />
           </Box>
 

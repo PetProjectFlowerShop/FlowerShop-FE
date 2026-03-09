@@ -33,7 +33,7 @@ export function Header() {
               color: 'inherit',
             }}
           >
-            <Logo variant="black" />
+            <Logo variant="black" width="122" height="40" />
           </Box>
           <Menu />
           <Box

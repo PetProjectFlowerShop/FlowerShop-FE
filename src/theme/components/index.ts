@@ -4,6 +4,9 @@ import { checkboxOverrides } from './Checkbox';
 import { formControlLabelOverrides } from './FormControlLabel';
 import { listItemButtonOverrides } from './listItemButton';
 import { paginationOverrides } from './pagination';
+import { dividerOverrides } from './divider';
+import { paperOverrides } from './paper';
+import { badgeOverrides } from './bage';
 import {
   textFieldOverrides,
   outlinedInputOverrides,
@@ -20,6 +23,9 @@ export const components = {
   MuiCheckbox: checkboxOverrides,
   MuiListItemButton: listItemButtonOverrides,
   MuiPaginationItem: paginationOverrides,
+  MuiDivider: dividerOverrides,
+  MuiPaper: paperOverrides,
+  MuiBadge: badgeOverrides,
   MuiTextField: textFieldOverrides,
   MuiOutlinedInput: outlinedInputOverrides,
   MuiInputLabel: inputLabelOverrides,
