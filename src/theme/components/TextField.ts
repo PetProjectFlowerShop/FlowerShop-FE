@@ -4,12 +4,11 @@ import type { Components } from '@mui/material/styles';
 export const textFieldOverrides: Components<Theme>['MuiTextField'] = {
   defaultProps: {
     variant: 'outlined',
-    fullWidth: false,
+    fullWidth: true,
   },
   styleOverrides: {
     root: {
-      width: '220px',
-      minHeight: '112px',
+      width: '100%',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -20,7 +19,6 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       width: '220px',
-      height: '56px',
       borderRadius: '8px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
