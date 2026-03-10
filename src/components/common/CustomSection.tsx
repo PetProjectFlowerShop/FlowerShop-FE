@@ -1,4 +1,4 @@
-import { Box, BoxProps, styled } from '@mui/material';
+import { Box, type BoxProps, styled } from '@mui/material';
 import { type Theme } from '@mui/material/styles';
 
 const StyledSection = styled(Box)(({ theme }: { theme: Theme }) => ({

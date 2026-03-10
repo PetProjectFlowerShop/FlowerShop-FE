@@ -24,15 +24,18 @@ type Props = ContainerProps & {
   disableVerticalPadding?: boolean;
 };
 
-export function PageContainer({ children, disableVerticalPadding = false, ...props }: Props) {
+export function PageContainer({ children, disableVerticalPadding = false, sx, ...props }: Props) {
   return (
     <Container
       {...props}
-      sx={(theme: Theme) => ({
-        py: theme.spacing(theme.spacingTokens.stackM),
-        ...(!disableVerticalPadding && {}),
-        ...props.sx,
-      })}
+      sx={[
+        (theme: Theme) => ({
+          ...(!disableVerticalPadding && {
+            py: theme.spacing(theme.spacingTokens.stackM),
+          }),
+        }),
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       {children}
     </Container>
