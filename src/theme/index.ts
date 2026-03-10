@@ -16,7 +16,7 @@ declare module '@mui/material/styles' {
     spacingTokens?: typeof spacingTokens;
   }
 }
-export const theme = createTheme<Theme>({
+export const theme: Theme = createTheme({
   palette,
   typography,
   components,
