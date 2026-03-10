@@ -11,16 +11,24 @@ import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 export function MainLayout() {
   const { drawerView } = useDrawer();
   return (
-    <Box minHeight="100vh" display="flex" flexDirection="column">
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        backgroundColor: 'background.default',
+      }}
+    >
       <AppDrawer>
         {drawerView === 'auth' && <LoginForm />}
         {drawerView === 'favorite' && <div>favorite</div>}
         {drawerView === 'cart' && <div>cart</div>}
       </AppDrawer>
+
       <TopBar />
       <Header />
 
-      <Box flexGrow={1}>
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <RouteErrorBoundary>
           <Outlet />
         </RouteErrorBoundary>

@@ -1,35 +1,40 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
 import { SelectLanguage } from './SelectLanguage';
+import { type Theme } from '@mui/material/styles';
 
 export function TopBar() {
   return (
     <Box
-      component="section"
+      component="div"
       sx={{
-        width: '100%',
         height: '48px',
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'secondary.dark',
-        px: '72px',
-        py: '4px',
-        boxSizing: 'border-box',
         color: 'primary.contrastText',
       }}
     >
-      <Typography
-        variant="body1"
-        sx={{
-          color: 'secondary.contrastText',
-          lineHeight: '140%',
-          textAlign: 'center',
-          flexGrow: 1,
-        }}
+      <Container
+        sx={(theme: Theme) => ({
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          xs: theme.spacing(theme.spacingTokens.microX),
+        })}
       >
-        FREE DELIVERY FROM $250
-      </Typography>
-      <SelectLanguage />
+        <Typography
+          variant="body1"
+          sx={{
+            color: 'secondary.contrastText',
+            lineHeight: '140%',
+            textAlign: 'center',
+            flexGrow: 1,
+          }}
+        >
+          FREE DELIVERY FROM $250
+        </Typography>
+        <SelectLanguage />
+      </Container>
     </Box>
   );
 }
