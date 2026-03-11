@@ -18,21 +18,24 @@
  */
 
 import { Container, type ContainerProps } from '@mui/material';
+import { type Theme } from '@mui/material/styles';
 
 type Props = ContainerProps & {
-  asMain?: boolean;
+  disableVerticalPadding?: boolean;
 };
 
-export function PageContainer({ children, asMain = true, ...props }: Props) {
+export function PageContainer({ children, disableVerticalPadding = false, sx, ...props }: Props) {
   return (
     <Container
-      component={asMain ? 'main' : 'div'}
-      maxWidth="lg"
-      sx={{
-        py: { xs: 2, sm: 3, md: 4 },
-        ...props.sx,
-      }}
       {...props}
+      sx={[
+        (theme: Theme) => ({
+          ...(!disableVerticalPadding && {
+            py: theme.spacing(theme.spacingTokens.stackM),
+          }),
+        }),
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       {children}
     </Container>
