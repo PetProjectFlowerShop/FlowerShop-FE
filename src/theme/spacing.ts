@@ -31,4 +31,4 @@ export const spacingTokens = {
   contentGapMobile: 7, // 28px
   contentGapTablet: 10, // 40px
   contentGapDesktop: 10, // 40px
-};
+} as const;

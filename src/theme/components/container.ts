@@ -12,21 +12,18 @@ export const containerOverrides: Components<Theme>['MuiContainer'] = {
       marginRight: 'auto',
 
       //Mobile (from 0)
-      paddingLeft: theme.spacing(theme.spacingTokens.marginMobile),
-      paddingRight: theme.spacing(theme.spacingTokens.marginMobile),
+      px: theme.spacing(theme.spacingTokens.marginMobile),
       maxWidth: '100%',
 
       //Tablet (from 768px)
       [theme.breakpoints.up('md')]: {
-        paddingLeft: theme.spacing(theme.spacingTokens.marginTablet),
-        paddingRight: theme.spacing(theme.spacingTokens.marginTablet),
+        px: theme.spacing(theme.spacingTokens.marginTablet),
         maxWidth: 768,
       },
 
       //Desktop (from 1440px)
       [theme.breakpoints.up('lg')]: {
-        paddingLeft: theme.spacing(theme.spacingTokens.marginDesktop),
-        paddingRight: theme.spacing(theme.spacingTokens.marginDesktop),
+        px: theme.spacing(theme.spacingTokens.marginDesktop),
         maxWidth: 1440,
       },
     }),

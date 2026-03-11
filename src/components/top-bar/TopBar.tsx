@@ -7,7 +7,7 @@ export function TopBar() {
     <Box
       component="div"
       sx={{
-        height: '48px',
+        minHeight: '48px',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'secondary.dark',
@@ -19,7 +19,9 @@ export function TopBar() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          xs: theme.spacing(theme.spacingTokens.microX),
+          py: {
+            xs: theme.spacing(theme.spacingTokens.microX),
+          },
         })}
       >
         <Typography
