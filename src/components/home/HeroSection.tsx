@@ -59,22 +59,7 @@ export default function HeroSection() {
               </Typography>
 
               {/* TODO: update button after fix */}
-              <Button
-                variant="contained"
-                sx={{
-                  px: 5,
-                  py: 4,
-                  borderRadius: 10,
-                  width: '100%',
-
-                  backgroundColor: '#8B9A5B',
-                  '&:hover': {
-                    backgroundColor: '#7C8C4F',
-                  },
-                }}
-              >
-                Go to catalog
-              </Button>
+              <Button variant="contained">Go to catalog</Button>
             </Box>
           </Box>
         </Box>

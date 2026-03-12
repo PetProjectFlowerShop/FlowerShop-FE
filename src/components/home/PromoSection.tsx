@@ -8,13 +8,13 @@ export default function PromoSection() {
       <Box
         sx={{
           display: 'flex',
-
           backgroundImage: `url(${promo})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           px: { xs: 4, md: 10, lg: 30 },
           py: { xs: 5, md: 10 },
         }}
+        role="presentation"
       >
         <Box
           sx={{
