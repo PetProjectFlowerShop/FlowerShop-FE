@@ -1,10 +1,5 @@
-import { Typography } from '@mui/material';
-import { PageContainer } from '../components/common/PageContainer';
+import HeroSection from '../components/home/HeroSection';
 
 export function HomePage() {
-  return (
-    <PageContainer>
-      <Typography variant="h4">Home</Typography>
-    </PageContainer>
-  );
+  return <HeroSection />;
 }
