@@ -43,7 +43,7 @@ export const typography = (theme: Theme) => ({
   button: {
     fontFamily: '"Quicksand", sans-serif',
     textTransform: 'none' as const,
-    fontSize: '16px',
+    fontSize: '20px',
     fontWeight: 600,
     lineHeight: 1.4,
     [theme.breakpoints.up('md')]: {
