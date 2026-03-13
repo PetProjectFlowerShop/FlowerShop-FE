@@ -1,52 +1,63 @@
-import { Box, Container } from '@mui/material';
-import { Menu } from '../header/Menu';
-import { SocialLinks } from './SocialLinks';
+import { Box, Container, Typography, useTheme } from '@mui/material';
+import whiteLogo from '../../assets/images/logo_large_white.svg';
 import { ContactInfo } from './ContactInfo';
+import FooterMenu from './FooterMenu';
 import { LegalLink } from './LegalLink';
-import { Logo } from '../common/Logo';
+import { SocialLinks } from './SocialLinks';
 
 export function Footer() {
+  const theme = useTheme();
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: 'common.black',
+        backgroundColor: theme.palette.primary.dark,
+        py: 15,
       }}
     >
       <Container
         maxWidth="lg"
         sx={{
-          p: '60px 72px 40px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '127px',
+          marginBottom: 15,
         }}
       >
         <Box
           sx={{
             display: 'flex',
-            width: '100%',
-            justifyContent: 'space-between',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 9,
+            justifyContent: { xs: 'center', md: 'space-between' },
+            alignItems: { xs: 'baseline', md: 'flex-start' },
+            mx: { xs: 'auto', md: 'unset' },
           }}
         >
-          <Box
-            sx={{
-              height: '152px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Logo variant="white" width="180" height="60" />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <Box component="img" sx={{ maxWidth: '182px', maxHeight: '60px' }} src={whiteLogo} />
             <SocialLinks />
           </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'baseline' }}>
+            <Typography variant="h4" color={theme.palette.primary.contrastText}>
+              Explore
+            </Typography>
+            <FooterMenu />
+          </Box>
 
-          <Menu direction={'column'} color={'light'} />
-          <ContactInfo />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'baseline' }}>
+            <Typography variant="h4" color={theme.palette.primary.contrastText}>
+              Store Info
+            </Typography>
+            <ContactInfo />
+          </Box>
         </Box>
-
-        <LegalLink />
       </Container>
+      <LegalLink />
+      <Box sx={{ textAlign: 'center', mt: 4 }}>
+        <Typography variant="caption" color="white" sx={{ opacity: 0.8 }}>
+          © 2026 Floria. All rights reserved
+        </Typography>
+      </Box>
     </Box>
   );
 }

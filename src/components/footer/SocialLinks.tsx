@@ -13,17 +13,7 @@ export function SocialLinks() {
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
-          sx={{
-            width: 40,
-            height: 40,
-            p: '8px',
-            gap: '12px',
-            borderRadius: '12px',
-            backgroundColor: '#FBF4F3',
-            '&:hover': {
-              backgroundColor: 'primary.contrastText',
-            },
-          }}
+          variant="secondary"
         >
           <Icon
             name={item.icon}

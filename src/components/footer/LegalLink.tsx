@@ -13,16 +13,7 @@ export function LegalLink() {
       }}
     >
       {legalsLinks.map((link) => (
-        <MuiLink
-          key={link.path}
-          component={RouterLink}
-          to={link.path}
-          sx={{
-            color: 'common.white',
-            fontSize: '16px',
-            textDecoration: 'none',
-          }}
-        >
+        <MuiLink key={link.path} component={RouterLink} to={link.path}>
           {link.label}
         </MuiLink>
       ))}

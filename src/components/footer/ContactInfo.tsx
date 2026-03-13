@@ -21,7 +21,7 @@ function ContactRow({ icon, value, href, iconSize = 24 }: ContactsData) {
 
       <Typography
         sx={{
-          fontSize: '20px',
+          fontSize: '16px',
           color: 'inherit',
         }}
       >
