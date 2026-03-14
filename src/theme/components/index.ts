@@ -16,9 +16,11 @@ import {
 import { switchOverrides } from './Switch';
 import { sliderOverrides } from './Slider';
 import { containerOverrides } from './container';
+import { iconButtonOverrides } from './iconButton';
 
 export const components = {
   MuiButton: buttonOverrides,
+  MuiIconButton: iconButtonOverrides,
   MuiContainer: containerOverrides,
   MuiFormControlLabel: formControlLabelOverrides,
   MuiRadio: radioOverrides,
