@@ -1,5 +1,5 @@
 import { Box, Divider, Drawer } from '@mui/material';
-import { Theme } from '@mui/material/styles';
+import { type Theme } from '@mui/material/styles';
 import { Menu } from './Menu';
 import { SocialsRow } from './SocialsRow';
 import { HeaderContacts } from './HeaderContacts';

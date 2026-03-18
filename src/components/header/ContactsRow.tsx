@@ -1,6 +1,6 @@
 import { Box, Typography, Link as MuiLink } from '@mui/material';
 import { Icon } from '../common/Icon';
-import { ContactsData } from '../footer/data/contacts.data';
+import type { ContactsData } from '../footer/data/contacts.data';
 import { type Theme } from '@mui/material/styles';
 
 export function ContactsRow({ value, href, icon }: ContactsData) {

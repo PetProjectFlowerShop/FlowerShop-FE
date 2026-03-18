@@ -1,7 +1,7 @@
 import { Box, Button, Stack } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { menuItems } from './data/menu.data';
-import { Theme } from '@mui/material/styles';
+import { type Theme } from '@mui/material/styles';
 
 type MenuProps = {
   direction?: 'row' | 'column';
