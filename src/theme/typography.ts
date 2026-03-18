@@ -51,6 +51,7 @@ export const typography = (theme: Theme) => ({
     },
   },
   body1: {
+    fontFamily: '"Quicksand", sans-serif',
     fontSize: '16px',
     lineHeight: 1.5,
     [theme.breakpoints.up('md')]: {
@@ -59,11 +60,17 @@ export const typography = (theme: Theme) => ({
     },
   },
   caption: {
+    fontFamily: '"Quicksand", sans-serif',
     fontSize: '14px',
     lineHeight: 1.42,
     [theme.breakpoints.up('md')]: {
       fontSize: '16px',
       lineHeight: 1.5,
     },
+  },
+  caption2: {
+    fontFamily: '"Quicksand", sans-serif',
+    fontSize: '14px',
+    lineHeight: 1.42,
   },
 });
