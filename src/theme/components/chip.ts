@@ -5,14 +5,13 @@ export const chipOverrides: Components<Theme>['MuiChip'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       ...theme.typography.caption,
-      fontWeight: 600,
+      fontWeight: 400,
       fontSize: '12px',
-      opacity: 1,
-      borderRadius: '16px',
-      color: 'primary.contrastText',
-      paddingLeft: '6.5px',
-      paddingRight: '6.5px',
-      minWidth: 'unset',
+      borderRadius: '100px',
+      padding: '8px 12px',
+      '& .MuiChip-label': {
+        padding: '8px 12px',
+      },
     }),
   },
 };
