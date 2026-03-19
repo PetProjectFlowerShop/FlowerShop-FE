@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 
 export const SectionHeader = ({ title, subtitle }: SectionHeaderProps) => {
   return (
-    <Box sx={{ mb: { xs: 2, md: 4 } }}>
+    <Box sx={{ mb: { xs: 2, md: 4 }, gap: '16px', display: 'grid' }}>
       <Typography variant="h2" sx={{ mb: subtitle ? 1 : 0 }}>
         {title}
       </Typography>
