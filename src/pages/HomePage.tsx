@@ -1,6 +1,6 @@
 import HeroSection from '../components/home/HeroSection';
 import PromoSection from '../components/home/PromoSection';
-import RecommendedSection from '../components/home/Recommendedsection';
+import RecommendedSection from '../components/home/RecommendedSection';
 
 export function HomePage() {
   return (
