@@ -17,13 +17,19 @@ export const ProductCarousel = ({ products }: ProductCarouselProps) => {
     <Box
       sx={{
         position: 'relative',
-        px: { xs: 0, md: 4 },
         '& .swiper-pagination': { bottom: '-30px' },
         '& .swiper-pagination-bullet': { width: '8px', height: '8px', transition: 'all 0.3s' },
         '& .swiper-pagination-bullet-active': {
           backgroundColor: 'secondary.main',
           width: '10px',
           height: '10px',
+        },
+        '& .swiper-slide': {
+          height: 'auto',
+          display: 'flex',
+        },
+        '& .swiper-slide > div': {
+          width: '100%',
         },
       }}
     >
@@ -32,7 +38,7 @@ export const ProductCarousel = ({ products }: ProductCarouselProps) => {
         sx={{
           position: 'absolute',
           top: '50%',
-          left: 0,
+          left: { md: '-24px' },
           transform: 'translateY(-50%)',
           zIndex: 10,
           backgroundColor: 'common.white',
@@ -61,7 +67,7 @@ export const ProductCarousel = ({ products }: ProductCarouselProps) => {
           900: { slidesPerView: 3 },
           1200: { slidesPerView: 4 },
         }}
-        style={{ paddingBottom: '40px', paddingTop: '10px' }}
+        style={{ paddingBottom: '40px', paddingTop: '40px' }}
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
@@ -79,7 +85,7 @@ export const ProductCarousel = ({ products }: ProductCarouselProps) => {
         sx={{
           position: 'absolute',
           top: '50%',
-          right: 0,
+          right: { md: '-24px' },
           transform: 'translateY(-50%)',
           zIndex: 10,
           backgroundColor: 'common.white',
