@@ -17,8 +17,21 @@ export const ProductCarousel = ({ products }: ProductCarouselProps) => {
     <Box
       sx={{
         position: 'relative',
-        '& .swiper-pagination': { bottom: '-30px' },
-        '& .swiper-pagination-bullet': { width: '8px', height: '8px', transition: 'all 0.3s' },
+        '& .swiper': {
+          paddingBottom: '48px',
+          paddingTop: '8px',
+        },
+        '& .swiper-pagination': {
+          bottom: '0px !important',
+        },
+        '& .swiper-pagination-bullet': {
+          width: '8px',
+          height: '8px',
+          backgroundColor: 'action.disabled',
+          opacity: 1,
+          margin: '0 6px !important',
+          transition: 'all 0.3s ease',
+        },
         '& .swiper-pagination-bullet-active': {
           backgroundColor: 'secondary.main',
           width: '10px',
