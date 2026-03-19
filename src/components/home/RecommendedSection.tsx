@@ -56,6 +56,23 @@ const sampleProducts: Product[] = [
     isFavorite: true,
     tags: ['New'],
   },
+  {
+    id: '7',
+    title: 'Peony & Lisianthus',
+    imgURL: '',
+    price: 73,
+    isFavorite: false,
+    tags: ['Season offer'],
+  },
+  {
+    id: '8',
+    title: 'Pastel Rose Mix',
+    imgURL: '',
+    price: 50,
+    discount: 10,
+    isFavorite: true,
+    tags: ['New'],
+  },
 ];
 
 export default function RecommendedSection() {
