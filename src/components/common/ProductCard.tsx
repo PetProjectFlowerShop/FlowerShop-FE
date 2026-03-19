@@ -59,6 +59,7 @@ export const ProductCard = ({
         margin: '0 auto',
         borderRadius: '16px',
         transition: 'box-shadow 0.3s ease-in-out',
+        backgroundColor: 'transparent',
         '&:hover': {
           elevation: 4,
           boxShadow: (theme) => theme.shadows[4],
@@ -149,7 +150,7 @@ export const ProductCard = ({
           onClick={() => onAddToCartClick?.(id)}
           sx={{
             p: '16px 20px',
-            borderRadius: '8px',
+            borderRadius: '20px',
             textTransform: 'none',
             fontWeight: 600,
           }}
