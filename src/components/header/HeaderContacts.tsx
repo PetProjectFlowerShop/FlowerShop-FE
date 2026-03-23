@@ -1,27 +1,27 @@
 import { Box, Button, Stack } from '@mui/material';
 import { contacts, type ContactsData } from '../footer/data/contacts.data';
-import { ContactsRow } from './ContactsRow';
-import { type Theme } from '@mui/material/styles';
+import { ContactRow } from '../footer/ContactInfo';
 
 export function HeaderContacts() {
   return (
     <Stack
       spacing={2}
-      sx={(theme: Theme) => ({
-        mt: theme.spacing(theme.spacingTokens.stackS),
-        px: theme.spacing(theme.spacingTokens.stackXs),
+      sx={(theme) => ({
+        mt: theme.spacingTokens.stackS,
+        px: theme.spacingTokens.stackL,
+        gap: theme.spacingTokens.stackS,
       })}
     >
       {contacts.map((item: ContactsData) => (
-        <ContactsRow key={item.label} {...item} />
+        <ContactRow key={item.label} {...item} color="text.primary" />
       ))}
-      <Box sx={{ py: 5, px: 5 }}>
+      <Box sx={{ py: 5 }}>
         <Button
           variant="outlined"
-          sx={(theme: Theme) => ({
+          sx={(theme) => ({
             color: 'text.primary',
-            py: theme.spacing(theme.spacingTokens.stackXs),
-            px: theme.spacing(theme.spacingTokens.stackS),
+            py: theme.spacingTokens.stackXs,
+            px: theme.spacingTokens.stackS,
           })}
         >
           Call me

@@ -1,6 +1,5 @@
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { Icon } from '../common/Icon';
-import { type Theme } from '@mui/material/styles';
 import { useState } from 'react';
 
 export function SearchFlowers() {
@@ -21,7 +20,7 @@ export function SearchFlowers() {
             <InputAdornment
               position="start"
               sx={{
-                mr: (theme) => theme.spacing(theme.spacingTokens.microX),
+                mr: (theme) => theme.spacingTokens.microX,
               }}
             >
               <Icon name="search" width={28} height={24} />
@@ -44,14 +43,14 @@ export function SearchFlowers() {
           ),
         },
       }}
-      sx={(theme: Theme) => ({
+      sx={(theme) => ({
         gap: 2,
         '& .MuiOutlinedInput-notchedOutline': {
           borderColor: 'action.active',
         },
         '& .MuiOutlinedInput-root': {
           height: 56,
-          px: theme.spacing(theme.spacingTokens.stackXs),
+          px: theme.spacingTokens.stackXs,
         },
         '& .MuiOutlinedInput-input': {
           ...theme.typography.caption,

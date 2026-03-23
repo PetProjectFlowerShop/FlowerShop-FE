@@ -2,7 +2,6 @@ import { Box, IconButton } from '@mui/material';
 import { userActions } from './data/actions.data';
 import { useDrawer } from '../../hooks/useDrawer.ts';
 import { Icon } from '../common/Icon.tsx';
-import { type Theme } from '@mui/material/styles';
 
 export function UserActions() {
   const { toggleDrawer } = useDrawer();
@@ -13,9 +12,9 @@ export function UserActions() {
         <IconButton
           key={action.label}
           aria-label={action.label}
-          sx={(theme: Theme) => ({
+          sx={(theme) => ({
             color: 'text.primary',
-            p: theme.spacing(theme.spacingTokens.micro),
+            p: theme.spacingTokens.micro,
           })}
           onClick={toggleDrawer(action.type, true)}
         >

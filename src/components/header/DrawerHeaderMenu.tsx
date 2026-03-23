@@ -1,8 +1,7 @@
 import { Box, Divider, Drawer } from '@mui/material';
-import { type Theme } from '@mui/material/styles';
 import { Menu } from './Menu';
-import { SocialsRow } from './SocialsRow';
 import { HeaderContacts } from './HeaderContacts';
+import { SocialLinks } from '../footer/SocialLinks';
 
 interface DrawerHeaderProps {
   isOpen: boolean;
@@ -23,7 +22,6 @@ export function DrawerHeaderMenu({ isOpen, onClose }: DrawerHeaderProps) {
           sx: {
             width: '100%',
             height: 'calc(100vh - 120px)',
-            maxHeight: 'none',
             display: 'flex',
             flexDirection: 'column',
             overflowY: 'auto',
@@ -32,15 +30,23 @@ export function DrawerHeaderMenu({ isOpen, onClose }: DrawerHeaderProps) {
       }}
     >
       <Box
-        sx={(theme: Theme) => ({
-          my: theme.spacing(theme.spacingTokens.stackS),
-          mx: theme.spacing(theme.spacingTokens.stackXs),
+        sx={(theme) => ({
+          my: theme.spacingTokens.stackS,
+          mx: theme.spacingTokens.stackXs,
         })}
       >
         <Menu direction="column" />
       </Box>
       <Divider />
-      <SocialsRow />
+      <Box
+        sx={(theme) => ({
+          mt: theme.spacingTokens.stackM,
+          mx: theme.spacingTokens.stackXs,
+          px: theme.spacingTokens.stackXs,
+        })}
+      >
+        <SocialLinks />
+      </Box>
       <HeaderContacts />
     </Drawer>
   );

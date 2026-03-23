@@ -4,7 +4,7 @@ import { Logo } from '../common/Logo';
 import { Menu } from './Menu';
 import { SearchFlowers } from './SearchFlowers';
 import { UserActions } from './UserActions';
-import { type Theme, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { Icon } from '../common/Icon';
 import { DrawerHeaderMenu } from './DrawerHeaderMenu';
@@ -22,17 +22,16 @@ export function Header() {
       sx={{
         backgroundColor: 'background.default',
         color: 'text.primary',
-        height: 'auto',
         pb: 4,
       }}
     >
       <Container maxWidth="lg">
         <Toolbar
           disableGutters
-          sx={(theme: Theme) => ({
+          sx={(theme) => ({
             minHeight: { xs: 'auto', tabletCustom: 88 },
-            py: theme.spacing(theme.spacingTokens.stackXs),
-            gap: theme.spacing(theme.spacingTokens.stackS),
+            py: theme.spacingTokens.stackXs,
+            gap: theme.spacingTokens.stackS,
             flexWrap: isMobile ? 'wrap' : 'nowrap',
             display: 'flex',
             alignItems: 'center',
@@ -40,7 +39,11 @@ export function Header() {
           })}
         >
           {isMobile && (
-            <IconButton onClick={() => setIsMenuOpen(!isMenuOpen)} sx={{ order: 1 }}>
+            <IconButton
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              sx={{ order: 1 }}
+              aria-label={isMenuOpen ? 'close menu' : 'open menu'}
+            >
               <Icon
                 name={isMenuOpen ? 'close' : 'menu'}
                 width={isMenuOpen ? 24 : 18}
