@@ -17,6 +17,8 @@ import { switchOverrides } from './Switch';
 import { sliderOverrides } from './Slider';
 import { containerOverrides } from './container';
 import { iconButtonOverrides } from './iconButton';
+import { cardOverrides } from './card';
+import { chipOverrides } from './chip';
 
 export const components = {
   MuiButton: buttonOverrides,
@@ -36,4 +38,6 @@ export const components = {
   MuiFormHelperText: formHelperTextOverrides,
   MuiSwitch: switchOverrides,
   MuiSlider: sliderOverrides,
+  MuiCard: cardOverrides,
+  MuiChip: chipOverrides,
 };
