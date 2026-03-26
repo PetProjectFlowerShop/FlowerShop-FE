@@ -7,12 +7,15 @@ export function UserActions() {
   const { toggleDrawer } = useDrawer();
 
   return (
-    <Box sx={{ ml: 2 }}>
+    <Box sx={{ display: 'flex' }}>
       {userActions.map((action) => (
         <IconButton
           key={action.label}
           aria-label={action.label}
-          sx={{ color: 'text.primary' }}
+          sx={(theme) => ({
+            color: 'text.primary',
+            p: theme.spacingTokens.micro,
+          })}
           onClick={toggleDrawer(action.type, true)}
         >
           <Icon

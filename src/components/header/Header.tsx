@@ -1,12 +1,19 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Toolbar, Box, Container } from '@mui/material';
+import { AppBar, Toolbar, Box, Container, useMediaQuery, IconButton } from '@mui/material';
 import { Logo } from '../common/Logo';
 import { Menu } from './Menu';
 import { SearchFlowers } from './SearchFlowers';
 import { UserActions } from './UserActions';
-import { type Theme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
+import { useState } from 'react';
+import { Icon } from '../common/Icon';
+import { DrawerHeaderMenu } from './DrawerHeaderMenu';
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('tabletCustom'));
+
   return (
     <AppBar
       component="header"
@@ -15,42 +22,69 @@ export function Header() {
       sx={{
         backgroundColor: 'background.default',
         color: 'text.primary',
+        pb: 4,
       }}
     >
-      <Container>
+      <Container maxWidth="lg">
         <Toolbar
           disableGutters
-          sx={(theme: Theme) => ({
-            height: 88,
+          sx={(theme) => ({
+            minHeight: { xs: 'auto', tabletCustom: 88 },
+            py: theme.spacingTokens.stackXs,
+            gap: theme.spacingTokens.stackS,
+            flexWrap: isMobile ? 'wrap' : 'nowrap',
             display: 'flex',
+            alignItems: 'center',
             justifyContent: 'space-between',
-            py: theme.spacing(theme.spacingTokens.stackXs),
           })}
         >
+          {isMobile && (
+            <IconButton
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              sx={{ order: 1 }}
+              aria-label={isMenuOpen ? 'close menu' : 'open menu'}
+            >
+              <Icon
+                name={isMenuOpen ? 'close' : 'menu'}
+                width={isMenuOpen ? 24 : 18}
+                height={isMenuOpen ? 24 : 12}
+              />
+            </IconButton>
+          )}
           <Box
             component={RouterLink}
             to="/"
             sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              textDecoration: 'none',
-              color: 'inherit',
+              order: 2,
+              flexGrow: isMobile ? 1 : 0,
+              display: 'flex',
+              justifyContent: isMobile ? 'center' : 'flex-start',
             }}
           >
-            <Logo variant="black" width="122" height="40" />
+            <Logo variant="black" />
           </Box>
-          <Menu />
+          {!isMobile && (
+            <Box sx={{ order: 3 }}>
+              <Menu />
+            </Box>
+          )}
           <Box
             sx={{
-              display: 'flex',
-              alignItems: 'center',
+              order: { xs: 5, tabletCustom: 4 },
+              width: { xs: '100%', tabletCustom: 'auto' },
+              flexGrow: 1,
+              maxWidth: { tabletCustom: 431 },
             }}
           >
             <SearchFlowers />
+          </Box>
+
+          <Box sx={{ order: isMobile ? 3 : 5 }}>
             <UserActions />
           </Box>
         </Toolbar>
       </Container>
+      <DrawerHeaderMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </AppBar>
   );
 }

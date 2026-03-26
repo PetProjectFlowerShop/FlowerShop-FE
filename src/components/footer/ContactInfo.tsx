@@ -2,14 +2,17 @@ import { Icon } from '../common/Icon';
 import { contacts, type ContactsData } from './data/contacts.data';
 import { Box, Typography, Link as MuiLink } from '@mui/material';
 
-function ContactRow({ icon, value, href, iconSize = 24 }: ContactsData) {
+interface ContactRowProps extends ContactsData {
+  color?: string;
+}
+function ContactRow({ icon, value, href, iconSize = 24, color = 'common.white' }: ContactRowProps) {
   const content = (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        color: 'common.white',
+        color: color,
       }}
     >
       <Icon
@@ -19,14 +22,7 @@ function ContactRow({ icon, value, href, iconSize = 24 }: ContactsData) {
         style={{ flexShrink: 0, fill: 'currentColor' }}
       />
 
-      <Typography
-        sx={{
-          fontSize: '16px',
-          color: 'inherit',
-        }}
-      >
-        {value}
-      </Typography>
+      <Typography variant="caption">{value}</Typography>
     </Box>
   );
 
@@ -58,8 +54,9 @@ export function ContactInfo() {
       }}
     >
       {contacts.map((item) => (
-        <ContactRow key={item.label} {...item}></ContactRow>
+        <ContactRow key={item.label} {...item} color="common.white" />
       ))}
     </Box>
   );
 }
+export { ContactRow };

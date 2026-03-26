@@ -15,7 +15,11 @@ declare module '@mui/material/styles' {
   interface ThemeOptions {
     spacingTokens?: typeof spacingTokens;
   }
+  interface BreakpointOverrides {
+    tabletCustom: true;
+  }
 }
+
 let theme: Theme = createTheme({
   palette,
   components,
@@ -26,6 +30,7 @@ let theme: Theme = createTheme({
       xs: 0,
       sm: 375,
       md: 768,
+      tabletCustom: 1280,
       lg: 1440,
       xl: 1920,
     },

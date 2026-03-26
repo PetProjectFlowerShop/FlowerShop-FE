@@ -19,7 +19,7 @@ export const palette: PaletteOptions = {
     contrastText: '#FFFFFF',
   },
   action: {
-    active: 'rgba(132, 145, 89, 0.3)',
+    active: 'rgba(0, 0, 0, 0.85)',
     hover: 'rgba(132, 145, 89, 0.1)',
     focus: 'rgba(132, 145, 89, 0.15)',
     selected: 'rgba(194, 201, 174, 1)',
