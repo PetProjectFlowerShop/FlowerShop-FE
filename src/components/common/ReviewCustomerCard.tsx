@@ -1,4 +1,13 @@
-import { Card, CardMedia, CardContent, Stack, Box, type Theme } from '@mui/material';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Stack,
+  Box,
+  Typography,
+  Rating,
+  type Theme,
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import review_temp from './../../assets/images/review_temp.svg';
 
@@ -6,15 +15,12 @@ export interface Review {
   id: string;
   name: string;
   imgURL: string;
-  raiting: number;
+  rating: number;
   message: string;
 }
 
 export interface ReviewCustomerCardProps {
   review: Review;
-  currencySymbol?: string;
-  onFavoriteClick?: (id: string) => void;
-  onAddToCartClick?: (id: string) => void;
 }
 
 const getCardStyles = (theme: Theme) => ({
@@ -28,6 +34,7 @@ const getCardStyles = (theme: Theme) => ({
   height: '100%',
   '&:hover': {
     boxShadow: theme.shadows[4],
+    transform: 'scale(1.04)',
   },
 });
 
@@ -37,39 +44,63 @@ const getImageContainerStyles = () => ({
   aspectRatio: '1',
 });
 
-const getTagsContainerStyles = (theme: Theme) => ({
-  position: 'absolute',
-  top: theme.spacing(theme.spacingTokens.stackXs),
-  left: theme.spacing(theme.spacingTokens.stackXs),
-  maxWidth: 'calc(100% - 70px)',
+const getContentStyles = () => ({
+  p: 1.5,
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+});
+
+const getNameStyles = (theme: Theme) => ({
+  ...theme.typography.body2,
+  fontWeight: 400,
+  color: theme.palette.text.primary,
+  lineHeight: 1.4,
+  mb: 1,
+});
+
+const getRatingWrapperStyles = () => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  mb: 1.25,
+});
+
+const getMessageStyles = (theme: Theme) => ({
+  color: theme.palette.text.secondary,
+  lineHeight: 1.6,
+  textAlign: 'left' as const,
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical' as const,
+  overflow: 'hidden',
 });
 
 export const ReviewCustomerCard = ({ review }: ReviewCustomerCardProps) => {
   const theme = useTheme();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { id, message, imgURL, raiting, name } = review;
+  const { message, imgURL, rating, name } = review;
 
   return (
     <Card elevation={0} sx={getCardStyles(theme)}>
       <Box sx={getImageContainerStyles()}>
-        <CardMedia
-          component="img"
-          image={imgURL || review_temp}
-          alt={'review'}
-          sx={{ borderRadius: '16px', objectFit: 'cover', height: '100%' }}
-        />
-
-        <Stack
-          direction="column"
-          alignItems="flex-start"
-          spacing={theme.spacingTokens.microX}
-          sx={getTagsContainerStyles(theme)}
-        ></Stack>
+        <CardMedia component="img" image={imgURL || review_temp} alt={name} />
       </Box>
 
-      <CardContent
-        sx={{ pt: 2.5, pb: 1, px: 2, flexGrow: 1, display: 'flex', flexDirection: 'column' }}
-      ></CardContent>
+      <CardContent sx={getContentStyles()}>
+        <Typography component="h3" sx={getNameStyles(theme)}>
+          {name}
+        </Typography>
+
+        <Box sx={getRatingWrapperStyles()}>
+          <Rating value={rating} readOnly precision={0.5} size="small" />
+        </Box>
+
+        <Stack spacing={0.5} sx={{ flexGrow: 1 }}>
+          <Typography variant="body2" sx={getMessageStyles(theme)}>
+            {message}
+          </Typography>
+        </Stack>
+      </CardContent>
     </Card>
   );
 };
