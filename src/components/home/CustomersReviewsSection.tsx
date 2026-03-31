@@ -5,11 +5,11 @@ import { CardsCarousel } from '../common/CardsCarousel';
 import { ReviewCustomerCard } from '../common/ReviewCustomerCard';
 import { sampleReviews } from '../../api/mock-data/sampleReviews';
 
-export default function CustomersReviews() {
+export default function CustomersReviewsSection() {
   return (
     <CustomSection>
       <Container>
-        <SectionHeader title="Customers Reviews" subtitle="Thank you for review" />
+        <SectionHeader title="Customer Reviews" subtitle="Thank you for your review" />
 
         <CardsCarousel
           cards={sampleReviews}

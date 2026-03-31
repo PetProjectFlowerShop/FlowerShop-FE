@@ -1,6 +1,6 @@
 import AboutUsSection from '../components/home/AboutUsSection';
 import CatalogSection from '../components/home/CatalogSection';
-import CustomersReviews from '../components/home/CustomersReviews';
+import CustomersReviewsSection from '../components/home/CustomersReviewsSection';
 import HeroSection from '../components/home/HeroSection';
 import PromoSection from '../components/home/PromoSection';
 import RecommendedSection from '../components/home/RecommendedSection';
@@ -13,7 +13,7 @@ export function HomePage() {
       <PromoSection />
       <CatalogSection />
       <AboutUsSection />
-      <CustomersReviews />
+      <CustomersReviewsSection />
     </>
   );
 }
