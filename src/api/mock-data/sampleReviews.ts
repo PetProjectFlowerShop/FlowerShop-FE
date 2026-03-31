@@ -1,4 +1,4 @@
-import type { Review } from '../../components/common/ReviewCustomerCard';
+import type { Review } from '../../types/review';
 
 export const sampleReviews: Review[] = [
   {

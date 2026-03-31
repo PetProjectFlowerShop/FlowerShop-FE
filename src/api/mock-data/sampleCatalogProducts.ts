@@ -1,4 +1,4 @@
-import type { Product } from '../../components/common/ProductCard';
+import type { Product } from '../../types/product';
 
 export const sampleCatalogProducts: Product[] = [
   {

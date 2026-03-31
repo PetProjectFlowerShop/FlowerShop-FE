@@ -15,16 +15,7 @@ import { useTheme } from '@mui/material/styles';
 import HeartIconFilled from '@mui/icons-material/Favorite';
 import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import card_temp from './../../assets/images/card_temp.svg';
-
-export interface Product {
-  id: string;
-  title: string;
-  imgURL: string;
-  price: number;
-  discount?: number;
-  isFavorite: boolean;
-  tags: string[];
-}
+import type { Product } from '../../types/product';
 
 export interface ProductCardProps {
   product: Product;

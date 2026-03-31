@@ -10,14 +10,7 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import review_temp from './../../assets/images/review_temp.svg';
-
-export interface Review {
-  id: string;
-  name: string;
-  imgURL: string;
-  rating: number;
-  message: string;
-}
+import type { Review } from '../../types/review';
 
 export interface ReviewCustomerCardProps {
   review: Review;
