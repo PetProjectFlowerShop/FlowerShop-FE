@@ -4,6 +4,7 @@ import CustomersReviewsSection from '../components/home/CustomersReviewsSection'
 import HeroSection from '../components/home/HeroSection';
 import PromoSection from '../components/home/PromoSection';
 import RecommendationsSection from '../components/home/RecommendationsSection';
+import FaqSection from '../components/home/faq/FaqSection';
 
 export function HomePage() {
   return (
@@ -14,6 +15,7 @@ export function HomePage() {
       <CatalogSection />
       <AboutUsSection />
       <CustomersReviewsSection />
+      <FaqSection />
     </>
   );
 }
