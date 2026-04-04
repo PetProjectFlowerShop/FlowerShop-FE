@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { CustomSection } from '../common/CustomSection';
-import promo from '../../assets/images/promo-background.png';
+import promo from '../../assets/images/promo-background.webp';
 
 export default function PromoSection() {
   return (
