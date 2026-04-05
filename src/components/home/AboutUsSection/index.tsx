@@ -2,7 +2,7 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import { CustomSection } from '../../common/CustomSection';
 import { SectionHeader } from '../../common/SectionHeader';
 import { ValuesList } from './ValuesList';
-import banner from '../../../assets/images/AboutUsBanner.jpg';
+import banner from '../../../assets/images/AboutUsBanner.webp';
 import { AdvantageList } from './AdvantageList';
 
 export default function AboutUsSection() {

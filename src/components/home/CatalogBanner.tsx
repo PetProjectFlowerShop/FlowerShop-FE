@@ -1,5 +1,5 @@
 import { Box, Button, useTheme, type Theme } from '@mui/material';
-import baner from '../../assets/images/cta-back.png';
+import baner from '../../assets/images/cta-back.webp';
 
 const getContainerStyles = (theme: Theme) => ({
   position: 'relative',

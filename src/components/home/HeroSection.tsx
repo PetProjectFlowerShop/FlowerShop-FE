@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material';
-import banner from '../../assets/images/banner.png';
-import boquet from '../../assets/images/banner-decor.png';
+import banner from '../../assets/images/banner.webp';
+import boquet from '../../assets/images/banner-decor.webp';
 
 export default function HeroSection() {
   return (

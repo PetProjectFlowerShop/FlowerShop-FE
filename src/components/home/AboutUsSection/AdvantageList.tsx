@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
-import advantage1 from '../../../assets/images/advantage-1.png';
-import advantage2 from '../../../assets/images/advantage-2.png';
-import advantage3 from '../../../assets/images/advantage-3.png';
-import advantage4 from '../../../assets/images/advantage-4.png';
+import advantage1 from '../../../assets/images/advantage-1.webp';
+import advantage2 from '../../../assets/images/advantage-2.webp';
+import advantage3 from '../../../assets/images/advantage-3.webp';
+import advantage4 from '../../../assets/images/advantage-4.webp';
 import { AdvantageCard, type AdvantageCardProps } from './AdvantageCard';
 
 const advantageCards: AdvantageCardProps[] = [
