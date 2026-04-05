@@ -9,7 +9,7 @@ import {
   type Theme,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import review_temp from './../../assets/images/review_temp.svg';
+import review_temp from './../../assets/images/review_temp.webp';
 import type { Review } from '../../types/review';
 
 export interface ReviewCustomerCardProps {
