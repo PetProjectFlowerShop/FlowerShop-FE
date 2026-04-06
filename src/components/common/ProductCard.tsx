@@ -70,18 +70,6 @@ const getTagsContainerStyles = (theme: Theme) => ({
   maxWidth: 'calc(100% - 70px)',
 });
 
-const getFavoriteButtonStyles = (theme: Theme, isFavorite: boolean) => ({
-  width: 40,
-  height: 40,
-  backgroundColor: theme.palette.common.white,
-  boxShadow: theme.shadows[1],
-  borderRadius: 3,
-  color: isFavorite ? theme.palette.secondary.main : theme.palette.text.secondary,
-  '&:hover': {
-    backgroundColor: theme.palette.grey[100],
-  },
-});
-
 export const ProductCard = ({
   product,
   currencySymbol = '$',
@@ -128,24 +116,19 @@ export const ProductCard = ({
         sx={{ pt: 2.5, pb: 1, px: 2, flexGrow: 1, display: 'flex', flexDirection: 'column' }}
       >
         <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 1.5 }}>
-          <Typography variant="h6" sx={{ fontWeight: 500, fontSize: '1.1rem', lineHeight: 1.2 }}>
-            {title}
-          </Typography>
+          <Typography>{title}</Typography>
 
-          <IconButton
-            onClick={() => onFavoriteClick?.(id)}
-            sx={getFavoriteButtonStyles(theme, isFavorite)}
-          >
+          <IconButton onClick={() => onFavoriteClick?.(id)} variant="secondary">
             {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
           </IconButton>
         </Stack>
 
-        <Stack direction="row" spacing={1.5} alignItems="baseline" sx={{ mt: 'auto' }}>
+        <Stack direction="row" spacing={1.5} alignItems="baseline">
           {oldPrice && (
             <Typography
-              variant="body1"
+              variant="caption"
               color="text.secondary"
-              sx={{ textDecoration: 'line-through', fontSize: '0.95rem' }}
+              sx={{ textDecoration: 'line-through' }}
             >
               {currencySymbol}
               {oldPrice}
@@ -162,19 +145,8 @@ export const ProductCard = ({
         </Stack>
       </CardContent>
 
-      <CardActions sx={{ p: 2, pt: 1 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={() => onAddToCartClick?.(id)}
-          sx={{
-            p: '12px 20px',
-            borderRadius: '10px',
-            textTransform: 'none',
-            fontWeight: 600,
-          }}
-        >
+      <CardActions>
+        <Button variant="contained" color="primary" onClick={() => onAddToCartClick?.(id)}>
           Add to cart
         </Button>
       </CardActions>

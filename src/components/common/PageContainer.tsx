@@ -36,6 +36,7 @@ export function PageContainer({ children, disableVerticalPadding = false, sx, ..
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
+      maxWidth="desktop"
     >
       {children}
     </Container>

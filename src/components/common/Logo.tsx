@@ -20,7 +20,6 @@ export function Logo({ variant = 'black', width = 122, height = 40 }: LogoProps)
       <Icon
         name="logo"
         width="100%"
-        height="auto"
         style={{ display: 'block', fill: 'currentColor', objectFit: 'contain' }}
       />
     </Box>

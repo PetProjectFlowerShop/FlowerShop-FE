@@ -3,13 +3,13 @@ import CatalogSection from '../components/home/CatalogSection';
 import CustomersReviewsSection from '../components/home/CustomersReviewsSection';
 import HeroSection from '../components/home/HeroSection';
 import PromoSection from '../components/home/PromoSection';
-import RecommendedSection from '../components/home/RecommendedSection';
+import RecommendationsSection from '../components/home/RecommendationsSection';
 
 export function HomePage() {
   return (
     <>
       <HeroSection />
-      <RecommendedSection />
+      <RecommendationsSection />
       <PromoSection />
       <CatalogSection />
       <AboutUsSection />

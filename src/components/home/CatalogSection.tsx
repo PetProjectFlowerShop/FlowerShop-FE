@@ -8,7 +8,7 @@ import { sampleCatalogProducts } from '../../api/mock-data/sampleCatalogProducts
 
 export default function CatalogSection() {
   return (
-    <CustomSection>
+    <CustomSection data-testid="catalog-section">
       <Container>
         <SectionHeader title="Catalog" subtitle="Explore our beautiful bouquets" />
 

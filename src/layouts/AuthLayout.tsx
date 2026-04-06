@@ -11,7 +11,7 @@ export function AuthLayout() {
       justifyContent="center"
       bgcolor="background.default"
     >
-      <Container maxWidth="sm">
+      <Container>
         <Outlet />
       </Container>
     </Box>

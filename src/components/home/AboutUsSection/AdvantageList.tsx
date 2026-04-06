@@ -33,10 +33,10 @@ export function AdvantageList() {
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: { xs: '1fr 1fr', lg: 'repeat(4, 1fr)' },
-        justifyContent: 'center', // центр всього гріда
+        gridTemplateColumns: { xs: '1fr 1fr', desktop: 'repeat(4, 1fr)' },
+        justifyContent: 'center',
         justifyItems: 'center',
-        gap: { xs: 4, md: 6 },
+        gap: { xs: 4, tablet: 6 },
       }}
     >
       {advantageCards.map((card, index) => (

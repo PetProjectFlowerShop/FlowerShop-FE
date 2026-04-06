@@ -5,6 +5,7 @@ import { type Theme } from '@mui/material/styles';
 export function TopBar() {
   return (
     <Box
+      data-testid="top-bar"
       component="div"
       sx={{
         minHeight: '48px',

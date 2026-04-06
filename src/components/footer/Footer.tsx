@@ -9,6 +9,7 @@ export function Footer() {
   const theme = useTheme();
   return (
     <Box
+      data-testid="footer"
       component="footer"
       sx={{
         backgroundColor: theme.palette.primary.dark,
@@ -16,7 +17,7 @@ export function Footer() {
       }}
     >
       <Container
-        maxWidth="lg"
+        maxWidth="desktop"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -26,11 +27,11 @@ export function Footer() {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
+            flexDirection: { xs: 'column', sm: 'row' },
             gap: 9,
-            justifyContent: { xs: 'center', md: 'space-between' },
-            alignItems: { xs: 'baseline', md: 'flex-start' },
-            mx: { xs: 'auto', md: 'unset' },
+            justifyContent: { xs: 'center', sm: 'space-between' },
+            alignItems: { xs: 'baseline', sm: 'flex-start' },
+            mx: { xs: 'auto', sm: 'unset' },
           }}
         >
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6 }}>

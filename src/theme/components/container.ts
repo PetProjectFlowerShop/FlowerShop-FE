@@ -2,7 +2,7 @@ import { type Components, type Theme } from '@mui/material/styles';
 
 export const containerOverrides: Components<Theme>['MuiContainer'] = {
   defaultProps: {
-    maxWidth: 'lg',
+    maxWidth: 'desktop',
     disableGutters: true,
   },
   styleOverrides: {
@@ -17,13 +17,13 @@ export const containerOverrides: Components<Theme>['MuiContainer'] = {
       maxWidth: '100%',
 
       //Tablet (from 768px)
-      [theme.breakpoints.up('md')]: {
+      [theme.breakpoints.up('tablet')]: {
         paddingLeft: theme.spacing(theme.spacingTokens.marginTablet),
         paddingRight: theme.spacing(theme.spacingTokens.marginTablet),
       },
 
       //Desktop (from 1440px)
-      [theme.breakpoints.up('lg')]: {
+      [theme.breakpoints.up('desktop')]: {
         paddingLeft: theme.spacing(theme.spacingTokens.marginDesktop),
         paddingRight: theme.spacing(theme.spacingTokens.marginDesktop),
       },

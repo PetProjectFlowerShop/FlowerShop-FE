@@ -16,7 +16,7 @@ export const formControlLabelOverrides: Components<Theme>['MuiFormControlLabel']
         letterSpacing: '0px',
         color: theme.palette.text.primary,
 
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up('tablet')]: {
           fontSize: '20px',
         },
 

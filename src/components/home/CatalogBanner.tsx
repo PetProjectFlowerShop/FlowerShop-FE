@@ -1,16 +1,16 @@
-import { Box, Button, useTheme, type Theme } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import baner from '../../assets/images/cta-back.webp';
 
-const getContainerStyles = (theme: Theme) => ({
+const getContainerStyles = () => ({
   position: 'relative',
   width: '100%',
-  height: {
-    xs: 240,
-    sm: 160,
-  },
+  height: { xs: '160px', tablet: '240px' },
   overflow: 'hidden',
   borderRadius: '20px',
-  mt: theme.spacing(theme.spacingTokens.micro),
+  mt: '28px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 const getImageStyles = () => ({
@@ -22,31 +22,14 @@ const getImageStyles = () => ({
   left: 0,
 });
 
-const getOverlayStyles = () => ({
-  position: 'absolute',
-  inset: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
-const getButtonStyles = (theme: Theme) => ({
-  position: 'relative',
-  zIndex: 2,
-  width: { xs: `calc(100% - ${theme.spacing(theme.spacingTokens.stackM)})`, sm: 400 },
-  height: 60,
-});
-
 export const CatalogBanner = () => {
-  const theme = useTheme();
   return (
-    <Box sx={getContainerStyles(theme)}>
+    <Box sx={getContainerStyles()}>
       <Box component="img" src={baner} alt="Flowers" sx={getImageStyles()} />
-      <Box sx={getOverlayStyles()}>
-        <Button variant="contained" color="primary" sx={getButtonStyles(theme)}>
-          See more beautiful bouquets
-        </Button>
-      </Box>
+
+      <Button variant="contained" color="primary" sx={{ maxWidth: 'fit-content' }}>
+        See more beautiful bouquets
+      </Button>
     </Box>
   );
 };

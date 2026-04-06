@@ -16,7 +16,8 @@ declare module '@mui/material/styles' {
     spacingTokens?: typeof spacingTokens;
   }
   interface BreakpointOverrides {
-    tabletCustom: true;
+    tablet: true;
+    desktop: true;
   }
 }
 
@@ -28,11 +29,12 @@ let theme: Theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 375,
-      md: 768,
-      tabletCustom: 1280,
-      lg: 1440,
-      xl: 1920,
+      sm: 600,
+      tablet: 768,
+      md: 900,
+      lg: 1200,
+      desktop: 1440,
+      xl: 1536,
     },
   },
 });
