@@ -1,4 +1,4 @@
-import { UserAction } from '../../../types/actions';
+import type { UserAction } from '../../../types/actions';
 
 export const userActions: UserAction[] = [
   {

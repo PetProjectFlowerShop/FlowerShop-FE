@@ -1,9 +1,10 @@
 import { theme } from '../../../theme';
 import { faqData } from './data/faq.data';
+import type { FaqData } from '../../../types/faq';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
 import { Icon } from '../../common/Icon';
 
-function FaqItem({ item }: { item: (typeof faqData)[0] }) {
+function FaqItem({ item }: { item: FaqData }) {
   return (
     <Accordion
       key={item.id}

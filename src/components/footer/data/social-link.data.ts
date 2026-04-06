@@ -1,4 +1,4 @@
-import { SocialLink } from '../../../types/social-links';
+import type { SocialLink } from '../../../types/social-links';
 
 export const socialLinks: SocialLink[] = [
   { name: 'Facebook', icon: 'facebook', href: '#' },

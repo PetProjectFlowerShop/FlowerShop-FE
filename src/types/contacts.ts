@@ -1,4 +1,4 @@
-import { IconName } from '../components/common/Icon';
+import type { IconName } from '../components/common/Icon';
 
 export interface ContactsData {
   label: string;

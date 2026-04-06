@@ -1,4 +1,4 @@
-import { Menu } from '../../../types/menu';
+import type { Menu } from '../../../types/menu';
 
 export const menuItems: Menu[] = [
   { label: 'About us', path: '/about-us' },

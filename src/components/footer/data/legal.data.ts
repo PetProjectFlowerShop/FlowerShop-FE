@@ -1,4 +1,4 @@
-import { LegalLink } from '../../../types/legal-links';
+import type { LegalLink } from '../../../types/legal-links';
 
 export const legalsLinks: LegalLink[] = [
   { label: 'Support', path: '/legal-links/support' },
