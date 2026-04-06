@@ -33,7 +33,7 @@ function FaqItem({ item }: { item: FaqData }) {
           </Box>
         }
         sx={{
-          height: { xs: 63, md: 87 },
+          height: { xs: 63, tablet: 87 },
           display: 'flex',
           alignItems: 'center',
           borderRadius: '12px 12px 0 0',

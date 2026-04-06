@@ -25,18 +25,18 @@ export default function FaqSection() {
               display: 'flex',
               gap: theme.spacingTokens.stackM,
               alignItems: 'flex-start',
-              flexDirection: { xs: 'column', lg: 'row' },
+              flexDirection: { xs: 'column', desktop: 'row' },
             }}
           >
             <Box
               sx={{
                 flex: 1,
                 display: 'flex',
-                position: { xs: 'static', lg: 'sticky' },
+                position: { xs: 'static', desktop: 'sticky' },
                 alignSelf: 'flex-start',
                 top: 0,
                 gap: theme.spacingTokens.stackXs,
-                flexDirection: { xs: 'column', md: 'row', lg: 'column' },
+                flexDirection: { xs: 'column', tablet: 'row', desktop: 'column' },
               }}
             >
               <Typography
@@ -47,7 +47,7 @@ export default function FaqSection() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: theme.spacingTokens.stackXs,
-                  order: { xs: 1, md: 2, lg: 1 },
+                  order: { xs: 1, tablet: 2, desktop: 1 },
                 }}
               >
                 Here you’ll find answers to the most common inquiries about our bouquets, delivery
@@ -65,8 +65,8 @@ export default function FaqSection() {
                   width: '100%',
                   flex: 1,
                   borderRadius: '16px',
-                  display: { xs: 'none', md: 'block' },
-                  order: { xs: 2, md: 1 },
+                  display: { xs: 'none', tablet: 'block' },
+                  order: { xs: 2, tablet: 1 },
                 }}
               />
             </Box>
