@@ -1,5 +1,6 @@
 import { Box, Button, Stack } from '@mui/material';
-import { contacts, type ContactsData } from '../footer/data/contacts.data';
+import { contacts } from '../footer/data/contacts.data';
+import type { ContactsData } from '../../types/contacts';
 import { ContactRow } from '../footer/ContactInfo';
 
 export function HeaderContacts() {

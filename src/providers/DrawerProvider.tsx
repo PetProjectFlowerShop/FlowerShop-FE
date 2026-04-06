@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { DrawerContext } from '../contexts/drawer-context.ts';
-import { type UserActionType } from '../components/header/data/actions.data.ts';
+import type { UserActionType } from '../types/actions';
 
 type Props = {
   children: ReactNode;
