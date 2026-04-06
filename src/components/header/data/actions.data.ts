@@ -1,14 +1,4 @@
-import type { IconName } from '../../common/Icon';
-
-export type UserActionType = 'auth' | 'favorite' | 'cart';
-
-export type UserAction = {
-  type: UserActionType;
-  label: string;
-  icon: IconName;
-  width: number;
-  height: number;
-};
+import { UserAction } from '../../../types/actions';
 
 export const userActions: UserAction[] = [
   {

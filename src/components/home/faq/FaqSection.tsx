@@ -3,7 +3,7 @@ import faq from '../../../assets/images/faq-banner.jpg';
 import { CustomSection } from '../../common/CustomSection';
 import { Container } from '@mui/material';
 import { theme } from '../../../theme';
-import { FaqItem } from './FaqItem';
+import { FaqList } from './FaqList';
 
 export default function FaqSection() {
   return (
@@ -32,7 +32,8 @@ export default function FaqSection() {
               sx={{
                 flex: 1,
                 display: 'flex',
-                position: 'sticky',
+                position: { xs: 'static', lg: 'sticky' },
+                alignSelf: 'flex-start',
                 top: 0,
                 gap: theme.spacingTokens.stackXs,
                 flexDirection: { xs: 'column', md: 'row', lg: 'column' },
@@ -70,7 +71,7 @@ export default function FaqSection() {
               />
             </Box>
             <Box sx={{ flex: 1 }}>
-              <FaqItem />
+              <FaqList />
             </Box>
           </Box>
         </Stack>

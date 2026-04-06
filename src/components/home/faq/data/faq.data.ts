@@ -1,8 +1,5 @@
-export type FaqData = {
-  id: string;
-  question: string;
-  answer: string;
-};
+import { FaqData } from '../../../../types/faq';
+
 export const faqData: FaqData[] = [
   {
     id: 'q1',
@@ -26,7 +23,7 @@ export const faqData: FaqData[] = [
     id: 'q4',
     question: 'What areas do you deliver to?',
     answer:
-      'We deliver within [City Name] and surrounding areas. Check our delivery map during checkout to confirm availability.',
+      'We deliver within Kyiv and surrounding areas. Check our delivery map during checkout to confirm availability.',
   },
   {
     id: 'q5',
