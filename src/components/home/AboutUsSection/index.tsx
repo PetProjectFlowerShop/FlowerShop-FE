@@ -7,7 +7,7 @@ import { AdvantageList } from './AdvantageList';
 
 export default function AboutUsSection() {
   return (
-    <CustomSection>
+    <CustomSection data-testid="about-us-section">
       <Container>
         <Box
           sx={{

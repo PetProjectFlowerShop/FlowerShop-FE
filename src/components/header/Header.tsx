@@ -16,6 +16,7 @@ export function Header() {
 
   return (
     <AppBar
+      data-testid="header"
       component="header"
       position="sticky"
       elevation={0}

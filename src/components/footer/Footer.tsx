@@ -9,6 +9,7 @@ export function Footer() {
   const theme = useTheme();
   return (
     <Box
+      data-testid="footer"
       component="footer"
       sx={{
         backgroundColor: theme.palette.primary.dark,

@@ -7,7 +7,7 @@ import { sampleReviews } from '../../api/mock-data/sampleReviews';
 
 export default function CustomersReviewsSection() {
   return (
-    <CustomSection>
+    <CustomSection data-testid="customers-reviews-section">
       <Container>
         <SectionHeader title="Customer Reviews" subtitle="Thank you for your review" />
 

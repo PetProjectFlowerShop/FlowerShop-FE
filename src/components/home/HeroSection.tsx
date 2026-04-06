@@ -5,6 +5,7 @@ import boquet from '../../assets/images/banner-decor.webp';
 export default function HeroSection() {
   return (
     <Box
+      data-testid="hero-section"
       sx={{
         display: 'flex',
         position: 'relative',

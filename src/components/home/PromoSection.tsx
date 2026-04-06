@@ -4,7 +4,7 @@ import promo from '../../assets/images/promo-background.webp';
 
 export default function PromoSection() {
   return (
-    <CustomSection>
+    <CustomSection data-testid="promo-section">
       <Box
         sx={{
           display: 'flex',
