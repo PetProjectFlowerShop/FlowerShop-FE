@@ -20,7 +20,6 @@ function FaqItem({ item }: { item: FaqData }) {
       <AccordionSummary
         expandIcon={
           <Box
-            variant="default"
             sx={{
               backgroundColor: 'primary.main',
               borderRadius: '16px',
