@@ -4,18 +4,13 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-import { ProductCard, type Product } from './ProductCard';
+import { useId, useMemo, type ReactNode } from 'react';
 import { Icon } from './Icon';
 
-interface ProductCarouselProps {
-  products: Product[];
+interface CardsCarouselProps<T extends { id: string }> {
+  cards: T[];
+  renderCard: (card: T) => ReactNode;
 }
-
-const NAV_CLASSES = {
-  prev: 'swiper-button-prev-custom',
-  next: 'swiper-button-next-custom',
-};
 
 const SWIPER_BREAKPOINTS = {
   600: { slidesPerView: 2 },
@@ -31,6 +26,12 @@ const getCarouselStyles = (theme: Theme) => ({
   },
   '& .swiper-pagination': {
     bottom: '0px !important',
+  },
+  '& .swiper-pagination-bullets': {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
   },
   '& .swiper-pagination-bullet': {
     width: theme.spacing(theme.spacingTokens.micro),
@@ -49,7 +50,7 @@ const getCarouselStyles = (theme: Theme) => ({
     height: 'auto',
     display: 'flex',
   },
-  '& .swiper-slide > div': {
+  '& .swiper-slide > *': {
     width: '100%',
   },
 });
@@ -59,24 +60,38 @@ const getNavButtonStyles = (theme: Theme) => ({
   top: `calc(50% - ${theme.spacing(theme.spacingTokens.stackM)})`,
   transform: 'translateY(-50%)',
   zIndex: 10,
-  backgroundColor: 'common.white',
-  boxShadow: 2,
+  backgroundColor: theme.palette.common.white,
+  boxShadow: theme.shadows[2],
   display: { xs: 'none', md: 'flex' },
-  color: 'text.primary',
-  '&:hover': { backgroundColor: 'grey.100' },
+  color: theme.palette.text.primary,
+  '&:hover': { backgroundColor: theme.palette.grey[100] },
   '&.swiper-button-disabled': {
-    color: 'action.disabled',
+    color: theme.palette.action.disabled,
     cursor: 'default',
-    boxShadow: 1,
+    boxShadow: theme.shadows[1],
   },
 });
 
-export const ProductCarousel = ({ products }: ProductCarouselProps) => {
+export const CardsCarousel = <T extends { id: string }>({
+  cards,
+  renderCard,
+}: CardsCarouselProps<T>) => {
   const theme = useTheme();
+  const id = useId().replace(/:/g, '');
+
+  const navClasses = useMemo(
+    () => ({
+      prev: `swiper-button-prev-${id}`,
+      next: `swiper-button-next-${id}`,
+      pagination: `swiper-pagination-${id}`,
+    }),
+    [id]
+  );
+
   return (
-    <Box sx={getCarouselStyles}>
+    <Box sx={getCarouselStyles(theme)}>
       <IconButton
-        className={NAV_CLASSES.prev}
+        className={navClasses.prev}
         sx={[
           getNavButtonStyles(theme),
           {
@@ -91,26 +106,33 @@ export const ProductCarousel = ({ products }: ProductCarouselProps) => {
         modules={[Navigation, Pagination]}
         spaceBetween={theme.spacingTokens.stackM * 4}
         slidesPerView={1}
-        pagination={{ clickable: true }}
-        navigation={{
-          prevEl: `.${NAV_CLASSES.prev}`,
-          nextEl: `.${NAV_CLASSES.next}`,
-        }}
         breakpoints={SWIPER_BREAKPOINTS}
+        navigation={{
+          prevEl: `.${navClasses.prev}`,
+          nextEl: `.${navClasses.next}`,
+        }}
+        pagination={{
+          el: `.${navClasses.pagination}`,
+          clickable: true,
+        }}
       >
-        {products.map((product) => (
-          <SwiperSlide key={product.id}>
-            <ProductCard
-              product={product}
-              onFavoriteClick={(id) => console.log('Favorite:', id)}
-              onAddToCartClick={(id) => console.log('Buying:', id)}
-            />
-          </SwiperSlide>
+        {cards.map((card) => (
+          <SwiperSlide key={card.id}>{renderCard(card)}</SwiperSlide>
         ))}
       </Swiper>
 
+      <Box
+        className={navClasses.pagination}
+        sx={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      />
+
       <IconButton
-        className={NAV_CLASSES.next}
+        className={navClasses.next}
         sx={[
           getNavButtonStyles(theme),
           {
