@@ -4,6 +4,7 @@ import { SectionHeader } from '../../common/SectionHeader';
 import { ValuesList } from './ValuesList';
 import banner from '../../../assets/images/AboutUsBanner.webp';
 import { AdvantageList } from './AdvantageList';
+import { Link } from 'react-router-dom';
 
 export default function AboutUsSection() {
   return (
@@ -52,7 +53,7 @@ export default function AboutUsSection() {
               <ValuesList />
             </Box>
 
-            <Button variant="contained" sx={{ mb: 4 }}>
+            <Button variant="contained" sx={{ mb: 4 }} component={Link} to="/about-us">
               Read more about us
             </Button>
           </Box>

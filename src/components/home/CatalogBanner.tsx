@@ -1,5 +1,6 @@
 import { Box, Button } from '@mui/material';
 import baner from '../../assets/images/cta-back.webp';
+import { Link } from 'react-router-dom';
 
 const getContainerStyles = () => ({
   position: 'relative',
@@ -27,7 +28,13 @@ export const CatalogBanner = () => {
     <Box sx={getContainerStyles()}>
       <Box component="img" src={baner} alt="Flowers" sx={getImageStyles()} />
 
-      <Button variant="contained" color="primary" sx={{ maxWidth: 'fit-content' }}>
+      <Button
+        variant="contained"
+        color="primary"
+        sx={{ maxWidth: 'fit-content' }}
+        component={Link}
+        to="/catalog"
+      >
         See more beautiful bouquets
       </Button>
     </Box>

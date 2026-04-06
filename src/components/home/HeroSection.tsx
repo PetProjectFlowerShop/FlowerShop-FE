@@ -1,6 +1,7 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import banner from '../../assets/images/banner.webp';
 import boquet from '../../assets/images/banner-decor.webp';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   return (
@@ -59,8 +60,9 @@ export default function HeroSection() {
                 emotion, beauty, and meaning. Designed for life’s most special moments.
               </Typography>
 
-              {/* TODO: update button after fix */}
-              <Button variant="contained">Go to catalog</Button>
+              <Button variant="contained" component={Link} to="/catalog">
+                Go to catalog
+              </Button>
             </Box>
           </Box>
         </Box>

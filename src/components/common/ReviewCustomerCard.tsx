@@ -7,10 +7,12 @@ import {
   Typography,
   Rating,
   type Theme,
+  CardActionArea,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import review_temp from './../../assets/images/review_temp.webp';
 import type { Review } from '../../types/review';
+import { Link } from 'react-router-dom';
 
 export interface ReviewCustomerCardProps {
   review: Review;
@@ -75,25 +77,27 @@ export const ReviewCustomerCard = ({ review }: ReviewCustomerCardProps) => {
 
   return (
     <Card elevation={0} sx={getCardStyles(theme)}>
-      <Box sx={getImageContainerStyles()}>
-        <CardMedia component="img" image={imgURL || review_temp} alt={name} />
-      </Box>
-
-      <CardContent sx={getContentStyles()}>
-        <Typography component="h3" sx={getNameStyles(theme)}>
-          {name}
-        </Typography>
-
-        <Box sx={getRatingWrapperStyles()}>
-          <Rating value={rating} readOnly precision={0.5} size="small" />
+      <CardActionArea component={Link} to="/blog">
+        <Box sx={getImageContainerStyles()}>
+          <CardMedia component="img" image={imgURL || review_temp} alt={name} />
         </Box>
 
-        <Stack spacing={0.5} sx={{ flexGrow: 1 }}>
-          <Typography variant="body2" sx={getMessageStyles(theme)}>
-            {message}
+        <CardContent sx={getContentStyles()}>
+          <Typography component="h3" sx={getNameStyles(theme)}>
+            {name}
           </Typography>
-        </Stack>
-      </CardContent>
+
+          <Box sx={getRatingWrapperStyles()}>
+            <Rating value={rating} readOnly precision={0.5} size="small" />
+          </Box>
+
+          <Stack spacing={0.5} sx={{ flexGrow: 1 }}>
+            <Typography variant="body2" sx={getMessageStyles(theme)}>
+              {message}
+            </Typography>
+          </Stack>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };

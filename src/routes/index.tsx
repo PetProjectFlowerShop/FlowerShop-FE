@@ -12,6 +12,7 @@ import { License } from '../pages/legal-links/License';
 import { TermOfService } from '../pages/legal-links/TermOfService';
 import { MainLayout } from '../layouts/MainLayout';
 import { AuthLayout } from '../layouts/AuthLayout';
+import { ProductPage } from '../pages/ProductPage';
 
 export function AppRoutes() {
   return (
@@ -27,6 +28,7 @@ export function AppRoutes() {
         <Route path="/legal-links/support" element={<Support />} />
         <Route path="/legal-links/license" element={<License />} />
         <Route path="/legal-links/terms-of-service" element={<TermOfService />} />
+        <Route path="/product/:id" element={<ProductPage />} />
       </Route>
 
       <Route element={<AuthLayout />}>
