@@ -1,12 +1,4 @@
-import type { IconName } from '../../common/Icon';
-
-export type ContactsData = {
-  label: string;
-  icon: IconName;
-  value: string;
-  href?: string;
-  iconSize?: number;
-};
+import type { ContactsData } from '../../../types/contacts';
 
 export const contacts: ContactsData[] = [
   {

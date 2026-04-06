@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { type UserActionType } from '../components/header/data/actions.data.ts';
+import type { UserActionType } from '../types/actions';
 
 type DrawerContextType = {
   isDrawerOpen: boolean;
