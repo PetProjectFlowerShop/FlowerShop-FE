@@ -12,7 +12,7 @@ import { DrawerHeaderMenu } from './DrawerHeaderMenu';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('tabletCustom'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('desktop'));
 
   return (
     <AppBar
@@ -25,11 +25,11 @@ export function Header() {
         pb: 4,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="desktop">
         <Toolbar
           disableGutters
           sx={(theme) => ({
-            minHeight: { xs: 'auto', tabletCustom: 88 },
+            minHeight: { xs: 'auto', desktop: 88 },
             py: theme.spacingTokens.stackXs,
             gap: theme.spacingTokens.stackS,
             flexWrap: isMobile ? 'wrap' : 'nowrap',
@@ -70,10 +70,10 @@ export function Header() {
           )}
           <Box
             sx={{
-              order: { xs: 5, tabletCustom: 4 },
-              width: { xs: '100%', tabletCustom: 'auto' },
+              order: { xs: 5, desktop: 4 },
+              width: { xs: '100%', desktop: 'auto' },
               flexGrow: 1,
-              maxWidth: { tabletCustom: 431 },
+              maxWidth: { desktop: 431 },
             }}
           >
             <SearchFlowers />

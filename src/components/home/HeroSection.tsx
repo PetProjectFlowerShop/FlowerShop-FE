@@ -13,17 +13,17 @@ export default function HeroSection() {
         backgroundImage: `url(${banner})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        py: { xs: 5, md: 10 },
-        height: { lg: '75vh' },
+        py: { xs: 5, sm: 10 },
+        height: { desktop: '75vh' },
       }}
     >
-      <Container sx={{ px: { lg: 10 }, height: '100%' }}>
+      <Container sx={{ px: { desktop: 10 }, height: '100%' }}>
         <Box
           sx={{
             backdropFilter: 'blur(12px)',
             background: 'rgba(0,0,0,0.12)',
             borderRadius: 5,
-            px: { xs: 3, md: 8 },
+            px: { xs: 3, tablet: 8 },
             py: 10,
             color: 'white',
             width: '100%',
@@ -37,8 +37,8 @@ export default function HeroSection() {
             <Typography
               variant="h1"
               sx={{
-                mb: { xs: 2, md: 6 },
-                maxWidth: { xs: 'none', md: '200px', lg: 'none' },
+                mb: { xs: 2, tablet: 6 },
+                maxWidth: { xs: 'none', tablet: '200px', desktop: 'none' },
               }}
             >
               Charming blooms.
@@ -46,7 +46,7 @@ export default function HeroSection() {
               Special moments.
             </Typography>
 
-            <Box sx={{ maxWidth: { lg: '635px' } }}>
+            <Box sx={{ maxWidth: { desktop: '635px' } }}>
               <Typography
                 variant="body1"
                 sx={{
@@ -69,11 +69,11 @@ export default function HeroSection() {
         src={boquet}
         alt="Bouquet decoration"
         sx={{
-          display: { xs: 'none', md: 'block' },
+          display: { xs: 'none', tablet: 'block' },
           position: 'absolute',
-          right: { xs: 0, lg: '20px' },
-          top: { md: '80px', lg: '222px' },
-          transform: { md: 'scale(1.2)', lg: 'scale(1.8)' },
+          right: { xs: 0, desktop: '20px' },
+          top: { tablet: '80px', desktop: '222px' },
+          transform: { tablet: 'scale(1.2)', desktop: 'scale(1.8)' },
           transformOrigin: 'top right',
         }}
       />

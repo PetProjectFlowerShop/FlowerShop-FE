@@ -9,7 +9,7 @@ const valuesList = [
 
 export function ValuesList() {
   return (
-    <List sx={{ listStyleType: 'disc', pl: { xs: 3, sm: 7 } }}>
+    <List sx={{ listStyleType: 'disc', pl: { xs: 3, tablet: 7 } }}>
       {valuesList.map((value, index) => (
         <Typography component="li" key={index} variant="body1" sx={{ mb: 1 }}>
           {value}

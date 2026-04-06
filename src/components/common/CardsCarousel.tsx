@@ -13,7 +13,7 @@ interface CardsCarouselProps<T extends { id: string }> {
 }
 
 const SWIPER_BREAKPOINTS = {
-  600: { slidesPerView: 2 },
+  0: { slidesPerView: 2 },
   900: { slidesPerView: 3 },
   1200: { slidesPerView: 4 },
 };
@@ -21,7 +21,7 @@ const SWIPER_BREAKPOINTS = {
 const getCarouselStyles = (theme: Theme) => ({
   position: 'relative',
   '& .swiper': {
-    paddingBottom: '48px',
+    paddingBottom: '12px',
     paddingTop: theme.spacing(theme.spacingTokens.micro),
   },
   '& .swiper-pagination': {
@@ -57,12 +57,12 @@ const getCarouselStyles = (theme: Theme) => ({
 
 const getNavButtonStyles = (theme: Theme) => ({
   position: 'absolute',
-  top: `calc(50% - ${theme.spacing(theme.spacingTokens.stackM)})`,
+  top: '50%',
   transform: 'translateY(-50%)',
   zIndex: 10,
   backgroundColor: theme.palette.common.white,
   boxShadow: theme.shadows[2],
-  display: { xs: 'none', md: 'flex' },
+  display: { xs: 'none', sm: 'flex' },
   color: theme.palette.text.primary,
   '&:hover': { backgroundColor: theme.palette.grey[100] },
   '&.swiper-button-disabled': {
@@ -95,7 +95,7 @@ export const CardsCarousel = <T extends { id: string }>({
         sx={[
           getNavButtonStyles(theme),
           {
-            left: { md: `-${theme.spacing(theme.spacingTokens.stackM)}` },
+            left: { sm: `-${theme.spacing(theme.spacingTokens.stackM)}` },
           },
         ]}
       >
@@ -136,7 +136,7 @@ export const CardsCarousel = <T extends { id: string }>({
         sx={[
           getNavButtonStyles(theme),
           {
-            right: { md: `-${theme.spacing(theme.spacingTokens.stackM)}` },
+            right: { sm: `-${theme.spacing(theme.spacingTokens.stackM)}` },
           },
         ]}
       >

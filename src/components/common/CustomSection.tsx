@@ -5,12 +5,12 @@ const StyledSection = styled(Box)(({ theme }: { theme: Theme }) => ({
   paddingTop: theme.spacing(theme.spacingTokens.sectionMobile / 2),
   paddingBottom: theme.spacing(theme.spacingTokens.sectionMobile / 2),
 
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('sm')]: {
     paddingTop: theme.spacing(theme.spacingTokens.sectionTablet / 2),
     paddingBottom: theme.spacing(theme.spacingTokens.sectionTablet / 2),
   },
 
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up('desktop')]: {
     paddingTop: theme.spacing(theme.spacingTokens.sectionDesktop / 2),
     paddingBottom: theme.spacing(theme.spacingTokens.sectionDesktop / 2),
   },

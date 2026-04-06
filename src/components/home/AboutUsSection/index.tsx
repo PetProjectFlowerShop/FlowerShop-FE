@@ -12,7 +12,7 @@ export default function AboutUsSection() {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
+            gridTemplateColumns: { xs: '1fr', desktop: '1fr 1fr' },
             gap: 6,
             justifyContent: 'center',
             justifyItems: 'center',
@@ -28,7 +28,7 @@ export default function AboutUsSection() {
               maxHeight: '660px',
               width: '100%',
               objectFit: 'cover',
-              display: { xs: 'none', lg: 'block' },
+              display: { xs: 'none', desktop: 'block' },
             }}
             loading="lazy"
           />
@@ -68,7 +68,7 @@ export default function AboutUsSection() {
             mb: 7,
             width: '100%',
             objectFit: 'cover',
-            display: { lg: 'none' },
+            display: { desktop: 'none' },
           }}
           loading="lazy"
         />
