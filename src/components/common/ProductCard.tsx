@@ -10,12 +10,14 @@ import {
   Button,
   Chip,
   type Theme,
+  CardActionArea,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import HeartIconFilled from '@mui/icons-material/Favorite';
 import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import card_temp from './../../assets/images/card_temp.svg';
 import type { Product } from '../../types/product';
+import { Link } from 'react-router-dom';
 
 export interface ProductCardProps {
   product: Product;
@@ -83,67 +85,81 @@ export const ProductCard = ({
 
   return (
     <Card elevation={0} sx={getCardStyles(theme)}>
-      <Box sx={getImageContainerStyles()}>
-        <CardMedia
-          component="img"
-          image={imgURL || card_temp}
-          alt={title}
-          sx={{ borderRadius: '16px', objectFit: 'cover', height: '100%' }}
-        />
+      <CardActionArea component={Link} to={`/product/${id}`}>
+        <Box sx={getImageContainerStyles()}>
+          <CardMedia
+            component="img"
+            image={imgURL || card_temp}
+            alt={title}
+            sx={{ borderRadius: '16px', objectFit: 'cover', height: '100%' }}
+          />
 
-        <Stack
-          direction="column"
-          alignItems="flex-start"
-          spacing={theme.spacingTokens.microX}
-          sx={getTagsContainerStyles(theme)}
+          <Stack
+            direction="column"
+            alignItems="flex-start"
+            spacing={theme.spacingTokens.microX}
+            sx={getTagsContainerStyles(theme)}
+          >
+            {discount && (
+              <Chip
+                label={`-${discount}%`}
+                sx={{
+                  backgroundColor: theme.palette.secondary.main,
+                  color: 'white',
+                }}
+              />
+            )}
+            {tags.map((tag, index) => (
+              <Chip key={index} label={tag} sx={getTagStyles(tag, theme)} />
+            ))}
+          </Stack>
+        </Box>
+
+        <CardContent
+          sx={{ pt: 2.5, pb: 1, px: 2, flexGrow: 1, display: 'flex', flexDirection: 'column' }}
         >
-          {discount && (
-            <Chip
-              label={`-${discount}%`}
-              sx={{
-                backgroundColor: theme.palette.secondary.main,
-                color: 'white',
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ mb: 1.5 }}
+          >
+            <Typography>{title}</Typography>
+
+            <IconButton
+              onClick={(e) => {
+                e.stopPropagation();
+                onFavoriteClick?.(id);
               }}
-            />
-          )}
-          {tags.map((tag, index) => (
-            <Chip key={index} label={tag} sx={getTagStyles(tag, theme)} />
-          ))}
-        </Stack>
-      </Box>
+              onMouseDown={(e) => e.stopPropagation()}
+              variant="secondary"
+            >
+              {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
+            </IconButton>
+          </Stack>
 
-      <CardContent
-        sx={{ pt: 2.5, pb: 1, px: 2, flexGrow: 1, display: 'flex', flexDirection: 'column' }}
-      >
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 1.5 }}>
-          <Typography>{title}</Typography>
-
-          <IconButton onClick={() => onFavoriteClick?.(id)} variant="secondary">
-            {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
-          </IconButton>
-        </Stack>
-
-        <Stack direction="row" spacing={1.5} alignItems="baseline">
-          {oldPrice && (
+          <Stack direction="row" spacing={1.5} alignItems="baseline">
+            {oldPrice && (
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                sx={{ textDecoration: 'line-through' }}
+              >
+                {currencySymbol}
+                {oldPrice}
+              </Typography>
+            )}
             <Typography
-              variant="caption"
-              color="text.secondary"
-              sx={{ textDecoration: 'line-through' }}
+              variant="h6"
+              color={oldPrice ? 'primary.main' : 'text.primary'}
+              sx={{ fontWeight: 600 }}
             >
               {currencySymbol}
-              {oldPrice}
+              {price}
             </Typography>
-          )}
-          <Typography
-            variant="h6"
-            color={oldPrice ? 'primary.main' : 'text.primary'}
-            sx={{ fontWeight: 600 }}
-          >
-            {currencySymbol}
-            {price}
-          </Typography>
-        </Stack>
-      </CardContent>
+          </Stack>
+        </CardContent>
+      </CardActionArea>
 
       <CardActions>
         <Button variant="contained" color="primary" onClick={() => onAddToCartClick?.(id)}>
