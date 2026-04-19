@@ -7,8 +7,8 @@ import { ROUTE_NAMES } from '../../constants/rout-names';
 const getBreadcrumbsStyles = (theme: Theme) => ({
   mb: theme.spacing(theme.spacingTokens.stackM),
   '& .MuiBreadcrumbs-separator': {
-    marginLeft: '12px !important',
-    marginRight: '12px !important',
+    marginLeft: '2px !important',
+    marginRight: '0 !important',
     color: theme.palette.text.disabled,
   },
   '& .MuiBreadcrumbs-li': {
@@ -32,11 +32,15 @@ const getLinkStyles = (theme: Theme) => ({
 
 const getActiveTextStyles = (theme: Theme) => ({
   ...theme.typography.caption,
-  fontWeight: 600,
+  fontWeight: 400,
   color: theme.palette.text.primary,
 });
 
-export const DynamicBreadcrumbs = () => {
+interface DynamicBreadcrumbsProps {
+  customLastStep?: string;
+}
+
+export const DynamicBreadcrumbs = ({ customLastStep }: DynamicBreadcrumbsProps) => {
   const theme = useTheme();
   const location = useLocation();
 
@@ -48,7 +52,7 @@ export const DynamicBreadcrumbs = () => {
 
   return (
     <Breadcrumbs
-      separator={<Icon name="navigate-next" width={16} height={16} fill="currentColor" />}
+      separator={<Icon name="navigate-next" width={24} height={24} fill="currentColor" />}
       aria-label="breadcrumb"
       sx={getBreadcrumbsStyles(theme)}
     >
@@ -58,10 +62,13 @@ export const DynamicBreadcrumbs = () => {
 
       {pathnames.map((value, index) => {
         const isLast = index === pathnames.length - 1;
-
         const to = `/${pathnames.slice(0, index + 1).join('/')}`;
 
-        const label = ROUTE_NAMES[value] || value.charAt(0).toUpperCase() + value.slice(1);
+        let label = ROUTE_NAMES[value] || value.charAt(0).toUpperCase() + value.slice(1);
+
+        if (isLast && customLastStep) {
+          label = customLastStep;
+        }
 
         return isLast ? (
           <Typography key={to} sx={getActiveTextStyles(theme)}>
