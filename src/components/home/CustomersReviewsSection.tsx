@@ -13,6 +13,7 @@ export default function CustomersReviewsSection() {
 
         <CardsCarousel
           cards={sampleReviews}
+          centered={true}
           renderCard={(review) => <ReviewCustomerCard review={review} />}
         />
       </Container>

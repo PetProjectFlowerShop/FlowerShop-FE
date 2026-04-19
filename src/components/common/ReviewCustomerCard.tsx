@@ -18,19 +18,19 @@ export interface ReviewCustomerCardProps {
   review: Review;
 }
 
-const getCardStyles = (theme: Theme) => ({
-  maxWidth: 360,
+const getCardStyles = () => ({
+  width: '100%',
   margin: '0 auto',
   borderRadius: '16px',
-  transition: 'box-shadow 0.3s ease-in-out',
+  // transition: 'box-shadow 0.3s ease-in-out',
   backgroundColor: 'transparent',
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  '&:hover': {
-    boxShadow: theme.shadows[4],
-    transform: 'scale(1.04)',
-  },
+  // '&:hover': {
+  //   boxShadow: theme.shadows[4],
+  //   transform: 'scale(1.04)',
+  // },
 });
 
 const getImageContainerStyles = () => ({

@@ -10,19 +10,30 @@ import { Icon } from './Icon';
 interface CardsCarouselProps<T extends { id: string }> {
   cards: T[];
   renderCard: (card: T) => ReactNode;
+  centered?: boolean;
 }
 
 const SWIPER_BREAKPOINTS = {
-  0: { slidesPerView: 2 },
-  900: { slidesPerView: 3 },
-  1200: { slidesPerView: 4 },
+  0: { slidesPerView: 1.5, spaceBetween: 24 },
+  600: { slidesPerView: 2, spaceBetween: 24 },
+  900: { slidesPerView: 3, spaceBetween: 24 },
+  1200: { slidesPerView: 4, spaceBetween: 24 },
 };
 
-const getCarouselStyles = (theme: Theme) => ({
+const CENTERED_BREAKPOINTS = {
+  0: { slidesPerView: 1.5, spaceBetween: 16 },
+  600: { slidesPerView: 2.5, spaceBetween: 16 },
+  900: { slidesPerView: 3, spaceBetween: 16 },
+};
+
+const getCarouselStyles = (theme: Theme, centered?: boolean) => ({
   position: 'relative',
   '& .swiper': {
-    paddingBottom: '12px',
-    paddingTop: theme.spacing(theme.spacingTokens.micro),
+    paddingBottom: centered ? '30px' : '20px',
+    paddingTop: centered ? '40px' : theme.spacing(theme.spacingTokens.micro),
+  },
+  '& .swiper-wrapper': {
+    alignItems: centered ? 'center' : 'stretch',
   },
   '& .swiper-pagination': {
     bottom: '0px !important',
@@ -46,13 +57,28 @@ const getCarouselStyles = (theme: Theme) => ({
     width: '10px',
     height: '10px',
   },
+
   '& .swiper-slide': {
     height: 'auto',
     display: 'flex',
+    transition: 'transform 0.4s ease, opacity 0.4s ease',
+
+    ...(centered && {
+      transform: 'scale(0.85)',
+    }),
   },
   '& .swiper-slide > *': {
-    width: '100%',
+    width: '100% !important',
+    maxWidth: 'none !important',
+    flexGrow: 1,
   },
+  ...(centered && {
+    '& .swiper-slide-active': {
+      transform: 'scale(1.05)',
+      opacity: 1,
+      zIndex: 2,
+    },
+  }),
 });
 
 const getNavButtonStyles = (theme: Theme) => ({
@@ -75,6 +101,7 @@ const getNavButtonStyles = (theme: Theme) => ({
 export const CardsCarousel = <T extends { id: string }>({
   cards,
   renderCard,
+  centered = false,
 }: CardsCarouselProps<T>) => {
   const theme = useTheme();
   const id = useId().replace(/:/g, '');
@@ -89,13 +116,13 @@ export const CardsCarousel = <T extends { id: string }>({
   );
 
   return (
-    <Box sx={getCarouselStyles(theme)}>
+    <Box sx={getCarouselStyles(theme, centered)}>
       <IconButton
         className={navClasses.prev}
         sx={[
           getNavButtonStyles(theme),
           {
-            left: { sm: `-${theme.spacing(theme.spacingTokens.stackM)}` },
+            left: { xs: 0, sm: '8px', md: '8px' },
           },
         ]}
       >
@@ -104,9 +131,11 @@ export const CardsCarousel = <T extends { id: string }>({
 
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={theme.spacingTokens.stackM * 4}
-        slidesPerView={1}
-        breakpoints={SWIPER_BREAKPOINTS}
+        spaceBetween={centered ? 16 : 24}
+        slidesPerView={centered ? 1.5 : 1.5}
+        centeredSlides={centered}
+        loop={centered}
+        breakpoints={centered ? CENTERED_BREAKPOINTS : SWIPER_BREAKPOINTS}
         navigation={{
           prevEl: `.${navClasses.prev}`,
           nextEl: `.${navClasses.next}`,
@@ -128,17 +157,13 @@ export const CardsCarousel = <T extends { id: string }>({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          mt: 2,
         }}
       />
 
       <IconButton
         className={navClasses.next}
-        sx={[
-          getNavButtonStyles(theme),
-          {
-            right: { sm: `-${theme.spacing(theme.spacingTokens.stackM)}` },
-          },
-        ]}
+        sx={[getNavButtonStyles(theme), { right: { xs: 0, sm: '8px', md: '8px' } }]}
       >
         <Icon name="arrow-right" width={24} height={24} fill="currentColor" />
       </IconButton>
