@@ -5,6 +5,7 @@ import { usersApi, type User } from '../../api/users.api';
 import { useLoading } from '../../providers/loading/useLoading';
 import { EmptyState } from '../../components/common/EmptyState';
 import { useNotification } from '../../providers/notifications/useNotification';
+import { DynamicBreadcrumbs } from '../../components/common/DynamicBreadcrumbs';
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);
@@ -37,6 +38,7 @@ export function Blog() {
 
   return (
     <PageContainer>
+      <DynamicBreadcrumbs />
       <Typography variant="h4">Blog</Typography>
       {hasLoaded && users.length === 0 && (
         <EmptyState

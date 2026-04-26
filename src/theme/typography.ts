@@ -71,7 +71,7 @@ export const typography = (theme: Theme) => ({
   caption: {
     fontFamily: '"Quicksand", sans-serif',
     fontSize: '14px',
-    lineHeight: 1.42,
+    lineHeight: 1.5,
     [theme.breakpoints.up('tablet')]: {
       fontSize: '16px',
       lineHeight: 1.5,
