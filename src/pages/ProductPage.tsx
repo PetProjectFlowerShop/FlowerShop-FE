@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { PageContainer } from '../components/common/PageContainer';
 import { useParams } from 'react-router-dom';
+import AccessoriesSection from '../components/home/AccessoriesSection';
 
 export function ProductPage() {
   const { id } = useParams();
@@ -9,6 +10,7 @@ export function ProductPage() {
     <PageContainer>
       <Typography variant="h4">ProductPage</Typography>
       <Typography>ID: {id}</Typography>
+      <AccessoriesSection />
     </PageContainer>
   );
 }
