@@ -28,12 +28,15 @@ const CENTERED_BREAKPOINTS = {
 
 const getCarouselStyles = (theme: Theme, centered?: boolean) => ({
   position: 'relative',
+  // height: centered ? { xs: '600px', sm: '668px' } : 'auto',
+  paddingTop: '40px',
+  paddingBottom: '40px',
   '& .swiper': {
-    paddingBottom: centered ? '30px' : '20px',
-    paddingTop: centered ? '40px' : theme.spacing(theme.spacingTokens.micro),
+    paddingBottom: '20px',
+    paddingTop: theme.spacing(theme.spacingTokens.micro),
   },
   '& .swiper-wrapper': {
-    alignItems: centered ? 'center' : 'stretch',
+    alignItems: centered ? 'flex-start' : 'stretch',
   },
   '& .swiper-pagination': {
     bottom: '0px !important',
@@ -61,43 +64,59 @@ const getCarouselStyles = (theme: Theme, centered?: boolean) => ({
   '& .swiper-slide': {
     height: 'auto',
     display: 'flex',
-    transition: 'transform 0.4s ease, opacity 0.4s ease',
-
-    ...(centered && {
-      transform: 'scale(0.85)',
-    }),
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
+
   '& .swiper-slide > *': {
     width: '100% !important',
-    maxWidth: 'none !important',
-    flexGrow: 1,
+    maxWidth: centered ? '416px' : '100%',
   },
+
+  '& .swiper-slide img, & .swiper-slide .MuiCardMedia-root': {
+    height: '332px',
+    width: '100%',
+    objectFit: 'cover',
+    borderRadius: '20px',
+    marginTop: centered ? '45px' : '0px',
+    transition: 'height 0.4s ease, margin-top 0.4s ease',
+    marginBottom: theme.spacing(2),
+  },
+
   ...(centered && {
     '& .swiper-slide-active': {
-      transform: 'scale(1.05)',
-      opacity: 1,
       zIndex: 2,
+    },
+    '& .swiper-slide-active img, & .swiper-slide-active .MuiCardMedia-root': {
+      height: '422px',
+      marginTop: '0px',
     },
   }),
 });
 
-const getNavButtonStyles = (theme: Theme) => ({
-  position: 'absolute',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  zIndex: 10,
-  backgroundColor: theme.palette.common.white,
-  boxShadow: theme.shadows[2],
-  display: { xs: 'none', sm: 'flex' },
-  color: theme.palette.text.primary,
-  '&:hover': { backgroundColor: theme.palette.grey[100] },
-  '&.swiper-button-disabled': {
-    color: theme.palette.action.disabled,
-    cursor: 'default',
-    boxShadow: theme.shadows[1],
-  },
-});
+const getNavButtonStyles = (theme: Theme, isLeft: boolean, centered: boolean) => {
+  const topPosition = centered ? '251px' : '186px';
 
+  return {
+    position: 'absolute',
+    top: topPosition,
+    transform: isLeft ? 'translate(-50%, -50%)' : 'translate(50%, -50%)',
+    zIndex: 10,
+    width: '40px',
+    height: '40px',
+    backgroundColor: theme.palette.common.white,
+    boxShadow: theme.shadows[2],
+    display: { xs: 'none', sm: 'flex' },
+    color: theme.palette.text.primary,
+    '&:hover': { backgroundColor: theme.palette.grey[100] },
+    '&.swiper-button-disabled': {
+      color: theme.palette.action.disabled,
+      cursor: 'default',
+      boxShadow: theme.shadows[1],
+    },
+  };
+};
 export const CardsCarousel = <T extends { id: string }>({
   cards,
   renderCard,
@@ -105,6 +124,7 @@ export const CardsCarousel = <T extends { id: string }>({
 }: CardsCarouselProps<T>) => {
   const theme = useTheme();
   const id = useId().replace(/:/g, '');
+  const shouldLoop = centered && cards.length >= 3;
 
   const navClasses = useMemo(
     () => ({
@@ -119,22 +139,19 @@ export const CardsCarousel = <T extends { id: string }>({
     <Box sx={getCarouselStyles(theme, centered)}>
       <IconButton
         className={navClasses.prev}
-        sx={[
-          getNavButtonStyles(theme),
-          {
-            left: { xs: 0, sm: '8px', md: '8px' },
-          },
-        ]}
+        sx={[getNavButtonStyles(theme, true, centered), { left: { xs: 0, sm: 0, md: 0 } }]}
       >
         <Icon name="arrow-left" width={24} height={24} fill="currentColor" />
       </IconButton>
 
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={centered ? 16 : 24}
+        spaceBetween={centered ? 24 : 24}
         slidesPerView={centered ? 1.5 : 1.5}
         centeredSlides={centered}
-        loop={centered}
+        loop={shouldLoop}
+        speed={400}
+        watchSlidesProgress={true}
         breakpoints={centered ? CENTERED_BREAKPOINTS : SWIPER_BREAKPOINTS}
         navigation={{
           prevEl: `.${navClasses.prev}`,
@@ -153,17 +170,20 @@ export const CardsCarousel = <T extends { id: string }>({
       <Box
         className={navClasses.pagination}
         sx={{
+          position: 'absolute',
+          bottom: '10px',
+          left: 0,
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          mt: 2,
+          zIndex: 10,
         }}
       />
 
       <IconButton
         className={navClasses.next}
-        sx={[getNavButtonStyles(theme), { right: { xs: 0, sm: '8px', md: '8px' } }]}
+        sx={[getNavButtonStyles(theme, false, centered), { right: { xs: 0, sm: 0, md: 0 } }]}
       >
         <Icon name="arrow-right" width={24} height={24} fill="currentColor" />
       </IconButton>
