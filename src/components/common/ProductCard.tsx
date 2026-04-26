@@ -142,6 +142,7 @@ export const ProductCard = ({
             {oldPrice && (
               <Typography
                 variant="caption"
+                component="span"
                 color="text.secondary"
                 sx={{ textDecoration: 'line-through' }}
               >
@@ -149,10 +150,11 @@ export const ProductCard = ({
                 {oldPrice}
               </Typography>
             )}
+
             <Typography
-              variant="h6"
+              variant="h4"
+              component="span"
               color={oldPrice ? 'primary.main' : 'text.primary'}
-              sx={{ fontWeight: 600 }}
             >
               {currencySymbol}
               {price}
