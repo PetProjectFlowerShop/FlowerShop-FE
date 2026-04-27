@@ -45,17 +45,27 @@ const getTagStyles = (tag: string, theme: Theme) => {
   };
 };
 
-const getCardStyles = (theme: Theme) => ({
+const getCardStyles = () => ({
   maxWidth: 360,
   margin: '0 auto',
   borderRadius: '16px',
-  transition: 'box-shadow 0.3s ease-in-out',
   backgroundColor: 'transparent',
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  '&:hover': {
-    boxShadow: theme.shadows[4],
+});
+
+const getActionAreaStyles = () => ({
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  alignItems: 'stretch',
+  justifyContent: 'flex-start',
+  '&:hover .MuiCardActionArea-focusHighlight': {
+    opacity: 0,
+  },
+  '&:hover img': {
+    transform: 'scale(1.05)',
   },
 });
 
@@ -63,6 +73,7 @@ const getImageContainerStyles = () => ({
   position: 'relative',
   width: '100%',
   aspectRatio: '1',
+  borderRadius: '16px',
 });
 
 const getTagsContainerStyles = (theme: Theme) => ({
@@ -70,6 +81,7 @@ const getTagsContainerStyles = (theme: Theme) => ({
   top: theme.spacing(theme.spacingTokens.stackXs),
   left: theme.spacing(theme.spacingTokens.stackXs),
   maxWidth: 'calc(100% - 70px)',
+  zIndex: 2,
 });
 
 export const ProductCard = ({
@@ -84,14 +96,19 @@ export const ProductCard = ({
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
 
   return (
-    <Card elevation={0} sx={getCardStyles(theme)}>
-      <CardActionArea component={Link} to={`/product/${id}`}>
+    <Card elevation={0} sx={getCardStyles()}>
+      <CardActionArea component={Link} to={`/product/${id}`} sx={getActionAreaStyles()}>
         <Box sx={getImageContainerStyles()}>
           <CardMedia
             component="img"
             image={imgURL || card_temp}
             alt={title}
-            sx={{ borderRadius: '16px', objectFit: 'cover', height: '100%' }}
+            sx={{
+              objectFit: 'cover',
+              height: '100%',
+              width: '100%',
+              transition: 'transform 0.5s ease',
+            }}
           />
 
           <Stack
@@ -128,11 +145,13 @@ export const ProductCard = ({
 
             <IconButton
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 onFavoriteClick?.(id);
               }}
               onMouseDown={(e) => e.stopPropagation()}
               variant="secondary"
+              sx={{ zIndex: 3 }}
             >
               {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
             </IconButton>
@@ -163,8 +182,13 @@ export const ProductCard = ({
         </CardContent>
       </CardActionArea>
 
-      <CardActions>
-        <Button variant="contained" color="primary" onClick={() => onAddToCartClick?.(id)}>
+      <CardActions sx={{ px: 2, pb: 2, pt: 0 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => onAddToCartClick?.(id)}
+        >
           Add to cart
         </Button>
       </CardActions>
