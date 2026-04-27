@@ -3,11 +3,11 @@ import {
   CardMedia,
   CardContent,
   Stack,
-  Box,
   Typography,
   Rating,
   type Theme,
   CardActionArea,
+  Box,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import review_temp from './../../assets/images/review_temp.webp';
@@ -18,37 +18,40 @@ export interface ReviewCustomerCardProps {
   review: Review;
 }
 
-const getCardStyles = (theme: Theme) => ({
-  maxWidth: 360,
+const getCardStyles = () => ({
+  width: '100%',
   margin: '0 auto',
-  borderRadius: '16px',
-  transition: 'box-shadow 0.3s ease-in-out',
   backgroundColor: 'transparent',
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  '&:hover': {
-    boxShadow: theme.shadows[4],
-    transform: 'scale(1.04)',
+});
+
+const getActionAreaStyles = () => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  height: '100%',
+  '&:hover .MuiCardActionArea-focusHighlight': {
+    opacity: 0,
   },
 });
 
-const getImageContainerStyles = () => ({
-  position: 'relative',
-  width: '100%',
-  aspectRatio: '1',
-});
-
 const getContentStyles = () => ({
-  p: 1.5,
+  p: '16px 0 0 0',
   display: 'flex',
   flexDirection: 'column',
   flexGrow: 1,
+  width: '100%',
+  '&:last-child': {
+    paddingBottom: 0,
+  },
 });
 
 const getNameStyles = (theme: Theme) => ({
   ...theme.typography.body2,
-  fontWeight: 400,
+  fontWeight: 600,
   color: theme.palette.text.primary,
   lineHeight: 1.4,
   mb: 1,
@@ -56,9 +59,7 @@ const getNameStyles = (theme: Theme) => ({
 
 const getRatingWrapperStyles = () => ({
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  mb: 1.25,
+  mb: 1.5,
 });
 
 const getMessageStyles = (theme: Theme) => ({
@@ -76,11 +77,9 @@ export const ReviewCustomerCard = ({ review }: ReviewCustomerCardProps) => {
   const { message, imgURL, rating, name } = review;
 
   return (
-    <Card elevation={0} sx={getCardStyles(theme)}>
-      <CardActionArea component={Link} to="/blog">
-        <Box sx={getImageContainerStyles()}>
-          <CardMedia component="img" image={imgURL || review_temp} alt={name} />
-        </Box>
+    <Card elevation={0} sx={getCardStyles()}>
+      <CardActionArea component={Link} to="/blog" sx={getActionAreaStyles()}>
+        <CardMedia component="img" image={imgURL || review_temp} alt={name} />
 
         <CardContent sx={getContentStyles()}>
           <Typography component="h3" sx={getNameStyles(theme)}>
