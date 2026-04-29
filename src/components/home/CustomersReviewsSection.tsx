@@ -5,7 +5,15 @@ import { CardsCarousel } from '../common/CardsCarousel';
 import { ReviewCustomerCard } from '../common/ReviewCustomerCard';
 import { sampleReviews } from '../../api/mock-data/sampleReviews';
 
-export default function CustomersReviewsSection() {
+interface CustomersReviewsSectionProps {
+  isCentered?: boolean;
+  isReview?: boolean;
+}
+
+export default function CustomersReviewsSection({
+  isCentered,
+  isReview,
+}: CustomersReviewsSectionProps) {
   return (
     <CustomSection data-testid="customers-reviews-section">
       <Container>
@@ -13,7 +21,8 @@ export default function CustomersReviewsSection() {
 
         <CardsCarousel
           cards={sampleReviews}
-          centered={true}
+          centered={isCentered}
+          isReview={isReview}
           renderCard={(review) => <ReviewCustomerCard review={review} />}
         />
       </Container>
