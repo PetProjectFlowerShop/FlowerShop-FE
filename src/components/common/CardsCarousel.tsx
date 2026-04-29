@@ -11,6 +11,8 @@ interface CardsCarouselProps<T extends { id: string }> {
   cards: T[];
   renderCard: (card: T) => ReactNode;
   centered?: boolean;
+  cardsCount?: number;
+  isReview?: boolean;
 }
 
 const SWIPER_BREAKPOINTS = {
@@ -99,8 +101,16 @@ const getCarouselStyles = (theme: Theme, centered?: boolean) => ({
   }),
 });
 
-const getNavButtonStyles = (theme: Theme, isLeft: boolean, centered: boolean) => {
-  const topPosition = centered ? '360px' : '360px';
+const getNavButtonStyles = (
+  theme: Theme,
+  isLeft: boolean,
+  centered: boolean,
+  cardsCount?: number,
+  isReview?: boolean
+) => {
+  const isFourReviewCards = isReview && !centered;
+  console.log('isFourReviewCards', isFourReviewCards, 'is', isReview, cardsCount);
+  const topPosition = isFourReviewCards ? '260px' : '300px';
 
   return {
     position: 'absolute',
@@ -127,6 +137,7 @@ export const CardsCarousel = <T extends { id: string }>({
   cards,
   renderCard,
   centered = false,
+  isReview,
 }: CardsCarouselProps<T>) => {
   const theme = useTheme();
   const id = useId().replace(/:/g, '');
@@ -146,7 +157,7 @@ export const CardsCarousel = <T extends { id: string }>({
       <IconButton
         className={navClasses.prev}
         sx={[
-          getNavButtonStyles(theme, true, centered),
+          getNavButtonStyles(theme, true, centered, cards.length, isReview),
           {
             left: { xs: '16px', sm: 0 },
           },
@@ -195,7 +206,7 @@ export const CardsCarousel = <T extends { id: string }>({
       <IconButton
         className={navClasses.next}
         sx={[
-          getNavButtonStyles(theme, false, centered),
+          getNavButtonStyles(theme, false, centered, cards.length, isReview),
           {
             right: centered ? { xs: '16px', sm: '8px' } : { xs: '16px', sm: 0 },
           },
