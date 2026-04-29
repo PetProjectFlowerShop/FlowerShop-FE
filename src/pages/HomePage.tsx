@@ -14,7 +14,7 @@ export function HomePage() {
       <PromoSection />
       <CatalogSection />
       <AboutUsSection />
-      <CustomersReviewsSection />
+      <CustomersReviewsSection isCentered={true} />
       <FaqSection />
     </>
   );
