@@ -3,6 +3,7 @@ import CustomersReviewsSection from '../components/home/CustomersReviewsSection'
 import RecentlyViewedSection from '../components/home/RecentlyViewedSection';
 import { DynamicBreadcrumbs } from '../components/common/DynamicBreadcrumbs';
 import { PageContainer } from '../components/common/PageContainer';
+import AccessoriesSection from '../components/home/AccessoriesSection';
 
 export function ProductPage() {
   const { id } = useParams();
@@ -12,6 +13,7 @@ export function ProductPage() {
   return (
     <PageContainer>
       <DynamicBreadcrumbs />
+      <AccessoriesSection />
       <RecentlyViewedSection />
       <CustomersReviewsSection isReview={true} />
     </PageContainer>
