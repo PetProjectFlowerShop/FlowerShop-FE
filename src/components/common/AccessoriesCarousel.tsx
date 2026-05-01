@@ -24,7 +24,7 @@ export function AccessoriesCarousel({ accessories }: AccessoriesCarouselProps) {
         sx={{
           display: 'flex',
           justifyContent: 'flex-end',
-          mt: { sm: '-48px', md: '-56px' }, // Від'ємний відступ вгору (піджени під висоту свого SectionHeader)
+          mt: { sm: '-48px', md: '-56px' }, // Negative top margin (adjust to match the height of your SectionHeader)
           mb: 2,
           position: 'relative',
           zIndex: 2,
