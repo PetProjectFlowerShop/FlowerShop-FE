@@ -11,7 +11,9 @@ export const buttonOverrides: Components<Theme>['MuiButton'] = {
       paddingTop: theme.spacingTokens.stackXs * 4,
       paddingBottom: theme.spacingTokens.stackXs * 4,
       ...theme.typography.button,
-      width: '100%',
+    }),
+    textPrimary: () => ({
+      padding: '4px 8px',
     }),
   },
 };
