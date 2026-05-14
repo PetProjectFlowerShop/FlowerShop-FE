@@ -5,7 +5,7 @@ export const sliderOverrides: Components<Theme>['MuiSlider'] = {
     root: {
       width: 160,
       height: 44,
-      padding: '13px 0',
+      padding: 0,
       display: 'inline-block',
     },
     thumb: ({ theme }) => ({

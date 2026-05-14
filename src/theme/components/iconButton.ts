@@ -38,7 +38,7 @@ export const iconButtonOverrides: Components<Theme>['MuiIconButton'] = {
         variant: 'default',
       },
       style: ({ theme }) => ({
-        color: theme.palette.primary.contrastText,
+        color: theme.palette.action.active,
         borderRadius: '12px',
         '&:hover': { backgroundColor: theme.palette.action.hover },
         '&:active': { backgroundColor: theme.palette.action.selected },

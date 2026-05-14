@@ -1,23 +1,22 @@
+import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Typography,
-  IconButton,
-  Stack,
   Box,
   Button,
-  Chip,
-  type Theme,
+  Card,
   CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Chip,
+  IconButton,
+  Stack,
+  Typography,
+  type Theme,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import HeartIconFilled from '@mui/icons-material/Favorite';
-import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
-import card_temp from './../../assets/images/card_temp.svg';
-import type { Product } from '../../types/product';
 import { Link } from 'react-router-dom';
+import type { Product } from '../../types/product';
+import card_temp from './../../assets/images/card_temp.svg';
 
 export interface ProductCardProps {
   product: Product;
@@ -53,6 +52,7 @@ const getCardStyles = () => ({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
+  width: '100%',
 });
 
 const getActionAreaStyles = () => ({
@@ -91,7 +91,7 @@ export const ProductCard = ({
   onAddToCartClick,
 }: ProductCardProps) => {
   const theme = useTheme();
-  const { id, title, imgURL, price, discount, isFavorite, tags } = product;
+  const { id, title, price, discount, tags } = product;
 
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
 
@@ -101,7 +101,7 @@ export const ProductCard = ({
         <Box sx={getImageContainerStyles()}>
           <CardMedia
             component="img"
-            image={imgURL || card_temp}
+            image={card_temp}
             alt={title}
             sx={{
               objectFit: 'cover',
@@ -153,7 +153,7 @@ export const ProductCard = ({
               variant="secondary"
               sx={{ zIndex: 3 }}
             >
-              {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
+              <HeartIconOutline />
             </IconButton>
           </Stack>
 
