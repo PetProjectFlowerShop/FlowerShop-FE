@@ -14,6 +14,11 @@ export const chipOverrides: Components<Theme>['MuiChip'] = {
       borderWidth: 1,
       borderStyle: 'solid',
       borderRadius: 12,
+      letterSpacing: 0,
+      '& .MuiChip-label': {
+        paddingLeft: '10px',
+        paddingRight: '10px',
+      },
       '&.MuiChip-filled': {
         borderWidth: 2,
       },

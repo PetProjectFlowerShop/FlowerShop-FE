@@ -36,5 +36,8 @@ export const palette: PaletteOptions = {
     default: '#F9F9F9',
     paper: '#FFFFFF',
   },
+  olive: {
+    100: '#E0E3D8',
+  },
   divider: 'rgba(0, 0, 0, 0.35)',
 };
