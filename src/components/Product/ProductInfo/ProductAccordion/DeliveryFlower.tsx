@@ -14,7 +14,7 @@ export function DeliveryFlower() {
           gap: 1,
         }}
       >
-        <Box sx={{ display: 'flex', gap: 3, maxWidth: '636px' }}>
+        <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
           <Box
             component="img"
             src={delivery_img}
@@ -22,13 +22,14 @@ export function DeliveryFlower() {
             sx={{
               width: '100%',
               maxWidth: 160,
-              height: 'auto',
+              height: '224px',
               objectFit: 'cover',
               borderRadius: 2,
+              display: { xs: 'none', tablet: 'block' },
             }}
           />
 
-          <List sx={{ listStyleType: 'disc', pl: { xs: 3, tablet: 7 } }}>
+          <List sx={{ listStyleType: 'disc', pl: { xs: 3 } }}>
             <Typography component="li">
               Please note that flowers are delivered without a vase, and the candle shown is not
               included.
