@@ -46,3 +46,13 @@ export const fetchProducts = async (filters: FiltersState) => {
   const res = await fetch(`/api/products?${params.toString()}`);
   return res.json();
 };
+
+export const getProductById = async (id: string) => {
+  const res = await fetch(`/api/products/${id}`);
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch product');
+  }
+
+  return res.json();
+};
