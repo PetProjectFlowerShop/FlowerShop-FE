@@ -25,10 +25,21 @@ export function Sort() {
       onChange={handleChange}
       IconComponent={KeyboardArrowDownIcon}
       sx={{
-        fontSize: '16px',
         lineHeight: 1.5,
-        borderRadius: '20px',
+        borderRadius: 3,
         padding: '0px 20px',
+        '& .MuiSelect-select': {
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: '16px',
+          minHeight: '20px',
+          maxHeight: '56px',
+        },
+        '& .MuiSelect-select.MuiOutlinedInput-input': {
+          pr: 6,
+          pl: 0,
+          py: '18px',
+        },
         '.MuiOutlinedInput-notchedOutline': {
           borderColor: 'primary.main',
           borderWidth: 2,
@@ -37,8 +48,8 @@ export function Sort() {
           borderWidth: 2,
         },
         '.MuiSelect-icon': {
-          marginRight: 2,
-          fontSize: 28,
+          right: 20,
+          fontSize: 24,
         },
       }}
     >
