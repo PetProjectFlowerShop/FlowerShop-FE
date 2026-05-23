@@ -1,5 +1,6 @@
-import { Box, Button, Chip, Divider, Typography } from '@mui/material';
+import { Box, Chip, Divider } from '@mui/material';
 import { FILTER_CHIP_CONFIG } from '../../constants/chipConfig';
+import { ButtonText } from '../common/ButtonText';
 import { useProductFilters } from '../../hooks/useProductFilters';
 import { isAnyFilterActive } from '../../utils/productFilters';
 
@@ -42,13 +43,7 @@ export function FilteredTags({ likeAccordion }: { likeAccordion?: boolean }) {
               return null;
             })}
 
-            {
-              <Button variant="text" color="primary" onClick={clearFilters}>
-                <Typography variant="button" color="text.primary">
-                  Clear All
-                </Typography>
-              </Button>
-            }
+            {<ButtonText onClick={clearFilters}>Clear All</ButtonText>}
           </Box>
           {likeAccordion && <Divider />}
         </Box>
