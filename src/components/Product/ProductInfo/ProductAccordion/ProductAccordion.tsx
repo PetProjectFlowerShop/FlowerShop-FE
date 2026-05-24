@@ -16,7 +16,7 @@ export function ProductAccordion({
   return (
     <Box display="flex" flexDirection="column" gap={1}>
       <AboutFlower description={description} />
-      <CareFlower type={type} title={title} />
+      <CareFlower type={type} flowerTitle={title} />
       <DeliveryFlower />
     </Box>
   );
