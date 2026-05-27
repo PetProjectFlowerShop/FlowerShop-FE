@@ -48,7 +48,7 @@ export default function HeroSection() {
               Special moments.
             </Typography>
 
-            <Box sx={{ maxWidth: { desktop: '635px' } }}>
+            <Box sx={{ maxWidth: { tablet: '640px' } }}>
               <Typography
                 variant="body1"
                 sx={{
@@ -76,8 +76,9 @@ export default function HeroSection() {
           display: { xs: 'none', tablet: 'block' },
           position: 'absolute',
           right: { xs: 0, desktop: '20px' },
-          top: { tablet: '80px', desktop: '222px' },
-          transform: { tablet: 'scale(1.2)', desktop: 'scale(1.8)' },
+          bottom: { tablet: '33%', desktop: '20%' },
+          width: '350px',
+          transform: { tablet: 'scale(1.05)', desktop: 'scale(1.5)' },
           transformOrigin: 'top right',
         }}
       />
