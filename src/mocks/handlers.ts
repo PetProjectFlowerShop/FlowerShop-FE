@@ -8,7 +8,11 @@ import { matchesNumberStem } from './helpers/matchesNumberStem';
 export const handlers = [
   http.get('*/api/products', ({ request }) => {
     const url = new URL(request.url);
-    console.log(request.url);
+    const rawPage = Number(url.searchParams.get('page'));
+    const rawLimit = Number(url.searchParams.get('limit'));
+
+    const page = Number.isNaN(rawPage) || rawPage < 1 ? 1 : rawPage;
+    const limit = Number.isNaN(rawLimit) || rawLimit < 1 ? 12 : rawLimit;
     const {
       type,
       color,
@@ -21,7 +25,7 @@ export const handlers = [
       heightMin,
       heightMax,
     } = parseProductFilters(url.searchParams);
-    console.log('numberstems', numberStems);
+
     let filtered = [...products];
     const sorter = productSorters[sort];
 
@@ -47,9 +51,6 @@ export const handlers = [
 
     if (numberStems?.length) {
       filtered = filtered.filter((p) => {
-        console.log('numberstems', numberStems);
-        console.log('numberstems p', p.numberStems);
-        console.log('numberstems m', matchesNumberStem(p.numberStems, numberStems[0]));
         return numberStems.some((range) => matchesNumberStem(p.numberStems, range));
       });
     }
@@ -62,7 +63,23 @@ export const handlers = [
       filtered = filtered.filter((p) => p.height <= heightMax);
     }
 
-    return HttpResponse.json(filtered);
+    const totalItems = filtered.length;
+    const totalPages = Math.ceil(totalItems / limit);
+
+    const safePage = Math.min(page, totalPages);
+
+    const start = (page - 1) * limit;
+    const end = start + limit;
+
+    const paginatedProducts = filtered.slice(start, end);
+
+    return HttpResponse.json({
+      items: paginatedProducts,
+      page: safePage,
+      limit,
+      totalItems,
+      totalPages,
+    });
   }),
   http.get('*/api/products/:id', ({ params }) => {
     const { id } = params;

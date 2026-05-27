@@ -9,6 +9,7 @@ import type { SortOption } from '../types/sort';
 import { getArrayParam, getNumberParam, getStringParam } from './searchParams';
 
 export function parseProductFilters(params: URLSearchParams) {
+  const parsedPage = Number(params.get('page'));
   return {
     type: getArrayParam<FlowerType>(params, 'type'),
     color: getArrayParam<ColorType>(params, 'color'),
@@ -23,6 +24,7 @@ export function parseProductFilters(params: URLSearchParams) {
 
     heightMin: getNumberParam(params, 'heightMin'),
     heightMax: getNumberParam(params, 'heightMax'),
+    page: Number.isNaN(parsedPage) || parsedPage < 1 ? 1 : parsedPage,
   };
 }
 

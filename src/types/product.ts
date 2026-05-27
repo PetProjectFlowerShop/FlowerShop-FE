@@ -45,7 +45,7 @@ export interface Product {
   type: FlowerType[];
   rating: number;
   color: ColorType[];
-  bouquetType: BouquetType;
+  bouquetType: BouquetType[];
   numberStems: number;
   height: number;
   occasion: OccasionType[];
@@ -54,7 +54,6 @@ export interface Product {
 
   quantity: number;
   description: string;
-  care: string[];
 
   discount?: number;
 }

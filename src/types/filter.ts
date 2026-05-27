@@ -2,6 +2,7 @@ import type { BouquetType, ColorType, FlowerType, OccasionType } from './product
 import type { SortOption } from './sort';
 
 export type FiltersState = {
+  page: number;
   type: FlowerType[];
   color: ColorType[];
   bouquetType: BouquetType[];
