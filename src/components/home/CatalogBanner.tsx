@@ -31,7 +31,7 @@ export const CatalogBanner = () => {
       <Button
         variant="contained"
         color="primary"
-        sx={{ maxWidth: 'fit-content' }}
+        sx={{ maxWidth: '400px', width: { tablet: '100%' } }}
         component={Link}
         to="/catalog"
       >

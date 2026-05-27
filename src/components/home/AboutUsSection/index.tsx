@@ -53,7 +53,7 @@ export default function AboutUsSection() {
               <ValuesList />
             </Box>
 
-            <Button variant="contained" sx={{ mb: 4 }} component={Link} to="/about-us">
+            <Button variant="contained" sx={{ mb: 4 }} fullWidth component={Link} to="/about-us">
               Read more about us
             </Button>
           </Box>
