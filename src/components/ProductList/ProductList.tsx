@@ -58,6 +58,8 @@ export function ProductList() {
     const params = new URLSearchParams(searchParams);
     params.set('page', String(page));
     setSearchParams(params);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleShowMore = () => {

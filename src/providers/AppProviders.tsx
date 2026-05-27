@@ -11,6 +11,7 @@ import { NotificationProvider } from './notifications/NotificationProvider';
 import { queryClient } from '../lib/react-query';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ScrollToTop } from './ScrollToTop';
 
 type Props = {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export function AppProviders({ children }: Props) {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <ScrollToTop />
         <ThemeProvider theme={theme}>
           <CssBaseline />
 
