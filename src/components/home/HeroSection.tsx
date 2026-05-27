@@ -57,10 +57,11 @@ export default function HeroSection() {
                 }}
               >
                 Each bouquet is thoughtfully crafted from fresh, hand-selected flowers to capture
-                emotion, beauty, and meaning. Designed for life’s most special moments.
+                emotion, beauty, and meaning. Designed for life’s most special moments, our blooms
+                bring warmth, elegance, and a touch of magic to every occasion.
               </Typography>
 
-              <Button variant="contained" component={Link} to="/catalog">
+              <Button variant="contained" component={Link} to="/catalog" fullWidth>
                 Go to catalog
               </Button>
             </Box>
