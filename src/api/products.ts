@@ -1,7 +1,20 @@
 import type { FiltersState } from '../types/filter';
+import type { Product } from '../types/product';
 
-export const fetchProducts = async (filters: FiltersState) => {
+export type ProductsResponse = {
+  items: Product[];
+  page: number;
+  totalPages: number;
+  totalItems: number;
+  limit: number;
+};
+
+export const fetchProducts = async (filters: FiltersState): Promise<ProductsResponse> => {
   const params = new URLSearchParams();
+
+  if (filters.page != null) {
+    params.append('page', String(filters.page));
+  }
 
   if (filters.type?.length) {
     params.append('type', filters.type.join(','));

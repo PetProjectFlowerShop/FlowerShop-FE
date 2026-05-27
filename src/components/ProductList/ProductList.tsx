@@ -1,61 +1,124 @@
-import { Box, Typography } from '@mui/material';
-import { useQuery } from '@tanstack/react-query';
-import { useMemo } from 'react';
+import { Box, Button, Pagination } from '@mui/material';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchProducts } from '../../api/products';
-import type { Product } from '../../types/product';
 import { parseProductFilters } from '../../utils/productFilters';
+import { getProductsFromCache } from '../../lib/products/getProductsFromCache';
 import { ProductCard } from '../common/ProductCard';
+import { EmptyProductList } from './EmptyProductList';
 
 export function ProductList() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryClient = useQueryClient();
+
   const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
 
-  const { data, isLoading, isFetching } = useQuery({
-    queryKey: [
-      'products',
-      filters.type,
-      filters.color,
-      filters.sort,
-      filters.priceMin,
-      filters.priceMax,
-    ],
-    queryFn: () => fetchProducts(filters),
+  const { page, ...filtersWithoutPage } = filters;
+  const currentPage = page ?? 1;
+
+  const [feedAnchorPage, setFeedAnchorPage] = useState(currentPage);
+
+  const query = useQuery({
+    queryKey: ['products', filtersWithoutPage, currentPage],
+    queryFn: () =>
+      fetchProducts({
+        ...filtersWithoutPage,
+        page: currentPage,
+      }),
     placeholderData: (prev) => prev,
   });
 
-  const products = Array.isArray(data) ? data : [];
+  const totalPages = query.data?.totalPages ?? 0;
 
-  if (isLoading) return <div>Loading...</div>;
+  const products = useMemo(
+    () =>
+      getProductsFromCache({
+        queryClient,
+        filters: filtersWithoutPage,
+        currentPage,
+        feedAnchorPage,
+      }),
+    [queryClient, filtersWithoutPage, currentPage, feedAnchorPage]
+  );
 
-  if (!products.length)
-    return (
-      <Box display="flex" flexDirection="column" gap={6}>
-        <Typography variant="h3">No bouquets found</Typography>
-        <Typography>
-          We couldn't find any bouquets matching your selection. Try clearing some filters to see
-          more options.
-        </Typography>
-      </Box>
-    );
+  if (query.isLoading && products.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  const isEmpty = !query.isLoading && !query.isFetching && products.length === 0;
+
+  if (isEmpty) {
+    return <EmptyProductList />;
+  }
+
+  const changePage = (page: number) => {
+    setFeedAnchorPage(page);
+
+    const params = new URLSearchParams(searchParams);
+    params.set('page', String(page));
+    setSearchParams(params);
+  };
+
+  const handleShowMore = () => {
+    const nextPage = currentPage + 1;
+
+    if (feedAnchorPage === currentPage) {
+      setFeedAnchorPage(currentPage);
+    }
+
+    const params = new URLSearchParams(searchParams);
+    params.set('page', String(nextPage));
+    setSearchParams(params);
+  };
 
   return (
     <div>
       <Box
         display="grid"
-        mt="24px"
+        mt={6}
+        mb={9}
         gridTemplateColumns={{
           xs: 'repeat(2, minmax(135px, 1fr))',
           desktop: 'repeat(3, minmax(135px, 1fr))',
         }}
         gap={{ xs: '15px', tablet: '24px' }}
       >
-        {products.map((p: Product) => (
-          <ProductCard key={p.id} product={p} />
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </Box>
 
-      {isFetching && !isLoading && <div>Updating...</div>}
+      <Button
+        onClick={handleShowMore}
+        variant="outlined"
+        color="secondary"
+        fullWidth
+        disabled={query.isFetching || currentPage >= totalPages}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          mx: 'auto',
+          mb: 5,
+          maxWidth: { desktop: '526px' },
+        }}
+      >
+        Show more
+      </Button>
+
+      <Pagination
+        color="secondary"
+        size="large"
+        page={currentPage}
+        count={totalPages}
+        onChange={(_, value) => changePage(value)}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          mx: 'auto',
+        }}
+      />
     </div>
   );
 }

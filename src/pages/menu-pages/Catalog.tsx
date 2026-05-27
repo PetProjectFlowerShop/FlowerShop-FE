@@ -4,10 +4,11 @@ import { DynamicBreadcrumbs } from '../../components/common/DynamicBreadcrumbs';
 
 import { Box } from '@mui/material';
 import { Filter } from '../../components/Filter/Filter';
+import { FilterContent } from '../../components/Filter/FilterContent';
 import { FilteredTags } from '../../components/Filter/FilteredTags';
 import { ProductList } from '../../components/ProductList/ProductList';
 import { Sort } from '../../components/Sort/Sort';
-import { FilterContent } from '../../components/Filter/FilterContent';
+import RecommendationsSection from '../../components/home/RecommendationsSection';
 
 export function Catalog() {
   return (
@@ -27,7 +28,7 @@ export function Catalog() {
           <Sort />
         </Box>
       </Box>
-      <Box display="flex" flexDirection="column" gap={6}>
+      <Box display="flex" flexDirection="column" gap={6} mb={16}>
         <FilteredTags />
         <Box display="flex" gap={6}>
           <Box
@@ -40,8 +41,8 @@ export function Catalog() {
           </Box>
           <ProductList />
         </Box>
-        pagintaion
       </Box>
+      <RecommendationsSection />
     </PageContainer>
   );
 }

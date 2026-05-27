@@ -17,6 +17,7 @@ export function Sort() {
     } else {
       newParams.set('sort', value);
     }
+    newParams.set('page', '1');
     setSearchParams(newParams);
   };
   return (

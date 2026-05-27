@@ -10,7 +10,7 @@ export const sampleRecommendedProducts: Product[] = [
     price: 58,
     discount: 20,
     color: ['cream', 'white', 'yellow'],
-    bouquetType: 'mixed',
+    bouquetType: ['mixed'],
     numberStems: 17,
     height: 30,
     occasion: ['thank'],
@@ -18,10 +18,6 @@ export const sampleRecommendedProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
-    care: [
-      'Trim the stems at a 45° angle before placing them in water to improve water absorption. Use a clean vase filled with fresh, cool water and change the water every 1–2 days. Remove any leaves that sit below the waterline to keep the water clear and fresh. Keep the bouquet away from direct sunlight, heaters, and drafts. Place the flowers in a cool, shaded spot to help the blooms stay soft and fresh longer.',
-      'With gentle care, the Powder Rose Spray will maintain its delicate color and graceful shape for days, bringing a calm, romantic mood to your space',
-    ],
   },
   {
     id: '1',
@@ -32,7 +28,7 @@ export const sampleRecommendedProducts: Product[] = [
     price: 60,
     discount: 20,
     color: ['red', 'white'],
-    bouquetType: 'mixed',
+    bouquetType: ['mixed'],
     numberStems: 7,
     height: 30,
     occasion: [
@@ -48,10 +44,6 @@ export const sampleRecommendedProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
-    care: [
-      'Trim the stems at a 45° angle before placing them in water to improve water absorption. Use a clean vase filled with fresh, cool water and change the water every 1–2 days. Remove any leaves that sit below the waterline to keep the water clear and fresh. Keep the bouquet away from direct sunlight, heaters, and drafts. Place the flowers in a cool, shaded spot to help the blooms stay soft and fresh longer.',
-      'With gentle care, the Powder Rose Spray will maintain its delicate color and graceful shape for days, bringing a calm, romantic mood to your space',
-    ],
   },
   {
     id: '2',
@@ -62,7 +54,7 @@ export const sampleRecommendedProducts: Product[] = [
     price: 57,
     discount: 20,
     color: ['white'],
-    bouquetType: 'mixed',
+    bouquetType: ['mixed'],
     numberStems: 11,
     height: 25,
     occasion: ['thank', 'wedding', 'engagement', 'anniversary'],
@@ -70,10 +62,6 @@ export const sampleRecommendedProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
-    care: [
-      'Trim the stems at a 45° angle before placing them in water to improve water absorption. Use a clean vase filled with fresh, cool water and change the water every 1–2 days. Remove any leaves that sit below the waterline to keep the water clear and fresh. Keep the bouquet away from direct sunlight, heaters, and drafts. Place the flowers in a cool, shaded spot to help the blooms stay soft and fresh longer.',
-      'With gentle care, the Powder Rose Spray will maintain its delicate color and graceful shape for days, bringing a calm, romantic mood to your space',
-    ],
   },
   {
     id: '3',
@@ -84,7 +72,7 @@ export const sampleRecommendedProducts: Product[] = [
     price: 42,
     discount: 20,
     color: ['white', 'blue'],
-    bouquetType: 'mixed',
+    bouquetType: ['mixed'],
     numberStems: 11,
     height: 40,
     occasion: ['birthday', 'womensDay'],
@@ -92,10 +80,6 @@ export const sampleRecommendedProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
-    care: [
-      'Trim the stems at a 45° angle before placing them in water to improve water absorption. Use a clean vase filled with fresh, cool water and change the water every 1–2 days. Remove any leaves that sit below the waterline to keep the water clear and fresh. Keep the bouquet away from direct sunlight, heaters, and drafts. Place the flowers in a cool, shaded spot to help the blooms stay soft and fresh longer.',
-      'With gentle care, the Powder Rose Spray will maintain its delicate color and graceful shape for days, bringing a calm, romantic mood to your space',
-    ],
   },
   {
     id: '4',
@@ -106,7 +90,7 @@ export const sampleRecommendedProducts: Product[] = [
     price: 43,
     discount: 20,
     color: ['white', 'blue'],
-    bouquetType: 'mono',
+    bouquetType: ['mono'],
     numberStems: 11,
     height: 40,
     occasion: ['wedding', 'engagement', 'anniversary', 'womensDay'],
@@ -114,9 +98,59 @@ export const sampleRecommendedProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
-    care: [
-      'Trim the stems at a 45° angle before placing them in water to improve water absorption. Use a clean vase filled with fresh, cool water and change the water every 1–2 days. Remove any leaves that sit below the waterline to keep the water clear and fresh. Keep the bouquet away from direct sunlight, heaters, and drafts. Place the flowers in a cool, shaded spot to help the blooms stay soft and fresh longer.',
-      'With gentle care, the Powder Rose Spray will maintain its delicate color and graceful shape for days, bringing a calm, romantic mood to your space',
-    ],
+  },
+  {
+    id: '5',
+    title: 'Soft Pink Lisianthus 17 Stems',
+    tags: ['Popular', 'New', '-20%', 'Season offer'],
+    type: ['lisianthus'],
+    rating: 4.5,
+    price: 52,
+    discount: 20,
+    color: ['white', 'pink'],
+    bouquetType: ['mixed'],
+    numberStems: 17,
+    height: 30,
+    occasion: ['birthday', 'womensDay', 'valentineDay'],
+    images: [''],
+    quantity: 101,
+    description:
+      'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+  },
+  {
+    id: '6',
+    title: 'A Moment in Bloom',
+    tags: ['Popular', 'New', '-20%', 'Season offer'],
+    type: ['anemone', 'lilac', 'rose', 'stock'],
+    rating: 4.5,
+    price: 98,
+    discount: 20,
+    color: ['white', 'cream', 'green', 'mixed', 'pink', 'purple'],
+    bouquetType: ['mixed'],
+    numberStems: 31,
+    height: 35,
+    occasion: ['birthday', 'womensDay', 'thank'],
+    images: [''],
+    quantity: 101,
+    description:
+      'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+  },
+  {
+    id: '7',
+    title: 'Garden Reverie',
+    tags: ['Popular', 'New', '-20%', 'Season offer'],
+    type: ['freesia', 'lilac', 'lisianthus', 'rose'],
+    rating: 4.5,
+    price: 112,
+    discount: 20,
+    color: ['white', 'cream', 'green', 'mixed', 'pink'],
+    bouquetType: ['mixed'],
+    numberStems: 29,
+    height: 35,
+    occasion: ['birthday', 'wedding', 'engagement', 'thank'],
+    images: [''],
+    quantity: 101,
+    description:
+      'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
   },
 ];

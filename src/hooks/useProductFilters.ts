@@ -24,7 +24,7 @@ export function useProductFilters() {
     } else {
       newParams.delete(paramKey);
     }
-
+    newParams.set('page', '1');
     setSearchParams(newParams);
   };
 
@@ -49,7 +49,7 @@ export function useProductFilters() {
     } else {
       newParams.set(maxKey, String(max));
     }
-
+    newParams.set('page', '1');
     setSearchParams(newParams);
   };
 
@@ -67,7 +67,7 @@ export function useProductFilters() {
     } else {
       newParams.delete(paramKey);
     }
-
+    newParams.set('page', '1');
     setSearchParams(newParams);
   };
 
@@ -76,7 +76,7 @@ export function useProductFilters() {
 
     newParams.delete(minKey);
     newParams.delete(maxKey);
-
+    newParams.set('page', '1');
     setSearchParams(newParams);
   };
 
