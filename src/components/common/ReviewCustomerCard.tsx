@@ -10,8 +10,8 @@ import {
   Box,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import review_temp from './../../assets/images/review_temp.webp';
-import type { Review } from '../../types/review';
+import review_temp from '@/assets/images/review_temp.webp';
+import type { Review } from '@/types/review';
 import { Link } from 'react-router-dom';
 
 export interface ReviewCustomerCardProps {

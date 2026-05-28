@@ -1,6 +1,6 @@
 import { Box, IconButton } from '@mui/material';
 import { userActions } from './data/actions.data';
-import { useDrawer } from '../../hooks/useDrawer.ts';
+import { useDrawer } from '@/hooks/useDrawer.ts';
 import { Icon } from '../common/Icon.tsx';
 
 export function UserActions() {

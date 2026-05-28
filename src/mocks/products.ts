@@ -1,5 +1,40 @@
 import type { Product } from '../types/product';
 
+export const craftPackaging = {
+  key: 'craft',
+  price: 0,
+} as const;
+
+export const luxuryPackaging = {
+  key: 'luxury',
+  price: 1,
+} as const;
+
+export const ecoPackaging = {
+  key: 'eco',
+  price: 1,
+} as const;
+
+export const goldPackaging = {
+  key: 'gold',
+  price: 2,
+} as const;
+
+export const silkPackaging = {
+  key: 'silk',
+  price: 2,
+} as const;
+
+export const boxPackaging = {
+  key: 'box',
+  price: 0,
+} as const;
+
+export const basketPackaging = {
+  key: 'basket',
+  price: 0,
+} as const;
+
 export const products: Product[] = [
   {
     id: '0',
@@ -18,6 +53,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, ecoPackaging, silkPackaging],
   },
   {
     id: '1',
@@ -44,6 +80,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, luxuryPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '2',
@@ -62,6 +99,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '3',
@@ -80,6 +118,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, luxuryPackaging, ecoPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '4',
@@ -98,6 +137,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [basketPackaging, silkPackaging, luxuryPackaging],
   },
   {
     id: '5',
@@ -116,6 +156,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [boxPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '6',
@@ -134,6 +175,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, luxuryPackaging],
   },
   {
     id: '7',
@@ -152,6 +194,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [ecoPackaging, silkPackaging, goldPackaging],
   },
   {
     id: '8',
@@ -170,6 +213,7 @@ export const products: Product[] = [
     quantity: 57,
     description:
       'Bright and full of gentle energy, the Lily & Ranunculus Mix bouquet brings a fresh sunlit mood through its warm yellow palette and soft floral textures. Open lily blooms create a graceful, expressive shape, while layered ranunculus flowers add a rounded, delicate softness to the composition.Airy baby’s breath surrounds the blooms with a light cloud-like texture, and muted eucalyptus greenery adds a calm natural balance. The combination of bold lily petals and romantic ranunculus layers gives the bouquet a lively yet refined look.Radiant and uplifting, this bouquet is a beautiful choice for adding warmth, brightness, and a touch of effortless joy to any moment.',
+    packagingType: [boxPackaging, craftPackaging],
   },
   {
     id: '9',
@@ -188,6 +232,7 @@ export const products: Product[] = [
     quantity: 48,
     description:
       'Elegant, soft, and luminous, the Orchid & Rose Blend bouquet combines the timeless beauty of pale blush roses with the refined delicacy of white orchids. The creamy pastel palette feels calm and graceful, creating a composition that is romantic without being overly sweet.The orchids add a smooth, airy elegance with their sculptural petals, while the roses bring warmth, softness, and classic charm. Gentle baby’s breath and muted eucalyptus greenery complete the bouquet with light texture and a fresh natural balance. Presented in a soft ivory hat box with a satin ribbon, the design feels polished, tender, and effortlessly luxurious.Refined and beautifully balanced, this bouquet is made for moments when you want to share elegance, care, and quiet beauty in a graceful and memorable way.',
+    packagingType: [luxuryPackaging, silkPackaging, goldPackaging],
   },
   {
     id: '10',
@@ -206,6 +251,7 @@ export const products: Product[] = [
     quantity: 56,
     description:
       'Tender, fresh, and softly romantic, the Peony & Lisianthus bouquet is filled with delicate pastel charm. Lush pink peonies create a full, graceful focal point, while creamy white lisianthus and soft blush roses add lightness, elegance, and gentle floral detail.Airy baby’s breath weaves through the bouquet like a soft cloud, and muted eucalyptus greenery brings a natural, calming balance to the pastel tones. The mix of rounded peony petals, refined lisianthus blooms gives the composition a beautifully layered and harmonious look.Presented in a pale pink hat box with a satin ribbon, this bouquet feels sweet, polished, and effortlessly graceful.',
+    packagingType: [boxPackaging, ecoPackaging, silkPackaging],
   },
   {
     id: '11',
@@ -224,6 +270,7 @@ export const products: Product[] = [
     quantity: 96,
     description:
       'Quietly refined and deeply graceful, the Silent Elegance bouquet blends soft roses with rich purple carnations and limonium for a look that feels calm, expressive, and beautifully balanced. The contrast between creamy blush tones and deep violet shades gives the bouquet a sophisticated depth without making it feel too heavy.Eucalyptus cinerea adds a fresh silvery-green touch, softening the composition and bringing a natural sense of movement. The roses create a gentle romantic base, while carnations add texture and richness, and limonium brings fine floral detail throughout the bouquet.Elegant, composed, and full of subtle charm, this bouquet is a beautiful choice for moments when you want to share beauty, care, and quiet sophistication in a timeless way.',
+    packagingType: [craftPackaging, luxuryPackaging],
   },
   {
     id: '12',
@@ -242,6 +289,7 @@ export const products: Product[] = [
     quantity: 101,
     description:
       'Fresh, colorful, and gently uplifting, the Soft Morning Bloom bouquet brings together a soft pastel base with lively floral accents. Pale blue hydrangea creates a calm, cloud-like foundation, while purple chrysanthemums and bright pink lilies add expressive texture and a graceful sense of movement.Creamy roses, delicate lisianthus, and eucalyptus cinerea soften the composition with natural balance and elegant greenery. The mix of cool blue tones, lavender details, soft blush shades, and vivid pink accents gives the bouquet a light yet memorable character that feels tender, fresh, and full of life.Beautifully layered and naturally charming, this bouquet is made to bring brightness, softness, and a refined floral touch to any space or meaningful moment.',
+    packagingType: [ecoPackaging, silkPackaging, boxPackaging],
   },
   {
     id: '13',
@@ -260,6 +308,7 @@ export const products: Product[] = [
     quantity: 17,
     description:
       'Pure, airy, and effortlessly refined, the Snowy Orchids Stems bouquet brings a sense of calm beauty through its graceful white orchid blooms. Their smooth petals and soft golden centers create a clean, luminous look that feels fresh, elegant, and quietly luxurious.Delicate baby’s breath adds a light cloud-like texture around the orchids, while eucalyptus greenery gives the composition a soft natural balance. The white hat box with a satin ribbon enhances the bouquet’s polished and serene appearance, making the whole design feel gentle, sophisticated, and beautifully complete.Soft, graceful, and timeless, this bouquet is made to bring a feeling of lightness, care, and understated elegance to any space or special moment.',
+    packagingType: [luxuryPackaging, goldPackaging],
   },
   {
     id: '14',
@@ -278,6 +327,7 @@ export const products: Product[] = [
     quantity: 87,
     description:
       'Soft, graceful, and filled with delicate pastel beauty, the Blush Peony Bunch bouquet brings a tender floral mood through its lush pink peonies, creamy roses, and light white accents. The peonies create a full, romantic focal point with their layered petals, while the roses add a smooth and timeless softness.Baby’s breath gives the bouquet an airy, cloud-like texture, and eucalyptus cinerea brings a fresh silvery-green balance to the gentle blush palette. White chrysanthemums add subtle volume and detail, making the composition feel rich, natural, and beautifully harmonious.Presented in a white hat box with a soft pink satin ribbon, this bouquet feels elegant, warm, and effortlessly charming. A lovely choice for adding tenderness, lightness, and refined beauty to any moment.',
+    packagingType: [craftPackaging, silkPackaging, ecoPackaging],
   },
   {
     id: '15',
@@ -296,6 +346,7 @@ export const products: Product[] = [
     quantity: 135,
     description:
       'Bold, lush, and beautifully romantic, the Crimson Peony Dream bouquet captures attention with deep crimson peonies and their rich, layered petals. Golden centers add a warm glowing detail, creating a striking contrast against the intense red tones.Soft baby’s breath brings lightness between the blooms, while eucalyptus cinerea adds a calm silvery-green balance. Delicate pink astilbe gives the bouquet an airy, textured finish, making the composition feel full, graceful, and naturally expressive.Elegant, vibrant, and full of warmth, this bouquet is made to bring color, beauty, and a memorable floral touch to any space or special moment.',
+    packagingType: [luxuryPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '16',
@@ -314,6 +365,7 @@ export const products: Product[] = [
     quantity: 32,
     description:
       'Warm, radiant, and full of cheerful softness, the Golden Ranunculus Glow bouquet shines with layers of bright yellow ranunculus blooms. Their rounded petals create a rich, textured look, giving the bouquet a sunny and graceful character.The golden tones feel fresh and uplifting, while the soft green stems and delicate surrounding details keep the composition natural and balanced. Each ranunculus adds depth and gentle movement, making the bouquet feel lush, joyful, and effortlessly elegant.Bright yet refined, this bouquet is made to bring warmth, light, and a beautiful floral glow to any space or meaningful moment.',
+    packagingType: [ecoPackaging, craftPackaging],
   },
   {
     id: '17',
@@ -332,6 +384,7 @@ export const products: Product[] = [
     quantity: 56,
     description:
       'Vibrant and full of warmth, the Coral Rose Blend bouquet brings a lively floral glow through its rich coral-orange roses and abundant fresh buds. The bright rose tones feel joyful and expressive, creating a lush composition that instantly adds color and energy.Delicate baby’s breath softens the bouquet with airy white texture, while green foliage adds freshness and natural balance. The mix of open roses and young buds gives the arrangement depth, volume, and a beautifully full garden-inspired look.Radiant, fresh, and effortlessly charming, this bouquet is made to bring brightness, warmth, and a cheerful floral accent to any space or occasion.',
+    packagingType: [boxPackaging, silkPackaging, luxuryPackaging],
   },
   {
     id: '18',
@@ -350,6 +403,7 @@ export const products: Product[] = [
     quantity: 42,
     description:
       'Light, dreamy, and softly colorful, the Pastel Rose Mix bouquet brings together roses in gentle shades of pink, peach, cream, and lavender. The delicate pastel palette feels fresh and graceful, creating a soft floral composition with a calm and romantic character.Airy baby’s breath adds a fine cloud-like texture between the roses, while eucalyptus greenery brings a natural freshness and subtle silvery tone. The mix of warm and cool pastel colors gives the bouquet depth, softness, and an elegant garden-inspired look.Presented in a pale blue hat box with a satin ribbon, this bouquet feels tender, polished, and beautifully balanced. A lovely choice for bringing lightness, warmth, and refined floral beauty to any space or occasion.',
+    packagingType: [ecoPackaging, craftPackaging, boxPackaging],
   },
   {
     id: '19',
@@ -368,6 +422,7 @@ export const products: Product[] = [
     quantity: 23,
     description:
       'Each bloom in the Powder Rose Spray bouquet opens into a delicate rosette of soft powder-pink petals. The flower is small yet full, with gently layered petals that create a naturally airy, romantic shape. Its muted blush tone feels calm and graceful, catching the light beautifully without overpowering the arrangement. Subtle and refined, this bloom brings a sense of tenderness and effortless elegance to the bouquet, making it perfect for moments that call for softness rather than boldness.',
+    packagingType: [silkPackaging, luxuryPackaging],
   },
   {
     id: '20',
@@ -394,6 +449,7 @@ export const products: Product[] = [
     quantity: 96,
     description:
       'Classic, rich, and beautifully expressive, the Velvet Red Roses bouquet brings timeless floral elegance through deep red rose blooms and soft natural accents. The roses unfold in full, velvety layers, creating a look that feels warm, graceful, and full of depth.Delicate baby’s breath adds airy white texture around the blooms, while eucalyptus greenery brings a fresh silvery-green balance to the rich red tones. The contrast between the bold roses and soft botanical details gives the bouquet a refined, romantic, and naturally polished character.Elegant, memorable, and full of quiet intensity, this bouquet is made to bring warmth, beauty, and a sophisticated floral touch to any space.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '21',
@@ -412,6 +468,7 @@ export const products: Product[] = [
     quantity: 56,
     description:
       'Bright, joyful, and full of sunny charm, the Yellow Rose Bouquet brings a fresh burst of warmth through its vivid golden blooms. The roses open in soft, elegant layers, creating a lush rounded shape that feels cheerful, polished, and naturally uplifting.The rich yellow color gives the bouquet a radiant character, while the green leaves and tender rosebuds add freshness and depth. Presented in a white hat box with a satin ribbon, the design feels clean, elegant, and beautifully balanced.Warm, vibrant, and effortlessly graceful, this bouquet is made to fill any space with light, beauty, and a refined floral glow.',
+    packagingType: [goldPackaging, silkPackaging, boxPackaging],
   },
   {
     id: '22',
@@ -429,6 +486,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 64,
     description: 'Bright freesia mix with soft citrus tones and airy structure.',
+    packagingType: [ecoPackaging, craftPackaging],
   },
   {
     id: '23',
@@ -446,6 +504,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 50,
     description: 'Soft lilac bouquet with romantic pastel mood.',
+    packagingType: [silkPackaging, luxuryPackaging],
   },
   {
     id: '24',
@@ -463,6 +522,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 44,
     description: 'Mono bouquet of golden roses with bright elegant tone.',
+    packagingType: [goldPackaging, boxPackaging],
   },
   {
     id: '25',
@@ -480,6 +540,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 33,
     description: 'Soft peonies forming airy cloud-like romantic bouquet.',
+    packagingType: [luxuryPackaging, silkPackaging, ecoPackaging],
   },
   {
     id: '26',
@@ -497,6 +558,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 40,
     description: 'Minimal white orchid box arrangement.',
+    packagingType: [boxPackaging, luxuryPackaging],
   },
   {
     id: '27',
@@ -514,6 +576,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 58,
     description: 'Soft ranunculus bouquet with warm spring glow.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '28',
@@ -531,6 +594,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 72,
     description: 'Classic red carnations with dense texture.',
+    packagingType: [craftPackaging],
   },
   {
     id: '29',
@@ -548,6 +612,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 61,
     description: 'Soft blue hydrangea bouquet with misty volume.',
+    packagingType: [ecoPackaging, silkPackaging],
   },
   {
     id: '30',
@@ -565,6 +630,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 38,
     description: 'Lush mixed bouquet inspired by garden composition.',
+    packagingType: [luxuryPackaging, boxPackaging, silkPackaging],
   },
   {
     id: '31',
@@ -582,6 +648,7 @@ export const products: Product[] = [
     images: [''],
     quantity: 45,
     description: 'Elegant white lilies with clean structure.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '32',
@@ -600,6 +667,7 @@ export const products: Product[] = [
     quantity: 52,
     description:
       'Elegant and refined, the Creamy Calla Harmony bouquet blends smooth ivory calla lilies with delicate cream roses for a soft and timeless floral composition.',
+    packagingType: [luxuryPackaging, silkPackaging, boxPackaging],
   },
   {
     id: '33',
@@ -618,6 +686,7 @@ export const products: Product[] = [
     quantity: 67,
     description:
       'Soft purple stock flowers and airy white lisianthus create a graceful bouquet with gentle texture and romantic garden character.',
+    packagingType: [ecoPackaging, craftPackaging],
   },
   {
     id: '34',
@@ -636,6 +705,7 @@ export const products: Product[] = [
     quantity: 48,
     description:
       'Romantic pink anemones paired with soft roses create an expressive bouquet full of delicate movement and airy floral charm.',
+    packagingType: [luxuryPackaging, silkPackaging],
   },
   {
     id: '35',
@@ -654,6 +724,7 @@ export const products: Product[] = [
     quantity: 85,
     description:
       'Bright golden freesia blooms fill this bouquet with fresh citrus warmth and light spring energy.',
+    packagingType: [craftPackaging],
   },
   {
     id: '36',
@@ -672,6 +743,7 @@ export const products: Product[] = [
     quantity: 37,
     description:
       'Lush lilac branches, pastel hydrangea, and soft roses create a dreamy garden-inspired bouquet with rich texture and graceful volume.',
+    packagingType: [luxuryPackaging, silkPackaging, ecoPackaging],
   },
   {
     id: '37',
@@ -690,6 +762,7 @@ export const products: Product[] = [
     quantity: 44,
     description:
       'Delicate white ranunculus blooms arranged in a soft ivory box create a clean and elegant floral composition.',
+    packagingType: [boxPackaging, silkPackaging],
   },
   {
     id: '38',
@@ -708,6 +781,7 @@ export const products: Product[] = [
     quantity: 62,
     description:
       'Rich crimson carnations paired with delicate limonium create a textured bouquet with expressive depth and elegant contrast.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '39',
@@ -726,6 +800,7 @@ export const products: Product[] = [
     quantity: 28,
     description:
       'Soft peach roses and airy lisianthus arranged in a woven basket create a warm and graceful floral gift.',
+    packagingType: [basketPackaging, luxuryPackaging],
   },
   {
     id: '40',
@@ -744,6 +819,7 @@ export const products: Product[] = [
     quantity: 31,
     description:
       'Cloud-like blue hydrangeas arranged in a natural basket create a calming bouquet with soft volume and airy elegance.',
+    packagingType: [basketPackaging, ecoPackaging],
   },
   {
     id: '41',
@@ -762,6 +838,7 @@ export const products: Product[] = [
     quantity: 22,
     description:
       'Elegant orchids and velvet-toned roses create a luxurious floral arrangement with graceful contrast and refined softness.',
+    packagingType: [luxuryPackaging, silkPackaging, boxPackaging],
   },
   {
     id: '42',
@@ -780,6 +857,7 @@ export const products: Product[] = [
     quantity: 73,
     description:
       'Fresh chrysanthemums mixed with soft roses create a cheerful bouquet full of spring brightness and natural charm.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '43',
@@ -798,6 +876,7 @@ export const products: Product[] = [
     quantity: 54,
     description:
       'Soft pastel stock flowers layered with roses and lisianthus create a lush bouquet with elegant garden-inspired beauty.',
+    packagingType: [luxuryPackaging, silkPackaging],
   },
   {
     id: '44',
@@ -816,6 +895,7 @@ export const products: Product[] = [
     quantity: 39,
     description:
       'Bold amaryllis blooms with rich red petals create a radiant bouquet filled with warmth and expressive elegance.',
+    packagingType: [boxPackaging, goldPackaging],
   },
   {
     id: '45',
@@ -834,6 +914,7 @@ export const products: Product[] = [
     quantity: 47,
     description:
       'Airy astilbe and lush peonies create a romantic bouquet with soft texture, gentle pastel tones, and graceful movement.',
+    packagingType: [ecoPackaging, silkPackaging, craftPackaging],
   },
   {
     id: '46',
@@ -852,6 +933,7 @@ export const products: Product[] = [
     quantity: 19,
     description:
       'Large white lilies and cream roses arranged in a woven basket create a sophisticated floral design with timeless elegance.',
+    packagingType: [basketPackaging, luxuryPackaging],
   },
   {
     id: '47',
@@ -870,6 +952,7 @@ export const products: Product[] = [
     quantity: 31,
     description:
       'Soft ivory roses and delicate lisianthus arranged in a woven basket create a calm and elegant floral composition with a timeless romantic feel.',
+    packagingType: [basketPackaging, silkPackaging],
   },
   {
     id: '48',
@@ -888,6 +971,7 @@ export const products: Product[] = [
     quantity: 28,
     description:
       'Bright golden lilies combined with soft greenery in a natural basket bring a warm and uplifting morning-inspired floral mood.',
+    packagingType: [basketPackaging, ecoPackaging],
   },
   {
     id: '49',
@@ -906,6 +990,7 @@ export const products: Product[] = [
     quantity: 22,
     description:
       'Lush pink peonies and soft roses arranged in a basket create a romantic and airy floral design full of charm and tenderness.',
+    packagingType: [basketPackaging, luxuryPackaging, silkPackaging],
   },
   {
     id: '50',
@@ -924,6 +1009,7 @@ export const products: Product[] = [
     quantity: 18,
     description:
       'Elegant white orchids arranged in a refined basket bring a clean, minimal and luxurious floral presentation.',
+    packagingType: [basketPackaging, boxPackaging],
   },
   {
     id: '51',
@@ -942,6 +1028,7 @@ export const products: Product[] = [
     quantity: 36,
     description:
       'Warm ranunculus blooms in sunset tones create a soft glowing basket arrangement full of gentle light and texture.',
+    packagingType: [basketPackaging, craftPackaging],
   },
   {
     id: '52',
@@ -960,6 +1047,7 @@ export const products: Product[] = [
     quantity: 24,
     description:
       'Deep red roses arranged in a rich basket composition create a passionate and timeless romantic floral statement.',
+    packagingType: [basketPackaging, luxuryPackaging],
   },
   {
     id: '53',
@@ -978,6 +1066,7 @@ export const products: Product[] = [
     quantity: 27,
     description:
       'A soft pastel mix of roses, lisianthus and chrysanthemums in a basket creates a lush garden-inspired floral arrangement.',
+    packagingType: [basketPackaging, silkPackaging, ecoPackaging],
   },
   {
     id: '54',
@@ -996,6 +1085,7 @@ export const products: Product[] = [
     quantity: 19,
     description:
       'Tall white lilies arranged in a graceful basket composition bring purity, elegance and a calm floral presence.',
+    packagingType: [basketPackaging, craftPackaging],
   },
   {
     id: '55',
@@ -1014,6 +1104,7 @@ export const products: Product[] = [
     quantity: 30,
     description:
       'Soft blush roses combined with airy lisianthus create a dreamy basket arrangement full of gentle romance.',
+    packagingType: [basketPackaging, luxuryPackaging, silkPackaging],
   },
   {
     id: '56',
@@ -1032,6 +1123,7 @@ export const products: Product[] = [
     quantity: 26,
     description:
       'Soft hydrangea blooms form a cloud-like basket arrangement with airy volume and calming pastel tones.',
+    packagingType: [basketPackaging, ecoPackaging],
   },
   {
     id: '57',
@@ -1050,6 +1142,7 @@ export const products: Product[] = [
     quantity: 21,
     description:
       'Fragrant lilac and soft stock flowers arranged in a basket create a delicate romantic floral whisper.',
+    packagingType: [basketPackaging, silkPackaging],
   },
   {
     id: '58',
@@ -1068,6 +1161,7 @@ export const products: Product[] = [
     quantity: 42,
     description:
       'Bright freesia blooms in warm yellow tones create a cheerful basket arrangement full of light and freshness.',
+    packagingType: [basketPackaging, craftPackaging],
   },
   {
     id: '59',
@@ -1086,5 +1180,6 @@ export const products: Product[] = [
     quantity: 25,
     description:
       'A vibrant mix of roses in multiple shades creates a rich celebration basket full of color and emotion.',
+    packagingType: [basketPackaging, luxuryPackaging, silkPackaging],
   },
 ];

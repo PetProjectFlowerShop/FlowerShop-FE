@@ -1,5 +1,5 @@
 import { Drawer, Box } from '@mui/material';
-import { useDrawer } from '../../hooks/useDrawer';
+import { useDrawer } from '@/hooks/useDrawer';
 import type { ReactNode } from 'react';
 
 type Props = {

@@ -3,7 +3,7 @@ import { CustomSection } from '../common/CustomSection';
 import { SectionHeader } from '../common/SectionHeader';
 import { CardsCarousel } from '../common/CardsCarousel';
 import { ProductCard } from '../common/ProductCard';
-import { sampleCatalogProducts } from '../../api/mock-data/sampleCatalogProducts';
+import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
 
 export default function RecentlyViewedSection() {
   return (

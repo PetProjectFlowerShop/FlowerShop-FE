@@ -2,9 +2,9 @@ import { Box, Button, Pagination } from '@mui/material';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { fetchProducts } from '../../api/products';
-import { parseProductFilters } from '../../utils/productFilters';
-import { getProductsFromCache } from '../../lib/products/getProductsFromCache';
+import { fetchProducts } from '@/api/products';
+import { parseProductFilters } from '@/utils/productFilters';
+import { getProductsFromCache } from '@/lib/products/getProductsFromCache';
 import { ProductCard } from '../common/ProductCard';
 import { EmptyProductList } from './EmptyProductList';
 

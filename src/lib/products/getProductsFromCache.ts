@@ -1,8 +1,8 @@
 import type { QueryClient } from '@tanstack/react-query';
-import type { fetchProducts } from '../../api/products';
-import type { Product } from '../../types/product';
-import { mergeUniqueProducts } from '../../utils/mergeUniqueProducts';
-import type { FiltersState } from '../../types/filter';
+import type { fetchProducts } from '@/api/products';
+import type { Product } from '@/types/product';
+import { mergeUniqueProducts } from '@/utils/mergeUniqueProducts';
+import type { FiltersState } from '@/types/filter';
 
 type ProductsResponse = Awaited<ReturnType<typeof fetchProducts>>;
 type ProductQueryFilters = Omit<FiltersState, 'page'>;

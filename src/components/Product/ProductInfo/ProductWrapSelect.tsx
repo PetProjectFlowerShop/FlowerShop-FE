@@ -1,20 +1,19 @@
 import { Box, Chip, MenuItem, Select, Typography } from '@mui/material';
+import { PRODUCT_WRAP_OPTIONS } from '../../../constants/productWrap';
+import type { PackagingType } from '../../../types/product';
 
-const WRAP_OPTIONS = [
-  { value: 'paper', label: 'Craft Paper Wrap (free)' },
-  { value: 'luxury', label: 'Luxury Tissue Wrap (+1$)' },
-  { value: 'exo', label: 'Eco Linen Wrap (+1$)' },
-  { value: 'gold', label: 'Gold Foil Wrap (+2$)' },
-  { value: 'silk', label: 'Silk Ribbon Bundle (+2$)' },
-  { value: 'matte', label: 'Matte Box (+3$)' },
-];
+export function ProductWrapSelect({ packagingOptions }: { packagingOptions: PackagingType[] }) {
+  const filteredOptions = packagingOptions.map((p) => ({
+    key: p.key,
+    label: PRODUCT_WRAP_OPTIONS[p.key],
+  }));
 
-export function ProductWrapSelect() {
+  const defaultKey = filteredOptions[0]?.key;
   return (
     <>
-      <Select defaultValue="paper" sx={{ display: { tablet: 'none' } }}>
-        {WRAP_OPTIONS.map((opt) => (
-          <MenuItem key={opt.value} value={opt.value}>
+      <Select defaultValue={defaultKey ?? ''} sx={{ display: { tablet: 'none' } }}>
+        {filteredOptions.map((opt) => (
+          <MenuItem key={opt.key} value={opt.key}>
             {opt.label}
           </MenuItem>
         ))}
@@ -25,8 +24,8 @@ export function ProductWrapSelect() {
       >
         <Typography>Select Wrapping</Typography>
         <Box display="flex" flexWrap="wrap" gap={2}>
-          {WRAP_OPTIONS.map((opt) => (
-            <Chip key={opt.value} label={opt.label} />
+          {filteredOptions.map((opt) => (
+            <Chip key={opt.key} label={opt.label} />
           ))}
         </Box>
       </Box>

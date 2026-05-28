@@ -1,8 +1,8 @@
 import { Box, Button, Container, Typography } from '@mui/material';
-import { CustomSection } from '../../common/CustomSection';
-import { SectionHeader } from '../../common/SectionHeader';
+import { CustomSection } from '@/components/common/CustomSection';
+import { SectionHeader } from '@/components/common/SectionHeader';
 import { ValuesList } from './ValuesList';
-import banner from '../../../assets/images/AboutUsBanner.webp';
+import banner from '@/assets/images/AboutUsBanner.webp';
 import { AdvantageList } from './AdvantageList';
 import { Link } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import { Icon } from '../common/Icon';
 import { contacts } from './data/contacts.data';
-import type { ContactsData } from '../../types/contacts';
+import type { ContactsData } from '@/types/contacts';
 import { Box, Typography, Link as MuiLink } from '@mui/material';
 
 interface ContactRowProps extends ContactsData {

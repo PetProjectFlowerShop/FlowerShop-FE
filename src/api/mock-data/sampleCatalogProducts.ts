@@ -1,4 +1,13 @@
-import type { Product } from '../../types/product';
+import {
+  basketPackaging,
+  boxPackaging,
+  craftPackaging,
+  ecoPackaging,
+  goldPackaging,
+  luxuryPackaging,
+  silkPackaging,
+} from '@/mocks/products';
+import type { Product } from '@/types/product';
 
 export const sampleCatalogProducts: Product[] = [
   {
@@ -18,6 +27,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, ecoPackaging, silkPackaging],
   },
   {
     id: '1',
@@ -44,6 +54,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, luxuryPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '2',
@@ -62,6 +73,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, ecoPackaging],
   },
   {
     id: '3',
@@ -80,6 +92,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, luxuryPackaging, ecoPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '4',
@@ -98,6 +111,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [basketPackaging, silkPackaging, luxuryPackaging],
   },
   {
     id: '5',
@@ -116,6 +130,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [boxPackaging, goldPackaging, silkPackaging],
   },
   {
     id: '6',
@@ -134,6 +149,7 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [craftPackaging, luxuryPackaging],
   },
   {
     id: '7',
@@ -152,5 +168,6 @@ export const sampleCatalogProducts: Product[] = [
     quantity: 101,
     description:
       'The Soft Yellow Alstroemeria bouquet opens with a gentle, sunlit charm and creamy yellow petals are touched with warm golden details at the center, creating a soft and graceful glow. Light and fresh, the alstroemeria is surrounded by airy baby’s breath and muted eucalyptus greenery, adding natural texture and calm elegance. The bouquet feels effortless and refined, bright without being bold, tender without being too sweet. Soft and uplifting, this bouquet brings a quiet sense of warmth and care, making it perfect for thoughtful gifts, gentle celebrations, or moments that call for understated beauty.',
+    packagingType: [ecoPackaging, silkPackaging, goldPackaging],
   },
 ];

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { ProductInfo } from './ProductInfo/ProductInfo';
-import type { Product } from '../../types/product';
+import type { Product } from '@/types/product';
 
 export function ProductDetailsSection({ data }: { data: Product }) {
   return (

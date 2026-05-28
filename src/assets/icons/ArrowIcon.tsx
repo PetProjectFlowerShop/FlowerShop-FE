@@ -1,5 +1,5 @@
 import { SvgIcon, type SvgIconProps } from '@mui/material';
-import { Icon } from '../../components/common/Icon';
+import { Icon } from '@/components/common/Icon';
 
 export function MyCustomArrow(props: SvgIconProps) {
   return (

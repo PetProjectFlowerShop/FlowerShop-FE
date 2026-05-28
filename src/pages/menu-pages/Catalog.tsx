@@ -1,6 +1,6 @@
-import { PageContainer } from '../../components/common/PageContainer';
+import { PageContainer } from '@/components/common/PageContainer';
 
-import { DynamicBreadcrumbs } from '../../components/common/DynamicBreadcrumbs';
+import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 
 import { Box } from '@mui/material';
 import { Filter } from '../../components/Filter/Filter';

@@ -1,6 +1,6 @@
 import { Box, Divider, IconButton, Typography } from '@mui/material';
-import { FILTER_CONFIG } from '../../constants/filterConfig';
-import { useProductFilters } from '../../hooks/useProductFilters';
+import { FILTER_CONFIG } from '@/constants/filterConfig';
+import { useProductFilters } from '@/hooks/useProductFilters';
 import { FilteredTags } from './FilteredTags';
 import { FilterRenderer } from './FilterRenderer';
 import CloseIcon from '@mui/icons-material/Close';

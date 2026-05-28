@@ -1,5 +1,5 @@
-import type { Product } from '../../types/product';
-import type { SortOption } from '../../types/sort';
+import type { Product } from '@/types/product';
+import type { SortOption } from '@/types/sort';
 
 type ProductSorter = (a: Product, b: Product) => number;
 
