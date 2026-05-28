@@ -9,11 +9,14 @@ import { FilteredTags } from '../../components/Filter/FilteredTags';
 import { ProductList } from '../../components/ProductList/ProductList';
 import { Sort } from '../../components/Sort/Sort';
 import RecommendationsSection from '../../components/home/RecommendationsSection';
+import TitleWithImageSection from '../../components/common/TitleWithImageSection';
+import catalogBaner from '../../assets/images/catalog-banner.webp';
 
 export function Catalog() {
   return (
     <PageContainer>
       <DynamicBreadcrumbs />
+      <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
       <Box
         sx={{
           display: { tablet: 'flex' },
