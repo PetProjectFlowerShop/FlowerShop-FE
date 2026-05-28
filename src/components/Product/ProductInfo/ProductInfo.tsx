@@ -5,7 +5,7 @@ import { ProductQuantityControls } from './ProductQuantityControls';
 import { ProductWrapSelect } from './ProductWrapSelect';
 import { useState } from 'react';
 import { ProductAccordion } from './ProductAccordion/ProductAccordion';
-import type { Product } from '../../../types/product';
+import type { Product } from '@/types/product';
 
 export function ProductInfo({ data }: { data: Product }) {
   const { title, price, description, type, packagingType: packagingOptions } = data;

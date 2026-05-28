@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { CustomSection } from '../common/CustomSection';
-import promo from '../../assets/images/promo-background.webp';
+import promo from '@/assets/images/promo-background.webp';
 import { Link } from 'react-router-dom';
 
 export default function PromoSection() {

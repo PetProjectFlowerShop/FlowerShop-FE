@@ -2,7 +2,7 @@ import { Breadcrumbs, Link, Typography, type Theme } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
 import { Icon } from './Icon';
-import { ROUTE_NAMES } from '../../constants/rout-names';
+import { ROUTE_NAMES } from '@/constants/rout-names';
 
 const getBreadcrumbsStyles = (theme: Theme) => ({
   mb: theme.spacing(theme.spacingTokens.stackM),

@@ -1,11 +1,11 @@
-import { PageContainer } from '../../components/common/PageContainer';
+import { PageContainer } from '@/components/common/PageContainer';
 import { Box, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { usersApi, type User } from '../../api/users.api';
-import { useLoading } from '../../providers/loading/useLoading';
-import { EmptyState } from '../../components/common/EmptyState';
-import { useNotification } from '../../providers/notifications/useNotification';
-import { DynamicBreadcrumbs } from '../../components/common/DynamicBreadcrumbs';
+import { usersApi, type User } from '@/api/users.api';
+import { useLoading } from '@/providers/loading/useLoading';
+import { EmptyState } from '@/components/common/EmptyState';
+import { useNotification } from '@/providers/notifications/useNotification';
+import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 
 export function Blog() {
   const [users, setUsers] = useState<User[]>([]);

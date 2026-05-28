@@ -3,7 +3,7 @@ import { CustomSection } from '../common/CustomSection';
 import { SectionHeader } from '../common/SectionHeader';
 import { ProductCard } from '../common/ProductCard';
 import { CardsCarousel } from '../common/CardsCarousel';
-import { sampleRecommendedProducts } from '../../api/mock-data/sampleRecommendedProducts';
+import { sampleRecommendedProducts } from '@/api/mock-data/sampleRecommendedProducts';
 
 export default function RecommendationsSection() {
   return (

@@ -3,7 +3,7 @@ import { CustomSection } from '../common/CustomSection';
 import { SectionHeader } from '../common/SectionHeader';
 import { CardsCarousel } from '../common/CardsCarousel';
 import { ReviewCustomerCard } from '../common/ReviewCustomerCard';
-import { sampleReviews } from '../../api/mock-data/sampleReviews';
+import { sampleReviews } from '@/api/mock-data/sampleReviews';
 
 interface CustomersReviewsSectionProps {
   isCentered?: boolean;

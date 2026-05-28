@@ -18,7 +18,7 @@
 
 import { useCallback, useState } from 'react';
 import { LoadingContext } from './LoadingContext';
-import { GlobalLoading } from '../../components/common/GlobalLoading';
+import { GlobalLoading } from '@/components/common/GlobalLoading';
 
 type Props = {
   children: React.ReactNode;

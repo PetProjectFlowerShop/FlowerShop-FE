@@ -1,14 +1,14 @@
-import { PageContainer } from '../../components/common/PageContainer';
+import { PageContainer } from '@/components/common/PageContainer';
 
-import { DynamicBreadcrumbs } from '../../components/common/DynamicBreadcrumbs';
+import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 
 import { Box } from '@mui/material';
-import { Filter } from '../../components/Filter/Filter';
-import { FilterContent } from '../../components/Filter/FilterContent';
-import { FilteredTags } from '../../components/Filter/FilteredTags';
-import { ProductList } from '../../components/ProductList/ProductList';
-import { Sort } from '../../components/Sort/Sort';
-import RecommendationsSection from '../../components/home/RecommendationsSection';
+import { Filter } from '@/components/Filter/Filter';
+import { FilterContent } from '@/components/Filter/FilterContent';
+import { FilteredTags } from '@/components/Filter/FilteredTags';
+import { ProductList } from '@/components/ProductList/ProductList';
+import { Sort } from '@/components/Sort/Sort';
+import RecommendationsSection from '@/components/home/RecommendationsSection';
 
 export function Catalog() {
   return (

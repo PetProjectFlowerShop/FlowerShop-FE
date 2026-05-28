@@ -1,8 +1,8 @@
-import { theme } from '../../../theme';
+import { theme } from '@/theme';
 import { faqData } from './data/faq.data';
-import type { FaqData } from '../../../types/faq';
+import type { FaqData } from '@/types/faq';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
-import { Icon } from '../../common/Icon';
+import { Icon } from '@/components/common/Icon';
 
 function FaqItem({ item }: { item: FaqData }) {
   return (

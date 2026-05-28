@@ -1,5 +1,5 @@
 import { Box, Container, Typography, useTheme } from '@mui/material';
-import whiteLogo from '../../assets/images/logo_large_white.svg';
+import whiteLogo from '@/assets/images/logo_large_white.svg';
 import { ContactInfo } from './ContactInfo';
 import FooterMenu from './FooterMenu';
 import { LegalLink } from './LegalLink';

@@ -1,6 +1,6 @@
 import { AccordionDetails, List, Typography } from '@mui/material';
-import { getCareItems } from '../../../../constants/flower-care';
-import type { FlowerType } from '../../../../types/product';
+import { getCareItems } from '@/constants/flower-care';
+import type { FlowerType } from '@/types/product';
 import { ProductAccordionItem } from './ProductAccordionItem';
 
 export function CareFlower({ type, flowerTitle }: { type: FlowerType[]; flowerTitle: string }) {

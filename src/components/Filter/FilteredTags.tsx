@@ -1,8 +1,8 @@
 import { Box, Chip, Divider } from '@mui/material';
-import { FILTER_CHIP_CONFIG } from '../../constants/chipConfig';
+import { FILTER_CHIP_CONFIG } from '@/constants/chipConfig';
 import { ButtonText } from '../common/ButtonText';
-import { useProductFilters } from '../../hooks/useProductFilters';
-import { isAnyFilterActive } from '../../utils/productFilters';
+import { useProductFilters } from '@/hooks/useProductFilters';
+import { isAnyFilterActive } from '@/utils/productFilters';
 
 export function FilteredTags({ likeAccordion }: { likeAccordion?: boolean }) {
   const { filters, removeParamValue, clearFilters, removeRange } = useProductFilters();

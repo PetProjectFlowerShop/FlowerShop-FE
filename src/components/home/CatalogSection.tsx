@@ -4,7 +4,7 @@ import { SectionHeader } from '../common/SectionHeader';
 import { CardsCarousel } from '../common/CardsCarousel';
 import { ProductCard } from '../common/ProductCard';
 import { CatalogBanner } from './CatalogBanner';
-import { sampleCatalogProducts } from '../../api/mock-data/sampleCatalogProducts';
+import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
 
 export default function CatalogSection() {
   return (

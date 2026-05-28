@@ -1,5 +1,5 @@
-import { DynamicBreadcrumbs } from '../../components/common/DynamicBreadcrumbs';
-import { PageContainer } from '../../components/common/PageContainer';
+import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
+import { PageContainer } from '@/components/common/PageContainer';
 import { Typography } from '@mui/material';
 
 export function Contacts() {

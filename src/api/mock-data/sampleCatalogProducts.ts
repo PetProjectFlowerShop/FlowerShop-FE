@@ -6,8 +6,8 @@ import {
   goldPackaging,
   luxuryPackaging,
   silkPackaging,
-} from '../../mocks/products';
-import type { Product } from '../../types/product';
+} from '@/mocks/products';
+import type { Product } from '@/types/product';
 
 export const sampleCatalogProducts: Product[] = [
   {

@@ -15,8 +15,8 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import type { Product } from '../../types/product';
-import card_temp from './../../assets/images/card_temp.svg';
+import type { Product } from '@/types/product';
+import card_temp from '@/assets/images/card_temp.svg';
 
 export interface ProductCardProps {
   product: Product;
