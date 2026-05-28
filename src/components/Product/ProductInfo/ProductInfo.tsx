@@ -8,12 +8,12 @@ import { ProductAccordion } from './ProductAccordion/ProductAccordion';
 import type { Product } from '../../../types/product';
 
 export function ProductInfo({ data }: { data: Product }) {
-  const { title, price, description, type } = data;
+  const { title, price, description, type, packagingType: packagingOptions } = data;
   const [quantity, setQuantity] = useState(1);
   return (
     <Box display="flex" flexDirection="column" gap={2}>
       <ProductHeader price={price} title={title} />
-      <ProductWrapSelect />
+      <ProductWrapSelect packagingOptions={packagingOptions} />
       <ProductQuantityControls
         quantity={quantity}
         onQuantityChange={setQuantity}

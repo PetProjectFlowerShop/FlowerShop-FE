@@ -36,6 +36,11 @@ export type OccasionType =
   | 'womensDay'
   | 'valentineDay';
 export type BouquetType = 'mono' | 'mixed' | 'basket' | 'box';
+export type PackagingKeyType = 'craft' | 'luxury' | 'eco' | 'gold' | 'silk' | 'box' | 'basket';
+export type PackagingType = {
+  key: PackagingKeyType;
+  price: number;
+};
 
 export interface Product {
   id: string;
@@ -54,6 +59,6 @@ export interface Product {
 
   quantity: number;
   description: string;
-
+  packagingType: PackagingType[];
   discount?: number;
 }
