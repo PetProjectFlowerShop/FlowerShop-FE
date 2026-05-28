@@ -1,6 +1,6 @@
-import type { Review } from '../../types/review';
-import review_temp from './../../assets/images/review_temp.webp';
-import empty_img from './../../assets/images/empty_img.webp';
+import type { Review } from '@/types/review';
+import review_temp from '@/assets/images/review_temp.webp';
+import empty_img from '@/assets/images/empty_img.webp';
 
 export const sampleReviews: Review[] = [
   {

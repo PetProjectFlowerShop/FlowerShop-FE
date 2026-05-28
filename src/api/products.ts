@@ -1,5 +1,5 @@
-import type { FiltersState } from '../types/filter';
-import type { Product } from '../types/product';
+import type { FiltersState } from '@/types/filter';
+import type { Product } from '@/types/product';
 
 export type ProductsResponse = {
   items: Product[];

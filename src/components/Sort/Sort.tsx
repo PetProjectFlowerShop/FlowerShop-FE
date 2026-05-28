@@ -1,8 +1,8 @@
 import { MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 
 import { useSearchParams } from 'react-router-dom';
-import type { SortOption } from '../../types/sort';
-import { SORT_OPTIONS } from '../../constants/sort';
+import type { SortOption } from '@/types/sort';
+import { SORT_OPTIONS } from '@/constants/sort';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export function Sort() {

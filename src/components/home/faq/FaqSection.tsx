@@ -1,8 +1,8 @@
 import { Box, Stack, Typography } from '@mui/material';
-import faq from '../../../assets/images/faq-banner.jpg';
-import { CustomSection } from '../../common/CustomSection';
+import faq from '@/assets/images/faq-banner.jpg';
+import { CustomSection } from '@/components/common/CustomSection';
 import { Container } from '@mui/material';
-import { theme } from '../../../theme';
+import { theme } from '@/theme';
 import { FaqList } from './FaqList';
 
 export default function FaqSection() {

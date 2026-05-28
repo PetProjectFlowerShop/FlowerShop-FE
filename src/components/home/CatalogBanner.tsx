@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import baner from '../../assets/images/cta-back.webp';
+import baner from '@/assets/images/cta-back.webp';
 import { Link } from 'react-router-dom';
 
 const getContainerStyles = () => ({

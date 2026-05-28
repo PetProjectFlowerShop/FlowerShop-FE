@@ -1,7 +1,7 @@
 import { AccordionDetails, Box, List, Typography } from '@mui/material';
 import { ProductAccordionItem } from './ProductAccordionItem';
 
-import delivery_img from '../../../../assets/images/delivery.webp';
+import delivery_img from '@/assets/images/delivery.webp';
 
 export function DeliveryFlower() {
   return (

@@ -1,6 +1,6 @@
 import { Box, Chip } from '@mui/material';
-import type { FilterConfigType } from '../../constants/filterConfig';
-import type { FilterKey, FiltersState, NumberFilterKey } from '../../types/filter';
+import type { FilterConfigType } from '@/constants/filterConfig';
+import type { FilterKey, FiltersState, NumberFilterKey } from '@/types/filter';
 import { FilterOption } from './FilterOption';
 import { FilterSection } from './FilterSection';
 import { RangeFilterSection } from './RangeFilterSection';

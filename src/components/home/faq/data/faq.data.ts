@@ -1,4 +1,4 @@
-import type { FaqData } from '../../../../types/faq';
+import type { FaqData } from '@/types/faq';
 
 export const faqData: FaqData[] = [
   {

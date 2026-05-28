@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { theme } from '../../theme';
+import { theme } from '@/theme';
 
 type RangeFilterSectionProps = {
   title: string;

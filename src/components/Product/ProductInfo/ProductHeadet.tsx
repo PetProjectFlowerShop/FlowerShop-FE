@@ -1,7 +1,7 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import HeartIconFilled from '@mui/icons-material/Favorite';
-import { Icon } from '../../common/Icon';
+import { Icon } from '@/components/common/Icon';
 
 type ProductHeaderProps = {
   title: string;

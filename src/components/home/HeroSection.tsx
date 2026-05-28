@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material';
-import banner from '../../assets/images/banner.webp';
-import boquet from '../../assets/images/banner-decor.webp';
+import banner from '@/assets/images/banner.webp';
+import boquet from '@/assets/images/banner-decor.webp';
 import { Link } from 'react-router-dom';
 
 export default function HeroSection() {

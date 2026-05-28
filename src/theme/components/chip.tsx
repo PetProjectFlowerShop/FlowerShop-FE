@@ -1,6 +1,6 @@
 import type { Theme } from '@mui/material/styles';
 import type { Components } from '@mui/material/styles';
-import { Icon } from '../../components/common/Icon';
+import { Icon } from '@/components/common/Icon';
 
 export const chipOverrides: Components<Theme>['MuiChip'] = {
   defaultProps: {

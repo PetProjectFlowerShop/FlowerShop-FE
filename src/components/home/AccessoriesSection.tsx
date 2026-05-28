@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 import { CustomSection } from '../common/CustomSection';
 import { SectionHeader } from '../common/SectionHeader';
 import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
-import accessories from '../../assets/images/accessories.webp';
+import accessories from '@/assets/images/accessories.webp';
 
 const MOCK_ACCESSORIES = [
   { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },

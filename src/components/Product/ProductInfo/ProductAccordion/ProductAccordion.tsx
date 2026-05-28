@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import type { FlowerType } from '../../../../types/product';
+import type { FlowerType } from '@/types/product';
 import { AboutFlower } from './AboutFlower';
 import { CareFlower } from './CareFlower';
 import { DeliveryFlower } from './DeliveryFlower';
