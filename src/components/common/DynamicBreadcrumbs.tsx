@@ -1,11 +1,11 @@
+import { ROUTE_NAMES } from '@/constants/rout-names';
 import { Breadcrumbs, Link, Typography, type Theme } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useLocation, Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Icon } from './Icon';
-import { ROUTE_NAMES } from '@/constants/rout-names';
 
-const getBreadcrumbsStyles = (theme: Theme) => ({
-  mb: theme.spacing(theme.spacingTokens.stackM),
+const getBreadcrumbsStyles = (theme: Theme, mb?: string | number) => ({
+  mb: mb ?? theme.spacing(theme.spacingTokens.stackM),
   '& .MuiBreadcrumbs-separator': {
     marginLeft: '2px !important',
     marginRight: '0 !important',
@@ -38,9 +38,10 @@ const getActiveTextStyles = (theme: Theme) => ({
 
 interface DynamicBreadcrumbsProps {
   customLastStep?: string;
+  mb?: number | string;
 }
 
-export const DynamicBreadcrumbs = ({ customLastStep }: DynamicBreadcrumbsProps) => {
+export const DynamicBreadcrumbs = ({ customLastStep, mb }: DynamicBreadcrumbsProps) => {
   const theme = useTheme();
   const location = useLocation();
 
@@ -54,7 +55,7 @@ export const DynamicBreadcrumbs = ({ customLastStep }: DynamicBreadcrumbsProps) 
     <Breadcrumbs
       separator={<Icon name="navigate-next" width={24} height={24} fill="currentColor" />}
       aria-label="breadcrumb"
-      sx={getBreadcrumbsStyles(theme)}
+      sx={getBreadcrumbsStyles(theme, mb)}
     >
       <Link component={RouterLink} to="/" sx={getLinkStyles(theme)}>
         Home
