@@ -22,7 +22,7 @@ export function ProductWrapSelect({ packagingOptions }: { packagingOptions: Pack
         sx={{ display: { xs: 'none', tablet: 'flex' }, flexDirection: { tablet: 'column' } }}
         gap={4}
       >
-        <Typography>Select Wrapping</Typography>
+        <Typography>Packaging Type</Typography>
         <Box display="flex" flexWrap="wrap" gap={2}>
           {filteredOptions.map((opt) => (
             <Chip key={opt.key} label={opt.label} />
