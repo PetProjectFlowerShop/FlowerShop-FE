@@ -2,20 +2,20 @@ import { PageContainer } from '@/components/common/PageContainer';
 
 import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 
-import { Box } from '@mui/material';
-import { Filter } from '../../components/Filter/Filter';
-import { FilterContent } from '../../components/Filter/FilterContent';
-import { FilteredTags } from '../../components/Filter/FilteredTags';
-import { ProductList } from '../../components/ProductList/ProductList';
-import { Sort } from '../../components/Sort/Sort';
-import RecommendationsSection from '../../components/home/RecommendationsSection';
-import TitleWithImageSection from '../../components/common/TitleWithImageSection';
+import { Filter } from '@/components/Filter/Filter';
+import { FilterContent } from '@/components/Filter/FilterContent';
+import { FilteredTags } from '@/components/Filter/FilteredTags';
+import { ProductList } from '@/components/ProductList/ProductList';
+import { Sort } from '@/components/Sort/Sort';
+import RecommendationsSection from '@/components/home/RecommendationsSection';
 import catalogBaner from '../../assets/images/catalog-banner.webp';
+import TitleWithImageSection from '@/components/common/TitleWithImageSection';
+import { Box } from '@mui/material';
 
 export function Catalog() {
   return (
     <PageContainer>
-      <DynamicBreadcrumbs />
+      <DynamicBreadcrumbs mb={2} />
       <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
       <Box
         sx={{

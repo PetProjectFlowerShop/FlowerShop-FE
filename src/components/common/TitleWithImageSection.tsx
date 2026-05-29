@@ -3,18 +3,13 @@ import { Box, Typography } from '@mui/material';
 const getContainerStyles = () => ({
   position: 'relative',
   width: '100%',
-  maxWidth: {
-    xs: '343px',
-    tablet: '688px',
-    desktop: '1296px',
+  aspectRatio: {
+    xs: '343 / 159',
+    tablet: '688 / 212',
+    desktop: '1296 / 400',
   },
-  height: {
-    xs: '158.8px',
-    tablet: '212.35px',
-    desktop: '400px',
-  },
-  mx: 'auto',
-  mt: 10,
+
+  mt: { xs: 7, tablet: 10 },
   overflow: 'hidden',
   borderRadius: '20px',
 });
@@ -25,8 +20,7 @@ const getImageStyles = () => ({
   height: '100%',
   objectFit: 'cover',
   objectPosition: '0 42%',
-  top: 0,
-  left: 0,
+  inset: 0,
 });
 
 interface TitleWithImageSectionProps {
@@ -41,8 +35,11 @@ export default function TitleWithImageSection({
   imageAlt,
 }: TitleWithImageSectionProps) {
   return (
-    <Box data-testid="title-image-header-section" sx={{ pt: 0, pb: 30 }}>
-      <Typography variant="h2" sx={{ mb: 0, fontSize: '72px' }}>
+    <Box
+      data-testid="title-image-header-section"
+      sx={{ pt: 0, pb: { xs: 16, tablet: 20, desktop: 30 } }}
+    >
+      <Typography variant="h2" component="h1">
         {title}
       </Typography>
       <Box sx={getContainerStyles()}>
