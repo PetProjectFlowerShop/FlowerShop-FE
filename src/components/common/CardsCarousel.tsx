@@ -105,11 +105,9 @@ const getNavButtonStyles = (
   theme: Theme,
   isLeft: boolean,
   centered: boolean,
-  cardsCount?: number,
   isReview?: boolean
 ) => {
   const isFourReviewCards = isReview && !centered;
-  console.log('isFourReviewCards', isFourReviewCards, 'is', isReview, cardsCount);
   const topPosition = isFourReviewCards ? '260px' : '300px';
 
   return {
@@ -133,6 +131,7 @@ const getNavButtonStyles = (
     },
   };
 };
+
 export const CardsCarousel = <T extends { id: string }>({
   cards,
   renderCard,
@@ -157,7 +156,7 @@ export const CardsCarousel = <T extends { id: string }>({
       <IconButton
         className={navClasses.prev}
         sx={[
-          getNavButtonStyles(theme, true, centered, cards.length, isReview),
+          getNavButtonStyles(theme, true, centered, isReview),
           {
             left: { xs: '16px', sm: 0 },
           },
@@ -206,7 +205,7 @@ export const CardsCarousel = <T extends { id: string }>({
       <IconButton
         className={navClasses.next}
         sx={[
-          getNavButtonStyles(theme, false, centered, cards.length, isReview),
+          getNavButtonStyles(theme, false, centered, isReview),
           {
             right: centered ? { xs: '16px', sm: '8px' } : { xs: '16px', sm: 0 },
           },
