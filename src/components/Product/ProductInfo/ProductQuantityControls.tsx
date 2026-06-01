@@ -3,11 +3,12 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import HeartIconFilled from '@mui/icons-material/Favorite';
+import { addToCart } from '@/utils/addToCart';
 
 type ProductQuantityControlsProps = {
   quantity: number;
+  productId: string;
   onQuantityChange: (updater: number | ((prev: number) => number)) => void;
-  onAddToCart: () => void;
   onFavoriteClick?: () => void;
   isFavorite?: boolean;
 };
@@ -16,8 +17,8 @@ const MAX_QUANTITY = 99;
 
 export function ProductQuantityControls({
   quantity,
+  productId,
   onQuantityChange,
-  onAddToCart,
   onFavoriteClick,
   isFavorite = false,
 }: ProductQuantityControlsProps) {
@@ -81,7 +82,7 @@ export function ProductQuantityControls({
           <AddIcon />
         </Button>
       </Box>
-      <Button variant="contained" fullWidth onClick={onAddToCart}>
+      <Button variant="contained" fullWidth onClick={() => addToCart(productId, quantity)}>
         Add to cart
       </Button>
       <IconButton
