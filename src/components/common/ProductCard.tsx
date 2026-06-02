@@ -15,14 +15,15 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+
 import type { Product } from '@/types/product';
+import { addToCart } from '@/utils/addToCart';
 import card_temp from '@/assets/images/card_temp.svg';
 
 export interface ProductCardProps {
   product: Product;
   currencySymbol?: string;
   onFavoriteClick?: (id: string) => void;
-  onAddToCartClick?: (id: string) => void;
 }
 
 const getTagStyles = (tag: string, theme: Theme) => {
@@ -88,7 +89,6 @@ export const ProductCard = ({
   product,
   currencySymbol = '$',
   onFavoriteClick,
-  onAddToCartClick,
 }: ProductCardProps) => {
   const theme = useTheme();
   const { id, title, price, discount, tags } = product;
@@ -187,7 +187,7 @@ export const ProductCard = ({
           variant="contained"
           color="primary"
           fullWidth
-          onClick={() => onAddToCartClick?.(id)}
+          onClick={() => addToCart(product.id, 1)}
         >
           Add to cart
         </Button>
