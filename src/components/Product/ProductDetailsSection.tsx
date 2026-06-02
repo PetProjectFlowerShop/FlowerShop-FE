@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { ProductInfo } from './ProductInfo/ProductInfo';
 import type { Product } from '@/types/product';
 import { ProductGallery } from './ProductImages/ProductGallery';
@@ -14,19 +14,20 @@ export function ProductDetailsSection({ data }: { data: Product }) {
   const imagesToShow = MOCK_IMAGES;
   return (
     <CustomSection data-testid="product-details-section">
-      <Container>
-        <Box
-          display="grid"
-          gridTemplateColumns={{
-            xs: '1fr',
-            desktop: '1fr 1fr',
-          }}
-          gap={{ tablet: 3, desktop: 8 }}
-        >
+      <Box
+        display="grid"
+        gridTemplateColumns={{
+          xs: '1fr',
+          desktop: '1fr 1fr',
+        }}
+        gap={{ tablet: 3, desktop: 8 }}
+        alignItems="start"
+      >
+        <Box sx={{ position: { desktop: 'sticky' }, top: { desktop: '24px' } }}>
           <ProductGallery images={imagesToShow} />
-          <ProductInfo data={data} />
         </Box>
-      </Container>
+        <ProductInfo data={data} />
+      </Box>
     </CustomSection>
   );
 }
