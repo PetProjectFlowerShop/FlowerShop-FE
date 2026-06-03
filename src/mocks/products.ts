@@ -38,7 +38,7 @@ export const basketPackaging = {
 export const products: Product[] = [
   {
     id: '0',
-    title: 'Soft Yellow Alstroemeria 17 Stems',
+    title: 'Alstroemeria',
     tags: ['Popular', 'New', '-20%', 'Season offer'],
     type: ['alstroemeria'],
     rating: 4.5,
