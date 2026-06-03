@@ -7,11 +7,14 @@ import { parseProductFilters } from '@/utils/productFilters';
 import { getProductsFromCache } from '@/lib/products/getProductsFromCache';
 import { ProductCard } from '../common/ProductCard';
 import { EmptyProductList } from './EmptyProductList';
+import { useFavorites } from '@/hooks/useFavorite';
 
 export function ProductList() {
   const [searchParams, setSearchParams] = useSearchParams();
   const queryClient = useQueryClient();
+  const { favorites, toggle } = useFavorites();
 
+  const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
 
   const { page, ...filtersWithoutPage } = filters;
@@ -87,7 +90,12 @@ export function ProductList() {
         gap={{ xs: '15px', tablet: '24px' }}
       >
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            isFavorite={favoriteSet.has(product.id)}
+            onFavoriteClick={() => toggle(product.id)}
+            key={product.id}
+            product={product}
+          />
         ))}
       </Box>
 

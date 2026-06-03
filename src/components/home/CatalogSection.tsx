@@ -5,8 +5,13 @@ import { CardsCarousel } from '../common/CardsCarousel';
 import { ProductCard } from '../common/ProductCard';
 import { CatalogBanner } from './CatalogBanner';
 import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
+import { useFavorites } from '@/hooks/useFavorite';
+import { useMemo } from 'react';
 
 export default function CatalogSection() {
+  const { favorites, toggle } = useFavorites();
+
+  const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   return (
     <CustomSection data-testid="catalog-section">
       <Container>
@@ -14,7 +19,13 @@ export default function CatalogSection() {
 
         <CardsCarousel
           cards={sampleCatalogProducts}
-          renderCard={(product) => <ProductCard product={product} />}
+          renderCard={(product) => (
+            <ProductCard
+              isFavorite={favoriteSet.has(product.id)}
+              onFavoriteClick={() => toggle(product.id)}
+              product={product}
+            />
+          )}
         />
         <CatalogBanner />
       </Container>
