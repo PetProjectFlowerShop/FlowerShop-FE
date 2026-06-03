@@ -23,7 +23,7 @@ export function ProductDetailsSection({ data }: { data: Product }) {
         gap={{ tablet: 3, desktop: 8 }}
         alignItems="start"
       >
-        <Box sx={{ position: { desktop: 'sticky' }, top: { desktop: '24px' } }}>
+        <Box sx={{ position: { desktop: 'sticky' }, top: { desktop: '104px' } }}>
           <ProductGallery images={imagesToShow} />
         </Box>
         <ProductInfo data={data} />
