@@ -49,7 +49,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         },
       }}
     >
-      {/* 1. ЛІВА КОЛОНКА (МІНІАТЮРИ) */}
+      {/* 1. LEFT COLUMN (THUMBNILS) */}
       <Box
         display={{ xs: 'none', tablet: 'flex' }}
         flexDirection="column"
@@ -98,7 +98,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         })}
       </Box>
 
-      {/* 2. ПРАВА КОЛОНКА (ВЕЛИКЕ ФОТО У SWIPER) */}
+      {/* 2. RIGHT COLUMN (LARGE PHOTO IN SWIPER) */}
       <Box
         flex={1}
         sx={{
