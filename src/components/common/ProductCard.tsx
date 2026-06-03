@@ -1,4 +1,5 @@
 import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
+import HeartIconFilled from '@mui/icons-material/Favorite';
 import {
   Box,
   Button,
@@ -23,7 +24,8 @@ import card_temp from '@/assets/images/card_temp.svg';
 export interface ProductCardProps {
   product: Product;
   currencySymbol?: string;
-  onFavoriteClick?: (id: string) => void;
+  isFavorite: boolean;
+  onFavoriteClick: (id: string) => void;
 }
 
 const getTagStyles = (tag: string, theme: Theme) => {
@@ -89,6 +91,7 @@ export const ProductCard = ({
   product,
   currencySymbol = '$',
   onFavoriteClick,
+  isFavorite = false,
 }: ProductCardProps) => {
   const theme = useTheme();
   const { id, title, price, discount, tags } = product;
@@ -153,7 +156,7 @@ export const ProductCard = ({
               variant="secondary"
               sx={{ zIndex: 3 }}
             >
-              <HeartIconOutline />
+              {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
             </IconButton>
           </Stack>
 
