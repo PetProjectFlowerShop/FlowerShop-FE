@@ -8,7 +8,7 @@ type ProductHeaderProps = {
   price: number;
   available?: boolean;
   isFavorite?: boolean;
-  onFavoriteClick?: () => void;
+  onFavoriteClick: () => void;
 };
 
 export function ProductHeader({

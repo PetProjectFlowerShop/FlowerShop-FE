@@ -1,17 +1,16 @@
-import { Container } from '@mui/material';
-import { CustomSection } from '../common/CustomSection';
-import { SectionHeader } from '../common/SectionHeader';
-import { CardsCarousel } from '../common/CardsCarousel';
-import { ProductCard } from '../common/ProductCard';
-import { CatalogBanner } from './CatalogBanner';
 import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
-import { useFavorites } from '@/hooks/useFavorite';
-import { useMemo } from 'react';
+import { useFavoritesStore } from '@/store/favorites.store';
+import { Container } from '@mui/material';
+import { CardsCarousel } from '../common/CardsCarousel';
+import { CustomSection } from '../common/CustomSection';
+import { ProductCard } from '../common/ProductCard';
+import { SectionHeader } from '../common/SectionHeader';
+import { CatalogBanner } from './CatalogBanner';
 
 export default function CatalogSection() {
-  const { favorites, toggle } = useFavorites();
+  const favorites = useFavoritesStore((s) => s.items);
+  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
-  const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
   return (
     <CustomSection data-testid="catalog-section">
       <Container>
@@ -21,8 +20,8 @@ export default function CatalogSection() {
           cards={sampleCatalogProducts}
           renderCard={(product) => (
             <ProductCard
-              isFavorite={favoriteSet.has(product.id)}
-              onFavoriteClick={() => toggle(product.id)}
+              isFavorite={!!favorites[product.id]}
+              onFavoriteClick={() => toggleFavorite(product.id)}
               product={product}
             />
           )}

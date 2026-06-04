@@ -1,15 +1,17 @@
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { useDrawer } from '@/hooks/useDrawer';
+import { useCartStore } from '@/store/cart.store';
 import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import HeartIconFilled from '@mui/icons-material/Favorite';
-import { addToCart } from '@/utils/addToCart';
+import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { Box, Button, IconButton, Typography } from '@mui/material';
 
 type ProductQuantityControlsProps = {
   quantity: number;
   productId: string;
+  wrapType: string;
   onQuantityChange: (updater: number | ((prev: number) => number)) => void;
-  onFavoriteClick?: () => void;
+  onFavoriteClick: () => void;
   isFavorite?: boolean;
 };
 
@@ -18,6 +20,7 @@ const MAX_QUANTITY = 99;
 export function ProductQuantityControls({
   quantity,
   productId,
+  wrapType,
   onQuantityChange,
   onFavoriteClick,
   isFavorite = false,
@@ -28,6 +31,8 @@ export function ProductQuantityControls({
     onQuantityChange((prev) => prev - 1);
   };
 
+  const addItemToCart = useCartStore((state) => state.addToCart);
+  const { toggleDrawer } = useDrawer();
   const handleIncrease = () => {
     if (quantity >= MAX_QUANTITY) return;
     onQuantityChange((prev) => prev + 1);
@@ -82,7 +87,14 @@ export function ProductQuantityControls({
           <AddIcon />
         </Button>
       </Box>
-      <Button variant="contained" fullWidth onClick={() => addToCart(productId, quantity)}>
+      <Button
+        variant="contained"
+        fullWidth
+        onClick={() => {
+          addItemToCart(productId, wrapType, quantity);
+          toggleDrawer('cart', true)();
+        }}
+      >
         Add to cart
       </Button>
       <IconButton
