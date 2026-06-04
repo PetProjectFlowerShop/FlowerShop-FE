@@ -45,7 +45,7 @@ export function Catalog() {
           <ProductList />
         </Box>
       </Box>
-      <RecommendationsSection />
+      <RecommendationsSection title="Recommendations" />
     </PageContainer>
   );
 }
