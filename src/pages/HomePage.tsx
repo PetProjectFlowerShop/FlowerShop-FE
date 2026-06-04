@@ -10,7 +10,7 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
-      <RecommendationsSection />
+      <RecommendationsSection title="Our recommendations" subtitle="Perfect for special moments" />
       <PromoSection />
       <CatalogSection />
       <AboutUsSection />

@@ -7,14 +7,20 @@ import { sampleRecommendedProducts } from '@/api/mock-data/sampleRecommendedProd
 import { useFavorites } from '@/hooks/useFavorite';
 import { useMemo } from 'react';
 
-export default function RecommendationsSection() {
+type RecommendationsSectionProps = {
+  title: string;
+  subtitle?: string;
+};
+
+export default function RecommendationsSection({ title, subtitle }: RecommendationsSectionProps) {
   const { favorites, toggle } = useFavorites();
 
   const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
+
   return (
     <CustomSection data-testid="reccomendation-section">
       <Container>
-        <SectionHeader title="Our recommendations" subtitle="Perfect for special moments" />
+        <SectionHeader title={title} subtitle={subtitle} />
         <CardsCarousel
           cards={sampleRecommendedProducts}
           renderCard={(product) => (
