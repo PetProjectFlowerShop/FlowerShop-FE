@@ -1,20 +1,19 @@
+import { fetchProducts } from '@/api/products';
+import { getProductsFromCache } from '@/lib/products/getProductsFromCache';
+import { useFavoritesStore } from '@/store/favorites.store';
+import { parseProductFilters } from '@/utils/productFilters';
 import { Box, Button, Pagination } from '@mui/material';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { fetchProducts } from '@/api/products';
-import { parseProductFilters } from '@/utils/productFilters';
-import { getProductsFromCache } from '@/lib/products/getProductsFromCache';
 import { ProductCard } from '../common/ProductCard';
 import { EmptyProductList } from './EmptyProductList';
-import { useFavorites } from '@/hooks/useFavorite';
 
 export function ProductList() {
   const [searchParams, setSearchParams] = useSearchParams();
   const queryClient = useQueryClient();
-  const { favorites, toggle } = useFavorites();
-
-  const favoriteSet = useMemo(() => new Set(favorites), [favorites]);
+  const favorites = useFavoritesStore((s) => s.items);
+  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
   const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
 
   const { page, ...filtersWithoutPage } = filters;
@@ -91,8 +90,8 @@ export function ProductList() {
       >
         {products.map((product) => (
           <ProductCard
-            isFavorite={favoriteSet.has(product.id)}
-            onFavoriteClick={() => toggle(product.id)}
+            isFavorite={!!favorites[product.id]}
+            onFavoriteClick={() => toggleFavorite(product.id)}
             key={product.id}
             product={product}
           />

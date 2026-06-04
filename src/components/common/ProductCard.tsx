@@ -18,8 +18,10 @@ import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 
 import type { Product } from '@/types/product';
-import { addToCart } from '@/utils/addToCart';
+
 import card_temp from '@/assets/images/card_temp.svg';
+import { useCartStore } from '@/store/cart.store';
+import { useDrawer } from '@/hooks/useDrawer';
 
 export interface ProductCardProps {
   product: Product;
@@ -95,8 +97,10 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   const theme = useTheme();
   const { id, title, price, discount, tags } = product;
-
+  const addItemToCart = useCartStore((state) => state.addToCart);
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
+  const defaultWrap = product.packagingType?.[0]?.key;
+  const { toggleDrawer } = useDrawer();
 
   return (
     <Card elevation={0} sx={getCardStyles()}>
@@ -150,7 +154,7 @@ export const ProductCard = ({
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                onFavoriteClick?.(id);
+                onFavoriteClick(id);
               }}
               onMouseDown={(e) => e.stopPropagation()}
               variant="secondary"
@@ -190,7 +194,11 @@ export const ProductCard = ({
           variant="contained"
           color="primary"
           fullWidth
-          onClick={() => addToCart(product.id, 1)}
+          onClick={() => {
+            if (!defaultWrap) return;
+            addItemToCart(product.id, defaultWrap, 1);
+            toggleDrawer('cart', true)();
+          }}
         >
           Add to cart
         </Button>
