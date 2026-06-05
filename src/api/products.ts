@@ -70,14 +70,12 @@ export const getProductById = async (id: string) => {
   return res.json();
 };
 
-export const getProductsByIds = async (ids: string[], excludeId?: string): Promise<Product[]> => {
+export const getProductsByIds = async (ids: string[]): Promise<Product[]> => {
   const res = await fetch(`/api/products/by-ids?ids=${ids.join(',')}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch products');
   }
 
-  const data = await res.json();
-
-  return excludeId ? data.filter((p: Product) => p.id !== excludeId) : data;
+  return res.json();
 };

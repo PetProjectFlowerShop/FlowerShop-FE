@@ -16,13 +16,14 @@ import { useParams } from 'react-router-dom';
 export default function RecentlyViewedSection() {
   const favorites = useFavoritesStore((s) => s.items);
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
-  const ids = useRecentlyStore((store) => store.items);
-
+  const ids = useRecentlyStore((s) => s.items);
   const { id: currentProductId } = useParams();
 
+  const filteredIds = currentProductId ? ids.filter((id) => id !== currentProductId) : ids;
+
   const { data } = useQuery({
-    queryKey: ['recently-viewed', ids],
-    queryFn: () => getProductsByIds(ids, currentProductId),
+    queryKey: ['recently-viewed', filteredIds.join(',')],
+    queryFn: () => getProductsByIds(filteredIds),
     enabled: ids.length > 0,
   });
 
