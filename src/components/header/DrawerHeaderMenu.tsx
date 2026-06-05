@@ -35,7 +35,7 @@ export function DrawerHeaderMenu({ isOpen, onClose }: DrawerHeaderProps) {
           mx: theme.spacingTokens.stackXs,
         })}
       >
-        <Menu direction="column" />
+        <Menu direction="column" onItemClick={onClose} />
       </Box>
       <Divider />
       <Box

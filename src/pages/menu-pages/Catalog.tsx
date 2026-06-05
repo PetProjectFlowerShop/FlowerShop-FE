@@ -11,8 +11,11 @@ import RecommendationsSection from '@/components/home/RecommendationsSection';
 import catalogBaner from '../../assets/images/catalog-banner.webp';
 import TitleWithImageSection from '@/components/common/TitleWithImageSection';
 import { Box } from '@mui/material';
+import { useRecentlyStore } from '@/store/recently.store';
+import RecentlyViewedSection from '@/components/home/RecentlyViewedSection';
 
 export function Catalog() {
+  const viewedProducts = useRecentlyStore((store) => store.items);
   return (
     <PageContainer>
       <DynamicBreadcrumbs mb={2} />
@@ -45,7 +48,11 @@ export function Catalog() {
           <ProductList />
         </Box>
       </Box>
-      <RecommendationsSection title="Recommendations" />
+      {viewedProducts.length > 0 ? (
+        <RecentlyViewedSection />
+      ) : (
+        <RecommendationsSection title="Recommendations" />
+      )}
     </PageContainer>
   );
 }

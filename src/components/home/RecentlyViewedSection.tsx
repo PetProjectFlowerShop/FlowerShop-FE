@@ -1,26 +1,42 @@
 import { Container } from '@mui/material';
 
-import type { Product } from '@/types/product';
 import { useFavoritesStore } from '@/store/favorites.store';
+import type { Product } from '@/types/product';
 
 import { CardsCarousel } from '../common/CardsCarousel';
 import { CustomSection } from '../common/CustomSection';
 import { ProductCard } from '../common/ProductCard';
 import { SectionHeader } from '../common/SectionHeader';
 
-import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
+import { getProductsByIds } from '@/api/products';
+import { useRecentlyStore } from '@/store/recently.store';
+import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
 
 export default function RecentlyViewedSection() {
   const favorites = useFavoritesStore((s) => s.items);
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
+  const ids = useRecentlyStore((store) => store.items);
+
+  const { id: currentProductId } = useParams();
+
+  const { data } = useQuery({
+    queryKey: ['recently-viewed', ids],
+    queryFn: () => getProductsByIds(ids, currentProductId),
+    enabled: ids.length > 0,
+  });
+
+  if (!data || !data.length) {
+    return null;
+  }
 
   return (
     <CustomSection data-testid="recently-viewed-section">
       <Container>
-        <SectionHeader title="Products" />
+        <SectionHeader title="Recently viewed" />
 
         <CardsCarousel
-          cards={sampleCatalogProducts}
+          cards={data}
           renderCard={(product: Product) => (
             <ProductCard
               product={product}

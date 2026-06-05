@@ -81,6 +81,17 @@ export const handlers = [
       totalPages,
     });
   }),
+  http.get('*/api/products/by-ids', ({ request }) => {
+    const url = new URL(request.url);
+
+    const ids = url.searchParams.get('ids')?.split(',').filter(Boolean).map(String) ?? [];
+
+    const result = ids
+      .map((id) => products.find((p) => String(p.id) === String(id)))
+      .filter(Boolean);
+
+    return HttpResponse.json(result);
+  }),
   http.get('*/api/products/:id', ({ params }) => {
     const { id } = params;
 

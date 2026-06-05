@@ -5,9 +5,10 @@ import { menuItems } from './data/menu.data';
 type MenuProps = {
   direction?: 'row' | 'column';
   color?: 'light' | 'dark';
+  onItemClick?: () => void;
 };
 
-export function Menu({ direction = 'row', color = 'dark' }: MenuProps) {
+export function Menu({ direction = 'row', color = 'dark', onItemClick }: MenuProps) {
   const location = useLocation();
   const isColumn = direction === 'column';
 
@@ -30,6 +31,7 @@ export function Menu({ direction = 'row', color = 'dark' }: MenuProps) {
             <Button
               component={Link}
               to={item.path}
+              onClick={onItemClick}
               sx={(theme) => ({
                 justifyContent: isColumn ? 'flex-start' : 'center',
                 textTransform: 'none',

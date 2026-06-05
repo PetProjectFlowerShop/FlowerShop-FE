@@ -148,7 +148,16 @@ export const ProductCard = ({
             justifyContent="space-between"
             sx={{ mb: 1.5 }}
           >
-            <Typography>{title}</Typography>
+            <Typography
+              sx={{
+                display: '-webkit-box',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 2,
+                overflow: 'hidden',
+              }}
+            >
+              {title}
+            </Typography>
 
             <IconButton
               onClick={(e) => {
