@@ -7,6 +7,8 @@ import AccessoriesSection from '../components/home/AccessoriesSection';
 import { ProductDetailsSection } from '../components/Product/ProductDetailsSection';
 import { useQuery } from '@tanstack/react-query';
 import { getProductById } from '../api/products';
+import { useEffect } from 'react';
+import { useRecentlyStore } from '@/store/recently.store';
 
 export function ProductPage() {
   const { id } = useParams();
@@ -15,6 +17,12 @@ export function ProductPage() {
     queryFn: () => getProductById(id!),
     enabled: !!id,
   });
+  const addProduct = useRecentlyStore((state) => state.addProduct);
+  useEffect(() => {
+    if (!data?.id) return;
+
+    addProduct(data.id);
+  }, [data?.id, addProduct]);
 
   if (!id) return <div>No product</div>;
   if (isLoading) return <div>Loading...</div>;
