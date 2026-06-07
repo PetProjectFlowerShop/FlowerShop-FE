@@ -8,7 +8,6 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Chip,
   IconButton,
   Stack,
   Typography,
@@ -16,12 +15,11 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-
 import type { Product } from '@/types/product';
-
 import card_temp from '@/assets/images/card_temp.svg';
 import { useCartStore } from '@/store/cart.store';
 import { useDrawer } from '@/hooks/useDrawer';
+import { CardTag } from './CardTag';
 
 export interface ProductCardProps {
   product: Product;
@@ -29,25 +27,6 @@ export interface ProductCardProps {
   isFavorite: boolean;
   onFavoriteClick: (id: string) => void;
 }
-
-const getTagStyles = (tag: string, theme: Theme) => {
-  const lowerTag = tag.toLowerCase();
-  let bgColor = theme.palette.grey[400];
-
-  if (lowerTag.includes('new')) {
-    bgColor = theme.palette.primary.dark;
-  } else if (lowerTag.includes('popular')) {
-    bgColor = theme.palette.secondary.dark;
-  } else if (lowerTag.includes('offer')) {
-    bgColor = '#D88D93';
-  }
-
-  return {
-    backgroundColor: bgColor,
-    color: theme.palette.common.white,
-    '& .MuiChip-label': { padding: '8px 12px' },
-  };
-};
 
 const getCardStyles = () => ({
   maxWidth: 360,
@@ -104,7 +83,7 @@ export const ProductCard = ({
 
   return (
     <Card elevation={0} sx={getCardStyles()}>
-      <CardActionArea component={Link} to={`/product/${id}`} sx={getActionAreaStyles()}>
+      <CardActionArea component={Link} to={`/catalog/${id}`} sx={getActionAreaStyles()}>
         <Box sx={getImageContainerStyles()}>
           <CardMedia
             component="img"
@@ -125,17 +104,20 @@ export const ProductCard = ({
             sx={getTagsContainerStyles(theme)}
           >
             {discount && (
-              <Chip
+              <CardTag
                 label={`-${discount}%`}
                 sx={{
                   backgroundColor: theme.palette.secondary.main,
                   color: 'white',
+                  borderColor: theme.palette.secondary.main,
                 }}
               />
             )}
-            {tags.map((tag, index) => (
-              <Chip key={index} label={tag} sx={getTagStyles(tag, theme)} />
-            ))}
+            {tags
+              .filter((tag) => !(discount && tag.includes('%')))
+              .map((tag, index) => (
+                <CardTag key={index} label={tag} tag={tag} />
+              ))}
           </Stack>
         </Box>
 
