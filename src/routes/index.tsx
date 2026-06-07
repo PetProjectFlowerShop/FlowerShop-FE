@@ -23,12 +23,12 @@ export function AppRoutes() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/catalog/:id" element={<ProductPage />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/delivery-and-payment" element={<DeliveryAndPayment />} />
         <Route path="/legal-links/support" element={<Support />} />
         <Route path="/legal-links/license" element={<License />} />
         <Route path="/legal-links/terms-of-service" element={<TermOfService />} />
-        <Route path="/product/:id" element={<ProductPage />} />
       </Route>
 
       <Route element={<AuthLayout />}>

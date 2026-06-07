@@ -83,7 +83,7 @@ export const ProductCard = ({
 
   return (
     <Card elevation={0} sx={getCardStyles()}>
-      <CardActionArea component={Link} to={`/product/${id}`} sx={getActionAreaStyles()}>
+      <CardActionArea component={Link} to={`/catalog/${id}`} sx={getActionAreaStyles()}>
         <Box sx={getImageContainerStyles()}>
           <CardMedia
             component="img"
