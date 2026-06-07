@@ -30,7 +30,7 @@ export function ProductPage() {
 
   return (
     <PageContainer>
-      <DynamicBreadcrumbs customLastStep={data.title} />
+      <DynamicBreadcrumbs customLastStep={data.title} mb={0} />
       <ProductDetailsSection data={data} />
       <AccessoriesSection />
       <RecentlyViewedSection />
