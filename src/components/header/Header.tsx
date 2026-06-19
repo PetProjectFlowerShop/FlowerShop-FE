@@ -9,7 +9,11 @@ import { useState } from 'react';
 import { Icon } from '../common/Icon';
 import { DrawerHeaderMenu } from './DrawerHeaderMenu';
 
-export function Header() {
+type HeaderProps = {
+  visible: boolean;
+};
+
+export function Header({ visible }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('desktop'));
@@ -24,6 +28,9 @@ export function Header() {
         backgroundColor: 'background.default',
         color: 'text.primary',
         pb: 4,
+        top: 0,
+        transition: 'transform 300ms ease',
+        transform: visible ? 'translateY(0)' : 'translateY(-100%)',
       }}
     >
       <Container maxWidth="desktop">
