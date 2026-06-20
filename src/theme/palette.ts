@@ -40,4 +40,5 @@ export const palette: PaletteOptions = {
     100: '#E0E3D8',
   },
   divider: 'rgba(0, 0, 0, 0.35)',
+  dividerLight: '#E0E0E0',
 };
