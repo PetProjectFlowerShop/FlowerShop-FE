@@ -8,9 +8,12 @@ import AppDrawer from '../components/common/AppDrawer';
 import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { CartForm } from '@/components/common/CartForm.tsx';
+import { useCartStore } from '@/store/cart.store.ts';
 
 export function MainLayout() {
   const { drawerView, isDrawerOpen, closeDrawer } = useDrawer();
+  const cartItemsRecord = useCartStore((state) => state.items);
+  const cartItemsArray = Object.values(cartItemsRecord);
 
   return (
     <Box
@@ -24,7 +27,7 @@ export function MainLayout() {
       <AppDrawer isOpen={isDrawerOpen} onClose={closeDrawer}>
         {drawerView === 'auth' && <LoginForm />}
         {drawerView === 'favorite' && <div>favorite</div>}
-        {drawerView === 'cart' && <CartForm cartItems={[]} onClose={closeDrawer} />}
+        {drawerView === 'cart' && <CartForm cartItems={cartItemsArray} onClose={closeDrawer} />}
       </AppDrawer>
 
       <TopBar />

@@ -187,7 +187,7 @@ export const ProductCard = ({
           fullWidth
           onClick={() => {
             if (!defaultWrap) return;
-            addItemToCart(product.id, defaultWrap, 1);
+            addItemToCart(product, defaultWrap, 1);
             toggleDrawer('cart', true)();
           }}
         >
