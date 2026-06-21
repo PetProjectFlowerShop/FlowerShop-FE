@@ -11,8 +11,6 @@ import { CartForm } from '@/components/common/CartForm.tsx';
 
 export function MainLayout() {
   const { drawerView, isDrawerOpen, closeDrawer } = useDrawer();
-  const drawerData = useDrawer();
-  console.log('Що всередині useDrawer:', drawerData);
 
   return (
     <Box

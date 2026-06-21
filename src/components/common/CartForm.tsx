@@ -2,10 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import AccessoriesSection from '../home/AccessoriesSection';
-import { SectionHeader } from './SectionHeader';
 import { CartItemView } from './CartItemView';
 import type { CartItemType } from './CartItemType';
 import { useNavigate } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 const containerStyles: React.CSSProperties = {
   width: '708px',
@@ -17,6 +17,7 @@ const containerStyles: React.CSSProperties = {
   boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'column',
+  gap: '16px',
 };
 
 type FormValues = {
@@ -40,10 +41,8 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
   if (cartItems.length === 0) {
     return (
       <div style={containerStyles}>
-        <SectionHeader
-          title="Cart"
-          subtitle="Your cart is empty. Let’s find something beautiful."
-        />
+        <Typography variant="h2">Cart</Typography>
+        <Typography variant="body1">Your cart is empty. Let’s find something beautiful.</Typography>
         <Button variant="contained" color="primary" fullWidth onClick={handleGoToCatalog}>
           To catalog
         </Button>
@@ -60,7 +59,7 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
 
   return (
     <div style={containerStyles}>
-      <SectionHeader title="Cart" />
+      <Typography variant="h2">Cart</Typography>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
