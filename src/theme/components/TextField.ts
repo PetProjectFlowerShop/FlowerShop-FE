@@ -21,24 +21,23 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
   },
   styleOverrides: {
     root: ({ theme }) => ({
+      minHeight: '56px',
       width: '100%',
-      borderRadius: '8px',
+      borderWidth: '1px',
+      borderRadius: '10px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
 
       '& .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.divider,
-        borderWidth: '1px',
       },
 
       '&:hover .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.primary.main,
-        borderWidth: '1px',
       },
 
       '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.primary.main,
-        borderWidth: '1px',
       },
 
       '&.Mui-disabled': {
@@ -52,13 +51,6 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
       '&.Mui-error .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.error.main,
       },
-
-      '& .MuiOutlinedInput-input': {
-        paddingLeft: theme.spacing(1),
-        paddingRight: theme.spacing(1),
-        height: '100%',
-        boxSizing: 'border-box',
-      },
     }),
   },
 };
@@ -69,7 +61,7 @@ export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
       position: 'relative',
       transform: 'none',
       marginBottom: '4px',
-      ...theme.typography.body1,
+      ...theme.typography.caption,
       color: theme.palette.text.secondary,
 
       '&.Mui-focused': {

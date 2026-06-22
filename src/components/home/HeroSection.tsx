@@ -7,6 +7,7 @@ export default function HeroSection() {
   return (
     <Box
       data-testid="hero-section"
+      component="section"
       sx={{
         display: 'flex',
         position: 'relative',
@@ -25,7 +26,7 @@ export default function HeroSection() {
             backdropFilter: 'blur(12px)',
             background: 'rgba(0,0,0,0.12)',
             borderRadius: 5,
-            px: { xs: 3, tablet: 8 },
+            px: { xs: 3, tablet: 6 },
             py: 10,
             color: 'white',
             width: '100%',
@@ -41,6 +42,7 @@ export default function HeroSection() {
               sx={{
                 mb: { xs: 2, tablet: 6 },
                 maxWidth: { xs: 'none', tablet: '200px', desktop: 'none' },
+                letterSpacing: 0,
               }}
             >
               Charming blooms.
@@ -52,16 +54,23 @@ export default function HeroSection() {
               <Typography
                 variant="body1"
                 sx={{
-                  mb: 6,
+                  mb: { xs: 6, tablet: 9 },
                   opacity: 0.9,
                 }}
+                letterSpacing={0}
               >
                 Each bouquet is thoughtfully crafted from fresh, hand-selected flowers to capture
                 emotion, beauty, and meaning. Designed for life’s most special moments, our blooms
                 bring warmth, elegance, and a touch of magic to every occasion.
               </Typography>
 
-              <Button variant="contained" component={Link} to="/catalog" fullWidth>
+              <Button
+                variant="contained"
+                component={Link}
+                to="/catalog"
+                fullWidth
+                sx={{ lineHeight: 1.4 }}
+              >
                 Go to catalog
               </Button>
             </Box>
@@ -76,8 +85,8 @@ export default function HeroSection() {
           display: { xs: 'none', tablet: 'block' },
           position: 'absolute',
           right: { xs: 0, desktop: '20px' },
-          bottom: { tablet: '33%', desktop: '20%' },
-          width: '350px',
+          bottom: { tablet: '38%', desktop: '20%' },
+          width: '300px',
           transform: { tablet: 'scale(1.05)', desktop: 'scale(1.5)' },
           transformOrigin: 'top right',
         }}

@@ -1,10 +1,9 @@
 import { sampleRecommendedProducts } from '@/api/mock-data/sampleRecommendedProducts';
 import { useFavoritesStore } from '@/store/favorites.store';
-import { Container } from '@mui/material';
 import { CardsCarousel } from '../common/CardsCarousel';
-import { CustomSection } from '../common/CustomSection';
 import { ProductCard } from '../common/ProductCard';
 import { SectionHeader } from '../common/SectionHeader';
+import { SectionContainer } from '../layout/SectionContainer';
 
 type RecommendationsSectionProps = {
   title: string;
@@ -16,8 +15,8 @@ export default function RecommendationsSection({ title, subtitle }: Recommendati
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
   return (
-    <CustomSection data-testid="reccomendation-section">
-      <Container>
+    <section>
+      <SectionContainer>
         <SectionHeader title={title} subtitle={subtitle} />
         <CardsCarousel
           cards={sampleRecommendedProducts}
@@ -29,7 +28,7 @@ export default function RecommendationsSection({ title, subtitle }: Recommendati
             />
           )}
         />
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }

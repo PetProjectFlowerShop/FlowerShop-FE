@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { Header } from '../components/header/Header';
 import { TopBar } from '../components/top-bar/TopBar';
@@ -25,8 +25,10 @@ export function MainLayout() {
         {drawerView === 'cart' && <div>cart</div>}
       </AppDrawer>
 
-      <TopBar />
-      <Header />
+      <Stack spacing={2}>
+        <TopBar />
+        <Header />
+      </Stack>
 
       <Box component="main" sx={{ flexGrow: 1 }}>
         <RouteErrorBoundary>

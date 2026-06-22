@@ -43,24 +43,6 @@ export function SearchFlowers() {
           ),
         },
       }}
-      sx={(theme) => ({
-        gap: 2,
-        '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: 'action.active',
-        },
-        '& .MuiOutlinedInput-root': {
-          height: 56,
-          px: theme.spacingTokens.stackXs,
-        },
-        '& .MuiOutlinedInput-input': {
-          ...theme.typography.caption,
-          '&::placeholder': {
-            p: 0,
-            color: theme.palette.text.disabled,
-            opacity: 1,
-          },
-        },
-      })}
     ></TextField>
   );
 }

@@ -1,15 +1,15 @@
-import { Box, Button, Container, Typography } from '@mui/material';
-import { CustomSection } from '@/components/common/CustomSection';
-import { SectionHeader } from '@/components/common/SectionHeader';
-import { ValuesList } from './ValuesList';
 import banner from '@/assets/images/AboutUsBanner.webp';
-import { AdvantageList } from './AdvantageList';
+import { SectionHeader } from '@/components/common/SectionHeader';
+import { SectionContainer } from '@/components/layout/SectionContainer';
+import { Box, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { AdvantageList } from './AdvantageList';
+import { ValuesList } from './ValuesList';
 
 export default function AboutUsSection() {
   return (
-    <CustomSection data-testid="about-us-section">
-      <Container>
+    <section>
+      <SectionContainer>
         <Box
           sx={{
             display: 'grid',
@@ -53,7 +53,13 @@ export default function AboutUsSection() {
               <ValuesList />
             </Box>
 
-            <Button variant="contained" sx={{ mb: 4 }} fullWidth component={Link} to="/about-us">
+            <Button
+              variant="contained"
+              sx={{ mb: 4, py: '18px' }}
+              fullWidth
+              component={Link}
+              to="/about-us"
+            >
               Read more about us
             </Button>
           </Box>
@@ -65,7 +71,7 @@ export default function AboutUsSection() {
           alt="Banner decoration"
           sx={{
             maxHeight: 434,
-            borderRadius: 2,
+            borderRadius: 5,
             mb: 7,
             width: '100%',
             objectFit: 'cover',
@@ -75,7 +81,7 @@ export default function AboutUsSection() {
         />
 
         <AdvantageList />
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }

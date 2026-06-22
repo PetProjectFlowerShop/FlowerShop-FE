@@ -42,4 +42,5 @@ let theme: Theme = createTheme({
 theme = createTheme(theme, {
   typography: typography(theme),
 });
+
 export { theme };

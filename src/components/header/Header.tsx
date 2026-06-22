@@ -45,11 +45,7 @@ export function Header() {
               sx={{ order: 1 }}
               aria-label={isMenuOpen ? 'close menu' : 'open menu'}
             >
-              <Icon
-                name={isMenuOpen ? 'close' : 'menu'}
-                width={isMenuOpen ? 24 : 18}
-                height={isMenuOpen ? 24 : 12}
-              />
+              <Icon name={isMenuOpen ? 'close' : 'menu'} width={24} height={24} />
             </IconButton>
           )}
           <Box

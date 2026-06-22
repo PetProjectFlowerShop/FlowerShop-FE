@@ -31,7 +31,13 @@ export const CatalogBanner = () => {
       <Button
         variant="contained"
         color="primary"
-        sx={{ maxWidth: '400px', width: { tablet: '100%' } }}
+        sx={{
+          maxWidth: '400px',
+          width: { tablet: '100%' },
+          minWidth: '258px',
+          paddingY: { xs: '18px', tablet: '16px' },
+          lineHeight: { tablet: 1.4 },
+        }}
         component={Link}
         to="/catalog"
       >

@@ -1,9 +1,8 @@
-import { Container } from '@mui/material';
-import { CustomSection } from '../common/CustomSection';
-import { SectionHeader } from '../common/SectionHeader';
+import { sampleReviews } from '@/api/mock-data/sampleReviews';
 import { CardsCarousel } from '../common/CardsCarousel';
 import { ReviewCustomerCard } from '../common/ReviewCustomerCard';
-import { sampleReviews } from '@/api/mock-data/sampleReviews';
+import { SectionHeader } from '../common/SectionHeader';
+import { SectionContainer } from '../layout/SectionContainer';
 
 interface CustomersReviewsSectionProps {
   isCentered?: boolean;
@@ -15,8 +14,8 @@ export default function CustomersReviewsSection({
   isReview,
 }: CustomersReviewsSectionProps) {
   return (
-    <CustomSection data-testid="customers-reviews-section">
-      <Container>
+    <section>
+      <SectionContainer>
         <SectionHeader title="Customer Reviews" subtitle="Thank you for your review" />
 
         <CardsCarousel
@@ -25,7 +24,7 @@ export default function CustomersReviewsSection({
           isReview={isReview}
           renderCard={(review) => <ReviewCustomerCard review={review} />}
         />
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }

@@ -12,6 +12,7 @@ const cardStyles = {
   alignItems: 'center',
   textAlign: 'center',
   width: '100%',
+  gap: 1,
 };
 
 export function AdvantageCard({ img, title, text }: AdvantageCardProps) {
@@ -21,7 +22,7 @@ export function AdvantageCard({ img, title, text }: AdvantageCardProps) {
         component="img"
         src={img}
         alt={title}
-        sx={{ maxWidth: '163px', width: '100%', height: 'auto' }}
+        sx={{ width: '145px', height: '145px', objectFit: 'cover' }}
       />
       <Typography variant="h4" component="h3">
         {title}

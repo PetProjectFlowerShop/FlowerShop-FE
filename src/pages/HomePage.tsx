@@ -1,3 +1,4 @@
+import { PageLayout } from '@/components/layout/PageLayout';
 import AboutUsSection from '../components/home/AboutUsSection';
 import CatalogSection from '../components/home/CatalogSection';
 import CustomersReviewsSection from '../components/home/CustomersReviewsSection';
@@ -8,7 +9,7 @@ import FaqSection from '../components/home/faq/FaqSection';
 
 export function HomePage() {
   return (
-    <>
+    <PageLayout>
       <HeroSection />
       <RecommendationsSection title="Our recommendations" subtitle="Perfect for special moments" />
       <PromoSection />
@@ -16,6 +17,6 @@ export function HomePage() {
       <AboutUsSection />
       <CustomersReviewsSection isCentered={true} />
       <FaqSection />
-    </>
+    </PageLayout>
   );
 }

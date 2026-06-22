@@ -1,17 +1,20 @@
-import { Box, Stack, Typography } from '@mui/material';
 import faq from '@/assets/images/faq-banner.jpg';
-import { CustomSection } from '@/components/common/CustomSection';
-import { Container } from '@mui/material';
+import { SectionContainer } from '@/components/layout/SectionContainer';
 import { theme } from '@/theme';
+import { Box, Stack, Typography } from '@mui/material';
 import { FaqList } from './FaqList';
 
 export default function FaqSection() {
   return (
-    <CustomSection>
-      <Container>
+    <section>
+      <SectionContainer>
         <Stack spacing={theme.spacingTokens.contentGapDesktop}>
           <Stack spacing={theme.spacingTokens.stackXs}>
-            <Typography variant="h2" sx={{ color: 'text.primary' }}>
+            <Typography
+              variant="h1"
+              component="h2"
+              sx={{ color: 'text.primary', lineHeight: '85px' }}
+            >
               FAQ
             </Typography>
             <Typography variant="h4" sx={{ color: 'text.secondary' }}>
@@ -75,7 +78,7 @@ export default function FaqSection() {
             </Box>
           </Box>
         </Stack>
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }

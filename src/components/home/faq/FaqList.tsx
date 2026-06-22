@@ -22,7 +22,7 @@ function FaqItem({ item }: { item: FaqData }) {
           <Box
             sx={{
               backgroundColor: 'primary.main',
-              borderRadius: '16px',
+              borderRadius: '12px',
               width: 40,
               height: 40,
               padding: '8px',
@@ -48,7 +48,7 @@ function FaqItem({ item }: { item: FaqData }) {
           },
         }}
       >
-        <Typography variant="body1" sx={{ color: 'text.primary' }}>
+        <Typography variant="body1" sx={{ color: 'text.primary', letterSpacing: 0 }}>
           {item.question}
         </Typography>
       </AccordionSummary>
@@ -66,7 +66,7 @@ function FaqItem({ item }: { item: FaqData }) {
 
 export function FaqList() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: theme.spacingTokens.stackXs }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       {faqData.map((item) => (
         <FaqItem key={item.id} item={item} />
       ))}

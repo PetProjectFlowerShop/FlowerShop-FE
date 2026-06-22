@@ -21,6 +21,13 @@ import { cardOverrides } from './card';
 import { chipOverrides } from './chip';
 
 export const components = {
+  MuiTypography: {
+    styleOverrides: {
+      root: {
+        letterSpacing: 0,
+      },
+    },
+  },
   MuiButton: buttonOverrides,
   MuiIconButton: iconButtonOverrides,
   MuiContainer: containerOverrides,

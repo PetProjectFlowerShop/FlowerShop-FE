@@ -54,10 +54,11 @@ export const typography = (theme: Theme) => ({
     textTransform: 'none' as const,
     fontSize: '16px',
     fontWeight: 500,
-    lineHeight: 1.4,
+    lineHeight: 1.5,
     [theme.breakpoints.up('tablet')]: {
       fontSize: '20px',
     },
+    letterSpacing: 0,
   },
   body1: {
     fontFamily: '"Quicksand", sans-serif',
