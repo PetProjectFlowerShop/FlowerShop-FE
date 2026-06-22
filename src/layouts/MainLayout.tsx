@@ -1,13 +1,13 @@
-import { Box, Stack } from '@mui/material';
-import { Outlet } from 'react-router-dom';
-import { Header } from '../components/header/Header';
-import { TopBar } from '../components/top-bar/TopBar';
-import { Footer } from '../components/footer/Footer';
-import { LoginForm } from '../components/login/LoginForm';
-import AppDrawer from '../components/common/AppDrawer';
-import { useDrawer } from '../hooks/useDrawer.ts';
-import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
+import { Box } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import AppDrawer from '../components/common/AppDrawer';
+import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
+import { Footer } from '../components/footer/Footer';
+import { Header } from '../components/header/Header';
+import { LoginForm } from '../components/login/LoginForm';
+import { TopBar } from '../components/top-bar/TopBar';
+import { useDrawer } from '../hooks/useDrawer.ts';
 
 export function MainLayout() {
   const { drawerView } = useDrawer();
@@ -26,10 +26,10 @@ export function MainLayout() {
         {drawerView === 'favorite' && <div>favorite</div>}
         {drawerView === 'cart' && <div>cart</div>}
       </AppDrawer>
-      <Stack spacing={2}>
-        <TopBar visible={topBarVisible} />
-        <Header visible={headerVisible} />
-      </Stack>
+
+      <TopBar visible={topBarVisible} />
+      <Header visible={headerVisible} />
+
       <Box component="main" sx={{ flexGrow: 1 }}>
         <RouteErrorBoundary>
           <Outlet />
