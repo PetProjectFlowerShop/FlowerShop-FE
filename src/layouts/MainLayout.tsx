@@ -7,9 +7,11 @@ import { LoginForm } from '../components/login/LoginForm';
 import AppDrawer from '../components/common/AppDrawer';
 import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
+import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
 
 export function MainLayout() {
   const { drawerView } = useDrawer();
+  const { topBarVisible, headerVisible } = useHeaderVisibility();
   return (
     <Box
       sx={{
@@ -24,12 +26,10 @@ export function MainLayout() {
         {drawerView === 'favorite' && <div>favorite</div>}
         {drawerView === 'cart' && <div>cart</div>}
       </AppDrawer>
-
       <Stack spacing={2}>
-        <TopBar />
-        <Header />
+        <TopBar visible={topBarVisible} />
+        <Header visible={headerVisible} />
       </Stack>
-
       <Box component="main" sx={{ flexGrow: 1 }}>
         <RouteErrorBoundary>
           <Outlet />
