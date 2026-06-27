@@ -7,7 +7,7 @@ export function SectionContainer({ children }: SectionContainerProps) {
     <Container
       disableGutters
       sx={{
-        px: { xs: 16, tablet: 20, desktop: 30 },
+        px: { xs: 4, tablet: 10, desktop: 18 },
       }}
     >
       {children}
