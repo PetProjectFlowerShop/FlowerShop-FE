@@ -1,10 +1,9 @@
 import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
 import { useFavoritesStore } from '@/store/favorites.store';
-import { Container } from '@mui/material';
 import { CardsCarousel } from '../common/CardsCarousel';
-import { CustomSection } from '../common/CustomSection';
 import { ProductCard } from '../common/ProductCard';
 import { SectionHeader } from '../common/SectionHeader';
+import { SectionContainer } from '../layouts/SectionContainer';
 import { CatalogBanner } from './CatalogBanner';
 
 export default function CatalogSection() {
@@ -12,8 +11,8 @@ export default function CatalogSection() {
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
   return (
-    <CustomSection data-testid="catalog-section">
-      <Container>
+    <section data-testid="catalog-section">
+      <SectionContainer>
         <SectionHeader title="Catalog" subtitle="Explore our beautiful bouquets" />
 
         <CardsCarousel
@@ -26,8 +25,8 @@ export default function CatalogSection() {
             />
           )}
         />
-        <CatalogBanner />
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+      <CatalogBanner />
+    </section>
   );
 }
