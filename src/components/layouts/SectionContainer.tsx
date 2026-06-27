@@ -1,0 +1,16 @@
+import { Container } from '@mui/material';
+import type { PropsWithChildren } from 'react';
+type SectionContainerProps = PropsWithChildren;
+
+export function SectionContainer({ children }: SectionContainerProps) {
+  return (
+    <Container
+      disableGutters
+      sx={{
+        px: { xs: 16, tablet: 20, desktop: 30 },
+      }}
+    >
+      {children}
+    </Container>
+  );
+}
