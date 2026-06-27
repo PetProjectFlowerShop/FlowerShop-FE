@@ -28,9 +28,9 @@ export function Header({ visible }: HeaderProps) {
         backgroundColor: 'background.default',
         color: 'text.primary',
         pb: 4,
-        borderBottom: 1,
+        borderBottom: '1px solid',
         borderColor: 'dividerLight',
-        borderStyle: 'solid',
+
         top: 0,
         transition: 'transform 300ms ease',
         transform: visible ? 'translateY(0)' : 'translateY(-100%)',
@@ -55,11 +55,7 @@ export function Header({ visible }: HeaderProps) {
               sx={{ order: 1 }}
               aria-label={isMenuOpen ? 'close menu' : 'open menu'}
             >
-              <Icon
-                name={isMenuOpen ? 'close' : 'menu'}
-                width={isMenuOpen ? 24 : 18}
-                height={isMenuOpen ? 24 : 12}
-              />
+              <Icon name={isMenuOpen ? 'close' : 'menu'} width={24} height={24} />
             </IconButton>
           )}
           <Box
