@@ -30,11 +30,8 @@ export const CardTag = ({ label, tag, sx, ...props }: CardTagProps) => {
         justifyContent: 'center',
         backgroundColor: tag ? bgColor : 'transparent',
         color: tag ? theme.palette.common.white : 'inherit',
-        borderRadius: '12px',
+        borderRadius: '20px',
         letterSpacing: 0,
-        borderStyle: 'solid',
-        borderWidth: '1px',
-        borderColor: tag ? bgColor : theme.palette.primary.main,
         padding: '8px 12px',
         ...sx,
       }}

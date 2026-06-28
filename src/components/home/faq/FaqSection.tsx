@@ -25,6 +25,7 @@ export default function FaqSection() {
                 xs: 'flex',
                 desktop: 'grid',
               },
+
               gridTemplateColumns: 'repeat(2, 1fr)',
               gap: { desktop: 6 },
             }}
@@ -35,6 +36,7 @@ export default function FaqSection() {
                 alignItems: 'stretch',
                 flexDirection: { xs: 'row', desktop: 'column-reverse' },
                 gap: 4,
+                justifyContent: 'start',
               }}
             >
               <Box
@@ -45,6 +47,8 @@ export default function FaqSection() {
                   backgroundPosition: 'center',
                   borderRadius: '16px',
                   display: { xs: 'none', tablet: 'block' },
+                  width: { desktop: '100%' },
+                  maxHeight: '404px',
                 }}
               />
               <Typography

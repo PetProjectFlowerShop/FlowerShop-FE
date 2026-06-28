@@ -12,7 +12,7 @@ export default function AboutUsSection() {
       <SectionContainer>
         <Box
           sx={{
-            display: 'grid',
+            display: { desktop: 'grid' },
             gridTemplateColumns: { xs: '1fr', desktop: '1fr 1fr' },
             gap: 6,
             mb: { desktop: 10 },

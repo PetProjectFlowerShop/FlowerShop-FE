@@ -80,7 +80,7 @@ export const typography = (theme: Theme) => ({
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,
     fontSize: '14px',
-    lineHeight: 1.5,
+    lineHeight: '20px',
     [theme.breakpoints.up('tablet')]: {
       fontSize: '16px',
       lineHeight: 1.5,
