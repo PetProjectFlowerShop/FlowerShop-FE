@@ -1,14 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
-// import AccessoriesSection from '../home/AccessoriesSection';
 import { CartItemView } from './CartItemView';
-// import type { CartItemType } from './CartItemType';
 import { useNavigate } from 'react-router-dom';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import type { CartItem } from '@/store/cart.store';
 import { AccessoriesCarousel } from './AccessoriesCarousel';
 import accessories from '@/assets/images/accessories.webp';
+
 const MOCK_ACCESSORIES = [
   { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },
   { id: '2', title: 'Candle Floria', price: 23, imgURL: accessories },
@@ -20,10 +19,9 @@ const MOCK_ACCESSORIES = [
 const containerStyles: React.CSSProperties = {
   width: '708px',
   height: '100%',
-  paddingTop: '40px',
-  paddingRight: '72px',
-  paddingBottom: '82px',
-  paddingLeft: '72px',
+  paddingRight: '60px',
+  paddingBottom: '40px',
+  paddingLeft: '60px',
   boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'column',
@@ -63,7 +61,7 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
   const totalSum = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
   const onSubmit = (data: FormValues) => {
-    console.log('Дані форми:', data, cartItems);
+    console.log('Order', data, cartItems);
     onClose();
   };
 
@@ -71,19 +69,18 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
     <div style={containerStyles}>
       <Typography variant="h2">Cart</Typography>
 
-      <form
+      <Box
+        component="form"
         onSubmit={handleSubmit(onSubmit)}
-        style={{
+        sx={{
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
-          borderTop: '1px solid divider',
-          borderBottom: '1px solid divider',
         }}
       >
         <div
           style={{
-            maxHeight: '350px',
+            maxHeight: '440px',
             overflowY: 'auto',
             marginBottom: '24px',
             paddingRight: '8px',
@@ -94,19 +91,20 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
           ))}
         </div>
 
-        <div style={{ flexGrow: 1 }}>
+        <Box mt={2}>
           <Typography>Add Accessories</Typography>
           <AccessoriesCarousel accessories={MOCK_ACCESSORIES} />
-        </div>
+        </Box>
 
-        <div
-          style={{
+        <Box
+          sx={{
+            borderTop: 1,
+            borderColor: 'divider',
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
             marginTop: '20px',
             marginBottom: '20px',
-            paddingTop: '20px',
+            paddingTop: '4px',
           }}
         >
           <Typography variant="body1" color={'text.primary'}>
@@ -115,17 +113,11 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
           <Typography variant="h4" color={'text.primary'}>
             ${totalSum}
           </Typography>
-        </div>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          fullWidth
-          style={{ marginLeft: '20px', padding: '10px 40px' }}
-        >
+        </Box>
+        <Button type="submit" variant="contained" color="primary" fullWidth>
           Submit the order
         </Button>
-      </form>
+      </Box>
     </div>
   );
 }

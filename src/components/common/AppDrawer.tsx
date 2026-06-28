@@ -17,7 +17,7 @@ export default function AppDrawer({ children, onClose, isOpen }: AppDrawerProps)
         sx={{
           position: 'absolute',
           top: 16,
-          right: 16,
+          right: 60,
           zIndex: 9999,
           border: 'none',
         }}
