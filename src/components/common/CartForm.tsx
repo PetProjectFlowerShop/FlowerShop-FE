@@ -6,6 +6,7 @@ import { Box, Typography } from '@mui/material';
 import type { CartItem } from '@/store/cart.store';
 import accessories from '@/assets/images/accessories.webp';
 import { CartAccessories } from './CartAccessories';
+import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
 
 const MOCK_ACCESSORIES = [
   { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },
@@ -56,7 +57,10 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
     );
   }
 
-  const totalSum = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  const totalSum = cartItems.reduce((sum, item) => {
+    const product = sampleCatalogProducts.find((p) => p.id === item.productId);
+    return sum + (product?.price || 0) * item.quantity;
+  }, 0);
 
   const onSubmit = (data: FormValues) => {
     console.log('Order', data, cartItems);
@@ -85,7 +89,7 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
           }}
         >
           {cartItems.map((item) => (
-            <CartItemView key={item.product?.id} item={item} />
+            <CartItemView key={item.productId} item={item} />
           ))}
         </Box>
 

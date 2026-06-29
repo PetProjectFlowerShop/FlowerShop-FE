@@ -3,20 +3,22 @@ import type { CartItem } from '@/store/cart.store';
 import { Icon } from './Icon';
 import card_temp from '@/assets/images/card_temp.svg';
 import { PackageTypeSelect } from '../PackageTypeSelect/PackageTypeSelect';
+import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
 
 interface CartItemViewProps {
   item: CartItem;
 }
 
 export const CartItemView = ({ item }: CartItemViewProps) => {
-  const product = item.product;
-  const title = product?.title || 'Unknown Product';
-  const price = product?.price || 0;
-  const discount = product?.discount || 0;
+  const product = sampleCatalogProducts.find((p) => p.id === item.productId);
 
-  const imageUrl = product?.images?.[0] || card_temp;
+  if (!product) return null;
+  const title = product.title;
+  const price = product.price;
+  const discount = product.discount;
+  const imageUrl = product.images?.[0] || card_temp;
 
-  const handleRemove = () => console.log('Remove item:', product?.id);
+  const handleRemove = () => console.log('Remove item:');
   const handleIncrease = () => console.log('Increase quantity');
   const handleDecrease = () => console.log('Decrease quantity');
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;

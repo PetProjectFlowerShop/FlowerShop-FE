@@ -11,7 +11,7 @@ import type { Product } from '@/types/product';
 
 export const sampleCatalogProducts: Product[] = [
   {
-    id: '0',
+    id: '16',
     title: 'Soft Yellow Alstroemeria 17 Stems',
     tags: ['Popular', 'New', '-20%', 'Season offer'],
     type: ['alstroemeria'],
@@ -30,7 +30,7 @@ export const sampleCatalogProducts: Product[] = [
     packagingType: [craftPackaging, ecoPackaging, silkPackaging],
   },
   {
-    id: '1',
+    id: '24',
     title: 'Ruby Amaryllis 7 Stems',
     tags: ['Popular', 'New', '-20%', 'Season offer'],
     type: ['amaryllis'],
@@ -57,7 +57,7 @@ export const sampleCatalogProducts: Product[] = [
     packagingType: [craftPackaging, luxuryPackaging, goldPackaging, silkPackaging],
   },
   {
-    id: '2',
+    id: '36',
     title: 'Ivory Calla Lilies 11 Stems',
     tags: ['Popular', 'New', '-20%', 'Season offer'],
     type: ['amaryllis'],
