@@ -18,9 +18,9 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
   const discount = product.discount;
   const imageUrl = product.images?.[0] || card_temp;
 
-  const handleRemove = () => console.log('Remove item:');
-  const handleIncrease = () => console.log('Increase quantity');
-  const handleDecrease = () => console.log('Decrease quantity');
+  const handleRemove = () => console.log('Remove item:', item?.productId);
+  const handleIncrease = () => console.log('Increase quantity', item?.quantity);
+  const handleDecrease = () => console.log('Decrease quantity', item?.quantity);
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
 
   return (
