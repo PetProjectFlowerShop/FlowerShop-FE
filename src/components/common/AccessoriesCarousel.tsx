@@ -10,9 +10,25 @@ import 'swiper/css/pagination';
 
 interface AccessoriesCarouselProps {
   accessories: Accessory[];
+  slidesPerView?: number | 'auto';
+  showPagination?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  breakpoints?: Record<number, any>;
 }
 
-export function AccessoriesCarousel({ accessories }: AccessoriesCarouselProps) {
+const DEFAULT_BREAKPOINTS = {
+  0: { slidesPerView: 1, spaceBetween: 16 },
+  600: { slidesPerView: 2.2, spaceBetween: 20 },
+  900: { slidesPerView: 3, spaceBetween: 24 },
+  1200: { slidesPerView: 4, spaceBetween: 24 },
+};
+
+export function AccessoriesCarousel({
+  accessories,
+  slidesPerView = 2,
+  showPagination = false,
+  breakpoints = DEFAULT_BREAKPOINTS,
+}: AccessoriesCarouselProps) {
   const id = useId().replace(/:/g, '');
   const prevClass = `acc-prev-${id}`;
   const nextClass = `acc-next-${id}`;
@@ -24,7 +40,7 @@ export function AccessoriesCarousel({ accessories }: AccessoriesCarouselProps) {
         sx={{
           display: 'flex',
           justifyContent: 'flex-end',
-          mt: { sm: '-48px', md: '-56px' }, // Negative top margin (adjust to match the height of your SectionHeader)
+          mt: { sm: '-48px', md: '-56px' },
           mb: 2,
           position: 'relative',
           zIndex: 2,
@@ -40,24 +56,29 @@ export function AccessoriesCarousel({ accessories }: AccessoriesCarouselProps) {
         </Stack>
       </Box>
 
-      <Box sx={{ position: 'relative', paddingBottom: '40px', mt: '40px' }}>
+      <Box
+        sx={{
+          position: 'relative',
+          paddingBottom: showPagination ? '40px' : 0,
+          mt: '40px',
+        }}
+      >
         <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={16}
-          breakpoints={{
-            0: { slidesPerView: 1, spaceBetween: 16 },
-            600: { slidesPerView: 2.2, spaceBetween: 20 },
-            900: { slidesPerView: 3, spaceBetween: 24 },
-            1200: { slidesPerView: 4, spaceBetween: 24 },
-          }}
+          modules={showPagination ? [Navigation, Pagination] : [Navigation]}
+          slidesPerView={slidesPerView}
+          breakpoints={breakpoints}
           navigation={{
             prevEl: `.${prevClass}`,
             nextEl: `.${nextClass}`,
           }}
-          pagination={{
-            el: `.${paginationClass}`,
-            clickable: true,
-          }}
+          pagination={
+            showPagination
+              ? {
+                  el: `.${paginationClass}`,
+                  clickable: true,
+                }
+              : false
+          }
         >
           {accessories.map((item) => (
             <SwiperSlide key={item.id}>
@@ -66,30 +87,32 @@ export function AccessoriesCarousel({ accessories }: AccessoriesCarouselProps) {
           ))}
         </Swiper>
 
-        <Box
-          className={paginationClass}
-          sx={{
-            position: 'absolute',
-            bottom: '0px',
-            left: 0,
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 10,
-            '& .swiper-pagination-bullet': {
-              width: '8px',
-              height: '8px',
-              backgroundColor: 'action.disabled',
-              opacity: 1,
-              margin: '0 4px !important',
-              transition: 'all 0.3s ease',
-            },
-            '& .swiper-pagination-bullet-active': {
-              backgroundColor: 'secondary.main',
-            },
-          }}
-        />
+        {showPagination && (
+          <Box
+            className={paginationClass}
+            sx={{
+              position: 'absolute',
+              bottom: '0px',
+              left: 0,
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              zIndex: 10,
+              '& .swiper-pagination-bullet': {
+                width: '8px',
+                height: '8px',
+                backgroundColor: 'action.disabled',
+                opacity: 1,
+                margin: '0 4px !important',
+                transition: 'all 0.3s ease',
+              },
+              '& .swiper-pagination-bullet-active': {
+                backgroundColor: 'secondary.main',
+              },
+            }}
+          />
+        )}
       </Box>
     </Box>
   );

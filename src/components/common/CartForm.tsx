@@ -5,8 +5,8 @@ import { CartItemView } from './CartItemView';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import type { CartItem } from '@/store/cart.store';
-import { AccessoriesCarousel } from './AccessoriesCarousel';
 import accessories from '@/assets/images/accessories.webp';
+import { CartAccessories } from './CartAccessories';
 
 const MOCK_ACCESSORIES = [
   { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },
@@ -20,7 +20,6 @@ const containerStyles: React.CSSProperties = {
   width: '708px',
   height: '100%',
   paddingRight: '60px',
-  paddingBottom: '40px',
   paddingLeft: '60px',
   boxSizing: 'border-box',
   display: 'flex',
@@ -92,8 +91,7 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
         </div>
 
         <Box mt={2}>
-          <Typography>Add Accessories</Typography>
-          <AccessoriesCarousel accessories={MOCK_ACCESSORIES} />
+          <CartAccessories accessories={MOCK_ACCESSORIES} />
         </Box>
 
         <Box

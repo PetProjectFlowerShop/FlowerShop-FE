@@ -17,7 +17,7 @@ export default function AccessoriesSection() {
     <CustomSection data-testid="accessories-section">
       <Container>
         <SectionHeader extratitle="Add Accessories" />
-        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} />
+        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
       </Container>
     </CustomSection>
   );
