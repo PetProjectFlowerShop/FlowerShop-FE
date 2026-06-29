@@ -1,7 +1,8 @@
-import { Box, Typography, IconButton, Select, MenuItem, Stack } from '@mui/material';
+import { Box, Typography, IconButton, Stack } from '@mui/material';
 import type { CartItem } from '@/store/cart.store';
 import { Icon } from './Icon';
 import card_temp from '@/assets/images/card_temp.svg';
+import { PackageTypeSelect } from '../PackageTypeSelect/PackageTypeSelect';
 
 interface CartItemViewProps {
   item: CartItem;
@@ -18,9 +19,6 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
   const handleRemove = () => console.log('Remove item:', product?.id);
   const handleIncrease = () => console.log('Increase quantity');
   const handleDecrease = () => console.log('Decrease quantity');
-  const handleWrapChange = () => console.log('Change wrap to:');
-
-  const currentWrap = item.wrapType || 'Kraft Paper Wrap (Free)';
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
 
   return (
@@ -69,24 +67,8 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
         </Box>
 
         <Box pr={{ xs: 0, sm: 8 }} display="grid" gap={{ xs: 1.5, sm: 3 }}>
-          <Box>
-            <Select
-              value={currentWrap}
-              onChange={handleWrapChange}
-              size="small"
-              sx={{
-                borderRadius: '20px',
-                height: '44px',
-                fontSize: '14px',
-                paddingLeft: '12px',
-                width: '100%',
-                '& .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'text.primary',
-                },
-              }}
-            >
-              <MenuItem value={currentWrap}>{currentWrap}</MenuItem>
-            </Select>
+          <Box sx={{ paddingLeft: '12px' }}>
+            <PackageTypeSelect />
           </Box>
           <Box
             sx={{
