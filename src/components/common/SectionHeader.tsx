@@ -1,14 +1,20 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, type Theme } from '@mui/material';
+import type { SystemCssProperties } from '@mui/system';
+
+type MarginBottom = SystemCssProperties<Theme>['marginBottom'];
+type Gap = SystemCssProperties<Theme>['gap'];
 
 interface SectionHeaderProps {
   title?: string;
   subtitle?: string;
   extratitle?: string;
+  mb?: MarginBottom;
+  gap?: Gap;
 }
 
-export const SectionHeader = ({ title, subtitle, extratitle }: SectionHeaderProps) => {
+export const SectionHeader = ({ title, subtitle, extratitle, mb, gap }: SectionHeaderProps) => {
   return (
-    <Box sx={{ mb: { xs: 2, sm: 4 }, gap: '16px', display: 'grid' }}>
+    <Box sx={{ mb: mb ?? { xs: 2, sm: 4 }, gap: gap ?? '16px', display: 'grid' }}>
       {title && (
         <Typography variant="h2" sx={{ mb: subtitle ? 1 : 0 }}>
           {title}

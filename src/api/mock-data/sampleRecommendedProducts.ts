@@ -12,8 +12,8 @@ import type { Product } from '@/types/product';
 export const sampleRecommendedProducts: Product[] = [
   {
     id: '0',
-    title: 'Soft Yellow Alstroemeria 17 Stems',
-    tags: ['Popular', 'New', '-20%', 'Season offer'],
+    title: 'A Moment in Bloom',
+    tags: ['-20%'],
     type: ['alstroemeria'],
     rating: 4.5,
     price: 58,

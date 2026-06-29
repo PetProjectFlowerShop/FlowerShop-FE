@@ -7,10 +7,12 @@ import { LoginForm } from '../components/login/LoginForm';
 import AppDrawer from '../components/common/AppDrawer';
 import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
+import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
 import { CartForm } from '@/components/common/CartForm.tsx';
 import { useCartStore } from '@/store/cart.store.ts';
 
 export function MainLayout() {
+  const { topBarVisible, headerVisible } = useHeaderVisibility();
   const { drawerView, isDrawerOpen, closeDrawer } = useDrawer();
   const cartItemsRecord = useCartStore((state) => state.items);
   const cartItemsArray = Object.values(cartItemsRecord);
@@ -30,8 +32,8 @@ export function MainLayout() {
         {drawerView === 'cart' && <CartForm cartItems={cartItemsArray} onClose={closeDrawer} />}
       </AppDrawer>
 
-      <TopBar />
-      <Header />
+      <TopBar visible={topBarVisible} />
+      <Header visible={headerVisible} />
 
       <Box component="main" sx={{ flexGrow: 1 }}>
         <RouteErrorBoundary>

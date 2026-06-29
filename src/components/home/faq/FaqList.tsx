@@ -22,7 +22,7 @@ function FaqItem({ item }: { item: FaqData }) {
           <Box
             sx={{
               backgroundColor: 'primary.main',
-              borderRadius: '16px',
+              borderRadius: '12px',
               width: 40,
               height: 40,
               padding: '8px',
@@ -66,7 +66,7 @@ function FaqItem({ item }: { item: FaqData }) {
 
 export function FaqList() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: theme.spacingTokens.stackXs }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2, desktop: 4 } }}>
       {faqData.map((item) => (
         <FaqItem key={item.id} item={item} />
       ))}

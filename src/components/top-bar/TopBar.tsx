@@ -2,17 +2,24 @@ import { Box, Typography, Container } from '@mui/material';
 import { SelectLanguage } from './SelectLanguage';
 import { type Theme } from '@mui/material/styles';
 
-export function TopBar() {
+type TopBarProps = {
+  visible: boolean;
+};
+
+export function TopBar({ visible }: TopBarProps) {
   return (
     <Box
       data-testid="top-bar"
       component="div"
       sx={{
         minHeight: '48px',
-        display: 'flex',
-        alignItems: 'center',
+        display: 'sticky',
+        // alignItems: 'center',
         backgroundColor: 'secondary.dark',
         color: 'primary.contrastText',
+        top: 0,
+        transition: 'transform 300ms ease',
+        transform: visible ? 'translateY(0)' : 'translateY(-100%)',
       }}
     >
       <Container
@@ -34,7 +41,7 @@ export function TopBar() {
             flexGrow: 1,
           }}
         >
-          FREE DELIVERY FROM $250
+          FREE DELIVERY from $250
         </Typography>
         <SelectLanguage />
       </Container>
