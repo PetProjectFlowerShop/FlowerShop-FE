@@ -14,6 +14,7 @@ export function SearchFlowers() {
       placeholder="Search flowers..."
       value={searchValue}
       onChange={(e) => setSearchValue(e.target.value)}
+      variant="outlined"
       slotProps={{
         input: {
           startAdornment: (
@@ -23,7 +24,7 @@ export function SearchFlowers() {
                 mr: (theme) => theme.spacingTokens.microX,
               }}
             >
-              <Icon name="search" width={28} height={24} />
+              <Icon name="search" width={24} height={24} />
             </InputAdornment>
           ),
           endAdornment: (
@@ -43,24 +44,6 @@ export function SearchFlowers() {
           ),
         },
       }}
-      sx={(theme) => ({
-        gap: 2,
-        '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: 'action.active',
-        },
-        '& .MuiOutlinedInput-root': {
-          height: 56,
-          px: theme.spacingTokens.stackXs,
-        },
-        '& .MuiOutlinedInput-input': {
-          ...theme.typography.caption,
-          '&::placeholder': {
-            p: 0,
-            color: theme.palette.text.disabled,
-            opacity: 1,
-          },
-        },
-      })}
-    ></TextField>
+    />
   );
 }

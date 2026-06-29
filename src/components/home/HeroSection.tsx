@@ -7,6 +7,7 @@ export default function HeroSection() {
   return (
     <Box
       data-testid="hero-section"
+      component="section"
       sx={{
         display: 'flex',
         position: 'relative',
@@ -16,7 +17,7 @@ export default function HeroSection() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         py: { xs: 5, sm: 10 },
-        height: { desktop: '75vh' },
+        height: { desktop: '840px' },
       }}
     >
       <Container sx={{ px: { desktop: 10 }, height: '100%' }}>
@@ -25,14 +26,13 @@ export default function HeroSection() {
             backdropFilter: 'blur(12px)',
             background: 'rgba(0,0,0,0.12)',
             borderRadius: 5,
-            px: { xs: 3, tablet: 8 },
-            py: 10,
+            px: { xs: 3, tablet: 6, desktop: 8 },
+            py: { xs: 10, desktop: 30 },
             color: 'white',
             width: '100%',
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
           }}
         >
           <Box sx={{ maxWidth: '856px' }}>
@@ -48,11 +48,11 @@ export default function HeroSection() {
               Special moments.
             </Typography>
 
-            <Box sx={{ maxWidth: { tablet: '640px' } }}>
+            <Box sx={{ maxWidth: { tablet: '640px', desktop: '635px' } }}>
               <Typography
                 variant="body1"
                 sx={{
-                  mb: 6,
+                  mb: { xs: 6, tablet: 9 },
                   opacity: 0.9,
                 }}
               >
@@ -76,9 +76,9 @@ export default function HeroSection() {
           display: { xs: 'none', tablet: 'block' },
           position: 'absolute',
           right: { xs: 0, desktop: '20px' },
-          bottom: { tablet: '33%', desktop: '20%' },
-          width: '350px',
-          transform: { tablet: 'scale(1.05)', desktop: 'scale(1.5)' },
+          bottom: { tablet: '38%', desktop: '27%' },
+          width: '300px',
+          transform: { tablet: 'scale(1.05)', desktop: 'scale(1.8)' },
           transformOrigin: 'top right',
         }}
       />

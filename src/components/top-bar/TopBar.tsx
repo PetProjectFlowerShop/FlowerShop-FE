@@ -41,7 +41,7 @@ export function TopBar({ visible }: TopBarProps) {
             flexGrow: 1,
           }}
         >
-          FREE DELIVERY FROM $250
+          FREE DELIVERY from $250
         </Typography>
         <SelectLanguage />
       </Container>

@@ -1,15 +1,14 @@
-import { Box, Stack, Typography } from '@mui/material';
 import faq from '@/assets/images/faq-banner.jpg';
-import { CustomSection } from '@/components/common/CustomSection';
-import { Container } from '@mui/material';
+import { SectionContainer } from '@/components/layouts/SectionContainer';
 import { theme } from '@/theme';
+import { Box, Stack, Typography } from '@mui/material';
 import { FaqList } from './FaqList';
 
 export default function FaqSection() {
   return (
-    <CustomSection>
-      <Container>
-        <Stack spacing={theme.spacingTokens.contentGapDesktop}>
+    <section>
+      <SectionContainer>
+        <Stack spacing={{ xs: 7, tablet: 9, desktop: 10 }}>
           <Stack spacing={theme.spacingTokens.stackXs}>
             <Typography variant="h2" sx={{ color: 'text.primary' }}>
               FAQ
@@ -19,63 +18,58 @@ export default function FaqSection() {
             </Typography>
           </Stack>
 
-          <Box
+          <Stack
+            spacing={{ xs: 6, desktop: 0 }}
             sx={{
-              flex: 1,
-              display: 'flex',
-              gap: theme.spacingTokens.stackM,
-              alignItems: 'flex-start',
-              flexDirection: { xs: 'column', desktop: 'row' },
+              display: {
+                xs: 'flex',
+                desktop: 'grid',
+              },
+
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: { desktop: 6 },
             }}
           >
             <Box
               sx={{
-                flex: 1,
                 display: 'flex',
-                position: { xs: 'static', desktop: 'sticky' },
-                alignSelf: 'flex-start',
-                top: 0,
-                gap: theme.spacingTokens.stackXs,
-                flexDirection: { xs: 'column', tablet: 'row', desktop: 'column' },
+                alignItems: 'stretch',
+                flexDirection: { xs: 'row', desktop: 'column-reverse' },
+                gap: 4,
+                justifyContent: 'start',
               }}
             >
+              <Box
+                sx={{
+                  flex: 1,
+                  backgroundImage: `url(${faq})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  borderRadius: '16px',
+                  display: { xs: 'none', tablet: 'block' },
+                  width: { desktop: '100%' },
+                  maxHeight: '404px',
+                }}
+              />
               <Typography
                 variant="body1"
                 sx={{
-                  flex: 1,
+                  flex: { xs: 1, desktop: 0 },
                   color: 'text.primary',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: theme.spacingTokens.stackXs,
-                  order: { xs: 1, tablet: 2, desktop: 1 },
                 }}
               >
                 Here you’ll find answers to the most common inquiries about our bouquets, delivery
                 options, and care tips. If you don’t see what you’re looking for, our friendly team
                 is always ready to help.
               </Typography>
-              <Box
-                sx={{
-                  backgroundImage: `url(${faq})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  maxHeight: '636px',
-                  aspectRatio: '4 / 2.5',
-                  maxWidth: '636px',
-                  width: '100%',
-                  flex: 1,
-                  borderRadius: '16px',
-                  display: { xs: 'none', tablet: 'block' },
-                  order: { xs: 2, tablet: 1 },
-                }}
-              />
             </Box>
-            <Box sx={{ flex: 1 }}>
-              <FaqList />
-            </Box>
-          </Box>
+
+            <FaqList />
+          </Stack>
         </Stack>
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }

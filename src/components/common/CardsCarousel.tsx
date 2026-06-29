@@ -30,12 +30,11 @@ const CENTERED_BREAKPOINTS = {
 
 const getCarouselStyles = (theme: Theme, centered?: boolean) => ({
   position: 'relative',
-  paddingBottom: centered ? '60px' : '40px',
-  paddingTop: centered ? '40px' : theme.spacing(theme.spacingTokens.micro),
+  paddingBottom: centered ? '60px' : '24px',
+  paddingTop: centered ? '40px' : 0,
 
   '& .swiper': {
-    paddingBottom: '20px',
-    paddingTop: theme.spacing(theme.spacingTokens.micro),
+    paddingBottom: { xs: '12px', tablet: '20px' },
   },
 
   '& .swiper-wrapper': {
@@ -108,15 +107,18 @@ const getNavButtonStyles = (
   isReview?: boolean
 ) => {
   const isFourReviewCards = isReview && !centered;
-  const topPosition = isFourReviewCards ? '260px' : '300px';
+  const topPosition = isFourReviewCards ? '260px' : { xs: '45%', tablet: '48%' };
 
   return {
     position: 'absolute',
     top: topPosition,
-    transform: isLeft ? 'translate(-50%, -50%)' : 'translate(50%, -50%)',
+    transform: {
+      xs: isLeft ? 'translate(-75%, -50%)' : 'translate(75%, -50%)',
+      tablet: isLeft ? 'translate(-50%, -50%)' : 'translate(50%, -50%)',
+    },
     zIndex: 10,
-    width: { xs: '32px', sm: '40px' },
-    height: { xs: '32px', sm: '40px' },
+    width: '40px',
+    height: '40px',
     backgroundColor: theme.palette.common.white,
     boxShadow: theme.shadows[2],
     display: 'flex',

@@ -1,4 +1,4 @@
-import { List, Typography } from '@mui/material';
+import { List, ListItem, Typography } from '@mui/material';
 
 const valuesList = [
   'Quality & Freshness: We select only the finest blooms, ensuring every arrangement is vibrant and long-lasting.',
@@ -9,11 +9,23 @@ const valuesList = [
 
 export function ValuesList() {
   return (
-    <List sx={{ listStyleType: 'disc', pl: { xs: 3, tablet: 7 } }}>
-      {valuesList.map((value, index) => (
-        <Typography component="li" key={index} variant="body1" sx={{ mb: 1 }}>
-          {value}
-        </Typography>
+    <List sx={{ p: 0, paddingLeft: 2 }}>
+      {valuesList.map((value) => (
+        <ListItem
+          key={value}
+          sx={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: 2,
+            p: 0,
+          }}
+        >
+          <Typography component="span">•</Typography>
+
+          <Typography variant="body1" letterSpacing={0}>
+            {value}
+          </Typography>
+        </ListItem>
       ))}
     </List>
   );

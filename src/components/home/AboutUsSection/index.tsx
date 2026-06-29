@@ -1,38 +1,42 @@
-import { Box, Button, Container, Typography } from '@mui/material';
-import { CustomSection } from '@/components/common/CustomSection';
-import { SectionHeader } from '@/components/common/SectionHeader';
-import { ValuesList } from './ValuesList';
 import banner from '@/assets/images/AboutUsBanner.webp';
-import { AdvantageList } from './AdvantageList';
+import { SectionHeader } from '@/components/common/SectionHeader';
+import { SectionContainer } from '@/components/layouts/SectionContainer';
+import { Box, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { AdvantageList } from './AdvantageList';
+import { ValuesList } from './ValuesList';
 
 export default function AboutUsSection() {
   return (
-    <CustomSection data-testid="about-us-section">
-      <Container>
+    <section>
+      <SectionContainer>
         <Box
           sx={{
-            display: 'grid',
+            display: { desktop: 'grid' },
             gridTemplateColumns: { xs: '1fr', desktop: '1fr 1fr' },
             gap: 6,
-            justifyContent: 'center',
-            justifyItems: 'center',
+            mb: { desktop: 10 },
+            alignItems: 'stretch',
           }}
         >
           <Box
-            component="img"
-            src={banner}
-            alt="Banner decoration"
             sx={{
+              height: '100%',
+              overflow: 'hidden',
               borderRadius: 2,
-              height: 'auto',
-              maxHeight: '660px',
-              width: '100%',
-              objectFit: 'cover',
-              display: { xs: 'none', desktop: 'block' },
             }}
-            loading="lazy"
-          />
+          >
+            <Box
+              sx={{
+                display: { xs: 'none', desktop: 'block' },
+                borderRadius: 2,
+                backgroundImage: `url(${banner})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '100%',
+              }}
+            />
+          </Box>
           <Box>
             <SectionHeader title="About us" />
 
@@ -53,7 +57,13 @@ export default function AboutUsSection() {
               <ValuesList />
             </Box>
 
-            <Button variant="contained" sx={{ mb: 4 }} fullWidth component={Link} to="/about-us">
+            <Button
+              variant="contained"
+              sx={{ mb: { xs: 4, tablet: 6, desktop: 0 } }}
+              fullWidth
+              component={Link}
+              to="/about-us"
+            >
               Read more about us
             </Button>
           </Box>
@@ -64,8 +74,8 @@ export default function AboutUsSection() {
           src={banner}
           alt="Banner decoration"
           sx={{
-            maxHeight: 434,
-            borderRadius: 2,
+            maxHeight: { xs: 434, tablet: 480 },
+            borderRadius: 5,
             mb: 7,
             width: '100%',
             objectFit: 'cover',
@@ -75,7 +85,7 @@ export default function AboutUsSection() {
         />
 
         <AdvantageList />
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }
