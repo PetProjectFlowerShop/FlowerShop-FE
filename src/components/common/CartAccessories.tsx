@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { AccessoriesCarousel } from './AccessoriesCarousel';
 import type { Accessory } from './AccessoryCard';
 
@@ -8,13 +8,28 @@ interface CartAccessoriesProps {
 
 export function CartAccessories({ accessories }: CartAccessoriesProps) {
   return (
-    <Box mt={2}>
-      <Typography>Add Accessories</Typography>
+    <Box
+      sx={{
+        mt: 2,
+        position: 'relative',
+        zIndex: 10,
+        '& .swiper-slide': {
+          width: { xs: '306px !important' },
+        },
+        '& .swiper': {
+          overflow: 'visible',
+        },
+      }}
+    >
       <AccessoriesCarousel
+        title={true}
         accessories={accessories}
         showPagination={false}
         breakpoints={{
-          0: { slidesPerView: 2, spaceBetween: 16 },
+          0: {
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+          },
         }}
       />
     </Box>

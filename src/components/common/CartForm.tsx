@@ -1,4 +1,3 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import { CartItemView } from './CartItemView';
@@ -16,17 +15,6 @@ const MOCK_ACCESSORIES = [
   { id: '5', title: 'Aroma Stick', price: 15, imgURL: accessories },
 ];
 
-const containerStyles: React.CSSProperties = {
-  width: '708px',
-  height: '100%',
-  paddingRight: '60px',
-  paddingLeft: '60px',
-  boxSizing: 'border-box',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '16px',
-};
-
 type FormValues = {
   email: string;
 };
@@ -35,6 +23,17 @@ interface CartFormProps {
   cartItems: CartItem[];
   onClose: () => void;
 }
+
+const rootContainerSx = {
+  width: { xs: '375px', sm: '640px', md: '708px' },
+  height: '100%',
+  px: { xs: '16px', sm: '32px', md: '60px' },
+  boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '16px',
+  py: 3,
+};
 
 export function CartForm({ cartItems, onClose }: CartFormProps) {
   const { handleSubmit } = useForm<FormValues>();
@@ -47,13 +46,13 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
 
   if (cartItems.length === 0) {
     return (
-      <div style={containerStyles}>
+      <Box sx={rootContainerSx}>
         <Typography variant="h2">Cart</Typography>
         <Typography variant="body1">Your cart is empty. Let’s find something beautiful.</Typography>
         <Button variant="contained" color="primary" fullWidth onClick={handleGoToCatalog}>
           To catalog
         </Button>
-      </div>
+      </Box>
     );
   }
 
@@ -65,7 +64,7 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
   };
 
   return (
-    <div style={containerStyles}>
+    <Box sx={rootContainerSx}>
       <Typography variant="h2">Cart</Typography>
 
       <Box
@@ -77,8 +76,8 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
           flexGrow: 1,
         }}
       >
-        <div
-          style={{
+        <Box
+          sx={{
             maxHeight: '440px',
             overflowY: 'auto',
             marginBottom: '24px',
@@ -88,10 +87,10 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
           {cartItems.map((item) => (
             <CartItemView key={item.product?.id} item={item} />
           ))}
-        </div>
+        </Box>
 
-        <Box mt={2}>
-          <CartAccessories accessories={MOCK_ACCESSORIES} />
+        <Box sx={{ mt: 2, minWidth: 0, width: '100%' }}>
+          {<CartAccessories accessories={MOCK_ACCESSORIES} />}
         </Box>
 
         <Box
@@ -116,6 +115,6 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
           Submit the order
         </Button>
       </Box>
-    </div>
+    </Box>
   );
 }

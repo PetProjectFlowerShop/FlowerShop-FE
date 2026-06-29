@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack } from '@mui/material';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { useId } from 'react';
@@ -14,6 +14,7 @@ interface AccessoriesCarouselProps {
   showPagination?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   breakpoints?: Record<number, any>;
+  title?: boolean;
 }
 
 const DEFAULT_BREAKPOINTS = {
@@ -28,6 +29,7 @@ export function AccessoriesCarousel({
   slidesPerView = 2,
   showPagination = false,
   breakpoints = DEFAULT_BREAKPOINTS,
+  title = false,
 }: AccessoriesCarouselProps) {
   const id = useId().replace(/:/g, '');
   const prevClass = `acc-prev-${id}`;
@@ -39,13 +41,24 @@ export function AccessoriesCarousel({
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'flex-end',
-          mt: { sm: '-48px', md: '-56px' },
+          justifyContent: 'space-between',
+          alignItems: 'center',
           mb: 2,
-          position: 'relative',
-          zIndex: 2,
         }}
       >
+        {title ? (
+          <Box>
+            <Typography variant={'body1'} color="text.primary">
+              Add Accessories
+            </Typography>
+          </Box>
+        ) : (
+          <Box>
+            <Typography variant={'h4'} color="text.primary">
+              Add Accessories
+            </Typography>
+          </Box>
+        )}
         <Stack direction="row" spacing={1}>
           <IconButton className={prevClass} size="small" sx={{ backgroundColor: 'transparent' }}>
             <Icon name="navigate-before" width={20} height={20} fill="currentColor" />

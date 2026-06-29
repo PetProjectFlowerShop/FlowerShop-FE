@@ -18,8 +18,7 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
   const handleRemove = () => console.log('Remove item:', product?.id);
   const handleIncrease = () => console.log('Increase quantity');
   const handleDecrease = () => console.log('Decrease quantity');
-
-  const handleWrapChange = (event: unknown) => console.log('Change wrap to:', event.target.value);
+  const handleWrapChange = () => console.log('Change wrap to:');
 
   const currentWrap = item.wrapType || 'Kraft Paper Wrap (Free)';
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
@@ -28,53 +27,48 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
     <Box
       sx={{
         display: 'flex',
-        gap: 3,
+        gap: { xs: 2, sm: 3 },
         py: 3,
         borderTop: '1px solid',
         borderColor: 'divider',
         alignItems: 'stretch',
       }}
     >
-      {/* Зображення товару */}
       <Box
         component="img"
         src={imageUrl}
         alt={title}
         sx={{
-          width: '195px',
-          height: '154px',
+          width: { xs: '120px', sm: '195px' },
+          height: { xs: '140px', sm: '154px' },
           objectFit: 'cover',
           borderRadius: '12px',
           flexShrink: 0,
         }}
       />
 
-      {/* Інформація про товар */}
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
           flexGrow: 1,
+          minWidth: 0,
         }}
       >
-        {/* Рядок 1: Назва та кнопка видалення */}
-        <Box
-          sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 0 }}
-        >
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <Typography
             variant="body1"
-            sx={{ fontWeight: 400, fontSize: '1.1rem', color: 'text.primary' }}
+            sx={{ fontWeight: 400, fontSize: { xs: '1rem', sm: '1.1rem' }, color: 'text.primary' }}
           >
             {title}
           </Typography>
-          <IconButton size="small" onClick={handleRemove}>
+          <IconButton size="small" onClick={handleRemove} sx={{ mt: '-4px', mr: '-4px' }}>
             <Icon name="close" width={20} height={20} />
           </IconButton>
         </Box>
 
-        <Box paddingRight={8} display={'grid'} gap={3}>
-          {/* Рядок 2: Вибір пакування (Select) */}
+        <Box pr={{ xs: 0, sm: 8 }} display="grid" gap={{ xs: 1.5, sm: 3 }}>
           <Box>
             <Select
               value={currentWrap}
@@ -85,7 +79,7 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
                 height: '44px',
                 fontSize: '14px',
                 paddingLeft: '12px',
-                minWidth: '274px',
+                width: '100%',
                 '& .MuiOutlinedInput-notchedOutline': {
                   borderColor: 'text.primary',
                 },
@@ -94,37 +88,30 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
               <MenuItem value={currentWrap}>{currentWrap}</MenuItem>
             </Select>
           </Box>
-
-          {/* Рядок 3: Ціна та Лічильник кількості */}
           <Box
             sx={{
               display: 'flex',
+              flexWrap: 'wrap',
+              gap: 2,
               justifyContent: 'space-between',
               alignItems: 'center',
             }}
           >
-            <Box display={'flex'} gap={2}>
+            <Box display="flex" gap={1} alignItems="center">
               {oldPrice && (
                 <Typography
                   variant="caption"
-                  component="span"
                   color="text.secondary"
-                  sx={{
-                    textDecoration: 'line-through',
-                  }}
+                  sx={{ textDecoration: 'line-through' }}
                 >
                   ${oldPrice}
                 </Typography>
               )}
-
-              <Typography
-                variant="h4"
-                component="span"
-                color={oldPrice ? 'primary.main' : 'text.primary'}
-              >
+              <Typography variant="h4" color={oldPrice ? 'primary.main' : 'text.primary'}>
                 ${price}
               </Typography>
             </Box>
+
             <Stack
               direction="row"
               alignItems="center"
@@ -144,7 +131,6 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
               >
                 <Icon name="minus" width={16} height={16} />
               </IconButton>
-
               <Box
                 sx={{
                   bgcolor: '#E0E3D8',
@@ -158,7 +144,6 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
               >
                 <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>{item.quantity}</Typography>
               </Box>
-
               <IconButton size="small" onClick={handleIncrease} sx={{ p: '4px' }}>
                 <Icon name="add" width={16} height={16} />
               </IconButton>

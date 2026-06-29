@@ -11,13 +11,11 @@ export default function AppDrawer({ children, onClose, isOpen }: AppDrawerProps)
   return (
     <Drawer anchor="right" open={isOpen} onClose={onClose}>
       <IconButton
-        onClick={() => {
-          onClose();
-        }}
+        onClick={onClose}
         sx={{
           position: 'absolute',
           top: 16,
-          right: 60,
+          right: { xs: 16, sm: 32, md: 60 },
           zIndex: 9999,
           border: 'none',
         }}
