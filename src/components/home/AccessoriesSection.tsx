@@ -1,6 +1,5 @@
 import { Container } from '@mui/material';
 import { CustomSection } from '../common/CustomSection';
-import { SectionHeader } from '../common/SectionHeader';
 import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
 import accessories from '@/assets/images/accessories.webp';
 
@@ -16,8 +15,7 @@ export default function AccessoriesSection() {
   return (
     <CustomSection data-testid="accessories-section">
       <Container>
-        <SectionHeader extratitle="Add Accessories" />
-        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} />
+        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
       </Container>
     </CustomSection>
   );
