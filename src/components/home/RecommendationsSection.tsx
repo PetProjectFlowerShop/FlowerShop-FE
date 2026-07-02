@@ -15,18 +15,20 @@ export default function RecommendationsSection({ title, subtitle }: Recommendati
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
   return (
-    <SectionContainer data-testid="reccomendation-section">
-      <SectionHeader title={title} subtitle={subtitle} mb={7} gap={2} />
-      <CardsCarousel
-        cards={sampleRecommendedProducts}
-        renderCard={(product) => (
-          <ProductCard
-            product={product}
-            isFavorite={!!favorites[product.id]}
-            onFavoriteClick={() => toggleFavorite(product.id)}
-          />
-        )}
-      />
-    </SectionContainer>
+    <section data-testid="reccomendation-section">
+      <SectionContainer>
+        <SectionHeader title={title} subtitle={subtitle} mb={7} gap={2} />
+        <CardsCarousel
+          cards={sampleRecommendedProducts}
+          renderCard={(product) => (
+            <ProductCard
+              product={product}
+              isFavorite={!!favorites[product.id]}
+              onFavoriteClick={() => toggleFavorite(product.id)}
+            />
+          )}
+        />
+      </SectionContainer>
+    </section>
   );
 }
