@@ -10,5 +10,7 @@ test('Home page VRT', async ({ page }) => {
     })
   ).toBeVisible();
 
+  await expect(page.getByTestId('product-card').first()).toBeVisible();
+
   await expect(page).toHaveScreenshot('home-page.png', { fullPage: true });
 });
