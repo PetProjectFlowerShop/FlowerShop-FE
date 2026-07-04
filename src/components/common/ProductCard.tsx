@@ -82,7 +82,7 @@ export const ProductCard = ({
   const { toggleDrawer } = useDrawer();
 
   return (
-    <Card elevation={0} sx={getCardStyles()}>
+    <Card elevation={0} sx={getCardStyles()} data-testid="product-card">
       <CardActionArea component={Link} to={`/catalog/${id}`} sx={getActionAreaStyles()}>
         <Box sx={getImageContainerStyles()}>
           <CardMedia
