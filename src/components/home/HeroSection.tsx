@@ -43,7 +43,7 @@ export default function HeroSection() {
                 maxWidth: { xs: 'none', tablet: '200px', desktop: 'none' },
               }}
             >
-              Charming blooms123.
+              Charming blooms.
               <br />
               Special moments.
             </Typography>
