@@ -11,8 +11,8 @@ const MOCK_ACCESSORIES = [
 
 export default function AccessoriesSection() {
   return (
-    <section data-testid="accessories-section">
+    <div data-testid="accessories-section">
       <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
-    </section>
+    </div>
   );
 }

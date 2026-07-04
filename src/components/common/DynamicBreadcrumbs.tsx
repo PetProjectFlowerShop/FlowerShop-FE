@@ -3,6 +3,7 @@ import { Breadcrumbs, Link, Typography, type Theme } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Icon } from './Icon';
+import { SectionContainer } from '../layouts/SectionContainer';
 
 const getBreadcrumbsStyles = (theme: Theme, mb?: string | number) => ({
   mb: mb ?? theme.spacing(theme.spacingTokens.stackM),
@@ -52,35 +53,39 @@ export const DynamicBreadcrumbs = ({ customLastStep, mb }: DynamicBreadcrumbsPro
   }
 
   return (
-    <Breadcrumbs
-      separator={<Icon name="navigate-next" width={24} height={24} fill="currentColor" />}
-      aria-label="breadcrumb"
-      sx={getBreadcrumbsStyles(theme, mb)}
-    >
-      <Link component={RouterLink} to="/" sx={getLinkStyles(theme)}>
-        Home
-      </Link>
-
-      {pathnames.map((value, index) => {
-        const isLast = index === pathnames.length - 1;
-        const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-
-        let label = ROUTE_NAMES[value] || value.charAt(0).toUpperCase() + value.slice(1);
-
-        if (isLast && customLastStep) {
-          label = customLastStep;
-        }
-
-        return isLast ? (
-          <Typography key={to} sx={getActiveTextStyles(theme)}>
-            {label}
-          </Typography>
-        ) : (
-          <Link component={RouterLink} to={to} key={to} sx={getLinkStyles(theme)}>
-            {label}
+    <section>
+      <SectionContainer>
+        <Breadcrumbs
+          separator={<Icon name="navigate-next" width={24} height={24} fill="currentColor" />}
+          aria-label="breadcrumb"
+          sx={getBreadcrumbsStyles(theme, mb)}
+        >
+          <Link component={RouterLink} to="/" sx={getLinkStyles(theme)}>
+            Home
           </Link>
-        );
-      })}
-    </Breadcrumbs>
+
+          {pathnames.map((value, index) => {
+            const isLast = index === pathnames.length - 1;
+            const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+
+            let label = ROUTE_NAMES[value] || value.charAt(0).toUpperCase() + value.slice(1);
+
+            if (isLast && customLastStep) {
+              label = customLastStep;
+            }
+
+            return isLast ? (
+              <Typography key={to} sx={getActiveTextStyles(theme)}>
+                {label}
+              </Typography>
+            ) : (
+              <Link component={RouterLink} to={to} key={to} sx={getLinkStyles(theme)}>
+                {label}
+              </Link>
+            );
+          })}
+        </Breadcrumbs>
+      </SectionContainer>
+    </section>
   );
 };

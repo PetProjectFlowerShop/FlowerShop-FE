@@ -31,7 +31,7 @@ export default function RecentlyViewedSection() {
 
   return (
     <section data-testid="recently-viewed-section">
-      <SectionContainer>
+      <SectionContainer data-testid="recently-viewed-section">
         <SectionHeader title="Recently viewed" />
         <CardsCarousel
           cards={data}

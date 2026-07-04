@@ -2,13 +2,12 @@ import { useParams } from 'react-router-dom';
 import CustomersReviewsSection from '../components/home/CustomersReviewsSection';
 import RecentlyViewedSection from '../components/home/RecentlyViewedSection';
 import { DynamicBreadcrumbs } from '../components/common/DynamicBreadcrumbs';
-import { PageContainer } from '../components/common/PageContainer';
-import AccessoriesSection from '../components/home/AccessoriesSection';
 import { ProductDetailsSection } from '../components/Product/ProductDetailsSection';
 import { useQuery } from '@tanstack/react-query';
 import { getProductById } from '../api/products';
 import { useEffect } from 'react';
 import { useRecentlyStore } from '@/store/recently.store';
+import { PageLayout } from '@/components/layouts/PageLayout';
 
 export function ProductPage() {
   const { id } = useParams();
@@ -29,12 +28,11 @@ export function ProductPage() {
   if (isError || !data) return <div>Error loading product</div>;
 
   return (
-    <PageContainer>
+    <PageLayout>
       <DynamicBreadcrumbs customLastStep={data.title} mb={0} />
       <ProductDetailsSection data={data} />
-      <AccessoriesSection />
       <RecentlyViewedSection />
       <CustomersReviewsSection isReview={true} />
-    </PageContainer>
+    </PageLayout>
   );
 }
