@@ -5,7 +5,11 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Icon } from './Icon';
 import { SectionContainer } from '../layouts/SectionContainer';
 
-const getBreadcrumbsStyles = (theme: Theme, mb?: string | number) => ({
+const getBreadcrumbsStyles = (
+  theme: Theme,
+  mb?: number | string | Record<string, number | string>
+) => ({
+  mt: { xs: 4, tablet: 5, desktop: 6 },
   mb: mb ?? theme.spacing(theme.spacingTokens.stackM),
   '& .MuiBreadcrumbs-separator': {
     marginLeft: '2px !important',
@@ -39,7 +43,7 @@ const getActiveTextStyles = (theme: Theme) => ({
 
 interface DynamicBreadcrumbsProps {
   customLastStep?: string;
-  mb?: number | string;
+  mb?: number | string | Record<string, number | string>;
 }
 
 export const DynamicBreadcrumbs = ({ customLastStep, mb }: DynamicBreadcrumbsProps) => {

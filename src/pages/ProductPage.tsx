@@ -28,11 +28,13 @@ export function ProductPage() {
   if (isError || !data) return <div>Error loading product</div>;
 
   return (
-    <PageLayout>
-      <DynamicBreadcrumbs customLastStep={data.title} mb={0} />
-      <ProductDetailsSection data={data} />
-      <RecentlyViewedSection />
-      <CustomersReviewsSection isReview={true} />
-    </PageLayout>
+    <>
+      <DynamicBreadcrumbs customLastStep={data.title} mb={{ xs: 7, tablet: 10 }} />
+      <PageLayout>
+        <ProductDetailsSection data={data} />
+        <RecentlyViewedSection />
+        <CustomersReviewsSection isReview={true} />
+      </PageLayout>
+    </>
   );
 }
