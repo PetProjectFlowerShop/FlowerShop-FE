@@ -131,6 +131,9 @@ const getNavButtonStyles = (
       cursor: 'default',
       boxShadow: theme.shadows[1],
     },
+    '&.swiper-button-lock': {
+      display: 'none',
+    },
   };
 };
 
@@ -184,6 +187,7 @@ export const CardsCarousel = <T extends { id: string }>({
           el: `.${navClasses.pagination}`,
           clickable: true,
         }}
+        watchOverflow={true}
       >
         {cards.map((card) => (
           <SwiperSlide key={card.id}>{renderCard(card)}</SwiperSlide>
