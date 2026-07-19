@@ -1,5 +1,3 @@
-import { Container } from '@mui/material';
-import { CustomSection } from '../common/CustomSection';
 import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
 import accessories from '@/assets/images/accessories.webp';
 
@@ -13,10 +11,8 @@ const MOCK_ACCESSORIES = [
 
 export default function AccessoriesSection() {
   return (
-    <CustomSection data-testid="accessories-section">
-      <Container>
-        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
-      </Container>
-    </CustomSection>
+    <div data-testid="accessories-section">
+      <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
+    </div>
   );
 }

@@ -18,23 +18,9 @@ export type FlowerType =
   | 'rose'
   | 'stock';
 export type ColorType =
-  | 'blue'
-  | 'cream'
-  | 'green'
-  | 'mixed'
-  | 'pink'
-  | 'purple'
-  | 'red'
-  | 'white'
-  | 'yellow';
+  'blue' | 'cream' | 'green' | 'mixed' | 'pink' | 'purple' | 'red' | 'white' | 'yellow';
 export type OccasionType =
-  | 'birthday'
-  | 'wedding'
-  | 'engagement'
-  | 'anniversary'
-  | 'thank'
-  | 'womensDay'
-  | 'valentineDay';
+  'birthday' | 'wedding' | 'engagement' | 'anniversary' | 'thank' | 'womensDay' | 'valentineDay';
 export type BouquetType = 'mono' | 'mixed' | 'basket' | 'box';
 export type PackagingKeyType = 'craft' | 'luxury' | 'eco' | 'gold' | 'silk' | 'box' | 'basket';
 export type PackagingType = {
