@@ -131,6 +131,9 @@ const getNavButtonStyles = (
       cursor: 'default',
       boxShadow: theme.shadows[1],
     },
+    '&.swiper-button-lock': {
+      display: 'none',
+    },
   };
 };
 
@@ -142,7 +145,6 @@ export const CardsCarousel = <T extends { id: string }>({
 }: CardsCarouselProps<T>) => {
   const theme = useTheme();
   const id = useId().replace(/:/g, '');
-  const shouldLoop = centered && cards.length >= 3;
 
   const navClasses = useMemo(
     () => ({
@@ -172,7 +174,8 @@ export const CardsCarousel = <T extends { id: string }>({
         spaceBetween={centered ? 24 : 24}
         slidesPerView={centered ? 1.5 : 1.5}
         centeredSlides={centered}
-        loop={shouldLoop}
+        centeredSlidesBounds={centered}
+        loop={false}
         speed={400}
         watchSlidesProgress={true}
         breakpoints={centered ? CENTERED_BREAKPOINTS : SWIPER_BREAKPOINTS}
@@ -184,6 +187,7 @@ export const CardsCarousel = <T extends { id: string }>({
           el: `.${navClasses.pagination}`,
           clickable: true,
         }}
+        watchOverflow={true}
       >
         {cards.map((card) => (
           <SwiperSlide key={card.id}>{renderCard(card)}</SwiperSlide>
