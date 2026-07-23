@@ -15,6 +15,7 @@ interface AccessoriesCarouselProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   breakpoints?: Record<number, any>;
   title?: boolean;
+  onAddToCart?: (id: string) => void;
 }
 
 const DEFAULT_BREAKPOINTS = {
@@ -30,6 +31,7 @@ export function AccessoriesCarousel({
   showPagination = false,
   breakpoints = DEFAULT_BREAKPOINTS,
   title = false,
+  onAddToCart,
 }: AccessoriesCarouselProps) {
   const id = useId().replace(/:/g, '');
   const prevClass = `acc-prev-${id}`;
@@ -95,7 +97,7 @@ export function AccessoriesCarousel({
         >
           {accessories.map((item) => (
             <SwiperSlide key={item.id}>
-              <AccessoryCard item={item} />
+              <AccessoryCard item={item} onAddToCart={onAddToCart} />
             </SwiperSlide>
           ))}
         </Swiper>

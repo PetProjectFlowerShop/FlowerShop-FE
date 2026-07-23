@@ -1,26 +1,44 @@
-import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
 import card_temp from '@/assets/images/card_temp.svg';
-import type { CartItem } from '@/store/cart.store';
+import type { CartDisplayItem } from '@/types/cart';
+import type { CartItem } from '@/types/cartItem';
 import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { memo } from 'react';
 import { Icon } from './Icon';
 
 interface CartItemViewProps {
   item: CartItem;
+  product: CartDisplayItem;
 }
 
-export const CartItemView = ({ item }: CartItemViewProps) => {
-  const product = sampleCatalogProducts.find((p) => p.id === item.productId);
+export const CartItemView = memo(({ item, product }: CartItemViewProps) => {
+  // const removeFromCart = useCartStore((state) => state.removeFromCart);
+  // const updateQuantity = useCartStore((state) => state.updateQuantity);
+  // const updateWrapType = useCartStore((state) => state.updateWrapType);
 
-  if (!product) return null;
-  const title = product.name;
-  const price = product.price;
-  const discount = product.discountPercent;
-  const imageUrl = card_temp;
+  const { title, price, discount, images, packagingType } = product;
 
-  const handleRemove = () => console.log('Remove item:', item?.productId);
-  const handleIncrease = () => console.log('Increase quantity', item?.quantity);
-  const handleDecrease = () => console.log('Decrease quantity', item?.quantity);
+  const imageUrl = images?.[0] || card_temp;
+
+  const isPackaging = Array.isArray(packagingType) ? packagingType.length > 0 : !!packagingType;
   const oldPrice = discount ? Math.round(price / (1 - discount / 100)) : undefined;
+
+  // const handleRemove = () => {
+  //   removeFromCart(item.productId, item.wrapType);
+  // };
+
+  // const handleIncrease = () => {
+  //   updateQuantity(item.productId, item.wrapType, item.quantity + 1);
+  // };
+
+  // const handleDecrease = () => {
+  //   if (item.quantity > 1) {
+  //     updateQuantity(item.productId, item.wrapType, item.quantity - 1);
+  //   }
+  // };
+
+  // const handleWrapTypeChange = (newWrapType: string) => {
+  //   updateWrapType(item.productId, item.wrapType, newWrapType);
+  // };
 
   return (
     <Box
@@ -62,13 +80,19 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
           >
             {title}
           </Typography>
-          <IconButton size="small" onClick={handleRemove} sx={{ mt: '-4px', mr: '-4px' }}>
+          <IconButton size="small" sx={{ mt: '-4px', mr: '-4px' }}>
             <Icon name="close" width={20} height={20} />
           </IconButton>
         </Box>
 
         <Box pr={{ xs: 0, sm: 8 }} display="grid" gap={{ xs: 1.5, sm: 3 }}>
-          <Box sx={{ paddingLeft: '12px' }}>{/* <PackageTypeSelect /> */}</Box>
+          <Box sx={{ paddingLeft: '12px' }}>
+            {isPackaging && (
+              // <PackageTypeSelect value={item.wrapType} onChange={handleWrapTypeChange} />
+              <div>package</div>
+            )}
+          </Box>
+
           <Box
             sx={{
               display: 'flex',
@@ -104,12 +128,7 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
                 gap: 1,
               }}
             >
-              <IconButton
-                size="small"
-                onClick={handleDecrease}
-                disabled={item.quantity <= 1}
-                sx={{ p: '4px' }}
-              >
+              <IconButton size="small" disabled={item.quantity <= 1} sx={{ p: '4px' }}>
                 <Icon name="minus" width={16} height={16} />
               </IconButton>
               <Box
@@ -125,7 +144,7 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
               >
                 <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>{item.quantity}</Typography>
               </Box>
-              <IconButton size="small" onClick={handleIncrease} sx={{ p: '4px' }}>
+              <IconButton size="small" sx={{ p: '4px' }}>
                 <Icon name="add" width={16} height={16} />
               </IconButton>
             </Stack>
@@ -134,4 +153,7 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
       </Box>
     </Box>
   );
-};
+});
+
+// Додаємо displayName, щоб компонент гарно відображався у React DevTools (корисно для Middle)
+CartItemView.displayName = 'CartItemView';

@@ -1,27 +1,18 @@
+import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import Button from '@mui/material/Button';
-import { CartItemView } from './CartItemView';
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography } from '@mui/material';
-import type { CartItem } from '@/store/cart.store';
-import accessories from '@/assets/images/accessories.webp';
+import { Box, Typography, Button } from '@mui/material';
+import { CartItemView } from './CartItemView';
 import { CartAccessories } from './CartAccessories';
-import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
-
-const MOCK_ACCESSORIES = [
-  { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },
-  { id: '2', title: 'Candle Floria', price: 23, imgURL: accessories },
-  { id: '3', title: 'Flori Frame', price: 12, imgURL: accessories },
-  { id: '4', title: 'Rosie Candle', price: 18, imgURL: accessories },
-  { id: '5', title: 'Aroma Stick', price: 15, imgURL: accessories },
-];
+import { useCartStore } from '@/store/cart.store';
+import { useEnrichedCart } from '@/hooks/useEnrichedCart';
+import { MOCK_ACCESSORIES } from '@/api/mock-data/mockAccessories';
 
 type FormValues = {
   email: string;
 };
 
 interface CartFormProps {
-  cartItems: CartItem[];
   onClose: () => void;
 }
 
@@ -36,36 +27,43 @@ const rootContainerSx = {
   py: 3,
 };
 
-export function CartForm({ cartItems, onClose }: CartFormProps) {
+export function CartForm({ onClose }: CartFormProps) {
   const { handleSubmit } = useForm<FormValues>();
   const navigate = useNavigate();
+  const addToCart = useCartStore((state) => state.addToCart);
 
-  const handleGoToCatalog = () => {
+  const { items: enrichedItems, totalSum, isEmpty } = useEnrichedCart();
+
+  const handleAddAccessoryToCart = useCallback(
+    (accessoryId: string) => {
+      addToCart(accessoryId, 'none', 1);
+    },
+    [addToCart]
+  );
+
+  const handleGoToCatalog = useCallback(() => {
     onClose();
     navigate('/catalog');
+  }, [onClose, navigate]);
+
+  const onSubmit = (data: FormValues) => {
+    console.log('Order Details:', data, enrichedItems);
+    onClose();
   };
 
-  if (cartItems.length === 0) {
+  if (isEmpty) {
     return (
       <Box sx={rootContainerSx}>
         <Typography variant="h2">Cart</Typography>
-        <Typography variant="body1">Your cart is empty. Let’s find something beautiful.</Typography>
+        <Typography variant="body1" sx={{ my: 2 }}>
+          Your cart is empty. Let’s find something beautiful.
+        </Typography>
         <Button variant="contained" color="primary" fullWidth onClick={handleGoToCatalog}>
           To catalog
         </Button>
       </Box>
     );
   }
-
-  const totalSum = cartItems.reduce((sum, item) => {
-    const product = sampleCatalogProducts.find((p) => p.id === item.productId);
-    return sum + (product?.price || 0) * item.quantity;
-  }, 0);
-
-  const onSubmit = (data: FormValues) => {
-    console.log('Order', data, cartItems);
-    onClose();
-  };
 
   return (
     <Box sx={rootContainerSx}>
@@ -74,27 +72,20 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
       <Box
         component="form"
         onSubmit={handleSubmit(onSubmit)}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,
-        }}
+        sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}
       >
-        <Box
-          sx={{
-            maxHeight: '440px',
-            overflowY: 'auto',
-            marginBottom: '24px',
-            paddingRight: '8px',
-          }}
-        >
-          {cartItems.map((item) => (
-            <CartItemView key={item.productId} item={item} />
+        <Box sx={{ maxHeight: '440px', overflowY: 'auto', mb: 3, pr: 1 }}>
+          {enrichedItems.map(({ cartItem, product }) => (
+            <CartItemView
+              key={`${cartItem.productId}-${cartItem.wrapType}`}
+              item={cartItem}
+              product={product}
+            />
           ))}
         </Box>
 
-        <Box sx={{ mt: 2, minWidth: 0, width: '100%' }}>
-          {<CartAccessories accessories={MOCK_ACCESSORIES} />}
+        <Box sx={{ mt: 2, width: '100%' }}>
+          <CartAccessories accessories={MOCK_ACCESSORIES} onAddToCart={handleAddAccessoryToCart} />
         </Box>
 
         <Box
@@ -103,18 +94,14 @@ export function CartForm({ cartItems, onClose }: CartFormProps) {
             borderColor: 'divider',
             display: 'flex',
             justifyContent: 'space-between',
-            marginTop: '20px',
-            marginBottom: '20px',
-            paddingTop: '4px',
+            my: 2,
+            pt: 2,
           }}
         >
-          <Typography variant="body1" color={'text.primary'}>
-            Total:
-          </Typography>
-          <Typography variant="h4" color={'text.primary'}>
-            ${totalSum}
-          </Typography>
+          <Typography variant="body1">Total:</Typography>
+          <Typography variant="h4">${totalSum}</Typography>
         </Box>
+
         <Button type="submit" variant="contained" color="primary" fullWidth>
           Submit the order
         </Button>

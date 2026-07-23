@@ -1,12 +1,14 @@
 import { Box } from '@mui/material';
 import { AccessoriesCarousel } from './AccessoriesCarousel';
 import type { Accessory } from './AccessoryCard';
+import { memo } from 'react';
 
 interface CartAccessoriesProps {
   accessories: Accessory[];
+  onAddToCart: (id: string) => void;
 }
 
-export function CartAccessories({ accessories }: CartAccessoriesProps) {
+export const CartAccessories = memo(({ accessories, onAddToCart }: CartAccessoriesProps) => {
   return (
     <Box
       sx={{
@@ -25,6 +27,7 @@ export function CartAccessories({ accessories }: CartAccessoriesProps) {
         title={true}
         accessories={accessories}
         showPagination={false}
+        onAddToCart={onAddToCart}
         breakpoints={{
           0: {
             slidesPerView: 'auto',
@@ -34,4 +37,4 @@ export function CartAccessories({ accessories }: CartAccessoriesProps) {
       />
     </Box>
   );
-}
+});
