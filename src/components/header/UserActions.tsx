@@ -13,7 +13,7 @@ export function UserActions() {
 
   const favoritesCount = useFavoritesStore((state) => Object.keys(state.items).length);
   const cartCount = useCartStore(selectCartTotalCount);
-  console.log('cartCount', cartCount);
+
   return (
     <Box sx={{ display: 'flex' }}>
       <IconButton

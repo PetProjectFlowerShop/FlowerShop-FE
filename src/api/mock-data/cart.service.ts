@@ -25,10 +25,12 @@ export const getProductDetailsSync = (id: string): CartDisplayItem | undefined =
 };
 
 // 2. Асинхронна версія (заготовка на майбутнє для useQuery)
-export const fetchProductsByIds = async (ids: string[]): Promise<CartDisplayItem[]> => {
+export const fetchProductsByIds = async (ids: (string | number)[]): Promise<CartDisplayItem[]> => {
+  const targetIds = new Set(ids.map(String));
+  console.log('target', targetIds);
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(ALL_CART_ITEMS.filter((item) => ids.includes(String(item.id))));
+      resolve(ALL_CART_ITEMS.filter((item) => targetIds.has(String(item.id))));
     }, 500);
   });
 };

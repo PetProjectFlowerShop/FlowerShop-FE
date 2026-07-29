@@ -92,9 +92,15 @@ export const useCartStore = create<CartState>()(
     }),
     {
       name: 'cart-storage',
+      partialize: (state) => ({ items: state.items }),
     }
   )
 );
 
-export const selectCartTotalCount = (state: CartState) =>
-  Object.values(state.items).reduce((sum, item) => sum + item.quantity, 0);
+export const selectCartTotalCount = (state: CartState) => {
+  const itemsArray = Object.values(state.items);
+
+  return itemsArray.reduce((total: number, item) => {
+    return total + item.quantity;
+  }, 0);
+};
