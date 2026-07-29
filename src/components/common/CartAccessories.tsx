@@ -15,6 +15,7 @@ export const CartAccessories = memo(({ accessories, onAddToCart }: CartAccessori
         mt: 2,
         position: 'relative',
         zIndex: 10,
+        maxWidth: '100%',
         '& .swiper-slide': {
           width: { xs: '306px !important' },
         },

@@ -25,6 +25,7 @@ const rootContainerSx = {
   flexDirection: 'column',
   gap: '16px',
   py: 3,
+  overflowX: 'hidden',
 };
 
 export function CartForm({ onClose }: CartFormProps) {
