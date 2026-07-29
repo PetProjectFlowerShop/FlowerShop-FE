@@ -22,6 +22,7 @@ export function ProductInfo({
 
   const [selectedWrap, setSelectedWrap] = useState(packagingOptions[0].id);
   const [quantity, setQuantity] = useState(1);
+
   return (
     <Box display="flex" flexDirection="column" gap={2}>
       <ProductHeader price={price} name={name} />
