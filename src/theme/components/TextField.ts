@@ -18,21 +18,29 @@ export const textFieldOverrides: Components<Theme>['MuiTextField'] = {
 export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
   defaultProps: {
     fullWidth: true,
+    notched: false,
   },
   styleOverrides: {
+    input: ({ theme }) => ({
+      '&::placeholder': {
+        ...theme.typography.placeholder,
+        color: theme.palette.text.disabled,
+        opacity: 1,
+      },
+    }),
     root: ({ theme }) => ({
       width: '100%',
-      borderRadius: '8px',
+      borderRadius: '12px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
 
       '& .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.divider,
+        borderColor: theme.palette.action.active, // theme.palette.divider,
         borderWidth: '1px',
       },
 
       '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.primary.main,
+        borderColor: theme.palette.primary.dark,
         borderWidth: '1px',
       },
 
@@ -54,8 +62,8 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
       },
 
       '& .MuiOutlinedInput-input': {
-        paddingLeft: theme.spacing(1),
-        paddingRight: theme.spacing(1),
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(4),
         height: '100%',
         boxSizing: 'border-box',
       },
@@ -64,16 +72,20 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
 };
 
 export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
+  defaultProps: {
+    shrink: true,
+  },
   styleOverrides: {
     root: ({ theme }) => ({
       position: 'relative',
       transform: 'none',
       marginBottom: '4px',
+      marginLeft: '4px',
       ...theme.typography.body1,
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
 
       '&.Mui-focused': {
-        color: theme.palette.primary.main,
+        color: theme.palette.text.primary,
       },
       '&.Mui-error': {
         color: theme.palette.error.main,
@@ -85,7 +97,7 @@ export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
 export const formHelperTextOverrides: Components<Theme>['MuiFormHelperText'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      margin: '4px 0 0 0',
+      margin: '4px 0 0 0', // 16px
       ...theme.typography.caption,
       color: theme.palette.text.secondary,
 

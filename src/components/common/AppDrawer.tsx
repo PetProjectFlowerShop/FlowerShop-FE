@@ -10,8 +10,31 @@ const AppDrawer = ({ children }: Props) => {
   const { isDrawerOpen, toggleDrawer } = useDrawer();
 
   return (
-    <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer('auth', false)}>
-      <Box display="flex" flexDirection="column" minWidth="40vw">
+    <Drawer
+      anchor="right"
+      open={isDrawerOpen}
+      onClose={toggleDrawer('auth', false)}
+      slotProps={{
+        paper: {
+          sx: {
+            width: {
+              xs: '100%',
+              sm: 640,
+              md: 708,
+            },
+          },
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          height: '100%',
+          boxSizing: 'border-box',
+        }}
+      >
         {children}
       </Box>
     </Drawer>

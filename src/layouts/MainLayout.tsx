@@ -3,11 +3,12 @@ import { Outlet } from 'react-router-dom';
 import { Header } from '../components/header/Header';
 import { TopBar } from '../components/top-bar/TopBar';
 import { Footer } from '../components/footer/Footer';
-import { LoginForm } from '../components/login/LoginForm';
+// import { LoginForm } from '../components/login/LoginForm';
 import AppDrawer from '../components/common/AppDrawer';
 import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
+import { RegisterForm } from '@/components/forms/RegisterForm.tsx';
 
 export function MainLayout() {
   const { drawerView } = useDrawer();
@@ -22,7 +23,7 @@ export function MainLayout() {
       }}
     >
       <AppDrawer>
-        {drawerView === 'auth' && <LoginForm />}
+        {drawerView === 'auth' && <RegisterForm />}
         {drawerView === 'favorite' && <div>favorite</div>}
         {drawerView === 'cart' && <div>cart</div>}
       </AppDrawer>
