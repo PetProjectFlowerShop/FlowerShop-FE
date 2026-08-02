@@ -6,7 +6,7 @@ export const formControlLabelOverrides: Components<Theme>['MuiFormControlLabel']
     root: ({ theme }) => ({
       margin: 0,
       gap: '4px',
-      alignItems: 'flex-start',
+      alignItems: 'center',
 
       '& .MuiFormControlLabel-label': {
         fontFamily: theme.typography.fontFamily,

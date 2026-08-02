@@ -24,7 +24,8 @@ export function UserActions() {
           color: 'text.primary',
           p: theme.spacingTokens.micro,
         })}
-        href="/profile"
+        // href="/profile"
+        onClick={toggleDrawer('auth', true)}
       >
         <Icon name="person" width={24} height={24} />
       </IconButton>
