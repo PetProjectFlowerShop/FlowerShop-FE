@@ -1,13 +1,13 @@
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+import { Footer } from '../components/footer/Footer';
 import { Header } from '../components/header/Header';
 import { TopBar } from '../components/top-bar/TopBar';
-import { Footer } from '../components/footer/Footer';
 // import { LoginForm } from '../components/login/LoginForm';
-import AppDrawer from '../components/common/AppDrawer';
-import { useDrawer } from '../hooks/useDrawer.ts';
-import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
+import AppDrawer from '../components/common/AppDrawer';
+import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
+import { useDrawer } from '../hooks/useDrawer.ts';
 
 import { CartForm } from '@/components/common/CartForm.tsx';
 import { useCartStore } from '@/store/cart.store.ts';

@@ -100,7 +100,7 @@ export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
 export const formHelperTextOverrides: Components<Theme>['MuiFormHelperText'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      margin: '4px 0 0 0', // 16px
+      margin: '4px 0 0 0',
       ...theme.typography.caption,
       color: theme.palette.text.secondary,
 
