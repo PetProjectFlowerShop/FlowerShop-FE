@@ -9,10 +9,15 @@ import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
 import { RegisterForm } from '@/components/forms/RegisterForm.tsx';
+import { CartForm } from '@/components/common/CartForm.tsx';
+import { useCartStore } from '@/store/cart.store.ts';
 
 export function MainLayout() {
-  const { drawerView } = useDrawer();
   const { topBarVisible, headerVisible } = useHeaderVisibility();
+  const { drawerView, isDrawerOpen, closeDrawer } = useDrawer();
+  const cartItemsRecord = useCartStore((state) => state.items);
+  const cartItemsArray = Object.values(cartItemsRecord);
+
   return (
     <Box
       sx={{
@@ -22,10 +27,10 @@ export function MainLayout() {
         backgroundColor: 'background.default',
       }}
     >
-      <AppDrawer>
+      <AppDrawer isOpen={isDrawerOpen} onClose={closeDrawer}>
         {drawerView === 'auth' && <RegisterForm />}
         {drawerView === 'favorite' && <div>favorite</div>}
-        {drawerView === 'cart' && <div>cart</div>}
+        {drawerView === 'cart' && <CartForm cartItems={cartItemsArray} onClose={closeDrawer} />}
       </AppDrawer>
 
       <TopBar visible={topBarVisible} />

@@ -1,44 +1,29 @@
-import { Drawer, Box } from '@mui/material';
-import { useDrawer } from '@/hooks/useDrawer';
-import type { ReactNode } from 'react';
+import { Box, Drawer, IconButton } from '@mui/material';
+import { Icon } from './Icon';
 
-type Props = {
-  children: ReactNode;
-};
+interface AppDrawerProps {
+  children: React.ReactNode;
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-const AppDrawer = ({ children }: Props) => {
-  const { isDrawerOpen, toggleDrawer } = useDrawer();
-
+export default function AppDrawer({ children, onClose, isOpen }: AppDrawerProps) {
   return (
-    <Drawer
-      anchor="right"
-      open={isDrawerOpen}
-      onClose={toggleDrawer('auth', false)}
-      slotProps={{
-        paper: {
-          sx: {
-            width: {
-              xs: '100%',
-              sm: 640,
-              md: 708,
-            },
-          },
-        },
-      }}
-    >
-      <Box
+    <Drawer anchor="right" open={isOpen} onClose={onClose}>
+      <IconButton
+        onClick={onClose}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          height: '100%',
-          boxSizing: 'border-box',
+          position: 'absolute',
+          top: 16,
+          right: { xs: 16, sm: 32, md: 60 },
+          zIndex: 9999,
+          border: 'none',
         }}
       >
-        {children}
-      </Box>
+        <Icon name="close" width={24} height={24} fill="currentColor" />
+      </IconButton>
+
+      <Box sx={{ pt: 6 }}>{children}</Box>
     </Drawer>
   );
-};
-
-export default AppDrawer;
+}

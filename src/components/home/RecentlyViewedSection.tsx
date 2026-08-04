@@ -1,12 +1,10 @@
-import { Container } from '@mui/material';
-
 import { useFavoritesStore } from '@/store/favorites.store';
 import type { Product } from '@/types/product';
 
 import { CardsCarousel } from '../common/CardsCarousel';
-import { CustomSection } from '../common/CustomSection';
 import { ProductCard } from '../common/ProductCard';
 import { SectionHeader } from '../common/SectionHeader';
+import { SectionContainer } from '../layouts/SectionContainer';
 
 import { getProductsByIds } from '@/api/products';
 import { useRecentlyStore } from '@/store/recently.store';
@@ -32,10 +30,9 @@ export default function RecentlyViewedSection() {
   }
 
   return (
-    <CustomSection data-testid="recently-viewed-section">
-      <Container>
+    <section data-testid="recently-viewed-section">
+      <SectionContainer data-testid="recently-viewed-section">
         <SectionHeader title="Recently viewed" />
-
         <CardsCarousel
           cards={data}
           renderCard={(product: Product) => (
@@ -46,7 +43,7 @@ export default function RecentlyViewedSection() {
             />
           )}
         />
-      </Container>
-    </CustomSection>
+      </SectionContainer>
+    </section>
   );
 }

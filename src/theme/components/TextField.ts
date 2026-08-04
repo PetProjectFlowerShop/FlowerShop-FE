@@ -30,13 +30,17 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
     }),
     root: ({ theme }) => ({
       width: '100%',
+      borderWidth: '1px',
       borderRadius: '12px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
+      paddingLeft: '16px',
+      paddingRight: '16px',
 
       '& .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.action.active, // theme.palette.divider,
         borderWidth: '1px',
+        borderRadius: '12px',
       },
 
       '&:hover .MuiOutlinedInput-notchedOutline': {
@@ -60,7 +64,6 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
       '&.Mui-error .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.error.main,
       },
-
       '& .MuiOutlinedInput-input': {
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),

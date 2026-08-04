@@ -12,17 +12,17 @@ const advantageCards: AdvantageCardProps[] = [
     text: 'Hand-picked flowers for vibrant, long-lasting bouquets.',
   },
   {
-    img: advantage2,
+    img: advantage4,
     title: 'Personalized Service',
     text: 'Custom bouquets and personal touches for any occasion.',
   },
   {
-    img: advantage3,
+    img: advantage2,
     title: 'Reliable Delivery',
     text: 'Hand-picked flowers for vibrant, long-lasting bouquets.',
   },
   {
-    img: advantage4,
+    img: advantage3,
     title: 'Unique Designs',
     text: 'Creative arrangements with colors and textures you want.',
   },
@@ -36,7 +36,9 @@ export function AdvantageList() {
         gridTemplateColumns: { xs: '1fr 1fr', desktop: 'repeat(4, 1fr)' },
         justifyContent: 'center',
         justifyItems: 'center',
-        gap: { xs: 4, tablet: 6 },
+        columnGap: { xs: 4, tablet: 6 },
+        rowGap: { xs: 2 },
+        paddingBottom: 1,
       }}
     >
       {advantageCards.map((card, index) => (

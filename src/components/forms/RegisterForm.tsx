@@ -38,7 +38,8 @@ export function RegisterForm() {
           sm: 6,
         }}
         sx={{
-          py: 20,
+          pt: 14,
+          pb: 20,
           px: {
             xs: 4,
             sm: 10,

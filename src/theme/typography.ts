@@ -5,6 +5,7 @@ export const typography = (theme: Theme) => ({
 
   body: {
     fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
     fontWeight: '400',
     fontSize: '16px',
     [theme.breakpoints.up('tablet')]: {
@@ -16,6 +17,7 @@ export const typography = (theme: Theme) => ({
     fontFamily: '"Playfair Display", serif',
     fontWeight: 400,
     fontSize: '64px',
+    letterSpacing: 0,
     lineHeight: 1.12,
     [theme.breakpoints.up('tablet')]: {
       fontSize: '96px',
@@ -24,6 +26,7 @@ export const typography = (theme: Theme) => ({
   },
   h2: {
     fontFamily: '"Playfair Display", serif',
+    letterSpacing: 0,
     fontSize: '40px',
     lineHeight: 1.2,
     [theme.breakpoints.up('tablet')]: {
@@ -33,6 +36,7 @@ export const typography = (theme: Theme) => ({
   },
   h3: {
     fontFamily: '"Playfair Display", serif',
+    letterSpacing: 0,
     fontSize: '28px',
     lineHeight: 1.28,
     [theme.breakpoints.up('tablet')]: {
@@ -42,6 +46,7 @@ export const typography = (theme: Theme) => ({
   },
   h4: {
     fontFamily: '"Playfair Display", serif',
+    letterSpacing: 0,
     fontSize: '20px',
     lineHeight: 1.4,
     [theme.breakpoints.up('tablet')]: {
@@ -51,16 +56,19 @@ export const typography = (theme: Theme) => ({
   },
   button: {
     fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
     textTransform: 'none' as const,
     fontSize: '16px',
     fontWeight: 500,
-    lineHeight: 1.4,
+    lineHeight: 1.5,
     [theme.breakpoints.up('tablet')]: {
       fontSize: '20px',
+      lineHeight: 1.4,
     },
   },
   body1: {
     fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
     fontSize: '16px',
     lineHeight: 1.5,
     [theme.breakpoints.up('tablet')]: {
@@ -70,8 +78,9 @@ export const typography = (theme: Theme) => ({
   },
   caption: {
     fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
     fontSize: '14px',
-    lineHeight: 1.5,
+    lineHeight: '20px',
     [theme.breakpoints.up('tablet')]: {
       fontSize: '16px',
       lineHeight: 1.5,
@@ -79,6 +88,7 @@ export const typography = (theme: Theme) => ({
   },
   caption2: {
     fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
     fontSize: '14px',
     lineHeight: 1.42,
   },
