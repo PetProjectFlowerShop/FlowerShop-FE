@@ -17,7 +17,7 @@ export function DividerWithText({ text = 'or' }: DividerWithTextProps) {
     >
       <Divider sx={{ flex: 1 }} />
 
-      <Typography variant="body2" color="text.secondary" whiteSpace="nowrap">
+      <Typography variant="body1" color="text.secondary" whiteSpace="nowrap">
         {text}
       </Typography>
 

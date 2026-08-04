@@ -1,9 +1,9 @@
 import { FormContainer, TextFieldElement, CheckboxElement } from 'react-hook-form-mui';
 import { Stack, Link, Typography, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { GoogleButton } from './GoogleButton';
-import { DividerWithText } from './DividerWithText';
-import { FormHeader } from './FormHeader';
+import { GoogleButton } from '../components/GoogleButton';
+import { DividerWithText } from '../components/DividerWithText';
+import { FormHeader } from '../components/FormHeader';
 
 type RegisterFormValues = {
   name: string;

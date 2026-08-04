@@ -8,7 +8,7 @@ import AppDrawer from '../components/common/AppDrawer';
 import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
-import { RegisterForm } from '@/components/forms/RegisterForm.tsx';
+import { RegisterForm } from '@/components/forms/register/RegisterForm.tsx';
 import { CartForm } from '@/components/common/CartForm.tsx';
 import { useCartStore } from '@/store/cart.store.ts';
 
