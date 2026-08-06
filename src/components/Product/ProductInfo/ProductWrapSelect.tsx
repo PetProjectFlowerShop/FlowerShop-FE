@@ -1,22 +1,19 @@
-import { Box, Chip, MenuItem, Select, Typography } from '@mui/material';
-import { PRODUCT_WRAP_OPTIONS } from '../../../constants/productWrap';
-import type { PackagingType } from '../../../types/product';
-type Props = {
-  packagingOptions: PackagingType[];
-  selectedWrap: PackagingType['key'];
-  onWrapChange: (wrapKey: PackagingType['key']) => void;
-};
+// type Props = {
+//   packagingOptions: PackagingType[];
+//   selectedWrap: PackagingType['key'];
+//   onWrapChange: (wrapKey: PackagingType['key']) => void;
+// };
 
-export function ProductWrapSelect({ packagingOptions, selectedWrap, onWrapChange }: Props) {
-  const filteredOptions = packagingOptions.map((p) => ({
-    key: p.key,
-    label: PRODUCT_WRAP_OPTIONS[p.key],
-    price: p.price,
-  }));
+export function ProductWrapSelect() {
+  // const filteredOptions = packagingOptions.map((p) => ({
+  //   key: p.key,
+  //   label: PRODUCT_WRAP_OPTIONS[p.key],
+  //   price: p.price,
+  // }));
 
   return (
     <>
-      <Select
+      {/* <Select
         value={selectedWrap}
         onChange={(e) => onWrapChange(e.target.value)}
         sx={{ display: { tablet: 'none' } }}
@@ -48,7 +45,7 @@ export function ProductWrapSelect({ packagingOptions, selectedWrap, onWrapChange
             />
           ))}
         </Box>
-      </Box>
+      </Box> */}
     </>
   );
 }

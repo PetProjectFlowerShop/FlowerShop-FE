@@ -1,15 +1,9 @@
-import { Box, Chip, Divider } from '@mui/material';
-import { FILTER_CHIP_CONFIG } from '@/constants/chipConfig';
-import { ButtonText } from '../common/ButtonText';
-import { useProductFilters } from '@/hooks/useProductFilters';
-import { isAnyFilterActive } from '@/utils/productFilters';
-
-export function FilteredTags({ likeAccordion }: { likeAccordion?: boolean }) {
-  const { filters, removeParamValue, clearFilters, removeRange } = useProductFilters();
-  const hasActiveFilters = isAnyFilterActive(filters);
+export function FilteredTags() {
+  // const { filters, removeParamValue, clearFilters, removeRange } = useProductFilters();
+  // const hasActiveFilters = isAnyFilterActive(filters);
   return (
     <>
-      {hasActiveFilters && (
+      {/* {hasActiveFilters && (
         <Box display="flex" flexDirection="column">
           <Box display="flex" flexWrap="wrap" gap="12px" p={likeAccordion ? '16px' : '0px'}>
             {FILTER_CHIP_CONFIG.map((item) => {
@@ -47,7 +41,7 @@ export function FilteredTags({ likeAccordion }: { likeAccordion?: boolean }) {
           </Box>
           {likeAccordion && <Divider />}
         </Box>
-      )}
+      )} */}
     </>
   );
 }

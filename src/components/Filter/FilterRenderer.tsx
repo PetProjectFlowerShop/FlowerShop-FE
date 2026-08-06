@@ -1,10 +1,8 @@
-import { Box, Chip } from '@mui/material';
 import type { FilterConfigType } from '@/constants/filterConfig';
 import type { FilterKey, FiltersState, NumberFilterKey } from '@/types/filter';
-import { FilterOption } from './FilterOption';
+import { Box, Chip } from '@mui/material';
 import { FilterSection } from './FilterSection';
 import { RangeFilterSection } from './RangeFilterSection';
-import { ColorLabel } from './ColorLabel';
 
 type Props = {
   config: FilterConfigType;
@@ -33,20 +31,11 @@ export function FilterRenderer({ config, filters, toggleParam, setRange, default
                 title={item.title}
                 defaultExpanded={defaultExpanded}
               >
-                {item.options.map((option) => {
-                  const values = filters[item.paramKey] as string[];
-                  const isChecked = values.includes(option.value);
+                {item.options.map(() => {
+                  // const values = filters[item.paramKey] as string[];
+                  // const isChecked = values.includes(option.value);
 
-                  return (
-                    <FilterOption
-                      key={option.value}
-                      checked={isChecked}
-                      onChange={() => toggleParam(item.paramKey, option.value)}
-                      label={
-                        item.paramKey === 'color' ? <ColorLabel option={option} /> : option.label
-                      }
-                    />
-                  );
+                  return <div>filter option</div>;
                 })}
               </FilterSection>
             );

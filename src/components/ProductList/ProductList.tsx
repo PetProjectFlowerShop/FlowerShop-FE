@@ -1,84 +1,72 @@
-import { fetchProducts } from '@/api/products';
-import { getProductsFromCache } from '@/lib/products/getProductsFromCache';
-import { useFavoritesStore } from '@/store/favorites.store';
-import { parseProductFilters } from '@/utils/productFilters';
-import { Box, Button, Pagination } from '@mui/material';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { EmptyProductList } from './EmptyProductList';
-import { ProductCard } from '../ProductCard';
-
 export function ProductList() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const queryClient = useQueryClient();
-  const favorites = useFavoritesStore((s) => s.items);
-  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
-  const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const queryClient = useQueryClient();
+  // const favorites = useFavoritesStore((s) => s.items);
+  // const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
 
-  const { page, ...filtersWithoutPage } = filters;
-  const currentPage = page ?? 1;
+  // const { page, ...filtersWithoutPage } = filters;
+  // const currentPage = page ?? 1;
 
-  const [feedAnchorPage, setFeedAnchorPage] = useState(currentPage);
+  // const [feedAnchorPage, setFeedAnchorPage] = useState(currentPage);
 
-  const query = useQuery({
-    queryKey: ['products', filtersWithoutPage, currentPage],
-    queryFn: () =>
-      fetchProducts({
-        ...filtersWithoutPage,
-        page: currentPage,
-      }),
-    placeholderData: (prev) => prev,
-  });
+  // const query = useQuery({
+  //   queryKey: ['products', filtersWithoutPage, currentPage],
+  //   queryFn: () =>
+  //     fetchProducts({
+  //       ...filtersWithoutPage,
+  //       page: currentPage,
+  //     }),
+  //   placeholderData: (prev) => prev,
+  // });
 
-  const totalPages = query.data?.totalPages ?? 0;
+  // const totalPages = query.data?.totalPages ?? 0;
 
-  const products = useMemo(
-    () =>
-      getProductsFromCache({
-        queryClient,
-        filters: filtersWithoutPage,
-        currentPage,
-        feedAnchorPage,
-      }),
-    [queryClient, filtersWithoutPage, currentPage, feedAnchorPage]
-  );
+  // const products = useMemo(
+  //   () =>
+  //     getProductsFromCache({
+  //       queryClient,
+  //       filters: filtersWithoutPage,
+  //       currentPage,
+  //       feedAnchorPage,
+  //     }),
+  //   [queryClient, filtersWithoutPage, currentPage, feedAnchorPage]
+  // );
 
-  if (query.isLoading && products.length === 0) {
-    return <div>Loading...</div>;
-  }
+  // if (query.isLoading && products.length === 0) {
+  //   return <div>Loading...</div>;
+  // }
 
-  const isEmpty = !query.isLoading && !query.isFetching && products.length === 0;
+  // const isEmpty = !query.isLoading && !query.isFetching && products.length === 0;
 
-  if (isEmpty) {
-    return <EmptyProductList />;
-  }
+  // if (isEmpty) {
+  //   return <EmptyProductList />;
+  // }
 
-  const changePage = (page: number) => {
-    setFeedAnchorPage(page);
+  // const changePage = (page: number) => {
+  //   setFeedAnchorPage(page);
 
-    const params = new URLSearchParams(searchParams);
-    params.set('page', String(page));
-    setSearchParams(params);
+  //   const params = new URLSearchParams(searchParams);
+  //   params.set('page', String(page));
+  //   setSearchParams(params);
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // };
 
-  const handleShowMore = () => {
-    const nextPage = currentPage + 1;
+  // const handleShowMore = () => {
+  //   const nextPage = currentPage + 1;
 
-    if (feedAnchorPage === currentPage) {
-      setFeedAnchorPage(currentPage);
-    }
+  //   if (feedAnchorPage === currentPage) {
+  //     setFeedAnchorPage(currentPage);
+  //   }
 
-    const params = new URLSearchParams(searchParams);
-    params.set('page', String(nextPage));
-    setSearchParams(params);
-  };
+  //   const params = new URLSearchParams(searchParams);
+  //   params.set('page', String(nextPage));
+  //   setSearchParams(params);
+  // };
 
   return (
     <div>
-      <Box
+      {/* <Box
         display="grid"
         mt={6}
         mb={9}
@@ -89,12 +77,7 @@ export function ProductList() {
         gap={{ xs: '15px', tablet: '24px' }}
       >
         {products.map((product) => (
-          <ProductCard
-            isFavorite={!!favorites[product.id]}
-            onFavoriteClick={() => toggleFavorite(product.id)}
-            key={product.id}
-            product={product}
-          />
+          <ProductCard isFavorite={!!favorites[product.id]} key={product.id} product={product} />
         ))}
       </Box>
 
@@ -127,7 +110,7 @@ export function ProductList() {
           width: '100%',
           mx: 'auto',
         }}
-      />
+      /> */}
     </div>
   );
 }
