@@ -6,8 +6,8 @@ import { Box, Button, Pagination } from '@mui/material';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ProductCard } from '../common/ProductCard';
 import { EmptyProductList } from './EmptyProductList';
+import { ProductCard } from '../ProductCard';
 
 export function ProductList() {
   const [searchParams, setSearchParams] = useSearchParams();
