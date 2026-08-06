@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type RecentlyViewedState = {
-  items: number[];
-  addProduct: (id: number) => void;
+  items: string[];
+  addProduct: (id: string) => void;
   clear: () => void;
 };
 
