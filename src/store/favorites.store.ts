@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 
 type FavoritesState = {
   items: Record<string, true>;
-  toggleFavorite: (id: string) => void;
+  toggleFavorite: (id: number) => void;
   clear: () => void;
 };
 
