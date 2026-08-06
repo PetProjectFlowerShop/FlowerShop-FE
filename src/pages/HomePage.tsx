@@ -1,11 +1,11 @@
 import { PageLayout } from '@/components/layouts/PageLayout';
 import AboutUsSection from '../components/home/AboutUsSection';
+import CatalogSection from '../components/home/CatalogSection';
+import CustomersReviewsSection from '../components/home/CustomersReviewsSection';
 import HeroSection from '../components/home/HeroSection';
 import PromoSection from '../components/home/PromoSection';
 import RecommendationsSection from '../components/home/RecommendationsSection';
 import FaqSection from '../components/home/faq/FaqSection';
-import CatalogSection from '@/components/home/CatalogSection';
-import CustomersReviewsSection from '@/components/home/CustomersReviewsSection';
 
 export function HomePage() {
   return (

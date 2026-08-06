@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import { useId, useMemo, type ReactNode } from 'react';
 import { Icon } from './Icon';
 
-interface CardsCarouselProps<T extends { id: number }> {
+interface CardsCarouselProps<T extends { id: string }> {
   cards: T[];
   renderCard: (card: T) => ReactNode;
   centered?: boolean;
@@ -137,7 +137,7 @@ const getNavButtonStyles = (
   };
 };
 
-export const CardsCarousel = <T extends { id: number }>({
+export const CardsCarousel = <T extends { id: string }>({
   cards,
   renderCard,
   centered = false,

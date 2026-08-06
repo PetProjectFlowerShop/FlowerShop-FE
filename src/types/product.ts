@@ -1,44 +1,50 @@
-export type FlowerType = { id: number; name: string };
-export type ColorType = { id: number; name: string };
-export type PackagingType = { id: number; name: string; price: number };
-export type BouquetType = {
-  id: number;
-  name: string;
-  packagingTypes: PackagingType[];
-};
-export type ProductImageType = {
-  id: number;
-  imageUrl: string;
-  isMain: boolean;
-  productId: number;
-};
-
-export interface ProductBase {
-  id: number;
-  name: string;
+export type FlowerType =
+  | 'alstroemeria'
+  | 'amaryllis'
+  | 'anemone'
+  | 'astilbe'
+  | 'calla-lily'
+  | 'carnation'
+  | 'chrysanthemum'
+  | 'freesia'
+  | 'hydrangea'
+  | 'lilac'
+  | 'lily'
+  | 'limonium'
+  | 'lisianthus'
+  | 'orchid'
+  | 'peony'
+  | 'ranunculus'
+  | 'rose'
+  | 'stock';
+export type ColorType =
+  'blue' | 'cream' | 'green' | 'mixed' | 'pink' | 'purple' | 'red' | 'white' | 'yellow';
+export type OccasionType =
+  'birthday' | 'wedding' | 'engagement' | 'anniversary' | 'thank' | 'womensDay' | 'valentineDay';
+export type BouquetType = 'mono' | 'mixed' | 'basket' | 'box';
+export type PackagingKeyType = 'craft' | 'luxury' | 'eco' | 'gold' | 'silk' | 'box' | 'basket';
+export type PackagingType = {
+  key: PackagingKeyType;
   price: number;
+};
 
-  isNew: boolean;
-  isPopular: boolean;
-  isSeasonOffer: boolean;
-
-  discountPercent?: number;
-}
-
-export interface ProductCardType extends ProductBase {
-  imageUrl: string;
-
-  isRecommended: boolean;
-}
-
-export interface ProductDetails extends ProductBase {
-  description: string;
-  quantity: number;
-  stemsCount: number;
-  isAvailable: boolean;
+export interface Product {
+  id: string;
+  title: string;
+  tags: string[];
+  price: number;
+  type: FlowerType[];
+  rating: number;
+  color: ColorType[];
+  bouquetType: BouquetType[];
+  numberStems: number;
   height: number;
-  flowerTypes: FlowerType[];
-  colors: ColorType[];
-  bouquetType: BouquetType;
-  images: ProductImageType[];
+  occasion: OccasionType[];
+
+  images: string[];
+
+  quantity: number;
+  description: string;
+  packagingType: PackagingType[];
+  discount?: number;
 }

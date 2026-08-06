@@ -2,27 +2,27 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 export type CartItem = {
-  productId: number;
-
+  productId: string;
+  wrapType: string;
   quantity: number;
 };
 
 type CartState = {
   items: Record<string, CartItem>;
-  addToCart: (productId: number, quantity: number) => void;
+  addToCart: (productId: string, wrapType: string, quantity: number) => void;
   clear: () => void;
 };
 
-const getCartItemId = (productId: number) => `${productId}`;
+const getCartItemId = (productId: string, wrapType: string) => `${productId}_${wrapType}`;
 
 export const useCartStore = create<CartState>()(
   persist(
     (set) => ({
       items: {},
 
-      addToCart: (productId, quantity) =>
+      addToCart: (productId, wrapType, quantity) =>
         set((state) => {
-          const id = getCartItemId(productId);
+          const id = getCartItemId(productId, wrapType);
           const existing = state.items[id];
 
           return {
@@ -30,7 +30,7 @@ export const useCartStore = create<CartState>()(
               ...state.items,
               [id]: {
                 productId,
-
+                wrapType,
                 quantity: (existing?.quantity ?? 0) + quantity,
               },
             },
