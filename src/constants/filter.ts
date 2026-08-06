@@ -1,6 +1,6 @@
-import type { BouquetType, ColorType, FlowerType, OccasionType } from '../types/product';
+// import type { BouquetType, ColorType, FlowerType, OccasionType } from '../types/product';
 
-export const FLOWER_TYPES_OPTIONS: { value: FlowerType; label: string }[] = [
+export const FLOWER_TYPES_OPTIONS: { value: string; label: string }[] = [
   { value: 'alstroemeria', label: 'Alstroemeria' },
   { value: 'amaryllis', label: 'Amaryllis' },
   { value: 'anemone', label: 'Anemone' },
@@ -21,7 +21,7 @@ export const FLOWER_TYPES_OPTIONS: { value: FlowerType; label: string }[] = [
   { value: 'stock', label: 'Stock' },
 ];
 
-export const COLOR_OPTIONS: { value: ColorType; label: string }[] = [
+export const COLOR_OPTIONS: { value: string; label: string }[] = [
   { value: 'blue', label: 'Blue' },
   { value: 'cream', label: 'Creamy' },
   { value: 'green', label: 'Green' },
@@ -33,14 +33,14 @@ export const COLOR_OPTIONS: { value: ColorType; label: string }[] = [
   { value: 'yellow', label: 'Yellow' },
 ];
 
-export const BOUQUET_TYPES_OPTIONS: { value: BouquetType; label: string }[] = [
+export const BOUQUET_TYPES_OPTIONS: { value: string; label: string }[] = [
   { value: 'mono', label: 'Mono Bouquet' },
   { value: 'mixed', label: 'Mixed Bouquet' },
   { value: 'basket', label: 'Flowers in a Basket' },
   { value: 'box', label: 'Flowers in a Box' },
 ];
 
-export const OCCASION_OPTIONS: { value: OccasionType; label: string }[] = [
+export const OCCASION_OPTIONS: { value: string; label: string }[] = [
   { value: 'birthday', label: 'Birthday' },
   { value: 'wedding', label: 'Wedding' },
   { value: 'engagement', label: 'Engagement' },

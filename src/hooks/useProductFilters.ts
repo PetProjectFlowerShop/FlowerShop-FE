@@ -1,11 +1,11 @@
 import { useSearchParams } from 'react-router-dom';
-import { parseProductFilters } from '../utils/productFilters';
+// import { parseProductFilters } from '../utils/productFilters';
 import type { FilterKey } from '../types/filter';
 
 export function useProductFilters() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const filters = parseProductFilters(searchParams);
+  // const filters = parseProductFilters(searchParams);
 
   const toggleParam = (paramKey: FilterKey, value: string) => {
     const values = new Set(searchParams.get(paramKey)?.split(',') ?? []);
@@ -85,7 +85,7 @@ export function useProductFilters() {
   };
 
   return {
-    filters,
+    // filters,
     toggleParam,
     setRange,
     removeParamValue,

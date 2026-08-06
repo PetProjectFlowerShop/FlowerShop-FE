@@ -1,6 +1,6 @@
 import type { FlowerType } from '../types/product';
 
-type CareMap = Partial<Record<FlowerType, readonly string[]>> & {
+type CareMap = Record<string, readonly string[]> & {
   default: readonly string[];
   mix: readonly string[];
 };
@@ -106,5 +106,5 @@ export function getCareItems(types: FlowerType[]): readonly string[] {
 
   const type = types[0];
 
-  return CARE_BY_TYPE[type] ?? CARE_BY_TYPE.default;
+  return CARE_BY_TYPE[`${type}`] ?? CARE_BY_TYPE.default;
 }

@@ -8,8 +8,8 @@ import { Box, Button, IconButton, Typography } from '@mui/material';
 
 type ProductQuantityControlsProps = {
   quantity: number;
-  productId: string;
-  wrapType: string;
+  productId: number;
+
   onQuantityChange: (updater: number | ((prev: number) => number)) => void;
   onFavoriteClick: () => void;
   isFavorite?: boolean;
@@ -20,7 +20,7 @@ const MAX_QUANTITY = 99;
 export function ProductQuantityControls({
   quantity,
   productId,
-  wrapType,
+
   onQuantityChange,
   onFavoriteClick,
   isFavorite = false,
@@ -91,7 +91,7 @@ export function ProductQuantityControls({
         variant="contained"
         fullWidth
         onClick={() => {
-          addItemToCart(productId, wrapType, quantity);
+          addItemToCart(productId, quantity);
           toggleDrawer('cart', true)();
         }}
       >

@@ -1,24 +1,10 @@
 import { PageContainer } from '@/components/common/PageContainer';
 
-import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
-
-import { Filter } from '@/components/Filter/Filter';
-import { FilterContent } from '@/components/Filter/FilterContent';
-import { FilteredTags } from '@/components/Filter/FilteredTags';
-import { ProductList } from '@/components/ProductList/ProductList';
-import { Sort } from '@/components/Sort/Sort';
-import RecommendationsSection from '@/components/home/RecommendationsSection';
-import catalogBaner from '../../assets/images/catalog-banner.webp';
-import TitleWithImageSection from '@/components/common/TitleWithImageSection';
-import { Box } from '@mui/material';
-import { useRecentlyStore } from '@/store/recently.store';
-import RecentlyViewedSection from '@/components/home/RecentlyViewedSection';
-
 export function Catalog() {
-  const viewedProducts = useRecentlyStore((store) => store.items);
+  // const viewedProducts = useRecentlyStore((store) => store.items);
   return (
     <PageContainer>
-      <DynamicBreadcrumbs mb={2} />
+      {/* <DynamicBreadcrumbs mb={2} />
       <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
       <Box
         sx={{
@@ -52,7 +38,7 @@ export function Catalog() {
         <RecentlyViewedSection />
       ) : (
         <RecommendationsSection title="Recommendations" />
-      )}
+      )} */}
     </PageContainer>
   );
 }

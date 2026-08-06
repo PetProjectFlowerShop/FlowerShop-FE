@@ -1,6 +1,6 @@
 import type { QueryClient } from '@tanstack/react-query';
 import type { fetchProducts } from '@/api/products';
-import type { Product } from '@/types/product';
+import type { ProductCardType } from '@/types/product';
 import { mergeUniqueProducts } from '@/utils/mergeUniqueProducts';
 import type { FiltersState } from '@/types/filter';
 
@@ -18,8 +18,8 @@ export function getProductsFromCache({
   filters,
   currentPage,
   feedAnchorPage,
-}: Args): Product[] {
-  const result: Product[] = [];
+}: Args): ProductCardType[] {
+  const result: ProductCardType[] = [];
 
   const isFeedMode = feedAnchorPage < currentPage;
 
