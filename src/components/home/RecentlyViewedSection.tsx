@@ -8,28 +8,10 @@ import { SectionContainer } from '../layouts/SectionContainer';
 import { useRecentlyStore } from '@/store/recently.store';
 import type { ProductCardType } from '@/types/product';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+
 import { useParams } from 'react-router-dom';
 import { ProductCard } from '../ProductCard';
-
-async function getRecentlyViewedProducts(ids: number[]) {
-  try {
-    const params = new URLSearchParams();
-
-    ids.forEach((id) => {
-      params.append('ids', String(id));
-    });
-
-    const { data } = await axios.get<ProductCardType[]>('api/flowers/batch', {
-      params,
-    });
-
-    return data;
-  } catch (err) {
-    console.error('Request failed:', err);
-    throw err;
-  }
-}
+import { getProductByIds } from '@/api/flowers';
 
 export default function RecentlyViewedSection() {
   const favorites = useFavoritesStore((s) => s.items);
@@ -42,7 +24,7 @@ export default function RecentlyViewedSection() {
 
   const { data } = useQuery({
     queryKey: ['recently-viewed', filteredIds.join(',')],
-    queryFn: () => getRecentlyViewedProducts(filteredIds),
+    queryFn: () => getProductByIds({ ids: filteredIds }),
     enabled: ids.length > 0,
   });
 

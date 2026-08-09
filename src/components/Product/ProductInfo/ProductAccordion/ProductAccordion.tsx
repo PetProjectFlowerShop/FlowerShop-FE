@@ -1,5 +1,5 @@
+import type { BouquetType } from '@/types/product';
 import { Box } from '@mui/material';
-import type { FlowerType } from '@/types/product';
 import { AboutFlower } from './AboutFlower';
 import { CareFlower } from './CareFlower';
 import { DeliveryFlower } from './DeliveryFlower';
@@ -10,7 +10,7 @@ export function ProductAccordion({
   title,
 }: {
   description: string;
-  type: FlowerType[];
+  type: BouquetType;
   title: string;
 }) {
   return (

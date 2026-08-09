@@ -24,7 +24,6 @@ export default function RecommendationsSection({ title, subtitle }: Recommendati
   if (isError) {
     return null;
   }
-  console.log('data', data);
 
   return (
     <section data-testid="reccomendation-section">

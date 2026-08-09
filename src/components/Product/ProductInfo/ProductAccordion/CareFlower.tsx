@@ -1,9 +1,9 @@
-import { AccordionDetails, List, Typography } from '@mui/material';
 import { getCareItems } from '@/constants/flower-care';
-import type { FlowerType } from '@/types/product';
+import { AccordionDetails, List, Typography } from '@mui/material';
 import { ProductAccordionItem } from './ProductAccordionItem';
+import type { BouquetType } from '@/types/product';
 
-export function CareFlower({ type, flowerTitle }: { type: FlowerType[]; flowerTitle: string }) {
+export function CareFlower({ type, flowerTitle }: { type: BouquetType; flowerTitle: string }) {
   const items = getCareItems(type);
   return (
     <ProductAccordionItem title="Care">

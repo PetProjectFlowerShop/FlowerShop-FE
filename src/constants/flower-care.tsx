@@ -1,4 +1,4 @@
-import type { FlowerType } from '../types/product';
+import type { BouquetType } from '../types/product';
 
 type CareMap = Record<string, readonly string[]> & {
   default: readonly string[];
@@ -95,16 +95,6 @@ export const CARE_BY_TYPE: CareMap = {
   ],
 };
 
-export function getCareItems(types: FlowerType[]): readonly string[] {
-  if (types.length > 1) {
-    return CARE_BY_TYPE.mix;
-  }
-
-  if (types.length === 0) {
-    return CARE_BY_TYPE.default;
-  }
-
-  const type = types[0];
-
+export function getCareItems(type: BouquetType): readonly string[] {
   return CARE_BY_TYPE[`${type}`] ?? CARE_BY_TYPE.default;
 }

@@ -1,33 +1,44 @@
+import type { ProductDetails } from '@/types/product';
 import { Box } from '@mui/material';
+import { ProductHeader } from './ProductHeader';
+import { ProductWrapSelect } from './ProductWrapSelect';
+import { useState } from 'react';
+import { ProductQuantityControls } from './ProductQuantityControls';
+import { ProductAccordion } from './ProductAccordion/ProductAccordion';
 
-export function ProductInfo() {
+type ProductInfoProps = Omit<ProductDetails, 'images'>;
+
+export function ProductInfo({
+  id,
+  name,
+  price,
+  bouquetType,
+  description,
+  quantity: maxQuantity,
+}: ProductInfoProps) {
   // const favorites = useFavoritesStore((s) => s.items);
   // const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
+  const packagingOptions = bouquetType.packagingTypes;
 
-  // const [quantity, setQuantity] = useState(1);
-  // const [selectedWrap, setSelectedWrap] = useState(packagingOptions[0]?.key ?? '');
+  const [selectedWrap, setSelectedWrap] = useState(packagingOptions[0].id);
+  const [quantity, setQuantity] = useState(1);
   return (
     <Box display="flex" flexDirection="column" gap={2}>
-      {/* <ProductHeader
-        price={price}
-        title={title}
-        isFavorite={!!favorites[data.id]}
-        onFavoriteClick={() => toggleFavorite(id)}
-      />
+      <ProductHeader price={price} name={name} />
       <ProductWrapSelect
         selectedWrap={selectedWrap}
         onWrapChange={setSelectedWrap}
         packagingOptions={packagingOptions}
       />
+
       <ProductQuantityControls
         productId={id}
-        wrapType={selectedWrap}
+
+        maxQuantity={maxQuantity}
         quantity={quantity}
         onQuantityChange={setQuantity}
-        isFavorite={!!favorites[data.id]}
-        onFavoriteClick={() => toggleFavorite(id)}
       />
-      <ProductAccordion description={description} type={type} title={title} /> */}
+      <ProductAccordion description={description} type={bouquetType} title={name} />
     </Box>
   );
 }

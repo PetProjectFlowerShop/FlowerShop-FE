@@ -18,7 +18,7 @@ export default function CatalogSection() {
   if (isError) {
     return null;
   }
-  console.log('catalog products', data);
+
   return (
     <section data-testid="catalog-section">
       <SectionContainer>
