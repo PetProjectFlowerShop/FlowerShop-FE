@@ -1,14 +1,10 @@
 import accessories from '@/assets/images/accessories.webp';
-import img1 from '@/assets/images/imagePlaceholder.webp';
-import img2 from '@/assets/images/imagePlaceholder2.webp';
-import img3 from '@/assets/images/imagePlaceholder3.webp';
-import img4 from '@/assets/images/imagePlaceholder4.webp';
+import type { ProductDetails } from '@/types/product';
 import { Box } from '@mui/material';
 import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
 import { SectionContainer } from '../layouts/SectionContainer';
-import { ProductGallery } from './ProductImages/ProductGallery';
-
-const MOCK_IMAGES = [img1, img2, img3, img4];
+import { ProductGallery } from './ProductGallery/ProductGallery';
+import { ProductInfo } from './ProductInfo/ProductInfo';
 
 const MOCK_ACCESSORIES = [
   { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },
@@ -18,8 +14,7 @@ const MOCK_ACCESSORIES = [
   { id: '5', title: 'Aroma Stick', price: 15, imgURL: accessories },
 ];
 
-export function ProductDetailsSection() {
-  const imagesToShow = MOCK_IMAGES;
+export function ProductDetailsSection({ data }: { data: ProductDetails }) {
   return (
     <section data-testid="product-details-section">
       <SectionContainer>
@@ -34,9 +29,9 @@ export function ProductDetailsSection() {
           mb={10}
         >
           <Box sx={{ position: { desktop: 'sticky' }, top: { desktop: '104px' } }}>
-            <ProductGallery images={imagesToShow} />
+            <ProductGallery images={data.images} />
           </Box>
-          {/* <ProductInfo data={data} /> */}
+          <ProductInfo {...data} />
         </Box>
         <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
       </SectionContainer>

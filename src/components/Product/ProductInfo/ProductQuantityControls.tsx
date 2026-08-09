@@ -1,29 +1,23 @@
 import { useDrawer } from '@/hooks/useDrawer';
 import { useCartStore } from '@/store/cart.store';
 import AddIcon from '@mui/icons-material/Add';
-import HeartIconFilled from '@mui/icons-material/Favorite';
-import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Box, Button, IconButton, Typography } from '@mui/material';
 
 type ProductQuantityControlsProps = {
+  maxQuantity: number;
   quantity: number;
   productId: number;
 
   onQuantityChange: (updater: number | ((prev: number) => number)) => void;
-  onFavoriteClick: () => void;
-  isFavorite?: boolean;
 };
 
-const MAX_QUANTITY = 99;
-
 export function ProductQuantityControls({
+  maxQuantity,
   quantity,
   productId,
 
   onQuantityChange,
-  onFavoriteClick,
-  isFavorite = false,
 }: ProductQuantityControlsProps) {
   const handleDecrease = () => {
     if (quantity <= 1) return;
@@ -34,7 +28,7 @@ export function ProductQuantityControls({
   const addItemToCart = useCartStore((state) => state.addToCart);
   const { toggleDrawer } = useDrawer();
   const handleIncrease = () => {
-    if (quantity >= MAX_QUANTITY) return;
+    if (quantity >= maxQuantity) return;
     onQuantityChange((prev) => prev + 1);
   };
   return (
@@ -99,10 +93,9 @@ export function ProductQuantityControls({
       </Button>
       <IconButton
         variant="secondary"
-        onClick={onFavoriteClick}
         sx={{ maxHeight: 40, display: { xs: 'none', tablet: 'block' } }}
       >
-        {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
+        {/* {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />} */}
       </IconButton>
     </Box>
   );
