@@ -29,6 +29,7 @@ export function AppRoutes() {
         <Route path="/legal-links/support" element={<Support />} />
         <Route path="/legal-links/license" element={<License />} />
         <Route path="/legal-links/terms-of-service" element={<TermOfService />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
 
       <Route element={<AuthLayout />}>
@@ -38,7 +39,6 @@ export function AppRoutes() {
         <Route path="/forgot-password" element={<LoginPage />} />
         <Route path="/reset-password" element={<LoginPage />} /> */}
       </Route>
-      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
