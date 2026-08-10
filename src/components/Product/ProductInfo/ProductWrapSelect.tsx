@@ -1,29 +1,27 @@
+import type { PackagingType } from '@/types/product';
 import { Box, Chip, MenuItem, Select, Typography } from '@mui/material';
-import { PRODUCT_WRAP_OPTIONS } from '../../../constants/productWrap';
-import type { PackagingType } from '../../../types/product';
-type Props = {
+
+type ProductWrapSelectProps = {
   packagingOptions: PackagingType[];
-  selectedWrap: PackagingType['key'];
-  onWrapChange: (wrapKey: PackagingType['key']) => void;
+  selectedWrap: number;
+  onWrapChange: (wrapId: number) => void;
 };
 
-export function ProductWrapSelect({ packagingOptions, selectedWrap, onWrapChange }: Props) {
-  const filteredOptions = packagingOptions.map((p) => ({
-    key: p.key,
-    label: PRODUCT_WRAP_OPTIONS[p.key],
-    price: p.price,
-  }));
-
+export function ProductWrapSelect({
+  packagingOptions,
+  selectedWrap,
+  onWrapChange,
+}: ProductWrapSelectProps) {
   return (
     <>
       <Select
         value={selectedWrap}
-        onChange={(e) => onWrapChange(e.target.value)}
+        onChange={(e) => onWrapChange(Number(e.target.value))}
         sx={{ display: { tablet: 'none' } }}
       >
-        {filteredOptions.map((opt) => (
-          <MenuItem key={opt.key} value={opt.key}>
-            {opt.label}
+        {packagingOptions.map((opt) => (
+          <MenuItem key={opt.id} value={opt.id}>
+            {opt.name}
           </MenuItem>
         ))}
       </Select>
@@ -38,12 +36,12 @@ export function ProductWrapSelect({ packagingOptions, selectedWrap, onWrapChange
         <Typography>Packaging Type</Typography>
 
         <Box display="flex" flexWrap="wrap" gap={2}>
-          {filteredOptions.map((opt) => (
+          {packagingOptions.map((opt) => (
             <Chip
-              key={opt.key}
-              label={opt.label}
-              variant={selectedWrap === opt.key ? 'filled' : 'outlined'}
-              onClick={() => onWrapChange(opt.key)}
+              key={opt.id}
+              label={opt.name}
+              variant={selectedWrap === opt.id ? 'filled' : 'outlined'}
+              onClick={() => onWrapChange(opt.id)}
               clickable
             />
           ))}

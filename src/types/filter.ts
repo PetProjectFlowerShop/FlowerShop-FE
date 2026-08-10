@@ -1,4 +1,4 @@
-import type { BouquetType, ColorType, FlowerType, OccasionType } from './product';
+import type { BouquetType, ColorType, FlowerType } from './product';
 import type { SortOption } from './sort';
 
 export type FiltersState = {
@@ -6,7 +6,6 @@ export type FiltersState = {
   type: FlowerType[];
   color: ColorType[];
   bouquetType: BouquetType[];
-  occasion: OccasionType[];
 
   sort: SortOption;
   numberStems: string[];

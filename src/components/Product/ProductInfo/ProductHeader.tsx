@@ -1,36 +1,22 @@
-import { Box, IconButton, Typography } from '@mui/material';
-import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
-import HeartIconFilled from '@mui/icons-material/Favorite';
 import { Icon } from '@/components/common/Icon';
+import { Box, IconButton, Typography } from '@mui/material';
 
 type ProductHeaderProps = {
-  title: string;
+  name: string;
   price: number;
   available?: boolean;
-  isFavorite?: boolean;
-  onFavoriteClick: () => void;
 };
 
-export function ProductHeader({
-  title,
-  price,
-  available = true,
-  isFavorite = false,
-  onFavoriteClick,
-}: ProductHeaderProps) {
+export function ProductHeader({ name, price, available = true }: ProductHeaderProps) {
   return (
     <Box display="flex" flexDirection="column" gap={{ xs: 1, tablet: 2 }}>
-      <Typography variant="h2">{title}</Typography>
+      <Typography variant="h2">{name}</Typography>
       <Box display="flex" justifyContent="space-between">
         <Typography variant="h3" sx={{ opacity: 0.6 }}>
           ${price}
         </Typography>
-        <IconButton
-          variant="secondary"
-          onClick={onFavoriteClick}
-          sx={{ maxHeight: 40, display: { tablet: 'none' } }}
-        >
-          {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />}
+        <IconButton variant="secondary" sx={{ maxHeight: 40, display: { tablet: 'none' } }}>
+          {/* {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />} */}
         </IconButton>
       </Box>
       <Typography

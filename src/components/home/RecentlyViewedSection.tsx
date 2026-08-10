@@ -1,27 +1,30 @@
 import { useFavoritesStore } from '@/store/favorites.store';
-import type { Product } from '@/types/product';
 
 import { CardsCarousel } from '../common/CardsCarousel';
-import { ProductCard } from '../common/ProductCard';
+
 import { SectionHeader } from '../common/SectionHeader';
 import { SectionContainer } from '../layouts/SectionContainer';
 
-import { getProductsByIds } from '@/api/products';
 import { useRecentlyStore } from '@/store/recently.store';
+import type { ProductCardType } from '@/types/product';
 import { useQuery } from '@tanstack/react-query';
+
 import { useParams } from 'react-router-dom';
+import { ProductCard } from '../ProductCard';
+import { getProductByIds } from '@/api/flowers';
 
 export default function RecentlyViewedSection() {
   const favorites = useFavoritesStore((s) => s.items);
-  const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
   const ids = useRecentlyStore((s) => s.items);
-  const { id: currentProductId } = useParams();
+  const { id } = useParams();
+
+  const currentProductId = id ? Number(id) : undefined;
 
   const filteredIds = currentProductId ? ids.filter((id) => id !== currentProductId) : ids;
 
   const { data } = useQuery({
     queryKey: ['recently-viewed', filteredIds.join(',')],
-    queryFn: () => getProductsByIds(filteredIds),
+    queryFn: () => getProductByIds({ ids: filteredIds }),
     enabled: ids.length > 0,
   });
 
@@ -35,12 +38,8 @@ export default function RecentlyViewedSection() {
         <SectionHeader title="Recently viewed" />
         <CardsCarousel
           cards={data}
-          renderCard={(product: Product) => (
-            <ProductCard
-              product={product}
-              isFavorite={!!favorites[product.id]}
-              onFavoriteClick={() => toggleFavorite(product.id)}
-            />
+          renderCard={(product: ProductCardType) => (
+            <ProductCard product={product} isFavorite={!!favorites[product.id]} />
           )}
         />
       </SectionContainer>

@@ -1,66 +1,65 @@
-import type { FiltersState } from '@/types/filter';
-import type { Product } from '@/types/product';
+import type { ProductCardType } from '@/types/product';
 
 export type ProductsResponse = {
-  items: Product[];
+  items: ProductCardType[];
   page: number;
   totalPages: number;
   totalItems: number;
   limit: number;
 };
 
-export const fetchProducts = async (filters: FiltersState): Promise<ProductsResponse> => {
+export const fetchProducts = async (): Promise<ProductsResponse> => {
   const params = new URLSearchParams();
 
-  if (filters.page != null) {
-    params.append('page', String(filters.page));
-  }
+  // if (filters.page != null) {
+  //   params.append('page', String(filters.page));
+  // }
 
-  if (filters.type?.length) {
-    params.append('type', filters.type.join(','));
-  }
+  // if (filters.type?.length) {
+  //   params.append('type', filters.type.join(','));
+  // }
 
-  if (filters.color?.length) {
-    params.append('color', filters.color.join(','));
-  }
+  // if (filters.color?.length) {
+  //   params.append('color', filters.color.join(','));
+  // }
 
-  if (filters.bouquetType?.length) {
-    params.append('bouquetType', filters.bouquetType.join(','));
-  }
+  // if (filters.bouquetType?.length) {
+  //   params.append('bouquetType', filters.bouquetType.join(','));
+  // }
 
-  if (filters.occasion?.length) {
-    params.append('occasion', filters.occasion.join(','));
-  }
+  // if (filters.occasion?.length) {
+  //   params.append('occasion', filters.occasion.join(','));
+  // }
 
-  if (filters.numberStems.length) {
-    params.append('numberStems', filters.numberStems.join(','));
-  }
+  // if (filters.numberStems.length) {
+  //   params.append('numberStems', filters.numberStems.join(','));
+  // }
 
-  if (filters.sort) {
-    params.append('sort', filters.sort);
-  }
+  // if (filters.sort) {
+  //   params.append('sort', filters.sort);
+  // }
 
-  if (filters.priceMin != null) {
-    params.append('priceMin', String(filters.priceMin));
-  }
+  // if (filters.priceMin != null) {
+  //   params.append('priceMin', String(filters.priceMin));
+  // }
 
-  if (filters.priceMax != null) {
-    params.append('priceMax', String(filters.priceMax));
-  }
+  // if (filters.priceMax != null) {
+  //   params.append('priceMax', String(filters.priceMax));
+  // }
 
-  if (filters.heightMin != null) {
-    params.append('heightMin', String(filters.heightMin));
-  }
+  // if (filters.heightMin != null) {
+  //   params.append('heightMin', String(filters.heightMin));
+  // }
 
-  if (filters.heightMax != null) {
-    params.append('heightMax', String(filters.heightMax));
-  }
+  // if (filters.heightMax != null) {
+  //   params.append('heightMax', String(filters.heightMax));
+  // }
 
   const res = await fetch(`/api/products?${params.toString()}`);
   return res.json();
 };
 
-export const getProductById = async (id: string) => {
+export const getProductById = async (id: number) => {
   const res = await fetch(`/api/products/${id}`);
 
   if (!res.ok) {
@@ -70,7 +69,7 @@ export const getProductById = async (id: string) => {
   return res.json();
 };
 
-export const getProductsByIds = async (ids: string[]): Promise<Product[]> => {
+export const getProductsByIds = async (ids: number[]): Promise<ProductCardType[]> => {
   const res = await fetch(`/api/products/by-ids?ids=${ids.join(',')}`);
 
   if (!res.ok) {

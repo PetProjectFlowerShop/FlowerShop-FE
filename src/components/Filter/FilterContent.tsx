@@ -1,21 +1,14 @@
-import { Box, Divider, IconButton, Typography } from '@mui/material';
-import { FILTER_CONFIG } from '@/constants/filterConfig';
-import { useProductFilters } from '@/hooks/useProductFilters';
-import { FilteredTags } from './FilteredTags';
-import { FilterRenderer } from './FilterRenderer';
-import CloseIcon from '@mui/icons-material/Close';
+// type Props = {
+//   showTags?: boolean;
+//   setIsFilterOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+//   defaultExpanded?: boolean;
+// };
 
-type Props = {
-  showTags?: boolean;
-  setIsFilterOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  defaultExpanded?: boolean;
-};
-
-export function FilterContent({ showTags, setIsFilterOpen, defaultExpanded }: Props) {
-  const { filters, toggleParam, setRange } = useProductFilters();
+export function FilterContent() {
+  // const { filters, toggleParam, setRange } = useProductFilters();
   return (
     <>
-      <Box
+      {/* <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
@@ -63,7 +56,7 @@ export function FilterContent({ showTags, setIsFilterOpen, defaultExpanded }: Pr
             defaultExpanded={defaultExpanded}
           />
         </Box>
-      </Box>
+      </Box> */}
     </>
   );
 }

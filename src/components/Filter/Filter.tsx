@@ -1,13 +1,9 @@
-import { Box, Button, Divider, Drawer } from '@mui/material';
-import { useState } from 'react';
-import { FilterContent } from './FilterContent';
-
 export function Filter() {
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  // const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
     <>
-      <Button variant="contained" color="primary" onClick={() => setIsFilterOpen(true)} fullWidth>
+      {/* <Button variant="contained" color="primary" onClick={() => setIsFilterOpen(true)} fullWidth>
         Filters
       </Button>
       <Drawer
@@ -31,7 +27,7 @@ export function Filter() {
             </Button>
           </Box>
         </Box>
-      </Drawer>
+      </Drawer> */}
     </>
   );
 }

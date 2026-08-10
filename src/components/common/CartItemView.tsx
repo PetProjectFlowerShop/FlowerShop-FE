@@ -1,9 +1,8 @@
-import { Box, Typography, IconButton, Stack } from '@mui/material';
-import type { CartItem } from '@/store/cart.store';
-import { Icon } from './Icon';
-import card_temp from '@/assets/images/card_temp.svg';
-import { PackageTypeSelect } from '../PackageTypeSelect/PackageTypeSelect';
 import { sampleCatalogProducts } from '@/api/mock-data/sampleCatalogProducts';
+import card_temp from '@/assets/images/card_temp.svg';
+import type { CartItem } from '@/store/cart.store';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { Icon } from './Icon';
 
 interface CartItemViewProps {
   item: CartItem;
@@ -13,10 +12,10 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
   const product = sampleCatalogProducts.find((p) => p.id === item.productId);
 
   if (!product) return null;
-  const title = product.title;
+  const title = product.name;
   const price = product.price;
-  const discount = product.discount;
-  const imageUrl = product.images?.[0] || card_temp;
+  const discount = product.discountPercent;
+  const imageUrl = card_temp;
 
   const handleRemove = () => console.log('Remove item:', item?.productId);
   const handleIncrease = () => console.log('Increase quantity', item?.quantity);
@@ -69,9 +68,7 @@ export const CartItemView = ({ item }: CartItemViewProps) => {
         </Box>
 
         <Box pr={{ xs: 0, sm: 8 }} display="grid" gap={{ xs: 1.5, sm: 3 }}>
-          <Box sx={{ paddingLeft: '12px' }}>
-            <PackageTypeSelect />
-          </Box>
+          <Box sx={{ paddingLeft: '12px' }}>{/* <PackageTypeSelect /> */}</Box>
           <Box
             sx={{
               display: 'flex',
