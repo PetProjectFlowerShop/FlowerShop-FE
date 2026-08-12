@@ -8,7 +8,12 @@ import AppDrawer from '../components/common/AppDrawer';
 import { useDrawer } from '../hooks/useDrawer.ts';
 import { RouteErrorBoundary } from '../components/error/RouteErrorBoundary';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
+import { DrawerContent } from '@/components/common/DrawerContent.tsx';
 import { RegisterForm } from '@/components/forms/register/RegisterForm.tsx';
+import { LoginForm } from '@/components/forms/login/LoginForm.tsx';
+import { PasswordRecoveryForm } from '@/components/forms/password-recovery/PasswordRecoveryForm.tsx';
+import { NewPasswordForm } from '@/components/forms/new-password/NewPasswordForm.tsx';
+import { CheckEmail } from '@/components/forms/check-email/CheckEmail.tsx';
 import { CartForm } from '@/components/common/CartForm.tsx';
 import { useCartStore } from '@/store/cart.store.ts';
 
@@ -28,9 +33,14 @@ export function MainLayout() {
       }}
     >
       <AppDrawer isOpen={isDrawerOpen} onClose={closeDrawer}>
-        {drawerView === 'auth' && <RegisterForm />}
-        {drawerView === 'favorite' && <div>favorite</div>}
-        {drawerView === 'cart' && <CartForm cartItems={cartItemsArray} onClose={closeDrawer} />}
+        <DrawerContent>
+          {drawerView === 'register' && <RegisterForm />}
+          {drawerView === 'login' && <LoginForm />}
+          {drawerView === 'password-recovery' && <PasswordRecoveryForm />}
+          {drawerView === 'check-email' && <CheckEmail />}
+          {drawerView === 'new-password' && <NewPasswordForm />}
+          {drawerView === 'cart' && <CartForm cartItems={cartItemsArray} onClose={closeDrawer} />}
+        </DrawerContent>
       </AppDrawer>
 
       <TopBar visible={topBarVisible} />

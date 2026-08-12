@@ -1,72 +1,58 @@
 import { FormContainer, TextFieldElement, CheckboxElement } from 'react-hook-form-mui';
 import { Stack, Link, Typography, Button } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { useDrawer } from '@/hooks/useDrawer.ts';
+import { AuthFormLayout } from '../components/AuthFormLayout';
 import { GoogleButton } from '../components/GoogleButton';
 import { DividerWithText } from '../components/DividerWithText';
 import { FormHeader } from '../components/FormHeader';
 
 type RegisterFormValues = {
-  name: string;
+  email: string;
   password: string;
   confirmPassword: string;
 };
 
 export function RegisterForm() {
   const defaultValues: RegisterFormValues = {
-    name: '',
+    email: '',
     password: '',
     confirmPassword: '',
   };
+
+  const { toggleDrawer } = useDrawer();
 
   const handleSubmit = (data: RegisterFormValues) => {
     console.log(data);
   };
 
   return (
-    <FormContainer
-      defaultValues={defaultValues}
-      onSuccess={handleSubmit}
-      FormProps={{
-        style: {
-          width: '100%',
-        },
-      }}
-    >
-      <Stack
-        spacing={{
-          xs: 3,
-          sm: 6,
-        }}
-        sx={{
-          pt: 14,
-          pb: 20,
-          px: {
-            xs: 4,
-            sm: 10,
-            lg: 18,
-          },
-        }}
-      >
+    <FormContainer defaultValues={defaultValues} onSuccess={handleSubmit}>
+      <AuthFormLayout>
         <FormHeader
           title="Create Account"
           subtitle="Sign up to order and view your purchase history"
         />
         <GoogleButton />
         <DividerWithText />
-        <Stack spacing={4}>
-          <TextFieldElement name="name" label="Name" placeholder="Name" />
+        <Stack
+          spacing={{
+            xs: 2,
+            sm: 4,
+          }}
+        >
+          <TextFieldElement name="email" label="Email" placeholder="Enter your email" />
 
           <TextFieldElement
             name="password"
             label="Password"
-            placeholder="Password"
+            placeholder="Enter your password"
             type="password"
           />
 
           <TextFieldElement
             name="confirmPassword"
             label="Confirm password"
-            placeholder="Confirm password"
+            placeholder="Confirm your password"
             type="password"
           />
         </Stack>
@@ -101,14 +87,14 @@ export function RegisterForm() {
           <Button variant="contained" type="submit">
             Sign up
           </Button>
-          <Stack direction="row" spacing={4} justifyContent="center" alignItems="center">
-            <Typography variant="caption" color="text.body1">
+          <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
+            <Typography variant="caption" color="text.body1" px={2} py={4}>
               Already have an account?
             </Typography>
 
             <Link
-              component={RouterLink}
-              to="/login"
+              component="button"
+              onClick={toggleDrawer('login', true)}
               underline="hover"
               sx={{
                 color: 'text.primary',
@@ -119,7 +105,7 @@ export function RegisterForm() {
             </Link>
           </Stack>
         </Stack>
-      </Stack>
+      </AuthFormLayout>
     </FormContainer>
   );
 }
