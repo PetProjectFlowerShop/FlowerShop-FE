@@ -25,7 +25,7 @@ export function UserActions() {
           p: theme.spacingTokens.micro,
         })}
         // href="/profile"
-        onClick={toggleDrawer('auth', true)}
+        onClick={toggleDrawer('register', true)}
       >
         <Icon name="person" width={24} height={24} />
       </IconButton>
@@ -36,7 +36,7 @@ export function UserActions() {
           color: favoritesCount > 0 ? 'black' : 'text.primary',
           p: theme.spacingTokens.micro,
         })}
-        onClick={toggleDrawer('favorite', true)}
+        onClick={toggleDrawer('login', true)}
       >
         {favoritesCount > 0 ? <HeartIconFilled /> : <HeartIconOutline />}
 

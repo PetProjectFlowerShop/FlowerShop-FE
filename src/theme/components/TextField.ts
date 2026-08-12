@@ -33,8 +33,8 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
       borderRadius: '12px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
-      paddingLeft: '16px',
-      paddingRight: '16px',
+      paddingLeft: '4px',
+      paddingRight: '4px',
 
       '& .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.action.active, // theme.palette.divider,

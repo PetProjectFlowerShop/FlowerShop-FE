@@ -8,7 +8,7 @@ type Props = {
 
 export default function DrawerProvider({ children }: Props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [drawerView, setDrawerView] = useState<UserActionType>('auth');
+  const [drawerView, setDrawerView] = useState<UserActionType>('register');
 
   const closeDrawer = () => {
     setIsDrawerOpen(false);
