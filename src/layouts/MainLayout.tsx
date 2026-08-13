@@ -1,23 +1,22 @@
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { Footer } from '../components/footer/Footer';
-import { Header } from '../components/header/Header';
-import { TopBar } from '../components/top-bar/TopBar';
-// import { LoginForm } from '../components/login/LoginForm';
+import { Footer } from '@/components/footer/Footer';
+import { Header } from '@/components/header/Header';
+import { TopBar } from '@/components/top-bar/TopBar';
 import { useHeaderVisibility } from '@/components/header/useHeaderVisibility.ts';
 
 import { DrawerContent } from '@/components/common/DrawerContent.tsx';
-import { RegisterForm } from '@/components/forms/register/RegisterForm.tsx';
-import { LoginForm } from '@/components/forms/login/LoginForm.tsx';
-import { PasswordRecoveryForm } from '@/components/forms/password-recovery/PasswordRecoveryForm.tsx';
-import { NewPasswordForm } from '@/components/forms/new-password/NewPasswordForm.tsx';
 import { CheckEmail } from '@/components/forms/check-email/CheckEmail.tsx';
+import { LoginForm } from '@/components/forms/login/LoginForm.tsx';
+import { NewPasswordForm } from '@/components/forms/new-password/NewPasswordForm.tsx';
+import { PasswordRecoveryForm } from '@/components/forms/password-recovery/PasswordRecoveryForm.tsx';
+import { RegisterForm } from '@/components/forms/register/RegisterForm.tsx';
 
-import { CartForm } from '@/components/common/CartForm.tsx';
-import { useCartStore } from '@/store/cart.store.ts';
-import { useDrawer } from '@/hooks/useDrawer';
 import AppDrawer from '@/components/common/AppDrawer';
+import { CartForm } from '@/components/common/CartForm.tsx';
 import { RouteErrorBoundary } from '@/components/error/RouteErrorBoundary';
+import { useDrawer } from '@/hooks/useDrawer';
+import { useCartStore } from '@/store/cart.store.ts';
 
 export function MainLayout() {
   const { topBarVisible, headerVisible } = useHeaderVisibility();
