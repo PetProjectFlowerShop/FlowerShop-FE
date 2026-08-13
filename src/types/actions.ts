@@ -1,6 +1,7 @@
 import type { IconName } from '../components/common/Icon';
 
-export type UserActionType = 'auth' | 'favorite' | 'cart';
+export type UserActionType =
+  'register' | 'login' | 'password-recovery' | 'check-email' | 'new-password' | 'favorite' | 'cart';
 
 export interface UserAction {
   type: UserActionType;

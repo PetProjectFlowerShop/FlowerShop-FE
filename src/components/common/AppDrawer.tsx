@@ -9,7 +9,16 @@ interface AppDrawerProps {
 
 export default function AppDrawer({ children, onClose, isOpen }: AppDrawerProps) {
   return (
-    <Drawer anchor="right" open={isOpen} onClose={onClose}>
+    <Drawer
+      slotProps={{
+        paper: {
+          sx: { borderRadius: 0, maxWidth: { tablet: '640px', desktop: '708px' }, width: '100%' },
+        },
+      }}
+      anchor="right"
+      open={isOpen}
+      onClose={onClose}
+    >
       <IconButton
         onClick={onClose}
         sx={{
