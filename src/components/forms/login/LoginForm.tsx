@@ -9,12 +9,14 @@ import { FormHeader } from '../components/FormHeader';
 type LoginFormValues = {
   email: string;
   password: string;
+  rememberMe: boolean;
 };
 
 export function LoginForm() {
   const defaultValues: LoginFormValues = {
     email: '',
     password: '',
+    rememberMe: false,
   };
 
   const handleSubmit = (data: LoginFormValues) => {
@@ -48,7 +50,7 @@ export function LoginForm() {
           />
         </Stack>
         <CheckboxElement
-          name="agree"
+          name="rememberMe"
           label={<Typography variant="body1">Remember me</Typography>}
         />
 

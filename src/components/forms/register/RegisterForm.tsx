@@ -10,6 +10,7 @@ type RegisterFormValues = {
   email: string;
   password: string;
   confirmPassword: string;
+  agree: boolean;
 };
 
 export function RegisterForm() {
@@ -17,6 +18,7 @@ export function RegisterForm() {
     email: '',
     password: '',
     confirmPassword: '',
+    agree: false,
   };
 
   const { toggleDrawer } = useDrawer();
