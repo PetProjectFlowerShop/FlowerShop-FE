@@ -19,15 +19,7 @@ export function NewPasswordForm() {
   };
 
   return (
-    <FormContainer
-      defaultValues={defaultValues}
-      onSuccess={handleSubmit}
-      FormProps={{
-        style: {
-          width: '100%',
-        },
-      }}
-    >
+    <FormContainer defaultValues={defaultValues} onSuccess={handleSubmit}>
       <AuthFormLayout>
         <FormHeader title="New password" subtitle="Enter and confirm your new password below." />
         <Stack

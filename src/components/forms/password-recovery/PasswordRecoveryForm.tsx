@@ -21,15 +21,7 @@ export function PasswordRecoveryForm() {
   };
 
   return (
-    <FormContainer
-      defaultValues={defaultValues}
-      onSuccess={handleSubmit}
-      FormProps={{
-        style: {
-          width: '100%',
-        },
-      }}
-    >
+    <FormContainer defaultValues={defaultValues} onSuccess={handleSubmit}>
       <AuthFormLayout>
         <FormHeader
           title="Password recovery"
