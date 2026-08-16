@@ -1,4 +1,3 @@
-import { getProductById } from '@/api/flowers';
 import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 import CustomersReviewsSection from '@/components/home/CustomersReviewsSection';
 import RecentlyViewedSection from '@/components/home/RecentlyViewedSection';
@@ -14,7 +13,18 @@ export function ProductPage() {
   const { id } = useParams();
   const { data, isLoading, isError } = useQuery({
     queryKey: ['product', id],
-    queryFn: () => getProductById({ id: Number(id) }),
+    queryFn: async () => {
+      const error = new Error('Test 503');
+
+      Object.assign(error, {
+        isAxiosError: true,
+        response: {
+          status: 503,
+        },
+      });
+
+      throw error;
+    },
     enabled: !!id,
     throwOnError: (error) => axios.isAxiosError(error) && error.response?.status === 503,
   });
