@@ -6,6 +6,7 @@ import { PageLayout } from '@/components/layouts/PageLayout';
 import { ProductDetailsSection } from '@/components/Product/ProductDetailsSection';
 import { useRecentlyStore } from '@/store/recently.store';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ export function ProductPage() {
     queryKey: ['product', id],
     queryFn: () => getProductById({ id: Number(id) }),
     enabled: !!id,
+    throwOnError: (error) => axios.isAxiosError(error) && error.response?.status === 503,
   });
 
   const addProduct = useRecentlyStore((state) => state.addProduct);
