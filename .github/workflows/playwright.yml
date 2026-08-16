@@ -1,9 +1,6 @@
 name: Playwright Visual Regression Tests
 
-on:
-  pull_request:
-    branches:
-      - dev
+on: []
 
 jobs:
   visual-tests:
