@@ -1,14 +1,14 @@
-import { Container } from '@mui/material';
-import type { PropsWithChildren } from 'react';
-type SectionContainerProps = PropsWithChildren;
+import { Container, type ContainerProps } from '@mui/material';
+type SectionContainerProps = ContainerProps;
 
-export function SectionContainer({ children }: SectionContainerProps) {
+export function SectionContainer({ children, ...props }: SectionContainerProps) {
   return (
     <Container
       disableGutters
       sx={{
         px: { xs: 4, tablet: 10, desktop: 18 },
       }}
+      {...props}
     >
       {children}
     </Container>
