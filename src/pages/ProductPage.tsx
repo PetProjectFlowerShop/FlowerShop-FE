@@ -13,6 +13,7 @@ export function ProductPage() {
   const { id } = useParams();
   const { data, isLoading, isError } = useQuery({
     queryKey: ['product', id],
+    // queryFn: () => getProductById({ id: Number(id) }),
     queryFn: async () => {
       const error = new Error('Test 503');
 
