@@ -58,14 +58,6 @@ export function Contacts() {
               title="Get in Touch"
               subtitle="Find all the ways to connect with our studio below"
             />
-            {/* <Stack spacing={4}>
-              <Typography variant="h2" component="h2">
-                Get in Touch
-              </Typography>
-              <Typography variant="h4">
-                Find all the ways to connect with our studio below
-              </Typography>
-            </Stack> */}
             <ContactsInfo />
           </Stack>
           <ContactsAddress />
