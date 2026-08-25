@@ -4,7 +4,8 @@
 - Use `sx` for component-specific styling.
 - Prefer theme values over hardcoded values.
 - For spacing, use numeric MUI values instead of spacing tokens when appropriate.
-- Use responsive values for supported breakpoints.
+- Use project-defined breakpoints (xs, tablet, desktop) when responsive styling is required.
+- Use responsive values to keep the implementation consistent with the Figma design.
 - Reuse existing layout components where applicable.
 - Prefer extending or updating existing components over creating duplicate components.
 
