@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import { SectionContainer } from '../layouts/SectionContainer';
 
 const getContainerStyles = () => ({
   position: 'relative',
@@ -35,16 +36,17 @@ export default function TitleWithImageSection({
   imageAlt,
 }: TitleWithImageSectionProps) {
   return (
-    <Box
-      data-testid="title-image-header-section"
-      sx={{ pt: 0, pb: { xs: 16, tablet: 20, desktop: 30 } }}
-    >
-      <Typography variant="h2" component="h1">
-        {title}
-      </Typography>
-      <Box sx={getContainerStyles()}>
-        <Box component="img" src={imageSrc} alt={imageAlt} sx={getImageStyles()} />
-      </Box>
-    </Box>
+    <section>
+      <SectionContainer>
+        <Box data-testid="title-image-header-section" sx={{ pt: 0 }}>
+          <Typography variant="h2" component="h1">
+            {title}
+          </Typography>
+          <Box sx={getContainerStyles()}>
+            <Box component="img" src={imageSrc} alt={imageAlt} sx={getImageStyles()} />
+          </Box>
+        </Box>
+      </SectionContainer>
+    </section>
   );
 }

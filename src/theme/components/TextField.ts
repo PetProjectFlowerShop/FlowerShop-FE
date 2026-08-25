@@ -30,6 +30,7 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
     }),
     root: ({ theme }) => ({
       width: '100%',
+      height: '56px',
       borderRadius: '12px',
       backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(['border-color', 'border-width', 'box-shadow']),
@@ -67,8 +68,12 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
       '& .MuiOutlinedInput-input': {
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),
+        fontSize: '16px',
+        lineHeight: 1.5,
         height: '100%',
         boxSizing: 'border-box',
+        paddingTop: '16px',
+        paddingBottom: '16px',
       },
     }),
   },
@@ -84,7 +89,7 @@ export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
       transform: 'none',
       marginBottom: '4px',
       marginLeft: '4px',
-      ...theme.typography.body1,
+      ...theme.typography.bodyTablet,
       color: theme.palette.text.primary,
 
       '&.Mui-focused': {

@@ -76,6 +76,22 @@ export const typography = (theme: Theme) => ({
       lineHeight: 1.4,
     },
   },
+  bodyTablet: {
+    fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
+    fontSize: '20px',
+    lineHeight: 1.4,
+  },
+  bodyMobile: {
+    fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
+    fontSize: '16px',
+    lineHeight: 1.5,
+    [theme.breakpoints.up('tablet')]: {
+      fontSize: '20px',
+      lineHeight: 1.4,
+    },
+  },
   caption: {
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,

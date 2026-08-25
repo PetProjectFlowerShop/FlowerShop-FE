@@ -1,12 +1,21 @@
+import heroImage from '@/assets/images/contacts/hero-contacts-page.webp';
 import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
-import { PageContainer } from '@/components/common/PageContainer';
-import { Typography } from '@mui/material';
+import TitleWithImageSection from '@/components/common/TitleWithImageSection';
+import { ContactsAddress } from '@/components/contacts/ContactsAddress';
+import { ContactsSection } from '@/components/contacts/ContactsSection';
+import { PageLayout } from '@/components/layouts/PageLayout';
+import { QuestionsCallBlock } from '@/components/QuestionsCallBlock/QuestionsCallBlock';
 
 export function Contacts() {
   return (
-    <PageContainer>
-      <DynamicBreadcrumbs />
-      <Typography variant="h4">Contacts</Typography>
-    </PageContainer>
+    <>
+      <DynamicBreadcrumbs mb={{ xs: 2 }} />
+      <PageLayout>
+        <TitleWithImageSection title="Contacts" imageSrc={heroImage} imageAlt="Bouquet" />
+        <ContactsSection />
+        <ContactsAddress />
+        <QuestionsCallBlock />
+      </PageLayout>
+    </>
   );
 }
