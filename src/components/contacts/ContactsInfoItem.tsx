@@ -27,11 +27,11 @@ export function ContactsInfoItem({ image, title, description }: ContactsInfoItem
         }}
       />
 
-      <Typography sx={{ mt: 2 }} variant="h4">
+      <Typography sx={{ mt: { xs: 1, tablet: 2 } }} variant="h4">
         {title}
       </Typography>
 
-      <Typography variant="body1" sx={{ mt: 2 }}>
+      <Typography variant="body1" sx={{ mt: { xs: 1, tablet: 2 } }}>
         {description}
       </Typography>
     </Box>
