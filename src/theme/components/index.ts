@@ -19,6 +19,12 @@ import { containerOverrides } from './container';
 import { iconButtonOverrides } from './iconButton';
 import { cardOverrides } from './card';
 import { chipOverrides } from './chip';
+import {
+  dialogOverrides,
+  dialogTitleOverrides,
+  dialogContentOverrides,
+  dialogActionsOverrides,
+} from './dialog';
 
 export const components = {
   MuiButton: buttonOverrides,
@@ -40,4 +46,8 @@ export const components = {
   MuiSlider: sliderOverrides,
   MuiCard: cardOverrides,
   MuiChip: chipOverrides,
+  MuiDialog: dialogOverrides,
+  MuiDialogTitle: dialogTitleOverrides,
+  MuiDialogContent: dialogContentOverrides,
+  MuiDialogActions: dialogActionsOverrides,
 };
