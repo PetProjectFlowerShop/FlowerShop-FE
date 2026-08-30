@@ -18,6 +18,7 @@ export const management = [
     imgURL: founder,
     name: 'Anna Melnyk',
     position: 'Founder and Owner',
+    isLeader: true,
   },
   {
     id: 3,

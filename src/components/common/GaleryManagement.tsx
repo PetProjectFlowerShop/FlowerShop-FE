@@ -7,27 +7,41 @@ interface GaleryManagementProps {
   columns?: 3 | 4;
 }
 
-interface GaleryManagementProps {
-  data: TeamMember[];
-}
-
 export const GaleryManagement = ({ data, columns = 3 }: GaleryManagementProps) => {
   return (
     <Box
       sx={{
         display: 'grid',
         gridTemplateColumns: {
-          xs: '1fr',
-          tablet: columns === 4 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+          xs: 'repeat(2, 1fr)',
           desktop: `repeat(${columns}, 1fr)`,
         },
-        gap: { xs: 3, desktop: 4 },
+        columnGap: { xs: 2, tablet: 3, desktop: 4 },
+        rowGap: { xs: 4, desktop: 6 },
         mb: { xs: 6, desktop: 8 },
+        alignItems: 'center',
       }}
     >
-      {data.map((item) => (
-        <CardMemberTeam key={item.id} data={item} />
-      ))}
+      {data.map((item, index) => {
+        const isLeader = columns === 3 && (item.isLeader || index === 1);
+
+        return (
+          <Box
+            key={item.id}
+            sx={{
+              ...(isLeader && {
+                order: { xs: -1, desktop: 0 },
+                gridColumn: { xs: '1 / -1', desktop: 'auto' },
+                mx: { xs: 0, tablet: 'auto', desktop: 0 },
+
+                width: { xs: '100%', tablet: '360px', desktop: '100%' },
+              }),
+            }}
+          >
+            <CardMemberTeam data={item} isLeader={isLeader} />
+          </Box>
+        );
+      })}
     </Box>
   );
 };

@@ -3,4 +3,5 @@ export interface TeamMember {
   name: string;
   imgURL: string;
   position: string;
+  isLeader?: boolean;
 }
