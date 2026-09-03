@@ -1,13 +1,12 @@
 import { Box } from '@mui/material';
 import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
 import type { Accessory } from '../common/AccessoryCard';
-import { memo } from 'react';
 
 interface CartAccessoriesProps {
   accessories: Accessory[];
 }
 
-export const CartAccessories = memo(({ accessories }: CartAccessoriesProps) => {
+export const CartAccessories = ({ accessories }: CartAccessoriesProps) => {
   return (
     <Box
       sx={{
@@ -38,4 +37,4 @@ export const CartAccessories = memo(({ accessories }: CartAccessoriesProps) => {
       />
     </Box>
   );
-});
+};

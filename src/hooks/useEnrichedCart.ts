@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import { useCartStore } from '@/store/cart.store';
 import { getProductByIds } from '@/api/flowers';
@@ -15,22 +15,21 @@ export function useEnrichedCart() {
 
   const {
     data: products,
-    isLoading,
+    isPending,
     error,
   } = useQuery({
     queryKey: ['cart-products', productIds.join(',')],
     queryFn: () => getProductByIds({ ids: productIds }),
     enabled: productIds.length > 0,
+    placeholderData: keepPreviousData,
   });
-
-  if (isLoading) {
+  if (isPending) {
     return {
       enrichedCartItems: [],
-      isLoading,
+      isLoading: true,
       error,
     };
   }
-
   const enrichedCartItems = cartItems.map((cartItem) => {
     if (cartItem.type === 'accessory') {
       const accessory = MOCK_ACCESSORIES.find(
@@ -66,7 +65,7 @@ export function useEnrichedCart() {
 
   return {
     enrichedCartItems,
-    isLoading,
+    isLoading: isPending,
     error,
   };
 }

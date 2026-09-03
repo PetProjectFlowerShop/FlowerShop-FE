@@ -37,7 +37,7 @@ export function CartForm() {
             if (item.type === 'product') {
               return (
                 <CartItemView
-                  key={`${item.product?.id}-${item.packagingType.id}`}
+                  key={`${item.product?.id}_${item.packagingType.id}`}
                   type={item.type}
                   product={item.product}
                   packagingType={item.packagingType}
@@ -49,7 +49,7 @@ export function CartForm() {
 
             return (
               <CartItemView
-                key={`${item.product.id}-no-packaging`}
+                key={`${item.product.id}_no-packaging`}
                 type={item.type}
                 product={item.product}
                 quantity={item.quantity}

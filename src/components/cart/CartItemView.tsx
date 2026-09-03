@@ -39,7 +39,7 @@ export const CartItemView = (props: CartItemViewProps) => {
       : [];
 
   const cartItemId =
-    type === 'product' ? `${product.id}-${props.packagingType.id}` : `${product.id}-no-packaging`;
+    type === 'product' ? `${product.id}_${props.packagingType.id}` : `${product.id}_no-packaging`;
 
   return (
     <Box

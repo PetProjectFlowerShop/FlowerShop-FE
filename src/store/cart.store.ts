@@ -21,8 +21,8 @@ export const useCartStore = create<CartState>()(
         set((state) => {
           const id =
             item.type === 'product'
-              ? `${item.productId}-${item.packagingType.id}`
-              : `${item.productId}-no-packaging`;
+              ? `${item.productId}_${item.packagingType.id}`
+              : `${item.productId}_no-packaging`;
 
           const existingItem = state.items[id];
 
