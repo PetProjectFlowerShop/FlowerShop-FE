@@ -23,7 +23,7 @@ export function useEnrichedCart() {
     enabled: productIds.length > 0,
     placeholderData: keepPreviousData,
   });
-  if (isPending) {
+  if (isPending && productIds.length > 0) {
     return {
       enrichedCartItems: [],
       isLoading: true,
@@ -65,7 +65,7 @@ export function useEnrichedCart() {
 
   return {
     enrichedCartItems,
-    isLoading: isPending,
+    isLoading: false,
     error,
   };
 }
