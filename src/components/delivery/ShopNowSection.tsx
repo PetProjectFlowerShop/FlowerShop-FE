@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export function ShopNowSection() {
   return (
     <Box
-      data-testid="hero-section"
       component="section"
       sx={{
         display: 'flex',
@@ -30,18 +29,25 @@ export function ShopNowSection() {
             Ready to share the joy?
           </Typography>
 
-          <Box sx={{ maxWidth: { tablet: '640px', desktop: '635px' } }}>
+          <Box>
             <Typography
               variant="body1"
               sx={{
                 mb: { xs: 6, tablet: 9 },
+                maxWidth: { tablet: '640px', desktop: '635px' },
               }}
             >
               If you prefer the comfort of delivery, simply click the button below to browse our
               collection and find your perfect bouquet.
             </Typography>
 
-            <Button variant="contained" component={Link} to="/catalog" fullWidth>
+            <Button
+              variant="contained"
+              component={Link}
+              to="/catalog"
+              fullWidth
+              sx={{ maxWidth: { desktop: '636px' } }}
+            >
               Shop now
             </Button>
           </Box>

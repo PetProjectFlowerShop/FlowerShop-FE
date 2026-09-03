@@ -17,8 +17,8 @@ export function DeliveryOptions() {
                     width: '100%',
                   }}
                 >
-                  <Stack spacing={4} px={6} py={10}>
-                    <Typography variant="h3">{title}</Typography>
+                  <Stack spacing={6} px={6} py={10}>
+                    <Typography variant="h4">{title}</Typography>
 
                     <Typography variant="body1">{description}</Typography>
                   </Stack>

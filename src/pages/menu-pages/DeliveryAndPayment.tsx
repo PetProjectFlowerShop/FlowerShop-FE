@@ -13,7 +13,7 @@ export function DeliveryAndPayment() {
       <DynamicBreadcrumbs mb={2} />
       <PageLayout>
         <TitleWithImageSection
-          title="Delivery & Payment"
+          title="Delivery&Payment"
           imageSrc={heroImage}
           imageAlt="Delivery & Payment"
         />
