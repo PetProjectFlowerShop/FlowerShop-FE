@@ -1,10 +1,10 @@
 import { Box, IconButton, useTheme, type Theme } from '@mui/material';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { useId, type ReactNode } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useId, useMemo, type ReactNode } from 'react';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Icon } from './Icon';
 
 interface CardsCarouselProps<T extends { id: number }> {
@@ -146,14 +146,11 @@ export const CardsCarousel = <T extends { id: number }>({
   const theme = useTheme();
   const id = useId().replace(/:/g, '');
 
-  const navClasses = useMemo(
-    () => ({
-      prev: `swiper-button-prev-${id}`,
-      next: `swiper-button-next-${id}`,
-      pagination: `swiper-pagination-${id}`,
-    }),
-    [id]
-  );
+  const navClasses = {
+    prev: `swiper-button-prev-${id}`,
+    next: `swiper-button-next-${id}`,
+    pagination: `swiper-pagination-${id}`,
+  };
 
   return (
     <Box sx={getCarouselStyles(theme, centered)}>

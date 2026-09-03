@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { Box, IconButton, Stack, Typography, type Theme } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { useId } from 'react';
@@ -7,6 +7,7 @@ import { Icon } from '../common/Icon';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import type { SystemCssProperties } from '@mui/system';
 
 interface AccessoriesCarouselProps {
   accessories: Accessory[];
@@ -15,6 +16,7 @@ interface AccessoriesCarouselProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   breakpoints?: Record<number, any>;
   title?: boolean;
+  gap?: SystemCssProperties<Theme>['gap'];
 }
 
 const DEFAULT_BREAKPOINTS = {
@@ -30,6 +32,7 @@ export function AccessoriesCarousel({
   showPagination = false,
   breakpoints = DEFAULT_BREAKPOINTS,
   title = false,
+  gap,
 }: AccessoriesCarouselProps) {
   const id = useId().replace(/:/g, '');
   const prevClass = `acc-prev-${id}`;
@@ -37,13 +40,20 @@ export function AccessoriesCarousel({
   const paginationClass = `acc-pagination-${id}`;
 
   return (
-    <Box sx={{ width: '100%', position: 'relative' }}>
+    <Box
+      sx={{
+        width: '100%',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: gap ?? '4px',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          mb: 2,
         }}
       >
         {title ? (
@@ -73,7 +83,6 @@ export function AccessoriesCarousel({
         sx={{
           position: 'relative',
           paddingBottom: showPagination ? '40px' : 0,
-          mt: '40px',
         }}
       >
         <Swiper

@@ -1,18 +1,10 @@
-import accessories from '@/assets/images/accessories.webp';
+import { MOCK_ACCESSORIES } from '@/api/mock-data/mockAccessories';
 import type { ProductDetails } from '@/types/product';
 import { Box } from '@mui/material';
 import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
 import { SectionContainer } from '../layouts/SectionContainer';
 import { ProductGallery } from './ProductGallery/ProductGallery';
 import { ProductInfo } from './ProductInfo/ProductInfo';
-
-const MOCK_ACCESSORIES = [
-  { id: '1', title: 'Vase Perfeqta', price: 28, imgURL: accessories },
-  { id: '2', title: 'Candle Floria', price: 23, imgURL: accessories },
-  { id: '3', title: 'Flori Frame', price: 12, imgURL: accessories },
-  { id: '4', title: 'Rosie Candle', price: 18, imgURL: accessories },
-  { id: '5', title: 'Aroma Stick', price: 15, imgURL: accessories },
-];
 
 export function ProductDetailsSection({ data }: { data: ProductDetails }) {
   return (
@@ -33,7 +25,7 @@ export function ProductDetailsSection({ data }: { data: ProductDetails }) {
           </Box>
           <ProductInfo {...data} />
         </Box>
-        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
+        <AccessoriesCarousel gap={6} accessories={MOCK_ACCESSORIES} showPagination={true} />
       </SectionContainer>
     </section>
   );

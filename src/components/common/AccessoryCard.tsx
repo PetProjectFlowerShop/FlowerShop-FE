@@ -1,20 +1,21 @@
 import { Box, Typography, IconButton } from '@mui/material';
 import { Icon } from './Icon';
+import { useCartStore } from '@/store/cart.store';
 
 export interface Accessory {
-  id: string;
-  title: string;
+  id: number;
+  name: string;
   price: number;
-  imgURL: string;
+  imageUrl: string;
 }
 
 interface AccessoryCardProps {
   item: Accessory;
   currencySymbol?: string;
-  onAddToCart?: (id: string) => void;
 }
 
-export const AccessoryCard = ({ item, currencySymbol = '$', onAddToCart }: AccessoryCardProps) => {
+export const AccessoryCard = ({ item, currencySymbol = '$' }: AccessoryCardProps) => {
+  const addItemToCart = useCartStore((store) => store.addToCart);
   return (
     <Box
       sx={{
@@ -33,8 +34,8 @@ export const AccessoryCard = ({ item, currencySymbol = '$', onAddToCart }: Acces
     >
       <Box
         component="img"
-        src={item.imgURL}
-        alt={item.title}
+        src={item.imageUrl}
+        alt={item.name}
         sx={{
           width: '100px',
           height: '100px',
@@ -55,7 +56,7 @@ export const AccessoryCard = ({ item, currencySymbol = '$', onAddToCart }: Acces
         }}
       >
         <Typography variant="body1" color="text.primary">
-          {item.title}
+          {item.name}
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -65,7 +66,14 @@ export const AccessoryCard = ({ item, currencySymbol = '$', onAddToCart }: Acces
           </Typography>
 
           <IconButton
-            onClick={() => onAddToCart?.(item.id)}
+            onClick={() =>
+              addItemToCart({
+                type: 'accessory',
+                productId: item.id,
+                quantity: 1,
+                productPrice: item.price,
+              })
+            }
             size="small"
             sx={{ color: 'text.primary' }}
           >

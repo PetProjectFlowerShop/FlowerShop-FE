@@ -8,6 +8,8 @@ import { ProductCardTags } from './ProductCardTags';
 import { ProductImageArea } from './ProductImageArea';
 import { useFavoritesStore } from '@/store/favorites.store';
 import { useCartStore } from '@/store/cart.store';
+import { useQuery } from '@tanstack/react-query';
+import { getProductFilters } from '@/api/flowers';
 
 export interface ProductCardProps {
   product: ProductCardType;
@@ -40,9 +42,27 @@ const getActionAreaStyles = {
 };
 
 export const ProductCard = ({ product, isFavorite = false }: ProductCardProps) => {
-  const { id, name, price, discountPercent, imageUrl, isSeasonOffer, isPopular, isNew } = product;
+  const {
+    id,
+    name,
+    price,
+    discountPercent,
+    imageUrl,
+    isSeasonOffer,
+    isPopular,
+    isNew,
+    bouquetTypeId,
+  } = product;
   const onFavoriteClick = useFavoritesStore((s) => s.toggleFavorite);
   const addItemToCart = useCartStore((state) => state.addToCart);
+  const { data } = useQuery({
+    queryKey: ['product-filters'],
+    queryFn: getProductFilters,
+    staleTime: Infinity,
+  });
+  const defaultPackagingType = data?.bouquetTypes.find(
+    (bouquetType) => bouquetType.id === bouquetTypeId
+  )?.packagingTypes[0];
   const { toggleDrawer } = useDrawer();
   return (
     <Card elevation={0} sx={getCardStyles} data-testid="product-card">
@@ -73,8 +93,16 @@ export const ProductCard = ({ product, isFavorite = false }: ProductCardProps) =
           variant="contained"
           color="primary"
           fullWidth
+          disabled={!defaultPackagingType}
           onClick={() => {
-            addItemToCart(id, 1);
+            if (!defaultPackagingType) return;
+            addItemToCart({
+              type: 'product',
+              productId: id,
+              packagingType: defaultPackagingType,
+              quantity: 1,
+              productPrice: price,
+            });
             toggleDrawer('cart', true)();
           }}
         >

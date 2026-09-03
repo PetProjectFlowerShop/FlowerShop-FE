@@ -6,25 +6,27 @@ import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Badge, Box, IconButton } from '@mui/material';
 import { Icon } from '../common/Icon.tsx';
+import { Link } from 'react-router-dom';
 
 export function UserActions() {
   const { toggleDrawer } = useDrawer();
 
   const favoritesCount = useFavoritesStore((state) => Object.keys(state.items).length);
-
   const cartCount = useCartStore((state) =>
-    Object.values(state.items).reduce((sum, item) => sum + item.quantity, 0)
+    Object.values(state.items).reduce((total, item) => total + item.quantity, 0)
   );
+  const displayedCartCount = cartCount > 99 ? '99+' : cartCount;
 
   return (
     <Box sx={{ display: 'flex' }}>
       <IconButton
+        component={Link}
         aria-label="My account"
         sx={(theme) => ({
           color: 'text.primary',
           p: theme.spacingTokens.micro,
         })}
-        // href="/profile"
+        to="/profile"
         onClick={toggleDrawer('register', true)}
       >
         <Icon name="person" width={24} height={24} />
@@ -59,7 +61,7 @@ export function UserActions() {
 
         <Badge
           sx={{ position: 'absolute', width: '40px', height: '40px', px: 0 }}
-          badgeContent={cartCount}
+          badgeContent={displayedCartCount}
           color="primary"
         />
       </IconButton>
