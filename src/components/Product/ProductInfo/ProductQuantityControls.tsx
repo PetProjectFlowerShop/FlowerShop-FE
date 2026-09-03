@@ -1,14 +1,17 @@
 import { useDrawer } from '@/hooks/useDrawer';
 import { useCartStore } from '@/store/cart.store';
+import type { PackagingType } from '@/types/product';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import { Box, Button, IconButton, Typography } from '@mui/material';
 
 type ProductQuantityControlsProps = {
   maxQuantity: number;
   quantity: number;
   productId: number;
-
+  price: number;
+  selectedWrap: PackagingType;
   onQuantityChange: (updater: number | ((prev: number) => number)) => void;
 };
 
@@ -16,7 +19,8 @@ export function ProductQuantityControls({
   maxQuantity,
   quantity,
   productId,
-
+  price,
+  selectedWrap,
   onQuantityChange,
 }: ProductQuantityControlsProps) {
   const handleDecrease = () => {
@@ -85,7 +89,13 @@ export function ProductQuantityControls({
         variant="contained"
         fullWidth
         onClick={() => {
-          addItemToCart(productId, quantity);
+          addItemToCart({
+            productId,
+            packagingType: selectedWrap,
+            quantity,
+            productPrice: price,
+            type: 'product',
+          });
           toggleDrawer('cart', true)();
         }}
       >
@@ -96,6 +106,7 @@ export function ProductQuantityControls({
         sx={{ maxHeight: 40, display: { xs: 'none', tablet: 'block' } }}
       >
         {/* {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />} */}
+        <HeartIconOutline />
       </IconButton>
     </Box>
   );

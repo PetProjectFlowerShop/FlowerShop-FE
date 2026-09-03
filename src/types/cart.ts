@@ -1,17 +1,18 @@
-import type { Product } from './product';
+import type { PackagingType } from './product';
 
-export interface CartItem {
-  productId: string;
-  wrapType: string;
+type BaseCartItem = {
+  productId: number;
   quantity: number;
-}
+  productPrice: number;
+};
 
-export type CartDisplayItem = Pick<
-  Product,
-  'id' | 'title' | 'price' | 'images' | 'packagingType' | 'discount'
->;
+export type ProductCartItem = BaseCartItem & {
+  type: 'product';
+  packagingType: PackagingType;
+};
 
-export interface EnrichedCartEntry {
-  cartItem: CartItem;
-  product: CartDisplayItem;
-}
+export type AccessoryCartItem = BaseCartItem & {
+  type: 'accessory';
+};
+
+export type CartItem = ProductCartItem | AccessoryCartItem;

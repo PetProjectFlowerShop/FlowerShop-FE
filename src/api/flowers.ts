@@ -1,4 +1,4 @@
-import type { ProductCardType, ProductDetails } from '@/types/product';
+import type { ProductCardType, ProductDetails, ProductFilters } from '@/types/product';
 import { apiClient } from './axios';
 
 type CatalogProducts = {
@@ -32,5 +32,10 @@ export async function getProductByIds({ ids }: { ids: number[] }) {
     params,
   });
 
+  return data;
+}
+
+export async function getProductFilters() {
+  const { data } = await apiClient.get<ProductFilters>('/flowers/filters');
   return data;
 }

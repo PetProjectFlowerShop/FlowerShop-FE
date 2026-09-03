@@ -1,5 +1,5 @@
 import { useDrawer } from '@/hooks/useDrawer.ts';
-import { selectCartTotalCount, useCartStore } from '@/store/cart.store.ts';
+import { useCartStore } from '@/store/cart.store.ts';
 import { useFavoritesStore } from '@/store/favorites.store.ts';
 import HeartIconFilled from '@mui/icons-material/Favorite';
 import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
@@ -12,7 +12,10 @@ export function UserActions() {
   const { toggleDrawer } = useDrawer();
 
   const favoritesCount = useFavoritesStore((state) => Object.keys(state.items).length);
-  const cartCount = useCartStore(selectCartTotalCount);
+  const cartCount = useCartStore((state) =>
+    Object.values(state.items).reduce((total, item) => total + item.quantity, 0)
+  );
+  const displayedCartCount = cartCount > 99 ? '99+' : cartCount;
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -58,7 +61,7 @@ export function UserActions() {
 
         <Badge
           sx={{ position: 'absolute', width: '40px', height: '40px', px: 0 }}
-          badgeContent={cartCount}
+          badgeContent={displayedCartCount}
           color="primary"
         />
       </IconButton>

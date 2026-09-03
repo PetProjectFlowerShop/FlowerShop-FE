@@ -1,5 +1,6 @@
 import { Icon } from '@/components/common/Icon';
 import { Box, IconButton, Typography } from '@mui/material';
+import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 
 type ProductHeaderProps = {
   name: string;
@@ -21,6 +22,7 @@ export function ProductHeader({ name, price, available = true }: ProductHeaderPr
           sx={{ maxHeight: 40, display: { tablet: 'none' } }}
         >
           {/* {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />} */}
+          <HeartIconOutline />
         </IconButton>
       </Box>
       <Typography

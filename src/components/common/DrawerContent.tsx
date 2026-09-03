@@ -14,8 +14,8 @@ export function DrawerContent({ children, sx, ...props }: DrawerContentProps) {
           pb: 20,
           px: {
             xs: 4,
-            sm: 10,
-            lg: 18,
+            tablet: 10,
+            desktop: 18,
           },
         },
         ...(Array.isArray(sx) ? sx : [sx]),

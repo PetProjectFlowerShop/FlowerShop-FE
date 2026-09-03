@@ -1,106 +1,103 @@
-import type { CartItem } from '@/types/cartItem';
+import type { CartItem } from '@/types/cart';
+import type { PackagingType } from '@/types/product';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type CartState = {
   items: Record<string, CartItem>;
-  addToCart: (productId: number, quantity: number) => void;
-  removeFromCart: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
-  updateWrapType: (productId: number) => void;
-
-  clear: () => void;
+  addToCart: (item: CartItem) => void;
+  updateQuantity: (cartItemId: string, quantity: number) => void;
+  updatePackagingType: (cartItemId: string, packagingType: PackagingType) => void;
+  getTotalSum: () => number;
+  removeFromCart: (cartItemId: string) => void;
 };
-
-const getCartItemId = (productId: number) => `${productId}`;
 
 export const useCartStore = create<CartState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       items: {},
 
-      addToCart: (productId, quantity) =>
+      addToCart: (item) =>
         set((state) => {
-          const id = getCartItemId(productId);
-          const existing = state.items[id];
+          const id =
+            item.type === 'product'
+              ? `${item.productId}-${item.packagingType.id}`
+              : `${item.productId}-no-packaging`;
+
+          const existingItem = state.items[id];
 
           return {
             items: {
               ...state.items,
-              [id]: {
-                productId,
-
-                quantity: (existing?.quantity ?? 0) + quantity,
-              },
+              [id]: existingItem
+                ? { ...existingItem, quantity: existingItem.quantity + item.quantity }
+                : item,
             },
           };
         }),
-
-      removeFromCart: (productId) =>
+      updateQuantity: (cartItemId, quantity) =>
         set((state) => {
-          const id = getCartItemId(productId);
-          const newItems = { ...state.items };
-          delete newItems[id];
-          return { items: newItems };
-        }),
+          const item = state.items[cartItemId];
 
-      updateQuantity: (productId) =>
-        set((state) => {
-          const id = getCartItemId(productId);
-          if (!state.items[id]) return state;
+          if (!item) return state;
 
           return {
             items: {
               ...state.items,
-              [id]: {
-                ...state.items[id],
-              },
+              [cartItemId]: { ...item, quantity },
             },
           };
         }),
-
-      updateWrapType: () =>
+      updatePackagingType: (cartItemId, packagingType) =>
         set((state) => {
-          // if (oldWrapType === newWrapType) return state;
+          const item = state.items[cartItemId];
+          if (!item || item.type !== 'product') return state;
 
-          // const oldId = getCartItemId(productId, oldWrapType);
-          // const newId = getCartItemId(productId, newWrapType);
-          // const oldItem = state.items[oldId];
+          const newCartItemId = `${item.productId}_${packagingType.id}`;
 
-          // if (!oldItem) return state;
+          if (newCartItemId === cartItemId) {
+            return state;
+          }
+          const existingItem = state.items[newCartItemId];
 
           const newItems = { ...state.items };
 
-          // delete newItems[oldId];
+          delete newItems[cartItemId];
 
-          // if (newItems[newId]) {
-          //   newItems[newId] = {
-          //     ...newItems[newId],
-          //     quantity: newItems[newId].quantity + oldItem.quantity,
-          //   };
-          // } else {
-          //   newItems[newId] = {
-          //     ...oldItem,
-          //     wrapType: newWrapType,
-          //   };
-          // }
+          newItems[newCartItemId] = existingItem
+            ? {
+                ...existingItem,
+                quantity: existingItem.quantity + item.quantity,
+              }
+            : {
+                ...item,
+                packagingType,
+              };
 
-          return { items: newItems };
+          return {
+            items: newItems,
+          };
         }),
+      getTotalSum: () =>
+        Object.values(get().items).reduce((total, item) => {
+          const itemPrice =
+            item.type === 'product'
+              ? item.productPrice + item.packagingType.price
+              : item.productPrice;
 
-      clear: () => set({ items: {} }),
+          return total + itemPrice * item.quantity;
+        }, 0),
+      removeFromCart: (cartItemId) =>
+        set((state) => {
+          const newItems = { ...state.items };
+
+          delete newItems[cartItemId];
+
+          return {
+            items: newItems,
+          };
+        }),
     }),
-    {
-      name: 'cart-storage',
-      partialize: (state) => ({ items: state.items }),
-    }
+    { name: 'cart-storage' }
   )
 );
-
-export const selectCartTotalCount = (state: CartState) => {
-  const itemsArray = Object.values(state.items);
-
-  return itemsArray.reduce((total: number, item) => {
-    return total + item.quantity;
-  }, 0);
-};

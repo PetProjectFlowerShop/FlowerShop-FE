@@ -25,7 +25,7 @@ export function ProductDetailsSection({ data }: { data: ProductDetails }) {
           </Box>
           <ProductInfo {...data} />
         </Box>
-        <AccessoriesCarousel accessories={MOCK_ACCESSORIES} showPagination={true} />
+        <AccessoriesCarousel gap={6} accessories={MOCK_ACCESSORIES} showPagination={true} />
       </SectionContainer>
     </section>
   );

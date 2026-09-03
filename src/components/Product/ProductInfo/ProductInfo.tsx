@@ -20,21 +20,22 @@ export function ProductInfo({
   // const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
   const packagingOptions = bouquetType.packagingTypes;
 
-  const [selectedWrap, setSelectedWrap] = useState(packagingOptions[0].id);
+  const [selectedWrap, setSelectedWrap] = useState(packagingOptions[0]);
   const [quantity, setQuantity] = useState(1);
 
   return (
     <Box display="flex" flexDirection="column" gap={2}>
       <ProductHeader price={price} name={name} />
       <ProductWrapSelect
-        selectedWrap={selectedWrap}
-        onWrapChange={setSelectedWrap}
-        packagingOptions={packagingOptions}
+        value={selectedWrap}
+        onChange={setSelectedWrap}
+        options={packagingOptions}
       />
 
       <ProductQuantityControls
         productId={id}
-
+        price={price}
+        selectedWrap={selectedWrap}
         maxQuantity={maxQuantity}
         quantity={quantity}
         onQuantityChange={setQuantity}

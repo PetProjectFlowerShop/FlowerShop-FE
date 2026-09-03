@@ -13,7 +13,7 @@ import { PasswordRecoveryForm } from '@/components/forms/password-recovery/Passw
 import { RegisterForm } from '@/components/forms/register/RegisterForm.tsx';
 
 import AppDrawer from '@/components/common/AppDrawer';
-import { CartForm } from '@/components/common/CartForm.tsx';
+import { CartForm } from '@/components/cart/CartForm';
 
 import { RouteErrorBoundary } from '@/components/error/RouteErrorBoundary';
 import { useDrawer } from '@/hooks/useDrawer';
@@ -38,7 +38,7 @@ export function MainLayout() {
           {drawerView === 'password-recovery' && <PasswordRecoveryForm />}
           {drawerView === 'check-email' && <CheckEmail />}
           {drawerView === 'new-password' && <NewPasswordForm />}
-          {drawerView === 'cart' && <CartForm onClose={closeDrawer} />}
+          {drawerView === 'cart' && <CartForm />}
         </DrawerContent>
       </AppDrawer>
 
