@@ -13,16 +13,14 @@ import { PasswordRecoveryForm } from '@/components/forms/password-recovery/Passw
 import { RegisterForm } from '@/components/forms/register/RegisterForm.tsx';
 
 import AppDrawer from '@/components/common/AppDrawer';
-import { CartForm } from '@/components/common/CartForm.tsx';
+import { CartForm } from '@/components/cart/CartForm';
+
 import { RouteErrorBoundary } from '@/components/error/RouteErrorBoundary';
 import { useDrawer } from '@/hooks/useDrawer';
-import { useCartStore } from '@/store/cart.store.ts';
 
 export function MainLayout() {
   const { topBarVisible, headerVisible } = useHeaderVisibility();
   const { drawerView, isDrawerOpen, closeDrawer } = useDrawer();
-  const cartItemsRecord = useCartStore((state) => state.items);
-  const cartItemsArray = Object.values(cartItemsRecord);
 
   return (
     <Box
@@ -40,7 +38,7 @@ export function MainLayout() {
           {drawerView === 'password-recovery' && <PasswordRecoveryForm />}
           {drawerView === 'check-email' && <CheckEmail />}
           {drawerView === 'new-password' && <NewPasswordForm />}
-          {drawerView === 'cart' && <CartForm cartItems={cartItemsArray} onClose={closeDrawer} />}
+          {drawerView === 'cart' && <CartForm />}
         </DrawerContent>
       </AppDrawer>
 

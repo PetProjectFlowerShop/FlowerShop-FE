@@ -3,7 +3,6 @@ import type { SortOption } from '@/types/sort';
 import { SORT_OPTIONS } from '@/constants/sort';
 import { CustomSelect } from '@/components/common/CustomSelect';
 import { type SelectChangeEvent } from '@mui/material';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export function Sort() {
   const [searchParams, setSearchParams] = useSearchParams();

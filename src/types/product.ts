@@ -29,6 +29,7 @@ export interface ProductCardType extends ProductBase {
   imageUrl: string;
 
   isRecommended: boolean;
+  bouquetTypeId: number;
 }
 
 export interface ProductDetails extends ProductBase {
@@ -41,4 +42,8 @@ export interface ProductDetails extends ProductBase {
   colors: ColorType[];
   bouquetType: BouquetType;
   images: ProductImageType[];
+}
+
+export interface ProductFilters {
+  bouquetTypes: BouquetType[];
 }

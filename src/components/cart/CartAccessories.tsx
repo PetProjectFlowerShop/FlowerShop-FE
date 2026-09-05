@@ -1,18 +1,20 @@
 import { Box } from '@mui/material';
-import { AccessoriesCarousel } from './AccessoriesCarousel';
-import type { Accessory } from './AccessoryCard';
+import { AccessoriesCarousel } from '../common/AccessoriesCarousel';
+import type { Accessory } from '../common/AccessoryCard';
 
 interface CartAccessoriesProps {
   accessories: Accessory[];
 }
 
-export function CartAccessories({ accessories }: CartAccessoriesProps) {
+export const CartAccessories = ({ accessories }: CartAccessoriesProps) => {
   return (
     <Box
       sx={{
         mt: 2,
         position: 'relative',
         zIndex: 10,
+        overflow: 'hidden',
+        maxWidth: '100%',
         '& .swiper-slide': {
           width: { xs: '306px !important' },
         },
@@ -25,6 +27,7 @@ export function CartAccessories({ accessories }: CartAccessoriesProps) {
         title={true}
         accessories={accessories}
         showPagination={false}
+        gap={{ tablet: 4 }}
         breakpoints={{
           0: {
             slidesPerView: 'auto',
@@ -34,4 +37,4 @@ export function CartAccessories({ accessories }: CartAccessoriesProps) {
       />
     </Box>
   );
-}
+};

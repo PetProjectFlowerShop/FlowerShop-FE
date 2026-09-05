@@ -1,12 +1,27 @@
+import { PageLayout } from '@/components/layouts/PageLayout';
 import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
-import { PageContainer } from '@/components/common/PageContainer';
-import { Typography } from '@mui/material';
+import TitleWithImageSection from '@/components/common/TitleWithImageSection';
+import heroImage from '@/assets/images/payment/hero-payment.webp';
+import { DeliveryOptions } from '@/components/delivery/DeliveryOptions';
+import { ShopNowSection } from '@/components/delivery/ShopNowSection';
+import { PaymentOptions } from '@/components/delivery/PaymentOptions';
+import { QuestionsCallBlock } from '@/components/QuestionsCallBlock/QuestionsCallBlock';
 
 export function DeliveryAndPayment() {
   return (
-    <PageContainer>
-      <DynamicBreadcrumbs />
-      <Typography variant="h4">Delivery & Payment</Typography>
-    </PageContainer>
+    <>
+      <DynamicBreadcrumbs mb={2} />
+      <PageLayout>
+        <TitleWithImageSection
+          title="Delivery&Payment"
+          imageSrc={heroImage}
+          imageAlt="Delivery & Payment"
+        />
+        <DeliveryOptions />
+        <ShopNowSection />
+        <PaymentOptions />
+        <QuestionsCallBlock />
+      </PageLayout>
+    </>
   );
 }
