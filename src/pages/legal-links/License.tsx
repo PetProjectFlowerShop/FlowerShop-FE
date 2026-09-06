@@ -1,10 +1,13 @@
-import { PageContainer } from '@/components/common/PageContainer';
+import { PageLayout } from '@/components/layouts/PageLayout';
+import { SectionContainer } from '@/components/layouts/SectionContainer';
 import { Typography } from '@mui/material';
 
 export function License() {
   return (
-    <PageContainer>
-      <Typography variant="h4">License</Typography>
-    </PageContainer>
+    <PageLayout>
+      <SectionContainer>
+        <Typography variant="h4">License</Typography>
+      </SectionContainer>
+    </PageLayout>
   );
 }

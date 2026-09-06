@@ -1,4 +1,4 @@
-import { PageContainer } from '@/components/common/PageContainer';
+import { SectionContainer } from '@/components/layouts/SectionContainer';
 import { Box, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { usersApi, type User } from '@/api/users.api';
@@ -37,22 +37,24 @@ export function Blog() {
   }, [showLoading, hideLoading, showError]);
 
   return (
-    <PageContainer>
+    <>
       <DynamicBreadcrumbs />
-      <Typography variant="h4">Blog</Typography>
-      {hasLoaded && users.length === 0 && (
-        <EmptyState
-          title="No users yet"
-          description="Users will appear here once they are created."
-        />
-      )}
-      {/*just test data, can be deleted*/}
-      {Array.isArray(users) &&
-        users.map((user) => (
-          <Box key={user.id}>
-            {user.name} - {user.email}
-          </Box>
-        ))}
-    </PageContainer>
+      <SectionContainer>
+        <Typography variant="h4">Blog</Typography>
+        {hasLoaded && users.length === 0 && (
+          <EmptyState
+            title="No users yet"
+            description="Users will appear here once they are created."
+          />
+        )}
+        {/*just test data, can be deleted*/}
+        {Array.isArray(users) &&
+          users.map((user) => (
+            <Box key={user.id}>
+              {user.name} - {user.email}
+            </Box>
+          ))}
+      </SectionContainer>
+    </>
   );
 }

@@ -1,9 +1,7 @@
-import { PageContainer } from '@/components/common/PageContainer';
-
 export function Catalog() {
   // const viewedProducts = useRecentlyStore((store) => store.items);
   return (
-    <PageContainer>
+    <>
       {/* <DynamicBreadcrumbs mb={2} />
       <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
       <Box
@@ -39,6 +37,6 @@ export function Catalog() {
       ) : (
         <RecommendationsSection title="Recommendations" />
       )} */}
-    </PageContainer>
+    </>
   );
 }
