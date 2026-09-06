@@ -37,14 +37,17 @@ export const WelcomeSection = () => {
               component="img"
               src={shop_windows}
               alt={'show_window'}
+              height={{ xs: '292px', tablet: '320px', desktop: '320px' }}
               width={{ xs: '343px', tablet: '429px', desktop: '417px' }}
-              sx={{ mt: { tablet: '112px' } }}
+              sx={{ mt: { tablet: '112px' }, borderRadius: '20px' }}
             />
             <Box
               component="img"
               src={sales_floor}
               alt={'sales_floor'}
+              height={{ xs: '292px', tablet: '231px', desktop: '231px' }}
               width={{ xs: '343px', tablet: '243px', desktop: '306px' }}
+              sx={{ borderRadius: '20px' }}
             />
           </Box>
         </Box>
