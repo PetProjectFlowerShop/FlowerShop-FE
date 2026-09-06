@@ -29,20 +29,20 @@ export const OurValuesSection = () => {
           >
             <SectionHeader title="Our flower values" />
 
-            <Typography variant="body1" sx={{ mb: 4 }}>
+            <Typography variant="body1" sx={{ mb: 2 }}>
               At FLORIA, we believe flowers are more than a gift — they are a way to express
               emotions, celebrate moments, and bring beauty into everyday life. Our philosophy is
               built on simplicity, freshness, and thoughtful design, where every bouquet is created
               with care and intention.
             </Typography>
-            <Typography variant="body1" sx={{ mb: 4 }}>
+            <Typography variant="body1" sx={{ mb: 2 }}>
               Our values:
             </Typography>
             <ValuesList />
 
             <Button
               variant="contained"
-              sx={{ mt: { xs: 4, tablet: 6, desktop: 6 } }}
+              sx={{ mt: { xs: 4, tablet: 6, desktop: 6 }, backgroundColor: 'secondary.main' }}
               fullWidth
               component={Link}
               to="/catalog"
@@ -54,8 +54,7 @@ export const OurValuesSection = () => {
             sx={{
               order: { xs: 2, desktop: 1 },
               height: '100%',
-              overflow: 'hidden',
-              borderRadius: 4,
+              mt: '8px',
             }}
           >
             <Box
@@ -64,10 +63,11 @@ export const OurValuesSection = () => {
               alt="Our flower values"
               sx={{
                 display: 'block',
-                width: { xs: '343px', tablet: '100%' },
-                height: { xs: 'auto', desktop: '100%' },
+                width: '100%',
+                height: { xs: '466px', tablet: '530px', desctop: '524px' },
                 objectFit: 'cover',
                 objectPosition: 'top center',
+                borderRadius: 4,
               }}
             />
           </Box>
