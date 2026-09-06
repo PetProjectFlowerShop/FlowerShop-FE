@@ -5,7 +5,7 @@ import type { TeamMember } from '@/types/teamMember';
 
 export interface CardMemberTeamProps {
   data: TeamMember & { isLeader?: boolean };
-  isLeader?: boolean;
+  variant?: 'leader' | 'side-manager' | 'regular';
 }
 
 // const getCardStyles = () => ({
@@ -54,13 +54,20 @@ export interface CardMemberTeamProps {
 //   mb: 0.5,
 // });
 
-export const CardMemberTeam = ({ data, isLeader }: CardMemberTeamProps) => {
+export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProps) => {
   const theme = useTheme();
   const { imgURL, name, position } = data;
 
-  //const isHighlighted = isLeader ?? data.isLeader;
-  const isHighlighted = Boolean(isLeader);
-  console.log(`Ім'я: ${name} | Лідер?: ${isHighlighted}`);
+  const getAspectRatio = () => {
+    if (variant === 'leader') {
+      return { xs: '343 / 380', tablet: '360 / 424', desktop: '416 / 556' };
+    }
+    if (variant === 'side-manager') {
+      return { xs: '164 / 220', tablet: '332 / 384', desktop: '416 / 424' };
+    }
+    return { xs: '164 / 220', tablet: '332 / 384', desktop: '306 / 384' };
+  };
+
   return (
     <Card
       elevation={0}
@@ -82,9 +89,7 @@ export const CardMemberTeam = ({ data, isLeader }: CardMemberTeamProps) => {
           width: '100%',
           display: 'block',
           height: 'auto',
-          aspectRatio: isHighlighted
-            ? { xs: '343/380', tablet: '360/424', desktop: '416/556' }
-            : { xs: '164/220', tablet: '332/384', desktop: '306/384' },
+          aspectRatio: getAspectRatio(),
         }}
       />
 
@@ -111,7 +116,7 @@ export const CardMemberTeam = ({ data, isLeader }: CardMemberTeamProps) => {
           sx={{
             ...theme.typography.h4,
             fontFamily: 'serif',
-            fontSize: isHighlighted ? '1.25rem' : '1.1rem',
+            fontSize: variant === 'leader' ? '1.25rem' : '1.1rem',
             color: theme.palette.text.primary,
             mb: 0,
           }}

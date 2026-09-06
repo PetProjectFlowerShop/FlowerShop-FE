@@ -12,19 +12,21 @@ export const management = [
     imgURL: headManager,
     name: 'Sofia Kovalenko',
     position: 'Head Manager',
+    variant: 'side-manager',
   },
   {
     id: 2,
     imgURL: founder,
     name: 'Anna Melnyk',
     position: 'Founder and Owner',
-    isLeader: true,
+    variant: 'leader',
   },
   {
     id: 3,
     imgURL: logisticsManager,
     name: 'Andrii Petrenko',
     position: 'Logistics Manager',
+    variant: 'side-manager',
   },
 ];
 
@@ -34,23 +36,27 @@ export const staff = [
     imgURL: image4,
     name: 'Kateryna Hrytsenko',
     position: 'Head of Florist',
+    variant: 'regular',
   },
   {
     id: 5,
     imgURL: image3,
     name: 'Olena Marchenko',
     position: 'Florist',
+    variant: 'regular',
   },
   {
     id: 6,
     imgURL: image2,
     name: 'Iryna Bondarenko',
     position: 'Florist',
+    variant: 'regular',
   },
   {
     id: 7,
     imgURL: image1,
     name: 'Dmytro Shevchenko',
     position: 'Florist',
+    variant: 'regular',
   },
 ];
