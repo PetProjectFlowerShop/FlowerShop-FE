@@ -3,7 +3,7 @@ import { SectionHeader } from '../common/SectionHeader';
 import { Box, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ValuesList } from '../home/AboutUsSection/ValuesList';
-import values from './../../assets/images/about-us-values.webp';
+import values from './../../assets/images/aboutUs/about-us-values.webp';
 
 export const OurValuesSection = () => {
   return (

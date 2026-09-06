@@ -85,7 +85,7 @@ export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProp
         sx={{
           borderRadius: '20px',
           objectFit: 'cover',
-          objectPosition: '50% 26%',
+          objectPosition: '50% 10%',
           width: '100%',
           display: 'block',
           height: 'auto',

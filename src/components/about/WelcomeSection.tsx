@@ -1,8 +1,8 @@
 import { SectionContainer } from '../layouts/SectionContainer';
 import { SectionHeader } from '../common/SectionHeader';
 import { Box, Typography } from '@mui/material';
-import shop_windows from './../../assets/images/about-us-shop1.webp';
-import sales_floor from './../../assets/images/about-us-shop2.webp';
+import shop_windows from './../../assets/images/aboutUs/about-us-shop1.webp';
+import sales_floor from './../../assets/images/aboutUs/about-us-shop2.webp';
 
 export const WelcomeSection = () => {
   return (

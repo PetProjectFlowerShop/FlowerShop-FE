@@ -1,5 +1,5 @@
 import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
-import main from './../../assets/images/about-us-main.webp';
+import main from './../../assets/images/aboutUs/about-us-main.webp';
 import TitleWithImageSection from '@/components/common/TitleWithImageSection';
 import { QuestionsCallBlock } from '@/components/QuestionsCallBlock/QuestionsCallBlock';
 import { PageLayout } from '@/components/layouts/PageLayout';
