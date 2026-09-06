@@ -14,7 +14,12 @@ export function AboutUs() {
     <>
       <DynamicBreadcrumbs mb={{ xs: 2 }} />
       <PageLayout>
-        <TitleWithImageSection title="About Us" imageSrc={main} imageAlt="shop" />
+        <TitleWithImageSection
+          title="About Us"
+          imageSrc={main}
+          imageAlt="shop"
+          imageObjectPosition={'0 56%'}
+        />
         <WelcomeSection />
         <AdvantageSection />
         <OurValuesSection />
