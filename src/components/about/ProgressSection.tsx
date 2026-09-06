@@ -22,17 +22,17 @@ export const ProgressSection = () => {
                 backgroundColor: 'secondary.light',
                 borderRadius: '16px',
                 minHeight: { xs: 'auto', desktop: '196px' },
-                padding: { xs: '24px', desktop: '32px 24px' },
+                padding: { xs: '28px 16px', tablet: '40px 24px' },
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '24px',
-                boxShadow: 1,
+                gap: '16px',
+                boxShadow: 2,
               }}
             >
-              <Typography variant="h5" component="h3" sx={{ color: 'text.primary' }}>
+              <Typography variant="h4" sx={{ color: 'text.primary' }}>
                 {item.title}
               </Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>
+              <Typography variant="bodyTablet" sx={{ color: 'text.primary', lineHeight: 1.4 }}>
                 {item.description}
               </Typography>
             </Box>

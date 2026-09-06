@@ -7,16 +7,17 @@ export const progressData = [
   },
   {
     id: 2,
-    title: '100+ Flower Varieties',
-    description:
-      ' A carefully curated selection of fresh, seasonal flowers sourced to create vibrant and long-lasting bouquets.',
-  },
-  {
-    id: 3,
     title: '4 Skilled Florists',
     description:
       ' A passionate team of designers, florists, and delivery experts working together to ensure quality and care in every order.',
   },
+  {
+    id: 3,
+    title: '100+ Flower Varieties',
+    description:
+      ' A carefully curated selection of fresh, seasonal flowers sourced to create vibrant and long-lasting bouquets.',
+  },
+
   {
     id: 4,
     title: '5+ Years of Experience',
