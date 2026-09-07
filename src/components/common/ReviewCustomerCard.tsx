@@ -49,14 +49,6 @@ const getContentStyles = () => ({
   },
 });
 
-const getNameStyles = (theme: Theme) => ({
-  ...theme.typography.body2,
-  fontWeight: 600,
-  color: theme.palette.text.primary,
-  lineHeight: 1.4,
-  mb: 1,
-});
-
 const getRatingWrapperStyles = () => ({
   display: 'flex',
   mb: 1.5,
@@ -82,7 +74,7 @@ export const ReviewCustomerCard = ({ review }: ReviewCustomerCardProps) => {
         <CardMedia component="img" image={imgURL || review_temp} alt={name} />
 
         <CardContent sx={getContentStyles()}>
-          <Typography component="h3" sx={getNameStyles(theme)}>
+          <Typography component="h3" variant="body" sx={{ mb: 1, fontWeight: 500 }}>
             {name}
           </Typography>
 
@@ -91,7 +83,7 @@ export const ReviewCustomerCard = ({ review }: ReviewCustomerCardProps) => {
           </Box>
 
           <Stack spacing={0.5} sx={{ flexGrow: 1 }}>
-            <Typography variant="body2" sx={getMessageStyles(theme)}>
+            <Typography variant="body" sx={getMessageStyles(theme)}>
               {message}
             </Typography>
           </Stack>

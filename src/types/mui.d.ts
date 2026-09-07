@@ -9,8 +9,11 @@ declare module '@mui/material/IconButton' {
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     body: true;
+    body1: false;
+    body2: false;
     bodyFixed: true;
     h2Fixed: true;
+    h3Fixed: true;
     h4Fixed: true;
     caption2: true;
   }
@@ -21,6 +24,7 @@ declare module '@mui/material/styles' {
     body: React.CSSProperties;
     bodyFixed: React.CSSProperties;
     h2Fixed: React.CSSProperties;
+    h3Fixed: React.CSSProperties;
     h4Fixed: React.CSSProperties;
     caption2: React.CSSProperties;
   }
@@ -29,6 +33,7 @@ declare module '@mui/material/styles' {
     body: React.CSSProperties;
     bodyFixed: React.CSSProperties;
     h2Fixed: React.CSSProperties;
+    h3Fixed: React.CSSProperties;
     h4Fixed: React.CSSProperties;
     caption2: React.CSSProperties;
   }
