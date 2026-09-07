@@ -76,7 +76,7 @@ export const CartItemView = (props: CartItemViewProps) => {
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <Typography
-            variant="body1"
+            variant="body"
             sx={{ fontWeight: 400, fontSize: { xs: '1rem', sm: '1.1rem' }, color: 'text.primary' }}
           >
             {name}

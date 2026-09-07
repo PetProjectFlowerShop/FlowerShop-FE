@@ -50,7 +50,7 @@ export default function HeroSection() {
 
             <Box sx={{ maxWidth: { tablet: '640px', desktop: '635px' } }}>
               <Typography
-                variant="body1"
+                variant="body"
                 sx={{
                   mb: { xs: 6, tablet: 9 },
                   opacity: 0.9,

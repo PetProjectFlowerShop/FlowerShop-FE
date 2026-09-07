@@ -48,13 +48,13 @@ function FaqItem({ item }: { item: FaqData }) {
           },
         }}
       >
-        <Typography variant="body1" sx={{ color: 'text.primary' }}>
+        <Typography variant="body" sx={{ color: 'text.primary' }}>
           {item.question}
         </Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ p: 0, pb: 3 }}>
         <Typography
-          variant="body1"
+          variant="body"
           sx={{ color: 'text.secondary', px: theme.spacingTokens.stackXs }}
         >
           {item.answer}

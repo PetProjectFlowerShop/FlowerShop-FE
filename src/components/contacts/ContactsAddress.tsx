@@ -47,10 +47,10 @@ export function ContactsAddress() {
                 p: 4,
               }}
             >
-              <Typography variant="body1" sx={{ fontWeight: 600 }}>
+              <Typography variant="body" sx={{ fontWeight: 600 }}>
                 Directions
               </Typography>
-              <Typography variant="body1" sx={{ mt: 3 }}>
+              <Typography variant="body" sx={{ mt: 3 }}>
                 Our studio is located at 12 Kvitkova St., Kyiv. If you're coming by metro, take the
                 exit toward the city center—we are just a 5-minute walk away, right next to the
                 central park. Look for the green awning and the scent of fresh peonies!

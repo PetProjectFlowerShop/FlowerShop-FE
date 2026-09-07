@@ -52,7 +52,7 @@ export default function FaqSection() {
                 }}
               />
               <Typography
-                variant="body1"
+                variant="body"
                 sx={{
                   flex: { xs: 1, desktop: 0 },
                   color: 'text.primary',

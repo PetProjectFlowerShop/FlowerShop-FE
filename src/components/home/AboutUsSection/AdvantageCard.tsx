@@ -27,7 +27,7 @@ export function AdvantageCard({ img, title, text }: AdvantageCardProps) {
       <Typography variant="h4" component="h3">
         {title}
       </Typography>
-      <Typography variant="body1" component="p">
+      <Typography variant="body" component="p">
         {text}
       </Typography>
     </Box>

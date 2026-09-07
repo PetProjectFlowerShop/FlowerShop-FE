@@ -23,7 +23,7 @@ function ContactRow({ icon, value, href, iconSize = 24, color = 'common.white' }
         style={{ flexShrink: 0, fill: 'currentColor' }}
       />
 
-      <Typography variant="caption">{value}</Typography>
+      <Typography variant="body">{value}</Typography>
     </Box>
   );
 

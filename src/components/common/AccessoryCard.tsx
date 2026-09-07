@@ -55,12 +55,12 @@ export const AccessoryCard = ({ item, currencySymbol = '$' }: AccessoryCardProps
           pr: '8px',
         }}
       >
-        <Typography variant="body1" color="text.primary">
+        <Typography variant="body" color="text.primary">
           {item.name}
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h4" component="span">
+          <Typography variant="h4Fixed" component="span">
             {currencySymbol}
             {item.price}
           </Typography>

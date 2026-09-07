@@ -20,7 +20,7 @@ export function DeliveryOptions() {
                   <Stack spacing={6} px={6} py={10}>
                     <Typography variant="h4">{title}</Typography>
 
-                    <Typography variant="body1">{description}</Typography>
+                    <Typography variant="body">{description}</Typography>
                   </Stack>
                 </Paper>
               </Grid>

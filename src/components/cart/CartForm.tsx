@@ -16,8 +16,8 @@ export function CartForm() {
   if (enrichedCartItems.length == 0) {
     return (
       <Box>
-        <Typography variant="h2">Cart</Typography>
-        <Typography variant="body1" sx={{ my: 2 }}>
+        <Typography variant="h2Fixed">Cart</Typography>
+        <Typography variant="body" sx={{ my: 2 }}>
           Your cart is empty. Let’s find something beautiful.
         </Typography>
         <Button variant="contained" color="primary" fullWidth>
@@ -29,7 +29,7 @@ export function CartForm() {
 
   return (
     <Box>
-      <Typography variant="h2">Cart</Typography>
+      <Typography variant="h2Fixed">Cart</Typography>
 
       <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
         <Box sx={{ maxHeight: '440px', overflowY: 'auto', mb: 3, pr: 1 }}>
@@ -73,7 +73,7 @@ export function CartForm() {
             pt: 2,
           }}
         >
-          <Typography variant="body1">Total:</Typography>
+          <Typography variant="body">Total:</Typography>
           <Typography variant="h4">${totalSum}</Typography>
         </Box>
 

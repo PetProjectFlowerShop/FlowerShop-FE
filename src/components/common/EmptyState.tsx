@@ -20,7 +20,7 @@ export function EmptyState({ title = 'Nothing here yet', description, action }: 
       <Typography variant="h6">{title}</Typography>
 
       {description && (
-        <Typography variant="body2" sx={{ mt: 1, maxWidth: 400 }}>
+        <Typography variant="body" sx={{ mt: 1, maxWidth: 400 }}>
           {description}
         </Typography>
       )}

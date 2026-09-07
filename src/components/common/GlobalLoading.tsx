@@ -17,7 +17,7 @@ export function GlobalLoading({ open, message = 'Loading...' }: Props) {
       <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
         <CircularProgress color="inherit" />
         {message ? (
-          <Typography variant="body2" sx={{ opacity: 0.9 }}>
+          <Typography variant="body" sx={{ opacity: 0.9 }}>
             {message}
           </Typography>
         ) : null}

@@ -62,7 +62,7 @@ export function RegisterForm() {
           name="agree"
           label={
             <Typography
-              variant="body1"
+              variant="body"
               sx={{
                 '& a': {
                   color: 'text.primary',
@@ -81,7 +81,7 @@ export function RegisterForm() {
             </Typography>
           }
         />
-        <Typography variant="caption" color="error.main">
+        <Typography variant="captionFixed" color="error.main">
           Please access all statements to continue.
         </Typography>
 
@@ -90,7 +90,7 @@ export function RegisterForm() {
             Sign up
           </Button>
           <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
-            <Typography variant="caption" color="text.body1" px={2} py={4}>
+            <Typography variant="caption" px={2} py={4}>
               Already have an account?
             </Typography>
 

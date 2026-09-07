@@ -43,7 +43,7 @@ export default function AboutUsSection() {
             <Typography variant="h4" sx={{ mt: 3, mb: 2 }}>
               Our Philosophy
             </Typography>
-            <Typography variant="body1" sx={{ mb: 4 }}>
+            <Typography variant="body" sx={{ mb: 4 }}>
               At Floria, we believe that flowers are more than just decoration—they are a way to
               express emotions, celebrate moments, and bring joy to everyday life. Each bouquet we
               craft is a blend of creativity, passion, and care, designed to make every occasion
@@ -61,7 +61,7 @@ export default function AboutUsSection() {
                   'Customer Delight: Your happiness is our priority. We strive to provide a seamless shopping experience and personalized service.',
                   'Sustainability: We care for the environment, using eco-friendly packaging and sourcing flowers responsibly.',
                 ]}
-                typographyVariant="body1"
+                typographyVariant="body"
               />
             </Box>
 

@@ -23,7 +23,7 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
     input: ({ theme }) => ({
       '&::placeholder': {
-        ...theme.typography.placeholder,
+        ...theme.typography.captionFixed,
         color: theme.palette.text.disabled,
         opacity: 1,
       },

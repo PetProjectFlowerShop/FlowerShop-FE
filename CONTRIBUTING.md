@@ -24,3 +24,17 @@ Before opening a PR, make sure:
 - Lint passes.
 - There are no unnecessary changes.
 - The PR description explains what was changed.
+
+### Typography variants
+
+When choosing a typography variant, check the design:
+
+- **Mobile variant in design** → use the standard variant.
+
+  - Design: `H4 Mobile` → `variant="h4"`
+
+- **No `Mobile` suffix in design** → use the `Fixed` variant.
+
+  - Design: `Body` → `variant="bodyFixed"`
+
+**Rule:** `Mobile` → standard variant, everything else → `Fixed` variant.

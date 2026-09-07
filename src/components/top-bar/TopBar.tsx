@@ -33,7 +33,7 @@ export function TopBar({ visible }: TopBarProps) {
         })}
       >
         <Typography
-          variant="body1"
+          variant="body"
           sx={{
             color: 'secondary.contrastText',
             lineHeight: '140%',

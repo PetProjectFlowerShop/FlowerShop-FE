@@ -15,7 +15,7 @@ export function CheckEmail() {
       />
 
       <Stack direction="row" spacing={1} justifyContent="center" alignItems="center">
-        <Typography variant="caption" color="text.body1" px={1} py={4}>
+        <Typography variant="caption" px={1} py={4}>
           Back to
         </Typography>
 
