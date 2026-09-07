@@ -16,6 +16,7 @@ declare module '@mui/material/Typography' {
     h3Fixed: true;
     h4Fixed: true;
     caption2: true;
+    captionFixed: true;
   }
 }
 
@@ -27,6 +28,7 @@ declare module '@mui/material/styles' {
     h3Fixed: React.CSSProperties;
     h4Fixed: React.CSSProperties;
     caption2: React.CSSProperties;
+    captionFixed: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
@@ -36,6 +38,7 @@ declare module '@mui/material/styles' {
     h3Fixed: React.CSSProperties;
     h4Fixed: React.CSSProperties;
     caption2: React.CSSProperties;
+    captionFixed: React.CSSProperties;
   }
 
   interface Palette {

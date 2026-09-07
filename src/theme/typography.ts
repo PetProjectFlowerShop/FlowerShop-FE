@@ -112,6 +112,14 @@ export const typography = (theme: Theme) => ({
       lineHeight: 1.5,
     },
   },
+
+  captionFixed: {
+    fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
+    fontSize: '16px',
+    lineHeight: 1.5,
+  },
+
   caption2: {
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,

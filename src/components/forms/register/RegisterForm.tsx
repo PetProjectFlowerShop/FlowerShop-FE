@@ -81,7 +81,7 @@ export function RegisterForm() {
             </Typography>
           }
         />
-        <Typography variant="caption" color="error.main">
+        <Typography variant="captionFixed" color="error.main">
           Please access all statements to continue.
         </Typography>
 
