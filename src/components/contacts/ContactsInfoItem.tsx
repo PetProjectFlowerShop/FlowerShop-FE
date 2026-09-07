@@ -23,7 +23,7 @@ export function ContactsInfoItem({ image, title, description }: ContactsInfoItem
         sx={{
           width: 145,
           height: 145,
-          objectFit: 'cover',
+          objectFit: 'contain',
         }}
       />
 

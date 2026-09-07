@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { SectionContainer } from '../layouts/SectionContainer';
+import type { CSSProperties } from 'react';
 
 const getContainerStyles = () => ({
   position: 'relative',
@@ -15,12 +16,12 @@ const getContainerStyles = () => ({
   borderRadius: '20px',
 });
 
-const getImageStyles = () => ({
+const getImageStyles = (objectPosition: CSSProperties['objectPosition'] = '0 42%') => ({
   position: 'absolute',
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  objectPosition: '0 42%',
+  objectPosition,
   inset: 0,
 });
 
@@ -28,12 +29,14 @@ interface TitleWithImageSectionProps {
   title: string;
   imageSrc: string;
   imageAlt: string;
+  imageObjectPosition?: CSSProperties['objectPosition'];
 }
 
 export default function TitleWithImageSection({
   title,
   imageSrc,
   imageAlt,
+  imageObjectPosition,
 }: TitleWithImageSectionProps) {
   return (
     <section>
@@ -43,7 +46,12 @@ export default function TitleWithImageSection({
             {title}
           </Typography>
           <Box sx={getContainerStyles()}>
-            <Box component="img" src={imageSrc} alt={imageAlt} sx={getImageStyles()} />
+            <Box
+              component="img"
+              src={imageSrc}
+              alt={imageAlt}
+              sx={getImageStyles(imageObjectPosition)}
+            />
           </Box>
         </Box>
       </SectionContainer>

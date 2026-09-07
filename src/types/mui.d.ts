@@ -9,22 +9,28 @@ declare module '@mui/material/IconButton' {
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     caption2: true;
-    bodyTablet: true;
+    bodyFixed: true;
     bodyMobile: true;
+    body: true;
+    h4Fixed: true;
   }
 }
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
     caption2: React.CSSProperties;
-    bodyTablet: React.CSSProperties;
-    bodyMobile: true;
+    bodyFixed: React.CSSProperties;
+    bodyMobile: React.CSSProperties;
+    body: React.CSSProperties;
+    h4Fixed: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
     caption2?: React.CSSProperties;
-    bodyTablet: React.CSSProperties;
-    bodyMobile: true;
+    bodyFixed: React.CSSProperties;
+    bodyMobile: React.CSSProperties;
+    body: React.CSSProperties;
+    h4Fixed: React.CSSProperties;
   }
 
   interface Palette {

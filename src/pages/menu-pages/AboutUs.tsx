@@ -1,12 +1,32 @@
-import { Typography } from '@mui/material';
-import { PageContainer } from '@/components/common/PageContainer';
 import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
+import main from './../../assets/images/aboutUs/about-us-main.webp';
+import TitleWithImageSection from '@/components/common/TitleWithImageSection';
+import { QuestionsCallBlock } from '@/components/QuestionsCallBlock/QuestionsCallBlock';
+import { PageLayout } from '@/components/layouts/PageLayout';
+import { WelcomeSection } from '@/components/about/WelcomeSection';
+import { AdvantageSection } from '@/components/about/AdvantageSection';
+import { OurValuesSection } from '@/components/about/OurValuesSection';
+import { ProgressSection } from '@/components/about/ProgressSection';
+import { TeamSection } from '@/components/about/TeamSection';
 
 export function AboutUs() {
   return (
-    <PageContainer>
-      <DynamicBreadcrumbs />
-      <Typography variant="h4">About Us</Typography>
-    </PageContainer>
+    <>
+      <DynamicBreadcrumbs mb={{ xs: 2 }} />
+      <PageLayout>
+        <TitleWithImageSection
+          title="About us"
+          imageSrc={main}
+          imageAlt="shop"
+          imageObjectPosition={'0 56%'}
+        />
+        <WelcomeSection />
+        <AdvantageSection />
+        <OurValuesSection />
+        <ProgressSection />
+        <TeamSection />
+        <QuestionsCallBlock />
+      </PageLayout>
+    </>
   );
 }
