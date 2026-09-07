@@ -38,7 +38,13 @@ export const OurValuesSection = () => {
             <Typography variant="body1" sx={{ mb: 2 }}>
               Our values:
             </Typography>
-            <ValuesList />
+            <ValuesList
+              valuesList={[
+                'Quality & Freshness - we carefully select only fresh flowers to ensure long-lasting beauty.',
+                'Creative Design - each arrangement is thoughtfully crafted, inspired by nature.',
+                'Customer Care - we offer warm experience from the first click to delivery.',
+              ]}
+            />
 
             <Button
               variant="contained"
