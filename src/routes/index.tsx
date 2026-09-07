@@ -1,18 +1,17 @@
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { AuthLayout } from '../layouts/AuthLayout';
+import { MainLayout } from '../layouts/MainLayout';
 import { HomePage } from '../pages/HomePage';
-import { LoginPage } from '../pages/LoginPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
+import { ProductPage } from '../pages/ProductPage';
+import { License } from '../pages/legal-links/License';
+import { Support } from '../pages/legal-links/Support';
+import { TermOfService } from '../pages/legal-links/TermOfService';
 import { AboutUs } from '../pages/menu-pages/AboutUs';
 import { Blog } from '../pages/menu-pages/Blog';
 import { Catalog } from '../pages/menu-pages/Catalog';
 import { Contacts } from '../pages/menu-pages/Contacts';
 import { DeliveryAndPayment } from '../pages/menu-pages/DeliveryAndPayment';
-import { Support } from '../pages/legal-links/Support';
-import { License } from '../pages/legal-links/License';
-import { TermOfService } from '../pages/legal-links/TermOfService';
-import { MainLayout } from '../layouts/MainLayout';
-import { AuthLayout } from '../layouts/AuthLayout';
-import { ProductPage } from '../pages/ProductPage';
 
 export function AppRoutes() {
   return (
@@ -32,13 +31,7 @@ export function AppRoutes() {
         <Route path="*" element={<NotFoundPage />} />
       </Route>
 
-      <Route element={<AuthLayout />}>
-        <Route path="/login" element={<LoginPage />} />
-        {/* TODO */}
-        {/* <Route path="/register" element={<LoginPage />} />
-        <Route path="/forgot-password" element={<LoginPage />} />
-        <Route path="/reset-password" element={<LoginPage />} /> */}
-      </Route>
+      <Route element={<AuthLayout />}></Route>
     </Routes>
   );
 }
