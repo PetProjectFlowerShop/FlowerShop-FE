@@ -10,7 +10,7 @@ import { QuestionsCallBlock } from '@/components/QuestionsCallBlock/QuestionsCal
 export function DeliveryAndPayment() {
   return (
     <>
-      <DynamicBreadcrumbs mb={2} />
+      <DynamicBreadcrumbs mb={2} customLastStep="Delivery&Payment" />
       <PageLayout>
         <TitleWithImageSection
           title="Delivery&Payment"
