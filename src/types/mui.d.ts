@@ -10,7 +10,6 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     caption2: true;
     bodyFixed: true;
-    bodyMobile: true;
     body: true;
     h4Fixed: true;
   }
@@ -20,7 +19,6 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     caption2: React.CSSProperties;
     bodyFixed: React.CSSProperties;
-    bodyMobile: React.CSSProperties;
     body: React.CSSProperties;
     h4Fixed: React.CSSProperties;
   }
@@ -28,7 +26,6 @@ declare module '@mui/material/styles' {
   interface TypographyVariantsOptions {
     caption2?: React.CSSProperties;
     bodyFixed: React.CSSProperties;
-    bodyMobile: React.CSSProperties;
     body: React.CSSProperties;
     h4Fixed: React.CSSProperties;
   }
