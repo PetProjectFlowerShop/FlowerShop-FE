@@ -1,10 +1,13 @@
-import { PageContainer } from '@/components/common/PageContainer';
+import { PageLayout } from '@/components/layouts/PageLayout';
+import { SectionContainer } from '@/components/layouts/SectionContainer';
 import { Typography } from '@mui/material';
 
 export function TermOfService() {
   return (
-    <PageContainer>
-      <Typography variant="h4">TermOfService</Typography>
-    </PageContainer>
+    <PageLayout>
+      <SectionContainer>
+        <Typography variant="h4">Term Of Service</Typography>
+      </SectionContainer>
+    </PageLayout>
   );
 }
