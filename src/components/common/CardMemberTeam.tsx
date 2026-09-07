@@ -8,52 +8,6 @@ export interface CardMemberTeamProps {
   variant?: 'leader' | 'side-manager' | 'regular';
 }
 
-// const getCardStyles = () => ({
-//   width: '100%',
-//   margin: '0 auto',
-//   backgroundColor: 'transparent',
-//   display: 'flex',
-//   flexDirection: 'column',
-//   // height: '100%',
-//   transition: 'transform 0.4s ease',
-//   willChange: 'transform',
-//   transform: 'translateZ(0)',
-//   backfaceVisibility: 'hidden',
-//   '&:hover': {
-//     transform: 'scale(1.04)',
-//   },
-// });
-
-// const getContentStyles = () => ({
-//   p: '16px 0 0 0',
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'flex-start',
-//   flexDirection: 'column',
-//   width: '100%',
-//   minHeight: { xs: '76px', desktop: '84px' },
-//   '&:last-child': {
-//     paddingBottom: 0,
-//   },
-// });
-
-// const getNameStyles = (theme: Theme, isLeader?: boolean) => ({
-//   ...theme.typography.h4,
-//   fontFamily: 'serif',
-//   fontSize: isLeader ? '1.25rem' : '1.1rem',
-//   color: theme.palette.text.primary,
-//   textAlign: 'center' as const,
-//   mb: 0.5,
-// });
-
-// const getPositionStyles = (theme: Theme) => ({
-//   ...theme.typography.body1,
-//   color: theme.palette.text.secondary,
-//   textAlign: 'center' as const,
-//   fontSize: '0.875rem',
-//   mb: 0.5,
-// });
-
 export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProps) => {
   const theme = useTheme();
   const { imgURL, name, position } = data;
