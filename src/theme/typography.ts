@@ -126,9 +126,4 @@ export const typography = (theme: Theme) => ({
     fontSize: '14px',
     lineHeight: 1.42,
   },
-  placeholder: {
-    fontFamily: '"Quicksand", sans-serif',
-    fontSize: '16px',
-    lineHeight: 1.5,
-  },
 });
