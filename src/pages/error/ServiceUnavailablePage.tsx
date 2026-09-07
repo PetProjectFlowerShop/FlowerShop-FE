@@ -30,7 +30,7 @@ export default function ServiceUnavailablePage() {
           />
           <Box textAlign={{ xs: 'left', tablet: 'center' }}>
             <Typography variant="h3">Too many bouquets, too little time!</Typography>
-            <Typography variant="body1" sx={{ mt: '16px' }}>
+            <Typography variant="body" sx={{ mt: '16px' }}>
               Our florists are working at full speed to handle an influx of orders.
               <Box component="br" sx={{ display: { xs: 'none', tablet: 'block' } }} />
               Please take a breath and try refreshing the page in a few minutes.

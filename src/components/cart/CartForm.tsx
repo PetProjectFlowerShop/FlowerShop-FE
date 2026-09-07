@@ -17,7 +17,7 @@ export function CartForm() {
     return (
       <Box>
         <Typography variant="h2">Cart</Typography>
-        <Typography variant="body1" sx={{ my: 2 }}>
+        <Typography variant="body" sx={{ my: 2 }}>
           Your cart is empty. Let’s find something beautiful.
         </Typography>
         <Button variant="contained" color="primary" fullWidth>
@@ -73,7 +73,7 @@ export function CartForm() {
             pt: 2,
           }}
         >
-          <Typography variant="body1">Total:</Typography>
+          <Typography variant="body">Total:</Typography>
           <Typography variant="h4">${totalSum}</Typography>
         </Box>
 

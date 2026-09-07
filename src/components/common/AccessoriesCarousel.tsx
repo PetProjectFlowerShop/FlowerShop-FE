@@ -58,7 +58,7 @@ export function AccessoriesCarousel({
       >
         {title ? (
           <Box>
-            <Typography variant={'body1'} color="text.primary">
+            <Typography variant={'body'} color="text.primary">
               Add Accessories
             </Typography>
           </Box>

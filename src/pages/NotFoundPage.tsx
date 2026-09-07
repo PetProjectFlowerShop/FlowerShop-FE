@@ -14,7 +14,7 @@ export function NotFoundPage() {
         }}
       />
       <Typography variant="h3">Oops! We can't find this page.</Typography>
-      <Typography variant="body1" sx={{ mt: '16px' }}>
+      <Typography variant="body" sx={{ mt: '16px' }}>
         The page you’re looking for has withered away.
       </Typography>
       <Button

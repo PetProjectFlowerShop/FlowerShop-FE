@@ -51,7 +51,7 @@ export function LoginForm() {
         </Stack>
         <CheckboxElement
           name="rememberMe"
-          label={<Typography variant="body1">Remember me</Typography>}
+          label={<Typography variant="bodyFixed">Remember me</Typography>}
         />
 
         <Stack spacing={3}>

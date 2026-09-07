@@ -31,7 +31,7 @@ export function ContactsInfoItem({ image, title, description }: ContactsInfoItem
         {title}
       </Typography>
 
-      <Typography variant="body1" sx={{ mt: { xs: 1, tablet: 2 } }}>
+      <Typography variant="body" sx={{ mt: { xs: 1, tablet: 2 } }}>
         {description}
       </Typography>
     </Box>

@@ -55,7 +55,7 @@ export const AccessoryCard = ({ item, currencySymbol = '$' }: AccessoryCardProps
           pr: '8px',
         }}
       >
-        <Typography variant="body1" color="text.primary">
+        <Typography variant="body" color="text.primary">
           {item.name}
         </Typography>
 

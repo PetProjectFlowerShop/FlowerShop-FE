@@ -31,6 +31,14 @@ export const typography = (theme: Theme) => ({
       lineHeight: '1.08',
     },
   },
+  h1Fixed: {
+    fontFamily: '"Playfair Display", serif',
+    fontWeight: 400,
+    fontSize: '96px',
+    lineHeight: '1.08',
+    letterSpacing: 0,
+  },
+
   h2: {
     fontFamily: '"Playfair Display", serif',
     letterSpacing: 0,
@@ -41,6 +49,12 @@ export const typography = (theme: Theme) => ({
       lineHeight: 1.12,
     },
   },
+  h2Fixed: {
+    fontFamily: '"Playfair Display", serif',
+    letterSpacing: 0,
+    fontSize: '64px',
+    lineHeight: 1.12,
+  },
   h3: {
     fontFamily: '"Playfair Display", serif',
     letterSpacing: 0,
@@ -50,6 +64,12 @@ export const typography = (theme: Theme) => ({
       fontSize: '40px',
       lineHeight: 1.2,
     },
+  },
+  h3Fixed: {
+    fontFamily: '"Playfair Display", serif',
+    letterSpacing: 0,
+    fontSize: '40px',
+    lineHeight: 1.2,
   },
   h4: {
     fontFamily: '"Playfair Display", serif',
@@ -73,16 +93,6 @@ export const typography = (theme: Theme) => ({
     textTransform: 'none' as const,
     fontSize: '16px',
     fontWeight: 500,
-    lineHeight: 1.5,
-    [theme.breakpoints.up('tablet')]: {
-      fontSize: '20px',
-      lineHeight: 1.4,
-    },
-  },
-  body1: {
-    fontFamily: '"Quicksand", sans-serif',
-    letterSpacing: 0,
-    fontSize: '16px',
     lineHeight: 1.5,
     [theme.breakpoints.up('tablet')]: {
       fontSize: '20px',

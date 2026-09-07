@@ -54,7 +54,7 @@ export function QuestionsCallBlock() {
                 borderRadius: '20px',
               }}
             />
-            <Typography variant="body1">
+            <Typography variant="body">
               Leave your details below, and our team will get in touch to help you with anything you
               need.
             </Typography>

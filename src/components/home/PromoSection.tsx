@@ -31,7 +31,7 @@ export default function PromoSection() {
         <Typography variant="h3" sx={{ marginBottom: { xs: 4, tablet: 10 } }}>
           With the first order
         </Typography>
-        <Typography letterSpacing={0} variant="body1" sx={{ marginBottom: { xs: 6, tablet: 9 } }}>
+        <Typography letterSpacing={0} variant="body" sx={{ marginBottom: { xs: 6, tablet: 9 } }}>
           Enjoy a special welcome treat on your first order. Discover our hand-crafted bouquets and
           receive an exclusive offer designed to make your first moment with us even more memorable.
         </Typography>
