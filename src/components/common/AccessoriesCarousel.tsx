@@ -70,10 +70,30 @@ export function AccessoriesCarousel({
           </Box>
         )}
         <Stack direction="row" spacing={1}>
-          <IconButton className={prevClass} size="small" sx={{ backgroundColor: 'transparent' }}>
+          <IconButton
+            className={prevClass}
+            size="small"
+            sx={{
+              backgroundColor: 'transparent',
+              '&.swiper-button-disabled': {
+                opacity: 0.6,
+                pointerEvents: 'none',
+              },
+            }}
+          >
             <Icon name="navigate-before" width={20} height={20} fill="currentColor" />
           </IconButton>
-          <IconButton className={nextClass} size="small" sx={{ backgroundColor: 'transparent' }}>
+          <IconButton
+            className={nextClass}
+            size="small"
+            sx={{
+              backgroundColor: 'transparent',
+              '&.swiper-button-disabled': {
+                opacity: 0.6,
+                pointerEvents: 'none',
+              },
+            }}
+          >
             <Icon name="navigate-next" width={20} height={20} fill="currentColor" />
           </IconButton>
         </Stack>
