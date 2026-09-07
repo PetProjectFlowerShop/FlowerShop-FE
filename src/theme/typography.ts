@@ -55,6 +55,7 @@ export const typography = (theme: Theme) => ({
     fontSize: '64px',
     lineHeight: 1.12,
   },
+
   h3: {
     fontFamily: '"Playfair Display", serif',
     letterSpacing: 0,
@@ -71,6 +72,7 @@ export const typography = (theme: Theme) => ({
     fontSize: '40px',
     lineHeight: 1.2,
   },
+
   h4: {
     fontFamily: '"Playfair Display", serif',
     letterSpacing: 0,
