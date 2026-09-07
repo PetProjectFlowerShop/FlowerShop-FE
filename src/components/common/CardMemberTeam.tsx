@@ -55,11 +55,9 @@ export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProp
         }}
       >
         <Typography
-          variant="body2"
+          variant="body"
           sx={{
-            ...theme.typography.body1,
             color: theme.palette.text.secondary,
-            fontSize: '0.875rem',
             mb: 0.5,
           }}
         >
@@ -67,12 +65,10 @@ export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProp
         </Typography>
         <Typography
           component="h4"
+          variant="h4"
           sx={{
-            ...theme.typography.h4,
-            fontFamily: 'serif',
-            fontSize: variant === 'leader' ? '1.25rem' : '1.1rem',
             color: theme.palette.text.primary,
-            mb: 0,
+            mb: variant === 'leader' || variant === 'side-manager' ? '28px' : '0px',
           }}
         >
           {name}

@@ -61,6 +61,7 @@ export default function AboutUsSection() {
                   'Customer Delight: Your happiness is our priority. We strive to provide a seamless shopping experience and personalized service.',
                   'Sustainability: We care for the environment, using eco-friendly packaging and sourcing flowers responsibly.',
                 ]}
+                typographyVariant="body1"
               />
             </Box>
 

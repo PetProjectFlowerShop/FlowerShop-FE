@@ -6,11 +6,18 @@ export const typography = (theme: Theme) => ({
   body: {
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,
-    fontWeight: '400',
     fontSize: '16px',
+    lineHeight: 1.5,
     [theme.breakpoints.up('tablet')]: {
       fontSize: '20px',
+      lineHeight: 1.4,
     },
+  },
+  bodyFixed: {
+    fontFamily: '"Quicksand", sans-serif',
+    letterSpacing: 0,
+    fontSize: '20px',
+    lineHeight: 1.4,
   },
 
   h1: {
@@ -54,6 +61,12 @@ export const typography = (theme: Theme) => ({
       lineHeight: 1.28,
     },
   },
+  h4Fixed: {
+    fontFamily: '"Playfair Display", serif',
+    letterSpacing: 0,
+    fontSize: '28px',
+    lineHeight: 1.28,
+  },
   button: {
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,
@@ -76,12 +89,7 @@ export const typography = (theme: Theme) => ({
       lineHeight: 1.4,
     },
   },
-  bodyTablet: {
-    fontFamily: '"Quicksand", sans-serif',
-    letterSpacing: 0,
-    fontSize: '20px',
-    lineHeight: 1.4,
-  },
+
   bodyMobile: {
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,

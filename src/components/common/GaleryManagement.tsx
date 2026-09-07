@@ -31,7 +31,7 @@ export const GaleryManagement = ({ data, columns = 3 }: GaleryManagementProps) =
             key={item.id}
             sx={{
               height: 'max-content',
-              alignSelf: 'center',
+              alignSelf: { xs: 'start', desktop: 'center' },
               ...(isLeader && {
                 order: { xs: -1, desktop: 0 },
                 gridColumn: { xs: '1 / -1', desktop: 'auto' },

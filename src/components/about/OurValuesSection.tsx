@@ -27,15 +27,15 @@ export const OurValuesSection = () => {
               justifyContent: 'center',
             }}
           >
-            <SectionHeader title="Our flower values" />
+            <SectionHeader title="Our flower values" mb={{ xs: 7, tablet: 10 }} />
 
-            <Typography variant="body1" sx={{ mb: 2 }}>
+            <Typography variant="bodyFixed" sx={{ mb: 2 }}>
               At FLORIA, we believe flowers are more than a gift — they are a way to express
               emotions, celebrate moments, and bring beauty into everyday life. Our philosophy is
               built on simplicity, freshness, and thoughtful design, where every bouquet is created
               with care and intention.
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
+            <Typography variant="bodyFixed" sx={{ mb: 2 }}>
               Our values:
             </Typography>
             <ValuesList
@@ -44,6 +44,7 @@ export const OurValuesSection = () => {
                 'Creative Design - each arrangement is thoughtfully crafted, inspired by nature.',
                 'Customer Care - we offer warm experience from the first click to delivery.',
               ]}
+              typographyVariant="bodyFixed"
             />
 
             <Button

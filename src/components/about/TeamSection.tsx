@@ -10,6 +10,7 @@ export const TeamSection = () => {
         <SectionHeader
           title="Meet our team of flower experts"
           subtitle="Behind every Floria bouquet is a passionate team that loves flowers and cares about every detail. "
+          subtitleVariant="body"
           mb={10}
         />
         <GaleryManagement data={management} />

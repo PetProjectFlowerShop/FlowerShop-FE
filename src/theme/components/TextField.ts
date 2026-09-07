@@ -89,7 +89,7 @@ export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
       transform: 'none',
       marginBottom: '4px',
       marginLeft: '4px',
-      ...theme.typography.bodyTablet,
+      ...theme.typography.bodyFixed,
       color: theme.palette.text.primary,
 
       '&.Mui-focused': {

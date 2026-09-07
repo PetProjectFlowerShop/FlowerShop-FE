@@ -10,9 +10,8 @@ export const ProgressSection = () => {
           sx={{
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', tablet: 'repeat(2, 1fr)' },
-            rowGap: '40px',
-            columnGap: '24px',
-            mb: { xs: 8, desktop: 12 },
+            rowGap: { xs: '16px', desktop: '40px' },
+            columnGap: { tablet: '24px' },
           }}
         >
           {progressData.map((item) => (
@@ -29,10 +28,10 @@ export const ProgressSection = () => {
                 boxShadow: 2,
               }}
             >
-              <Typography variant="h4" sx={{ color: 'text.primary' }}>
+              <Typography variant="h4Fixed" sx={{ color: 'text.primary' }}>
                 {item.title}
               </Typography>
-              <Typography variant="bodyTablet" sx={{ color: 'text.primary', lineHeight: 1.4 }}>
+              <Typography variant="bodyFixed" sx={{ color: 'text.primary', lineHeight: 1.4 }}>
                 {item.description}
               </Typography>
             </Box>

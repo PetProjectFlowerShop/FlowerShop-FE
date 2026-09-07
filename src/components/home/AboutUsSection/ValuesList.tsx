@@ -1,6 +1,11 @@
-import { List, ListItem, Typography } from '@mui/material';
+import { List, ListItem, Typography, type TypographyProps } from '@mui/material';
 
-export function ValuesList({ valuesList }: { valuesList: string[] }) {
+type ValuesListProps = {
+  valuesList: string[];
+  typographyVariant?: TypographyProps['variant'];
+};
+
+export function ValuesList({ valuesList, typographyVariant }: ValuesListProps) {
   return (
     <List sx={{ p: 0, paddingLeft: 2 }}>
       {valuesList.map((value) => (
@@ -15,7 +20,7 @@ export function ValuesList({ valuesList }: { valuesList: string[] }) {
         >
           <Typography component="span">•</Typography>
 
-          <Typography variant="body1" letterSpacing={0}>
+          <Typography variant={typographyVariant} letterSpacing={0}>
             {value}
           </Typography>
         </ListItem>

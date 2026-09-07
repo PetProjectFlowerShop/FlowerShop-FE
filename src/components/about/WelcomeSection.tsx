@@ -1,6 +1,6 @@
 import { SectionContainer } from '../layouts/SectionContainer';
 import { SectionHeader } from '../common/SectionHeader';
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import shop_windows from './../../assets/images/aboutUs/about-us-shop1.webp';
 import sales_floor from './../../assets/images/aboutUs/about-us-shop2.webp';
 
@@ -14,18 +14,19 @@ export const WelcomeSection = () => {
           alignItems={{ tablet: 'flex-start' }}
         >
           <Box width={{ desktop: '525px' }}>
-            <SectionHeader title="Welcome to the home of beauty" mb={10} />
-
-            <Typography variant="body1" sx={{ mb: 6 }}>
-              FLORIA was born from a simple idea to turn flowers into meaningful moments. What
-              started as a love for natural beauty and thoughtful details has grown into a place
-              where every bouquet tells a story.
-            </Typography>
-            <Typography variant="body1">
-              We believe flowers are more than a gift. They are emotions, memories, and quiet
-              messages that don’t need words. That’s why each arrangement at FLORIA is created with
-              intention, care, and a respect for nature.
-            </Typography>
+            <SectionHeader title="Welcome to the home of beauty" mb={{ xs: 7, tablet: 10 }} />
+            <Stack spacing={6}>
+              <Typography variant="bodyFixed">
+                FLORIA was born from a simple idea to turn flowers into meaningful moments. What
+                started as a love for natural beauty and thoughtful details has grown into a place
+                where every bouquet tells a story.
+              </Typography>
+              <Typography variant="bodyFixed">
+                We believe flowers are more than a gift. They are emotions, memories, and quiet
+                messages that don’t need words. That’s why each arrangement at FLORIA is created
+                with intention, care, and a respect for nature.
+              </Typography>
+            </Stack>
           </Box>
           <Box
             display={{ xs: 'grid', tablet: 'flex' }}
