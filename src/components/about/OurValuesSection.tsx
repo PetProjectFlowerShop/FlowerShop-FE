@@ -8,7 +8,9 @@ import values from './../../assets/images/aboutUs/about-us-values.webp';
 export const OurValuesSection = () => {
   return (
     <section>
-      <SectionContainer>
+      <SectionContainer
+        sx={{ paddingY: { xs: 10, desktop: 16 }, backgroundColor: 'primary.light' }}
+      >
         <Box
           sx={{
             display: 'grid',
