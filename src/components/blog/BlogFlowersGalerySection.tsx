@@ -1,0 +1,30 @@
+import { Box, Grid } from '@mui/material';
+import { SectionHeader } from '../common/SectionHeader';
+import { SectionContainer } from '../layouts/SectionContainer';
+import { PostCard } from './PostCard';
+import { postsData } from './data/postsData';
+
+export const BlogFlowersGallerySection = () => {
+  if (!postsData || postsData.length < 3) return null;
+
+  const allPosts = postsData.slice(3);
+
+  return (
+    <section>
+      <SectionContainer>
+        {allPosts.length > 0 && (
+          <Box component="section">
+            <SectionHeader title="Our flowers posts" mb={4} />
+            <Grid container spacing={3}>
+              {allPosts.map((post) => (
+                <Grid key={post.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                  <PostCard post={post} variant="vertical" />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        )}
+      </SectionContainer>
+    </section>
+  );
+};
