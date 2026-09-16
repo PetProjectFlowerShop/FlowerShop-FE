@@ -1,12 +1,11 @@
 import { FormContainer, TextFieldElement } from 'react-hook-form-mui';
-import { Stack, Button } from '@mui/material';
+import { Stack } from '@mui/material';
 import { AuthFormLayout } from '../components/AuthFormLayout';
 import { FormHeader } from '../components/FormHeader';
+import { SubmitButton } from '../SubmitButton';
 
-type NewPasswordFormValues = {
-  password: string;
-  confirmPassword: string;
-};
+import { zodResolver } from '@hookform/resolvers/zod';
+import { newPasswordSchema, type NewPasswordFormValues } from '@/validation/newPasswordSchema';
 
 export function NewPasswordForm() {
   const defaultValues: NewPasswordFormValues = {
@@ -19,7 +18,11 @@ export function NewPasswordForm() {
   };
 
   return (
-    <FormContainer defaultValues={defaultValues} onSuccess={handleSubmit}>
+    <FormContainer
+      defaultValues={defaultValues}
+      resolver={zodResolver(newPasswordSchema)}
+      onSuccess={handleSubmit}
+    >
       <AuthFormLayout>
         <FormHeader title="New password" subtitle="Enter and confirm your new password below." />
         <Stack
@@ -43,9 +46,7 @@ export function NewPasswordForm() {
           />
         </Stack>
 
-        <Button variant="contained" type="submit">
-          Save and Log in
-        </Button>
+        <SubmitButton>Save and Log in</SubmitButton>
       </AuthFormLayout>
     </FormContainer>
   );
