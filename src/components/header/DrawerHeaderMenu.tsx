@@ -2,6 +2,7 @@ import { Box, Divider, Drawer } from '@mui/material';
 import { Menu } from './Menu';
 import { HeaderContacts } from './HeaderContacts';
 import { SocialLinks } from '../footer/SocialLinks';
+import { LogoutButton } from '../logoutButton/LogoutButton';
 
 interface DrawerHeaderProps {
   isOpen: boolean;
@@ -36,6 +37,9 @@ export function DrawerHeaderMenu({ isOpen, onClose }: DrawerHeaderProps) {
         })}
       >
         <Menu direction="column" onItemClick={onClose} />
+        <Box p={3}>
+          <LogoutButton />
+        </Box>
       </Box>
       <Divider />
       <Box

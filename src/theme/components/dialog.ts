@@ -7,7 +7,7 @@ export const dialogOverrides: Components<Theme>['MuiDialog'] = {
       padding: 80,
       paddingTop: 144,
       width: '100%',
-      maxWidth: 496,
+      maxWidth: 556,
       borderRadius: 20,
       marginBottom: 16,
 
