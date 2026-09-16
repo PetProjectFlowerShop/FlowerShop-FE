@@ -46,7 +46,20 @@ export function ProfileLayout({ children }: ProfileLayoutProps) {
                 </Box>
               </Stack>
 
-              <Stack spacing={{ xs: 4, tablet: 10 }}>{children}</Stack>
+              <Stack spacing={{ xs: 4, tablet: 10 }}>
+                {children}
+                <Box
+                  py={3}
+                  sx={{
+                    display: {
+                      xs: 'block',
+                      desktop: 'none',
+                    },
+                  }}
+                >
+                  <LogoutButton />
+                </Box>
+              </Stack>
             </Box>
           </SectionContainer>
         </section>
