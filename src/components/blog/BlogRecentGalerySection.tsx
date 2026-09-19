@@ -12,22 +12,26 @@ export const BlogRecentGalerySection = () => {
     <section>
       <SectionContainer>
         <Box component="section" mb={10}>
-          <Typography variant="h4" component="h2" fontFamily="serif" mb={4}>
-            Recent Posts
-          </Typography>
-
           <Grid container spacing={3}>
+            {/* Ліва колонка */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Stack spacing={3} height="100%">
-                <Box flex={1}>
-                  <PostCard post={recentPosts[0]} variant="horizontal" />
-                </Box>
-                <Box flex={1}>
-                  <PostCard post={recentPosts[1]} variant="horizontal" />
-                </Box>
-              </Stack>
+              <Box display="flex" flexDirection="column" height="100%">
+                <Typography variant="h4" component="h2" fontFamily="serif" mb={'40px'}>
+                  Recent Posts
+                </Typography>
+
+                <Stack spacing={3}>
+                  <Box>
+                    <PostCard post={recentPosts[0]} variant="horizontal" />
+                  </Box>
+                  <Box>
+                    <PostCard post={recentPosts[1]} variant="horizontal" />
+                  </Box>
+                </Stack>
+              </Box>
             </Grid>
 
+            {/* Права колонка */}
             <Grid size={{ xs: 12, md: 6 }}>
               <Box height="100%">
                 <PostCard post={recentPosts[2]} variant="vertical" />

@@ -27,6 +27,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
         height: '100%',
         borderRadius: 2,
         transition: 'box-shadow 0.3s ease',
+        boxShadow: 2,
         '&:hover': {
           boxShadow: (theme) => theme.shadows[4],
         },
@@ -38,11 +39,15 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
         alt={post.title}
         loading="lazy"
         sx={{
-          width: { xs: '100%', md: isHorizontal ? '33.333%' : '100%' },
-          aspectRatio: {
-            xs: isHorizontal ? '1/1' : '4/3',
-            md: isHorizontal ? 'auto' : '4/3',
-          },
+          width: { xs: '100%', md: isHorizontal ? '40%' : '100%' },
+          objectFit: 'cover',
+          ...(!isHorizontal && {
+            flexGrow: 1,
+            minHeight: { xs: 240, md: 0 },
+          }),
+          ...(isHorizontal && {
+            aspectRatio: { xs: '1/1', md: '1/1' },
+          }),
         }}
       />
 
@@ -72,7 +77,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
         </Typography>
 
         <Typography
-          variant="body"
+          variant="caption"
           color="text.secondary"
           sx={{
             mb: 2,
