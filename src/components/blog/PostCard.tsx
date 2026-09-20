@@ -40,7 +40,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
         loading="lazy"
         sx={{
           width: isHorizontal ? { xs: '100%', tablet: '40%' } : '100%',
-          aspectRatio: isHorizontal ? { xs: '1/1', tablet: 'auto' } : undefined,
+          aspectRatio: isHorizontal ? { xs: '1/1', tablet: 'auto' } : '4/3',
           objectFit: 'cover',
           flexShrink: isHorizontal ? 0 : undefined,
           minHeight: isHorizontal ? 'auto' : { xs: 198, tablet: 0 },
@@ -62,8 +62,11 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
           sx={{
             typography: { xs: 'h4' },
             color: 'text.primary',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
           {post.title}
