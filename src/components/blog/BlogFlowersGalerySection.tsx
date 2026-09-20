@@ -17,7 +17,7 @@ export const BlogFlowersGallerySection = () => {
             <SectionHeader title="Our flowers posts" mb={4} />
             <Grid container spacing={3}>
               {allPosts.map((post) => (
-                <Grid key={post.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                <Grid key={post.id} size={{ xs: 12, tablet: 6, desktop: 4 }}>
                   <PostCard post={post} variant="vertical" />
                 </Grid>
               ))}

@@ -23,8 +23,8 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
       elevation={1}
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: isHorizontal ? 'row' : 'column' },
         height: '100%',
+        flexDirection: isHorizontal ? { xs: 'column', tablet: 'row' } : 'column',
         borderRadius: 2,
         transition: 'box-shadow 0.3s ease',
         boxShadow: 2,
@@ -39,15 +39,11 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
         alt={post.title}
         loading="lazy"
         sx={{
-          width: { xs: '100%', md: isHorizontal ? '40%' : '100%' },
+          width: isHorizontal ? { xs: '100%', tablet: '40%' } : '100%',
+          aspectRatio: isHorizontal ? { xs: '1/1', tablet: 'auto' } : undefined,
           objectFit: 'cover',
-          ...(!isHorizontal && {
-            flexGrow: 1,
-            minHeight: { xs: 240, md: 0 },
-          }),
-          ...(isHorizontal && {
-            aspectRatio: { xs: '1/1', md: '1/1' },
-          }),
+          flexShrink: isHorizontal ? 0 : undefined,
+          minHeight: isHorizontal ? 'auto' : { xs: 198, tablet: 0 },
         }}
       />
 
@@ -56,19 +52,16 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
-          p: 2.5,
-          '&:last-child': { pb: 2.5 },
+          p: { xs: 2, tablet: 4 },
+          '&:last-child': { pb: 4 },
         }}
       >
         <Typography
-          variant="h6"
-          component="h3"
+          component="h4"
           gutterBottom
           sx={{
-            fontFamily: 'serif',
+            typography: { xs: 'h4' },
             color: 'text.primary',
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
           }}
@@ -77,10 +70,10 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
         </Typography>
 
         <Typography
-          variant="caption"
           color="text.secondary"
           sx={{
-            mb: 2,
+            mb: 4,
+            typography: { xs: 'caption', tablet: 'bodyFixed' },
             flexGrow: 1,
             display: '-webkit-box',
             WebkitLineClamp: 3,
@@ -96,7 +89,10 @@ export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }
             href={post.link}
             underline="hover"
             color="text.primary"
-            sx={{ typography: 'body2', fontWeight: 'bold' }}
+            sx={{
+              typography: { xs: 'captionFixed', tablet: 'bodyFixed' },
+              fontWeight: 'bold',
+            }}
           >
             Read more
           </Link>
