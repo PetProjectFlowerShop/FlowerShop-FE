@@ -50,7 +50,7 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
 
       '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
         borderColor: theme.palette.primary.main,
-        borderWidth: '1px',
+        borderWidth: '2px',
       },
 
       '&.Mui-disabled': {
@@ -96,7 +96,7 @@ export const inputLabelOverrides: Components<Theme>['MuiInputLabel'] = {
         color: theme.palette.text.primary,
       },
       '&.Mui-error': {
-        color: theme.palette.error.main,
+        color: theme.palette.text.primary,
       },
     }),
   },

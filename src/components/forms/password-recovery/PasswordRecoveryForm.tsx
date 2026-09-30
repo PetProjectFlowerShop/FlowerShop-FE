@@ -1,12 +1,14 @@
 import { FormContainer, TextFieldElement } from 'react-hook-form-mui';
 import { useDrawer } from '@/hooks/useDrawer.ts';
-import { Button } from '@mui/material';
 import { AuthFormLayout } from '../components/AuthFormLayout';
 import { FormHeader } from '../components/FormHeader';
+import { SubmitButton } from '../SubmitButton';
 
-type PasswordRecoveryFormValues = {
-  email: string;
-};
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  passwordRecoverySchema,
+  type PasswordRecoveryFormValues,
+} from '@/validation/passwordRecoverySchema';
 
 export function PasswordRecoveryForm() {
   const defaultValues: PasswordRecoveryFormValues = {
@@ -21,7 +23,11 @@ export function PasswordRecoveryForm() {
   };
 
   return (
-    <FormContainer defaultValues={defaultValues} onSuccess={handleSubmit}>
+    <FormContainer
+      defaultValues={defaultValues}
+      resolver={zodResolver(passwordRecoverySchema)}
+      onSuccess={handleSubmit}
+    >
       <AuthFormLayout>
         <FormHeader
           title="Password recovery"
@@ -29,9 +35,7 @@ export function PasswordRecoveryForm() {
         />
         <TextFieldElement name="email" label="Email" placeholder="Enter your email" />
 
-        <Button variant="contained" type="submit">
-          Send a link
-        </Button>
+        <SubmitButton>Send a link</SubmitButton>
       </AuthFormLayout>
     </FormContainer>
   );
