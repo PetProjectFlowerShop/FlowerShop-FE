@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { FormContainer, TextFieldElement, CheckboxElement } from 'react-hook-form-mui';
+import { FormContainer } from 'react-hook-form-mui';
 import { Stack, Link, Typography } from '@mui/material';
-import { Button, Dialog, DialogActions, DialogTitle, DialogContent } from '@mui/material';
 import { useDrawer } from '@/hooks/useDrawer.ts';
 import { AuthFormLayout } from '../components/AuthFormLayout';
 import { GoogleButton } from '../components/GoogleButton';
@@ -15,6 +14,9 @@ import { useAuthStore } from '@/store/auth.store';
 import { registerSchema, type RegisterFormValues } from '@/validation/registerSchema';
 import { registerRequest } from '@/api/authApi';
 import { useNavigate } from 'react-router-dom';
+
+import { RegisterFields } from './RegisterFields';
+import { NewsletterDialog } from './NewsletterDialog';
 
 export function RegisterForm() {
   const defaultValues: RegisterFormValues = {
@@ -34,6 +36,7 @@ export function RegisterForm() {
   const navigate = useNavigate();
 
   const handleSubmit = (data: RegisterFormValues) => {
+    setRegistrationError('');
     setFormData(data);
     setNewsletterOpen(true);
   };
@@ -85,57 +88,7 @@ export function RegisterForm() {
           />
           <GoogleButton />
           <DividerWithText />
-          <Stack
-            spacing={{
-              xs: 2,
-              sm: 4,
-            }}
-          >
-            <TextFieldElement name="email" label="Email" placeholder="Enter your email" />
-
-            <TextFieldElement
-              name="password"
-              label="Password"
-              placeholder="Enter your password"
-              type="password"
-            />
-
-            <TextFieldElement
-              name="confirmPassword"
-              label="Confirm password"
-              placeholder="Confirm your password"
-              type="password"
-            />
-          </Stack>
-          <CheckboxElement
-            name="privacyPolicy"
-            label={
-              <Typography
-                variant="body"
-                sx={{
-                  '& a': {
-                    color: 'text.primary',
-                    fontWeight: 600,
-                  },
-                }}
-              >
-                I agree to the{' '}
-                <Link href="/terms" underline="hover">
-                  Terms of Service
-                </Link>{' '}
-                and{' '}
-                <Link href="/privacy" underline="hover">
-                  Privacy Policy
-                </Link>
-              </Typography>
-            }
-          />
-
-          {registrationError && (
-            <Typography variant="captionFixed" color="error.main">
-              {registrationError}
-            </Typography>
-          )}
+          <RegisterFields registrationError={registrationError} />
 
           <Stack spacing={{ xs: 3, sm: 10 }}>
             <SubmitButton>Sign up</SubmitButton>
@@ -160,37 +113,12 @@ export function RegisterForm() {
         </AuthFormLayout>
       </FormContainer>
 
-      <Dialog
+      <NewsletterDialog
         open={newsletterOpen}
-        onClose={isRegistering ? undefined : () => setNewsletterOpen(false)}
-      >
-        <DialogTitle sx={{ textAlign: 'center' }}>Stay in the loop</DialogTitle>
-        <DialogContent>
-          Be the first to know about new arrivals, promotions, and special offers.
-        </DialogContent>
-        <DialogActions
-          sx={{
-            flexDirection: 'column',
-            gap: 2,
-            alignItems: 'stretch',
-          }}
-        >
-          <Button
-            variant="contained"
-            onClick={() => handleNewsletterChoice(true)}
-            disabled={isRegistering}
-          >
-            Allow
-          </Button>
-          <Button
-            onClick={() => handleNewsletterChoice(false)}
-            disabled={isRegistering}
-            sx={{ color: 'text.primary', fontWeight: 600 }}
-          >
-            Not now
-          </Button>
-        </DialogActions>
-      </Dialog>
+        isLoading={isRegistering}
+        onChoice={handleNewsletterChoice}
+        onClose={() => setNewsletterOpen(false)}
+      />
     </>
   );
 }

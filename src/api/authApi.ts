@@ -33,7 +33,7 @@ export interface RegisterResponse {
 }
 
 export const registerRequest = async (data: RegisterRequest): Promise<RegisterResponse> => {
-  console.log('REGISTER DATA:', JSON.stringify(data));
+  // console.log('REGISTER DATA:', JSON.stringify(data));
   const response = await apiClient.post<RegisterResponse>('/auth/register', data);
 
   return response.data;

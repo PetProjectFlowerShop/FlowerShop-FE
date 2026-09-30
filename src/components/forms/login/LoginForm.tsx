@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { FormContainer, TextFieldElement, CheckboxElement } from 'react-hook-form-mui';
+import { FormContainer } from 'react-hook-form-mui';
 import { useDrawer } from '@/hooks/useDrawer.ts';
-import { Stack, Link, Typography } from '@mui/material';
+import { Stack, Link } from '@mui/material';
 import { AuthFormLayout } from '../components/AuthFormLayout';
 import { GoogleButton } from '../components/GoogleButton';
 import { DividerWithText } from '../components/DividerWithText';
@@ -14,6 +14,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from '@/validation/loginSchema';
+
+import { LoginFields } from './LoginFields';
 
 export function LoginForm() {
   interface LoginFormValues {
@@ -34,7 +36,7 @@ export function LoginForm() {
   const navigate = useNavigate();
 
   const handleSubmit = async (data: LoginFormValues) => {
-    console.log('LOGIN DATA:', data);
+    // console.log('LOGIN DATA:', data);
     setLoginError('');
     try {
       const { email, password } = data;
@@ -71,32 +73,8 @@ export function LoginForm() {
         />
         <GoogleButton />
         <DividerWithText />
-        <Stack
-          spacing={{
-            xs: 2,
-            sm: 4,
-          }}
-        >
-          <TextFieldElement name="email" label="Email" placeholder="Enter your email" required />
 
-          <TextFieldElement
-            name="password"
-            label="Password"
-            placeholder="Enter your password"
-            type="password"
-            required
-          />
-
-          {loginError && (
-            <Typography variant="body" color="error">
-              {loginError}
-            </Typography>
-          )}
-        </Stack>
-        <CheckboxElement
-          name="rememberMe"
-          label={<Typography variant="bodyFixed">Remember me</Typography>}
-        />
+        <LoginFields loginError={loginError} />
 
         <Stack spacing={3}>
           <SubmitButton>Log in</SubmitButton>
