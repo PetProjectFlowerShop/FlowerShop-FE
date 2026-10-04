@@ -16,7 +16,6 @@ export const OurValuesSection = () => {
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', desktop: '526px 1fr' },
             gap: { xs: 4, desktop: 6 },
-            mb: { desktop: 10 },
             alignItems: 'stretch',
           }}
         >
@@ -26,18 +25,17 @@ export const OurValuesSection = () => {
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
             }}
           >
-            <SectionHeader title="Our flower values" mb={{ xs: 7, tablet: 10 }} />
+            <SectionHeader title="Our flower values" mb={{ xs: 7, tablet: 10, desktop: 10 }} />
 
-            <Typography variant="bodyFixed" sx={{ mb: 2 }}>
+            <Typography variant="bodyFixed">
               At FLORIA, we believe flowers are more than a gift — they are a way to express
               emotions, celebrate moments, and bring beauty into everyday life. Our philosophy is
               built on simplicity, freshness, and thoughtful design, where every bouquet is created
               with care and intention.
             </Typography>
-            <Typography variant="bodyFixed" sx={{ mb: 2 }}>
+            <Typography variant="bodyFixed" sx={{ my: 4 }}>
               Our values:
             </Typography>
             <ValuesList
@@ -51,7 +49,7 @@ export const OurValuesSection = () => {
 
             <Button
               variant="contained"
-              sx={{ mt: { xs: 4, tablet: 6, desktop: 6 }, backgroundColor: 'secondary.main' }}
+              sx={{ mt: { xs: 4, tablet: 10, desktop: 10 }, backgroundColor: 'secondary.main' }}
               fullWidth
               component={Link}
               to="/catalog"
@@ -63,7 +61,6 @@ export const OurValuesSection = () => {
             sx={{
               order: { xs: 2, desktop: 1 },
               height: '100%',
-              mt: '8px',
             }}
           >
             <Box
@@ -73,7 +70,7 @@ export const OurValuesSection = () => {
               sx={{
                 display: 'block',
                 width: '100%',
-                height: { xs: '466px', tablet: '530px', desctop: '524px' },
+                height: { xs: '466px', tablet: '530px', desktop: '524px' },
                 objectFit: 'cover',
                 objectPosition: 'top center',
                 borderRadius: 4,
