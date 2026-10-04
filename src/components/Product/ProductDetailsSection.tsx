@@ -16,7 +16,7 @@ export function ProductDetailsSection({ data }: { data: ProductDetails }) {
             xs: '1fr',
             desktop: '1fr 1fr',
           }}
-          gap={{ tablet: 3, desktop: 8 }}
+          gap={{ tablet: 3, desktop: 6 }}
           alignItems="start"
           mb={10}
         >
