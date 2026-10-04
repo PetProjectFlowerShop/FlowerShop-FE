@@ -38,7 +38,7 @@ export function ProductAccordionItem({ title, children }: { title: string; child
           },
         }}
       >
-        <Typography>{title}</Typography>
+        <Typography variant="bodyFixed">{title}</Typography>
       </AccordionSummary>
 
       <AccordionDetails>{children}</AccordionDetails>
