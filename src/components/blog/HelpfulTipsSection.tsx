@@ -29,7 +29,7 @@ export const HelpfulTipsSection = () => {
           </Grid>
 
           <Grid size={{ xs: 12, desktop: 6 }}>
-            <PostCard post={recentPosts[2]} variant="vertical" desktopHeight={544} />
+            <PostCard post={recentPosts[2]} variant="large" />
           </Grid>
         </Grid>
       </SectionContainer>
