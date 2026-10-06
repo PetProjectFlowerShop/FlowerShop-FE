@@ -3,7 +3,7 @@ import { SectionContainer } from '../layouts/SectionContainer';
 import { PostCard } from './PostCard';
 import { postsData } from './data/postsData';
 
-export const BlogRecentGalerySection = () => {
+export const HelpfulTipsSection = () => {
   if (!postsData || postsData.length < 3) return null;
 
   const recentPosts = postsData.slice(0, 3);
@@ -15,7 +15,7 @@ export const BlogRecentGalerySection = () => {
           <Grid size={{ tablet: 12, desktop: 6 }}>
             <Box display="flex" flexDirection="column" height="100%" justifyContent="flex-end">
               <Typography variant="h3" component="h3" mb={'40px'}>
-                Recent Posts
+                Helpful Tips
               </Typography>
 
               <Grid container spacing={{ xs: 4, tablet: 6 }}>

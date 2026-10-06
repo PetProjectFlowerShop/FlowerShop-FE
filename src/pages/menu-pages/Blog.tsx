@@ -2,8 +2,8 @@ import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 import { PageLayout } from '@/components/layouts/PageLayout';
 import TitleWithImageSection from '@/components/common/TitleWithImageSection';
 import main from './../../assets/images/blog/main-blog.webp';
-import { BlogFlowersGallerySection } from '@/components/blog/BlogFlowersGalerySection';
-import { BlogRecentGalerySection } from '@/components/blog/BlogRecentGalerySection';
+import { BlogFlowersGallerySection } from '@/components/blog/BlogFlowersGallerySection';
+import { HelpfulTipsSection } from '@/components/blog/HelpfulTipsSection';
 
 export function Blog() {
   return (
@@ -16,7 +16,7 @@ export function Blog() {
           imageAlt="blog"
           imageObjectPosition={'0 50%'}
         />
-        <BlogRecentGalerySection />
+        <HelpfulTipsSection />
         <BlogFlowersGallerySection />
       </PageLayout>
     </>

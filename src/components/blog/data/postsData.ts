@@ -1,8 +1,8 @@
-import image1 from '@/assets/images/blog/Blog1.webp';
+import image1 from '@/assets/images/blog/Post 1_Hero picture.webp';
 import image2 from '@/assets/images/blog/blog 2.webp';
-import image5 from '@/assets/images/blog/spring-flowers.webp';
+import image5 from '@/assets/images/blog/Post 2_Hero.webp';
 import image6 from '@/assets/images/blog/blog8.webp';
-import image8 from '@/assets/images/blog/blog4.webp';
+import image8 from '@/assets/images/blog/Post 3 _Hero.webp';
 import image9 from '@/assets/images/blog/blog5.webp';
 import image10 from '@/assets/images/blog/Blog7.webp';
 import image11 from '@/assets/images/blog/Blog 3.webp';
