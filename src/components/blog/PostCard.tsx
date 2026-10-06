@@ -11,17 +11,12 @@ interface Post {
 
 interface PostCardProps {
   post: Post;
-  variant?: 'vertical' | 'horizontal';
-  desktopHeight?: number;
+  variant?: 'vertical' | 'horizontal' | 'large';
 }
 
-export const PostCard: React.FC<PostCardProps> = ({
-  post,
-  variant = 'vertical',
-  desktopHeight = 520,
-}) => {
+export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }) => {
   const isHorizontal = variant === 'horizontal';
-
+  const isLarge = variant === 'large';
   return (
     <Card
       component="article"
@@ -30,12 +25,12 @@ export const PostCard: React.FC<PostCardProps> = ({
         height: {
           xs: '100%',
           tablet: isHorizontal ? '216px' : '520px',
-          desktop: isHorizontal ? '216px' : `${desktopHeight}px`,
+          desktop: isHorizontal ? '216px' : isLarge ? '544px' : '520px',
         },
         maxHeight: {
           xs: '344px',
           tablet: '520px',
-          desktop: isHorizontal ? '216px' : `${desktopHeight}px`,
+          desktop: isHorizontal ? '216px' : isLarge ? '544px' : '520px',
         },
         flexDirection: isHorizontal ? { xs: 'column', tablet: 'row' } : 'column',
         borderRadius: 3,
@@ -47,6 +42,7 @@ export const PostCard: React.FC<PostCardProps> = ({
         pb: {
           xs: 2,
           tablet: isHorizontal ? 0 : 7,
+          desktop: isLarge ? 4 : '',
         },
       }}
     >
