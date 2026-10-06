@@ -11,7 +11,7 @@ export function Contacts() {
     <>
       <DynamicBreadcrumbs mb={{ xs: 2 }} />
       <PageLayout>
-        <TitleWithImageSection title="Contacts" imageSrc={heroImage} imageAlt="Bouquet" />
+        <TitleWithImageSection title="Contacts" imageSrc={heroImage} imageAlt="Contacts image" />
         <ContactsSection />
         <ContactsAddress />
         <QuestionsCallBlock />
