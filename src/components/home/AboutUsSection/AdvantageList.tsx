@@ -12,9 +12,9 @@ const advantageCards: AdvantageCardProps[] = [
     text: 'Hand-picked flowers for vibrant, long-lasting bouquets.',
   },
   {
-    img: advantage4,
-    title: 'Personalized Service',
-    text: 'Custom bouquets and personal touches for any occasion.',
+    img: advantage3,
+    title: 'Unique Designs',
+    text: 'Creative arrangements with colors and textures you want.',
   },
   {
     img: advantage2,
@@ -22,9 +22,9 @@ const advantageCards: AdvantageCardProps[] = [
     text: 'Hand-picked flowers for vibrant, long-lasting bouquets.',
   },
   {
-    img: advantage3,
-    title: 'Unique Designs',
-    text: 'Creative arrangements with colors and textures you want.',
+    img: advantage4,
+    title: 'Personalized Service',
+    text: 'Custom bouquets and personal touches for any occasion.',
   },
 ];
 

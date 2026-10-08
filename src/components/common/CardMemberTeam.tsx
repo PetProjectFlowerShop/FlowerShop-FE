@@ -49,9 +49,15 @@ export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProp
 
       <CardContent
         sx={{
-          p: '16px 0 0 0',
+          pb: 0,
+          px: 0,
+          pt: { xs: '16px', tablet: '24px' },
           textAlign: 'center',
           '&:last-child': { pb: 0 },
+          display: 'flex',
+
+          flexDirection: 'column',
+          gap: { xs: 1, tablet: 2 },
         }}
       >
         <Typography
@@ -68,7 +74,6 @@ export const CardMemberTeam = ({ data, variant = 'regular' }: CardMemberTeamProp
           variant="h4"
           sx={{
             color: theme.palette.text.primary,
-            mb: variant === 'leader' || variant === 'side-manager' ? '28px' : '0px',
           }}
         >
           {name}
