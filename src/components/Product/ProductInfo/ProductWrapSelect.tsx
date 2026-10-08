@@ -41,7 +41,7 @@ export function ProductWrapSelect({ value, options, onChange }: ProductWrapSelec
         }}
         gap={4}
       >
-        <Typography>Packaging Type</Typography>
+        <Typography variant="bodyFixed">Select Wrapper</Typography>
 
         <Box display="flex" flexWrap="wrap" gap={2}>
           {selectOptions.map((opt) => (

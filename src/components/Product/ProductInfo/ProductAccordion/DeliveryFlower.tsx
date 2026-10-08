@@ -30,15 +30,15 @@ export function DeliveryFlower() {
           />
 
           <List sx={{ listStyleType: 'disc', pl: { xs: 3 } }}>
-            <Typography component="li">
+            <Typography component="li" variant="bodyFixed">
               Please note that flowers are delivered without a vase, and the candle shown is not
               included.
             </Typography>
-            <Typography component="li">
+            <Typography component="li" variant="bodyFixed">
               Express flower delivery is available within the city from 1 hour, and outside the city
               from 2 hours.
             </Typography>
-            <Typography component="li">
+            <Typography component="li" variant="bodyFixed">
               Before each delivery, you will receive a video confirmation of your order from us.
             </Typography>
           </List>

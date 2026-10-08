@@ -35,7 +35,7 @@ export default function RecentlyViewedSection() {
   return (
     <section data-testid="recently-viewed-section">
       <SectionContainer data-testid="recently-viewed-section">
-        <SectionHeader title="Recently viewed" />
+        <SectionHeader title="Recently Viewed" />
         <CardsCarousel
           cards={data}
           renderCard={(product: ProductCardType) => (
