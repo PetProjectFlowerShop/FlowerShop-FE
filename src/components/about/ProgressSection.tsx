@@ -24,7 +24,7 @@ export const ProgressSection = () => {
                 padding: { xs: '28px 16px', tablet: '40px 24px' },
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '16px',
+                gap: { xs: '16px', tablet: '24px' },
                 boxShadow: 2,
               }}
             >

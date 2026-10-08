@@ -18,7 +18,6 @@ export const GaleryManagement = ({ data, columns = 3 }: GaleryManagementProps) =
         },
         columnGap: { xs: '16px', tablet: '24px', desktop: '24px' },
         rowGap: { xs: '24px', tablet: '40px', desktop: '40px' },
-        mb: { xs: 6, desktop: 8 },
       }}
     >
       {data.map((item, index) => {
