@@ -44,24 +44,27 @@ export function ProductQuantityControls({
     >
       <Box
         sx={{
+          boxSizing: 'border-box',
+          width: { xs: 110, tablet: 140 },
+          height: { xs: 56, tablet: 60 },
           border: '1px solid',
           borderColor: 'primary.dark',
           borderRadius: '20px',
           px: 3,
-          py: '13px',
+          py: { xs: '13px', tablet: '15px' },
+          gap: { xs: 1, tablet: '19px' },
         }}
         display="flex"
         alignItems="center"
-        gap={1}
+        justifyContent="center"
       >
-        <Button
-          variant="text"
-          sx={{ maxWidth: '24px', maxHeight: '24px', minWidth: '24px', color: 'primary.dark' }}
+        <IconButton
+          sx={{ width: 24, height: 24, color: 'primary.dark' }}
           onClick={handleDecrease}
           aria-label="Decrease quantity"
         >
-          <RemoveIcon />
-        </Button>
+          <RemoveIcon sx={{ fontSize: 18 }} />
+        </IconButton>
         <Typography
           sx={{
             display: 'flex',
@@ -69,6 +72,8 @@ export function ProductQuantityControls({
             justifyContent: 'center',
             width: 30,
             height: 30,
+            minWidth: 30,
+            flexShrink: 0,
             bgcolor: 'olive.100',
             borderRadius: '50%',
           }}
@@ -76,14 +81,13 @@ export function ProductQuantityControls({
         >
           {quantity}
         </Typography>
-        <Button
-          variant="text"
-          sx={{ maxWidth: '24px', maxHeight: '24px', minWidth: '24px', color: 'primary.dark' }}
+        <IconButton
+          sx={{ width: 24, height: 24, color: 'primary.dark' }}
           onClick={handleIncrease}
           aria-label="Increase quantity"
         >
-          <AddIcon />
-        </Button>
+          <AddIcon sx={{ fontSize: 18 }} />
+        </IconButton>
       </Box>
       <Button
         variant="contained"
@@ -103,7 +107,13 @@ export function ProductQuantityControls({
       </Button>
       <IconButton
         variant="secondary"
-        sx={{ maxHeight: 40, display: { xs: 'none', tablet: 'block' } }}
+        sx={{
+          width: 40,
+          height: 40,
+          display: { xs: 'none', tablet: 'flex' },
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
       >
         {/* {isFavorite ? <HeartIconFilled /> : <HeartIconOutline />} */}
         <HeartIconOutline />

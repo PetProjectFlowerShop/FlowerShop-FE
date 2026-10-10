@@ -15,7 +15,9 @@ export function AboutFlower({ description }: { description: string }) {
         }}
       >
         {descriptionParts.map((part, index) => (
-          <Typography key={index}>{part.trim()}</Typography>
+          <Typography key={index} variant="bodyFixed">
+            {part.trim()}
+          </Typography>
         ))}
       </AccordionDetails>
     </ProductAccordionItem>
