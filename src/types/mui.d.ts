@@ -32,13 +32,13 @@ declare module '@mui/material/styles' {
   }
 
   interface TypographyVariantsOptions {
-    body: React.CSSProperties;
-    bodyFixed: React.CSSProperties;
-    h2Fixed: React.CSSProperties;
-    h3Fixed: React.CSSProperties;
-    h4Fixed: React.CSSProperties;
-    caption2: React.CSSProperties;
-    captionFixed: React.CSSProperties;
+    body?: React.CSSProperties;
+    bodyFixed?: React.CSSProperties;
+    h2Fixed?: React.CSSProperties;
+    h3Fixed?: React.CSSProperties;
+    h4Fixed?: React.CSSProperties;
+    caption2?: React.CSSProperties;
+    captionFixed?: React.CSSProperties;
   }
 
   interface Palette {

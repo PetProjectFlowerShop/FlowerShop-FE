@@ -1,8 +1,6 @@
 import type { Theme } from '@mui/material';
 
 export const typography = (theme: Theme) => ({
-  fontFamily: '"Quicksand", "Arial", sans-serif',
-
   body: {
     fontFamily: '"Quicksand", sans-serif',
     letterSpacing: 0,

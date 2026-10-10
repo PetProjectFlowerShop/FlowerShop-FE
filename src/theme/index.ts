@@ -37,6 +37,9 @@ let theme: Theme = createTheme({
       xl: 1536,
     },
   },
+  typography: {
+    fontFamily: '"Quicksand", "Arial", sans-serif',
+  },
 });
 
 theme = createTheme(theme, {
