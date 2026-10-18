@@ -31,6 +31,8 @@ export function PostPage() {
           imageSrc={main}
           imageAlt="blog"
           imageObjectPosition={'0 50%'}
+          subMenu={true}
+          date={currentPost.date}
         />
         <PostContentSection posts={currentPost.sections} />
       </PageLayout>

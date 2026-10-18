@@ -14,6 +14,7 @@ export const postsData: Post[] = [
     id: 1,
     imgURL: image5,
     title: 'Meaning of popular flowers',
+    date: '14 february 2026',
     description: 'Discover the hidden meanings behind popular flowers and colors...',
     link: '/blog/1',
     sections: [
@@ -31,6 +32,7 @@ export const postsData: Post[] = [
     id: 2,
     imgURL: image8,
     title: 'How to keep flowers fresh',
+    date: '14 february 2026',
     description: 'Follow simple steps to extend the life of your bouquet...',
     link: '/blog/2',
     sections: [
@@ -48,6 +50,7 @@ export const postsData: Post[] = [
     id: 3,
     imgURL: image1,
     title: 'Choosing the right bouquet',
+    date: '14 february 2026',
     description:
       'Learn how to select the right flowers for birthdays, romantic or everyday surprises.',
     link: '/blog/3',
@@ -125,6 +128,7 @@ export const postsData: Post[] = [
     id: 4,
     imgURL: image10,
     title: 'Most popular flowers',
+    date: '14 february 2026',
     description:
       'Discover the flowers people love most and what makes them timeless and meaningful.',
     link: '/blog/4',
@@ -143,6 +147,7 @@ export const postsData: Post[] = [
     id: 5,
     imgURL: image11,
     title: 'Flowers for your home',
+    date: '14 february 2026',
     description: 'Learn how to choose flowers that complement your interior.',
     link: '/blog/5',
     sections: [
@@ -160,6 +165,7 @@ export const postsData: Post[] = [
     id: 6,
     imgURL: image12,
     title: 'Why flowers make perfect gift',
+    date: '14 february 2026',
     description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
     link: '/blog/6',
     sections: [
@@ -177,6 +183,7 @@ export const postsData: Post[] = [
     id: 7,
     imgURL: image2,
     title: 'Modern flower trends',
+    date: '14 february 2026',
     description: 'Discover the latest styles and trends in floral design and bouquet arrangements.',
     link: '/blog/7',
     sections: [
@@ -194,6 +201,7 @@ export const postsData: Post[] = [
     id: 8,
     imgURL: image9,
     title: 'Personalizing your bouquet',
+    date: '14 february 2026',
     description: 'Learn how to choose flowers that complement your interior.',
     link: '/blog/8',
     sections: [
@@ -211,6 +219,7 @@ export const postsData: Post[] = [
     id: 9,
     imgURL: image6,
     title: 'Benefits of fresh flowers',
+    date: '14 february 2026',
     description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
     link: '/blog/9',
     sections: [
