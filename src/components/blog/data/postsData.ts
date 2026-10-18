@@ -66,6 +66,7 @@ export const postsData: Post[] = [
           'For romantic occasions such as anniversaries or dates, classic flowers like roses, peonies, or ranunculus are perfect choices. Soft tones such as red, blush pink, or white create an elegant and emotional impression.',
           'For birthdays, brighter and more cheerful flowers work beautifully. Tulips, gerberas, sunflowers, or mixed seasonal bouquets bring energy and joy to the celebration.',
           'For more formal occasions, such as congratulations or professional gifts, neutral and elegant arrangements are ideal. White lilies, orchids, or minimalist bouquets in soft tones feel refined and appropriate.',
+          'If you are sending flowers “just because,” natural and seasonal bouquets are a wonderful choice. They feel effortless, sincere, and full of life.',
         ],
       },
       {

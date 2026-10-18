@@ -10,15 +10,16 @@ export const PostArticles: React.FC<PostArticlesProps> = ({ posts }) => {
     <Box>
       {posts.map((post) => (
         <Box key={post.id} id={post.id} sx={{ mb: 6 }} component="section">
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontFamily: 'serif' }}>
+          <Typography variant="h3" component="h3" gutterBottom sx={{ fontFamily: 'serif' }}>
             {post.title}
           </Typography>
 
           {post.content.map((paragraph, index) => (
             <Typography
               key={index}
+              component="p"
               variant="body"
-              sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 2 }}
+              sx={{ color: 'text.primary', lineHeight: 1.4, mb: 4, display: 'block' }}
             >
               {paragraph}
             </Typography>
@@ -29,7 +30,7 @@ export const PostArticles: React.FC<PostArticlesProps> = ({ posts }) => {
               component="img"
               image={post.imgURL}
               alt={post.title}
-              sx={{ borderRadius: 4, mt: 3, mb: 2, maxHeight: '400px', objectFit: 'cover' }}
+              sx={{ borderRadius: 5, mt: 10, mb: 10, maxHeight: '280px', objectFit: 'cover' }}
             />
           )}
         </Box>

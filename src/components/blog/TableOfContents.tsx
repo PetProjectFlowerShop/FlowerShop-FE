@@ -22,7 +22,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) =>
 
   return (
     <Box>
-      <Typography variant="h6" sx={{ fontFamily: 'serif', mb: 3 }}>
+      <Typography variant="h4" component={'h4'} sx={{ fontFamily: 'serif', mb: 3 }}>
         Table of content
       </Typography>
       <List sx={{ p: 0 }}>
@@ -32,14 +32,14 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) =>
             onClick={() => handleScroll(section.id)}
             sx={{
               cursor: 'pointer',
-              px: 0,
-              py: 0.5,
+              px: 1,
+              py: 1,
               '&:hover .MuiTypography-root': { color: 'text.primary' },
             }}
           >
             <ListItemText
               primary={
-                <Typography variant="body" color="text.secondary" sx={{ transition: 'color 0.2s' }}>
+                <Typography variant="bodyFixed" sx={{ transition: 'color 0.2s' }}>
                   {section.title}
                 </Typography>
               }

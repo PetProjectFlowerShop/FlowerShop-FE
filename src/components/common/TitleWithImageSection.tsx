@@ -66,18 +66,20 @@ export default function TitleWithImageSection({
               justifyContent: 'space-between',
               alignItems: 'center',
               flexWrap: 'wrap',
-              gap: 2,
+              gap: { xs: 6, tablet: 2 },
               mt: 6,
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Typography variant="body" color="text.secondary">
+              <Typography variant="body" sx={{ fontWeight: 600 }}>
                 Published on:
               </Typography>
-              <Box component="span">{date}</Box>
+              <Typography variant="body" color={'text.secondary'}>
+                {date}
+              </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <Typography variant="body" color="text.secondary">
+              <Typography variant="body" sx={{ fontWeight: 600 }}>
                 Share post:
               </Typography>
               <SocialLinks />

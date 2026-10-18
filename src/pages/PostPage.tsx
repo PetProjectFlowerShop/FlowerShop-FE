@@ -24,13 +24,13 @@ export function PostPage() {
 
   return (
     <>
-      <DynamicBreadcrumbs customLastStep={currentPost?.title} mb={{ xs: 7, tablet: 10 }} />
+      <DynamicBreadcrumbs customLastStep={currentPost?.title} mb={{ xs: 7, tablet: 2 }} />
       <PageLayout>
         <TitleWithImageSection
           title={currentPost?.title || 'Post'}
           imageSrc={currentPost?.imgURL}
           imageAlt="blog"
-          imageObjectPosition={'0 50%'}
+          imageObjectPosition={'0 54%'}
           subMenu={true}
           date={currentPost.date}
         />

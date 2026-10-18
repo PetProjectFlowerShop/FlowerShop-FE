@@ -36,8 +36,15 @@ export const BlogFlowersGallerySection: React.FC<BlogFlowersGallerySectionProps>
           <Box component="section">
             <SectionHeader title={title} mb={10} />
             <Grid container columnSpacing={{ xs: 4, tablet: 6 }} rowSpacing={{ xs: 6, tablet: 10 }}>
-              {displayPosts.map((post) => (
-                <Grid key={post.id} size={{ xs: 6, tablet: 6, desktop: 4 }}>
+              {displayPosts.map((post, index) => (
+                <Grid
+                  key={post.id}
+                  size={{ xs: 6, tablet: 6, desktop: 4 }}
+                  sx={{
+                    display:
+                      shotPreview && index === 2 ? { xs: 'none', desktop: 'block' } : 'block',
+                  }}
+                >
                   <PostCard post={post} variant="vertical" />
                 </Grid>
               ))}
