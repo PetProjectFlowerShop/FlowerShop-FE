@@ -30,7 +30,7 @@ export const PostContentSection: React.FC<PostContentProps> = ({ posts }) => {
               flex: 1,
               minWidth: 0,
               position: 'relative',
-              height: 'calc(100vh - 100px)',
+              //height: 'calc(100vh - 100px)',
               msOverflowStyle: 'none',
               scrollbarWidth: 'none',
               '&::-webkit-scrollbar': {
