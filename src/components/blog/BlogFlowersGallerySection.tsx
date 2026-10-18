@@ -19,16 +19,12 @@ export const BlogFlowersGallerySection: React.FC<BlogFlowersGallerySectionProps>
     return null;
   }
 
-  // const allPosts = postsData.slice(3);
-
   let displayPosts = postsData.slice(3);
 
-  // 2. Якщо передано ID відкритого поста, прибираємо його зі списку
   if (currentPostId) {
     displayPosts = displayPosts.filter((post) => post.id !== currentPostId);
   }
 
-  // 3. Якщо увімкнено shotPreview, залишаємо лише перші 3 пости
   if (shotPreview) {
     displayPosts = displayPosts.slice(0, 3);
   }
