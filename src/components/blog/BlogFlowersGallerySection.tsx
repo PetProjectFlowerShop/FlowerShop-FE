@@ -4,19 +4,43 @@ import { SectionContainer } from '../layouts/SectionContainer';
 import { PostCard } from './PostCard';
 import { postsData } from './data/postsData';
 
-export const BlogFlowersGallerySection = () => {
-  if (!postsData || postsData.length < 3) return null;
+interface BlogFlowersGallerySectionProps {
+  title: string;
+  shotPreview?: boolean;
+  currentPostId?: number;
+}
 
-  const allPosts = postsData.slice(3);
+export const BlogFlowersGallerySection: React.FC<BlogFlowersGallerySectionProps> = ({
+  title,
+  shotPreview,
+  currentPostId,
+}) => {
+  if (!postsData || postsData.length < 3) {
+    return null;
+  }
+
+  // const allPosts = postsData.slice(3);
+
+  let displayPosts = postsData.slice(3);
+
+  // 2. Якщо передано ID відкритого поста, прибираємо його зі списку
+  if (currentPostId) {
+    displayPosts = displayPosts.filter((post) => post.id !== currentPostId);
+  }
+
+  // 3. Якщо увімкнено shotPreview, залишаємо лише перші 3 пости
+  if (shotPreview) {
+    displayPosts = displayPosts.slice(0, 3);
+  }
 
   return (
     <section>
       <SectionContainer>
-        {allPosts.length > 0 && (
+        {displayPosts.length > 0 && (
           <Box component="section">
-            <SectionHeader title="Our flowers posts" mb={10} />
+            <SectionHeader title={title} mb={10} />
             <Grid container columnSpacing={{ xs: 4, tablet: 6 }} rowSpacing={{ xs: 6, tablet: 10 }}>
-              {allPosts.map((post) => (
+              {displayPosts.map((post) => (
                 <Grid key={post.id} size={{ xs: 6, tablet: 6, desktop: 4 }}>
                   <PostCard post={post} variant="vertical" />
                 </Grid>

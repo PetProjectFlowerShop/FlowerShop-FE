@@ -6,6 +6,7 @@ import main from './../assets/images/blog/main-blog.webp';
 import { postsData } from '@/components/blog/data/postsData';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import { BlogFlowersGallerySection } from '@/components/blog/BlogFlowersGallerySection';
 
 export function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -34,7 +35,13 @@ export function PostPage() {
           subMenu={true}
           date={currentPost.date}
         />
+
         <PostContentSection posts={currentPost.sections} />
+        <BlogFlowersGallerySection
+          title={'Discover More Stories'}
+          shotPreview={true}
+          currentPostId={currentPost.id}
+        />
       </PageLayout>
     </>
   );
