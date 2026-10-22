@@ -1,8 +1,8 @@
-export const getArrayParam = <T extends string>(params: URLSearchParams, key: string): T[] => {
+export const getArrayParam = (params: URLSearchParams, key: string): string[] => {
   const value = params.get(key);
   if (!value) return [];
 
-  return value.split(',').map((v) => v.trim()) as T[];
+  return value.split(',').map((v) => v.trim());
 };
 
 export const getNumberParam = (params: URLSearchParams, key: string): number | undefined => {

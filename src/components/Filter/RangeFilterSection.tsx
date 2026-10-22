@@ -1,37 +1,57 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Slider,
-  TextField,
-  Typography,
-} from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import type { RangeFilterKey } from '@/config/filterConfig';
 import { theme } from '@/theme';
+import { Box, Slider, TextField, Typography } from '@mui/material';
+import { memo, useMemo, useState, type ChangeEvent } from 'react';
+import { FilterSection } from './FilterSection';
 
 type RangeFilterSectionProps = {
   title: string;
-  min: number;
-  max: number;
-  value: [number, number];
+  minLimit: number;
+  maxLimit: number;
+  filterKey: RangeFilterKey;
   minDistance?: number;
+  onChangeCommitted?: (
+    key: RangeFilterKey,
+    min: number,
+    max: number,
+    minLimit: number,
+    maxLimit: number
+  ) => void;
   step?: number;
-  marks?: { value: number }[];
-  onChange: (value: [number, number]) => void;
+  initialRange: [number, number];
   defaultExpanded?: boolean;
 };
-export function RangeFilterSection({
+export const RangeFilterSection = memo(function RangeFilterSection({
   title,
-  min,
-  max,
-  value,
+  minLimit,
+  maxLimit,
+  initialRange,
   minDistance = 0,
-  marks,
-  onChange,
-  defaultExpanded = false,
+  filterKey,
+  step,
+  onChangeCommitted,
+  defaultExpanded,
 }: RangeFilterSectionProps) {
-  const [minVal, maxVal] = value;
+  const [range, setRange] = useState<[number, number]>(initialRange);
+  const [prevInitialRange, setPrevInitialRange] = useState(initialRange);
+
+  if (prevInitialRange[0] !== initialRange[0] || prevInitialRange[1] !== initialRange[1]) {
+    setPrevInitialRange(initialRange);
+    setRange(initialRange);
+  }
+
+  const [minVal, maxVal] = range;
+  const generatedMarks = useMemo(() => {
+    if (maxLimit <= minLimit) return [];
+
+    const marksCount = 5;
+    const step = (maxLimit - minLimit) / marksCount;
+
+    return Array.from({ length: marksCount + 1 }, (_, index) => ({
+      value: Math.round(minLimit + step * index),
+    }));
+  }, [minLimit, maxLimit]);
+
   const clamp = (val: number, min: number, max: number) => Math.min(Math.max(val, min), max);
 
   const handleSliderChange = (_: Event, newValue: number | number[]) => {
@@ -41,90 +61,76 @@ export function RangeFilterSection({
 
     if (newMax - newMin < minDistance) return;
 
-    onChange([newMin, newMax]);
-  };
-  const handleMinInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Number(e.target.value);
-    const clamped = clamp(val, min, maxVal - minDistance);
-
-    onChange([clamped, maxVal]);
+    setRange([newMin, newMax]);
   };
 
-  const handleMaxInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = Number(e.target.value);
-    const clamped = clamp(val, minVal + minDistance, max);
+  const handleMinInput = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') return;
 
-    onChange([minVal, clamped]);
+    const val = Number(e.target.value);
+    const clamped = clamp(val, minLimit, maxVal - minDistance);
+
+    setRange([clamped, maxVal]);
+  };
+
+  const handleMaxInput = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') return;
+
+    const val = Number(e.target.value);
+    const clamped = clamp(val, minVal + minDistance, maxLimit);
+
+    setRange([minVal, clamped]);
+  };
+
+  const commitRange = (value: number | number[]) => {
+    if (!Array.isArray(value)) return;
+
+    onChangeCommitted?.(filterKey, value[0], value[1], minLimit, maxLimit);
   };
   return (
-    <Accordion
-      square
-      sx={{
-        borderRadius: 0,
-        borderBottom: '1px solid',
-        borderColor: 'divider',
-        '&::before': { display: 'none' },
-        '&.MuiPaper-root': {
-          borderRadius: 0,
-          backgroundColor: 'transparent',
-        },
-        '&.Mui-expanded': {
-          margin: 0,
-        },
-      }}
-      elevation={0}
-      defaultExpanded={defaultExpanded}
-    >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel2-content"
-        id="panel2-header"
-        sx={{
-          paddingX: 4,
-
-          '& .MuiAccordionSummary-content': { marginY: 2 },
-          '&.Mui-expanded': {
-            minHeight: '40px',
-          },
-        }}
-      >
-        <Typography>{title}</Typography>
-      </AccordionSummary>
-      <AccordionDetails
-        sx={{ padding: 4, paddingTop: 2, display: 'flex', flexDirection: 'column' }}
-      >
+    <FilterSection title={title} defaultExpanded={defaultExpanded}>
+      <>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
           <Typography>From</Typography>
-          <TextField value={minVal} size="small" type="number" onChange={handleMinInput} />
+          <TextField
+            value={minVal}
+            size="small"
+            type="number"
+            onChange={handleMinInput}
+            slotProps={{ htmlInput: { min: minLimit, max: maxVal - minDistance } }}
+          />
+
           <Typography>To</Typography>
-          <TextField value={maxVal} size="small" type="number" onChange={handleMaxInput} />
+          <TextField
+            value={maxVal}
+            size="small"
+            type="number"
+            onChange={handleMaxInput}
+            slotProps={{ htmlInput: { min: minVal + minDistance, max: maxLimit } }}
+          />
         </Box>
+
         <Slider
           sx={{
             width: '100%',
-            '& .MuiSlider-rail': {
-              height: 4,
-            },
-            '& .MuiSlider-track': {
-              height: 6,
-            },
+            '& .MuiSlider-rail': { height: 4 },
+            '& .MuiSlider-track': { height: 6 },
             '& .MuiSlider-mark': {
               backgroundColor: theme.palette.primary.main,
             },
-            '& .MuiSlider-markActive': {
-              backgroundColor: 'white',
-            },
+            '& .MuiSlider-markActive': { backgroundColor: 'white' },
           }}
-          min={min}
-          max={max}
-          marks={marks}
-          aria-labelledby="input-slider"
-          value={value}
+          min={minLimit}
+          max={maxLimit}
+          step={step}
+          marks={generatedMarks}
+          value={range}
           onChange={handleSliderChange}
+          onChangeCommitted={(_, value) => commitRange(value)}
           valueLabelDisplay="auto"
           disableSwap
         />
-      </AccordionDetails>
-    </Accordion>
+      </>
+    </FilterSection>
   );
-}
+});

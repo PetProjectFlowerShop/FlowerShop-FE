@@ -68,6 +68,7 @@ export function Catalog() {
                 display={{ xs: 'none', desktop: 'flex' }}
                 width="100%"
                 maxWidth={{ desktop: '196px' }}
+                marginLeft="auto"
               >
                 <Sort />
               </Box>

@@ -1,24 +1,25 @@
-import { useSearchParams } from 'react-router-dom';
-import type { SortOption } from '@/types/sort';
-import { SORT_OPTIONS } from '@/constants/sort';
 import { CustomSelect } from '@/components/common/CustomSelect';
-import { type SelectChangeEvent } from '@mui/material';
+import { SORT_OPTIONS, type SortOption } from '@/constants/sort';
+import { useSearchParams } from 'react-router-dom';
 
 export function Sort() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const sort = (searchParams.get('sort') as SortOption) || 'top';
 
-  const handleChange = (event: SelectChangeEvent) => {
-    const value = event.target.value as SortOption;
-    const newParams = new URLSearchParams(searchParams);
-    if (value === 'top') {
-      newParams.delete('sort');
-    } else {
-      newParams.set('sort', value);
-    }
-    newParams.set('page', '1');
-    setSearchParams(newParams);
+  const sort = (searchParams.get('sort') ?? 'top') as SortOption;
+
+  const handleSortChange = (value: SortOption) => {
+    setSearchParams((prev) => {
+      prev.set('sort', value);
+      prev.set('page', '0');
+      return prev;
+    });
   };
 
-  return <CustomSelect value={sort} options={SORT_OPTIONS} onChange={handleChange} />;
+  return (
+    <CustomSelect
+      value={sort}
+      options={SORT_OPTIONS}
+      onChange={(e) => handleSortChange(e.target.value as SortOption)}
+    />
+  );
 }

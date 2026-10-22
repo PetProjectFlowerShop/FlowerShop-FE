@@ -1,14 +1,34 @@
-// type Props = {
-//   showTags?: boolean;
-//   setIsFilterOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-//   defaultExpanded?: boolean;
-// };
+import CloseIcon from '@mui/icons-material/Close';
 
-export function FilterContent() {
-  // const { filters, toggleParam, setRange } = useProductFilters();
+import { filterConfig } from '@/config/filterConfig';
+import { useCatalogParams } from '@/hooks/useCatalogParams';
+import { Box, Divider, IconButton, Typography } from '@mui/material';
+import { useSearchParams } from 'react-router-dom';
+import { CheckboxFilterSection } from './CheckboxFilterSection';
+import type { FiltersData } from './Filter';
+import { RangeFilterSection } from './RangeFilterSection';
+import { ToggleFilterSection } from './ToggleFilterSection';
+import { SelectedFilterTags } from './SelectedFilterTags';
+
+type FilterContentProps = {
+  filtersData: FiltersData;
+  setIsFilterOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  showTags?: boolean;
+  defaultExpanded?: boolean;
+};
+
+export function FilterContent({
+  filtersData,
+  setIsFilterOpen,
+  showTags = false,
+  defaultExpanded = false,
+}: FilterContentProps) {
+  const [searchParams] = useSearchParams();
+  const { toggleParam, setRangeParam } = useCatalogParams();
+
   return (
     <>
-      {/* <Box
+      <Box
         display="flex"
         justifyContent="space-between"
         alignItems="center"
@@ -47,16 +67,72 @@ export function FilterContent() {
             height: '100%',
           }}
         >
-          {showTags && <FilteredTags likeAccordion />}
-          <FilterRenderer
-            config={FILTER_CONFIG}
-            filters={filters}
-            toggleParam={toggleParam}
-            setRange={setRange}
-            defaultExpanded={defaultExpanded}
-          />
+          {showTags && <SelectedFilterTags filtersData={filtersData} likeAccordion />}
+          {filterConfig.map((item) => {
+            switch (item.type) {
+              case 'checkbox': {
+                const options = filtersData[item.key];
+
+                if (options.length === 0) {
+                  return null;
+                }
+
+                return (
+                  <CheckboxFilterSection
+                    key={item.key}
+                    filterKey={item.key}
+                    title={item.name}
+                    options={options}
+                    selectedValuesParam={searchParams.get(item.key) ?? ''}
+                    onToggle={toggleParam}
+                    defaultExpanded={defaultExpanded}
+                  />
+                );
+              }
+              case 'range': {
+                const { min: minLimit, max: maxLimit } = filtersData[item.key];
+
+                const paramPrefix = item.key.charAt(0).toUpperCase() + item.key.slice(1);
+
+                const selectedMin = Number(searchParams.get(`min${paramPrefix}`) ?? minLimit);
+                const selectedMax = Number(searchParams.get(`max${paramPrefix}`) ?? maxLimit);
+
+                return (
+                  <RangeFilterSection
+                    key={item.key}
+                    title={item.name}
+                    filterKey={item.key}
+                    minLimit={minLimit}
+                    maxLimit={maxLimit}
+                    initialRange={[selectedMin, selectedMax]}
+                    minDistance={20}
+                    onChangeCommitted={setRangeParam}
+                    defaultExpanded={defaultExpanded}
+                  />
+                );
+              }
+              case 'toggle': {
+                const options = filtersData[item.key];
+
+                if (options.length === 0) {
+                  return null;
+                }
+                return (
+                  <ToggleFilterSection
+                    key={item.key}
+                    title={item.name}
+                    filterKey={item.key}
+                    options={options}
+                    selectedValuesParam={searchParams.get(item.key) ?? ''}
+                    defaultExpanded={defaultExpanded}
+                    onToggle={toggleParam}
+                  />
+                );
+              }
+            }
+          })}
         </Box>
-      </Box> */}
+      </Box>
     </>
   );
 }
