@@ -26,6 +26,7 @@ import {
   dialogActionsOverrides,
 } from './dialog';
 import { typographyOverrides } from './typography';
+import { inputBaseOverrides } from './inputBaseOverrides';
 
 export const components = {
   MuiButton: buttonOverrides,
@@ -42,6 +43,7 @@ export const components = {
   MuiTextField: textFieldOverrides,
   MuiTypography: typographyOverrides,
   MuiOutlinedInput: outlinedInputOverrides,
+  MuiInputBase: inputBaseOverrides,
   MuiInputLabel: inputLabelOverrides,
   MuiFormHelperText: formHelperTextOverrides,
   MuiSwitch: switchOverrides,

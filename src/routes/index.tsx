@@ -12,6 +12,7 @@ import { Blog } from '../pages/menu-pages/Blog';
 import { Catalog } from '../pages/menu-pages/Catalog';
 import { Contacts } from '../pages/menu-pages/Contacts';
 import { DeliveryAndPayment } from '../pages/menu-pages/DeliveryAndPayment';
+import { Checkout } from '@/pages/Checkout';
 
 export function AppRoutes() {
   return (
@@ -28,6 +29,7 @@ export function AppRoutes() {
         <Route path="/legal-links/support" element={<Support />} />
         <Route path="/legal-links/license" element={<License />} />
         <Route path="/legal-links/terms-of-service" element={<TermOfService />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
 

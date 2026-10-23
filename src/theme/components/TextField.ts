@@ -65,6 +65,22 @@ export const outlinedInputOverrides: Components<Theme>['MuiOutlinedInput'] = {
         borderColor: theme.palette.error.main,
       },
 
+      '&.MuiInputBase-multiline': {
+        height: 'auto',
+        minHeight: '56px',
+        alignItems: 'flex-start',
+        padding: '4px 4px', // '16px 4px'
+      },
+
+      '& .MuiOutlinedInput-inputMultiline': {
+        height: 'auto',
+        minHeight: 'auto',
+        boxSizing: 'border-box',
+        // padding: '0 16px',
+        lineHeight: 1.5,
+        overflow: 'auto',
+      },
+
       '& .MuiOutlinedInput-input': {
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),
