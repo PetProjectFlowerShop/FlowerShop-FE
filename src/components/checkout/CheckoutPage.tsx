@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 
 import { CheckoutSection } from './components/CheckoutSection';
 import { CustomerDetailsForm } from './components/CustomerDetailsForm';
@@ -8,6 +8,9 @@ import { DeliveryForm } from './components/DeliveryForm';
 import { PaymentForm } from './components/PaymentForm';
 import { type PaymentFormValues } from './schemas/paymentSchema';
 import { useCheckoutStore } from './store/checkout.store';
+
+import { CustomerDetailsSummary } from './components/CustomerDetailsSummary';
+import { DeliveryFormSummary } from './components/DeliveryFormSummary';
 
 type CheckoutStep = 1 | 2 | 3;
 
@@ -69,7 +72,6 @@ export function CheckoutPage() {
           display: 'flex',
           flexDirection: { xs: 'column', desktop: 'row' },
           gap: 6,
-          width: { xs: '100%', desktop: '746px' },
           maxWidth: '100%',
         }}
       >
@@ -85,6 +87,7 @@ export function CheckoutPage() {
             activeStep={activeStep}
             completed={!!customerDetails}
             onEdit={handleEditStep}
+            summary={<CustomerDetailsSummary />}
           >
             <CustomerDetailsForm />
           </CheckoutSection>
@@ -95,6 +98,7 @@ export function CheckoutPage() {
             activeStep={activeStep}
             completed={!!deliveryDetails}
             onEdit={handleEditStep}
+            summary={<DeliveryFormSummary />}
           >
             <DeliveryForm />
           </CheckoutSection>
@@ -111,6 +115,11 @@ export function CheckoutPage() {
         </Box>
 
         <Box sx={{ flexGrow: 1, width: '100%' }}>
+          <Typography component="div" variant="body" mb={6} sx={{ color: 'text.secondary' }}>
+            By clicking Submit, I agree to{' '}
+            <Typography sx={{ fontWeight: '500' }}>the Terms of Service</Typography> and{' '}
+            <Typography sx={{ fontWeight: '500' }}>Privacy Policy</Typography>
+          </Typography>
           <Button
             type="submit"
             form="payment-form"

@@ -63,7 +63,7 @@ export function CheckoutSection({
         )}
       </Stack>
 
-      {!isPending && <Box sx={{ mt: 3 }}>{completed && !isActive ? summary : children}</Box>}
+      {!isPending && <Box sx={{ mt: 6 }}>{completed && !isActive ? summary : children}</Box>}
 
       {/* {isActive && (
         <Button variant="contained" onClick={onContinue}>

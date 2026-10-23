@@ -77,6 +77,7 @@ export function PaymentForm({ onPaymentValid, onValidityChange }: PaymentFormPro
 
   const {
     control,
+    setValue,
     handleSubmit,
     formState: { errors, isValid },
   } = methods;
@@ -191,6 +192,16 @@ export function PaymentForm({ onPaymentValid, onValidityChange }: PaymentFormPro
                 label="Card Number"
                 placeholder="1234 5678 9012 3456"
                 fullWidth
+                onChange={(event) => {
+                  const digits = event.target.value.replace(/\D/g, '').slice(0, 16);
+
+                  const formatted = digits.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+                  setValue('cardNumber', formatted, {
+                    shouldValidate: true,
+                    shouldDirty: true,
+                  });
+                }}
                 slotProps={{
                   htmlInput: {
                     inputMode: 'numeric',

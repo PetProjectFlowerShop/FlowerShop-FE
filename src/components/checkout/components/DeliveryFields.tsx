@@ -20,10 +20,10 @@ import { deliveryTimeSlots, type DeliveryFormValues } from '../schemas/deliveryS
 const cities = ['Kyiv', 'Lviv', 'Odesa', 'Dnipro'];
 
 const streetsByCity: Record<string, string[]> = {
-  Kyiv: ['Khreshchatyk St', 'Velyka Vasylkivska St'],
-  Lviv: ['Svobody Ave', 'Shevchenka St'],
-  Odesa: ['Deribasivska St', 'Shevchenka Ave'],
-  Dnipro: ['Dmytra Yavornytskoho Ave'],
+  Kyiv: ['Khreshchatyk', 'Velyka Vasylkivska'],
+  Lviv: ['Svobody Ave', 'Shevchenka'],
+  Odesa: ['Deribasivska', 'Shevchenka Ave'],
+  Dnipro: ['Dmytra Yavornytskoho Ave', 'Shevchenka'],
 };
 
 export function DeliveryFields() {

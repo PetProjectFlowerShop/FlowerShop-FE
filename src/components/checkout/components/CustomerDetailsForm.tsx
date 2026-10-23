@@ -134,7 +134,6 @@ function CustomerDetailsFields() {
                         px: 2.5,
                         py: 2,
                         bgcolor: selected ? '#dadecd' : 'background.paper', // 'action.selected'
-                        // fontWeight: selected ? 600 : 400,
                         '& .MuiFormControlLabel-label': {
                           width: '100%',
                           textAlign: 'center',
