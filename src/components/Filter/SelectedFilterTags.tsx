@@ -17,7 +17,7 @@ export function SelectedFilterTags({
   const [, setSearchParams] = useSearchParams();
 
   const clearFilters = () => {
-    setSearchParams('page=0');
+    setSearchParams('page=1');
   };
 
   const removeFilter = (

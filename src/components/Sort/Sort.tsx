@@ -10,7 +10,7 @@ export function Sort() {
   const handleSortChange = (value: SortOption) => {
     setSearchParams((prev) => {
       prev.set('sort', value);
-      prev.set('page', '0');
+      prev.set('page', '1');
       return prev;
     });
   };

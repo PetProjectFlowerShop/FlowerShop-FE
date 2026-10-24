@@ -30,7 +30,7 @@ export function useCatalogParams() {
         newParams.delete(paramKey);
       }
 
-      newParams.set('page', '0');
+      newParams.set('page', '1');
 
       return newParams;
     });
@@ -54,7 +54,7 @@ export function useCatalogParams() {
           newParams.set(`max${key}`, String(max));
         }
 
-        newParams.set('page', '0');
+        newParams.set('page', '1');
 
         return newParams;
       });

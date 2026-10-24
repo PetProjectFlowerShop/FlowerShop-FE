@@ -1,5 +1,8 @@
 import type { ProductCardType, ProductDetails, ProductFilters } from '@/types/product';
 import { apiClient } from './axios';
+import type { NormalizedFilters } from '@/utils/normalizeFilters';
+import type { SortOption } from '@/constants/sort';
+import { toSearchParams } from '@/utils/searchParams';
 
 type CatalogProducts = {
   content: ProductCardType[];
@@ -37,5 +40,36 @@ export async function getProductByIds({ ids }: { ids: number[] }) {
 
 export async function getProductFilters() {
   const { data } = await apiClient.get<ProductFilters>('/flowers/filters');
+  return data;
+}
+
+export async function fetchProducts({
+  filters,
+  sort,
+  page,
+}: {
+  filters: NormalizedFilters;
+  sort: SortOption;
+  page: number;
+}) {
+  const params = toSearchParams(filters);
+
+  if (sort !== 'top') {
+    const sortParams: Record<Exclude<SortOption, 'top'>, { sortBy: string; sortOrder: string }> = {
+      'price-desc': { sortBy: 'price', sortOrder: 'desc' },
+      'price-asc': { sortBy: 'price', sortOrder: 'asc' },
+    };
+
+    const { sortBy, sortOrder } = sortParams[sort];
+
+    params.set('sortBy', sortBy);
+    params.set('sortOrder', sortOrder);
+  }
+
+  params.set('page', String(page - 1));
+  params.set('size', '12');
+
+  const { data } = await apiClient.get<CatalogProducts>(`/flowers/search?${params.toString()}`);
+
   return data;
 }
