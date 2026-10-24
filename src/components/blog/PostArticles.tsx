@@ -37,7 +37,13 @@ export const PostArticles: React.FC<PostArticlesProps> = ({ posts }) => {
               component="img"
               image={post.imgURL}
               alt={post.title}
-              sx={{ borderRadius: 5, mt: 10, mb: 10, maxHeight: '280px', objectFit: 'cover' }}
+              sx={{
+                borderRadius: 5,
+                mt: { xs: 7, tablet: 8, desktop: 10 },
+                mb: { xs: 7, tablet: 8, desktop: 10 },
+                maxHeight: '280px',
+                objectFit: 'cover',
+              }}
             />
           )}
         </Box>
