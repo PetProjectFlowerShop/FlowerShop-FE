@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 type Props = {
   option: { value: string; label: string };
 };
-
+//TODO: Rewrite the outdated component according to the new specifications after consulting with the backend team
 const getColorStyle = (value: string) => {
   switch (value) {
     case 'red':

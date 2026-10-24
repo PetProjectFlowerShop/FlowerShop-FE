@@ -4,11 +4,11 @@ import { filterConfig } from '@/config/filterConfig';
 import { useCatalogParams } from '@/hooks/useCatalogParams';
 import { Box, Divider, IconButton, Typography } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
-import { CheckboxFilterSection } from './CheckboxFilterSection';
 import type { FiltersData } from './Filter';
-import { RangeFilterSection } from './RangeFilterSection';
-import { ToggleFilterSection } from './ToggleFilterSection';
-import { SelectedFilterTags } from './SelectedFilterTags';
+import { SelectedFilterTags } from './SelectedFilterTags/SelectedFilterTags';
+import { CheckboxFilterSection } from './sections/CheckboxFilterSection';
+import { RangeFilterSection } from './sections/RangeFilterSection';
+import { ToggleFilterSection } from './sections/ToggleFilterSection';
 
 type FilterContentProps = {
   filtersData: FiltersData;

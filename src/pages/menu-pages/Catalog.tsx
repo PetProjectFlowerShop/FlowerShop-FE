@@ -4,7 +4,7 @@ import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
 import TitleWithImageSection from '@/components/common/TitleWithImageSection';
 import { Filter } from '@/components/Filter/Filter';
 import { FilterContent } from '@/components/Filter/FilterContent';
-import { SelectedFilterTags } from '@/components/Filter/SelectedFilterTags';
+import { SelectedFilterTags } from '@/components/Filter/SelectedFilterTags/SelectedFilterTags';
 import { PageLayout } from '@/components/layouts/PageLayout';
 import { SectionContainer } from '@/components/layouts/SectionContainer';
 import { ProductList } from '@/components/ProductList/ProductList';

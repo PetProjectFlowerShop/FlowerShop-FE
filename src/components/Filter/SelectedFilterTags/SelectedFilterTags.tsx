@@ -4,8 +4,8 @@ import { capitalize } from '@/utils/capitalize';
 import { isAnyFilter } from '@/utils/productFilters';
 import { Box, Chip, Divider } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
-import { ButtonText } from '../common/ButtonText';
-import type { FiltersData } from './Filter';
+import { ButtonText } from '../../common/ButtonText';
+import type { FiltersData } from '../Filter';
 
 export function SelectedFilterTags({
   likeAccordion,

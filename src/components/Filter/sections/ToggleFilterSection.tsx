@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { FilterSection } from './FilterSection';
 import { Box, Chip } from '@mui/material';
 import type { ToggleFilterKey } from '@/config/filterConfig';
+import { FilterSection } from './FilterSection';
 
 type ToggleOption = {
   value: string;

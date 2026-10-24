@@ -1,7 +1,7 @@
 import type { CheckboxFilterKey } from '@/config/filterConfig';
 import { memo } from 'react';
-import { FilterOption } from './FilterOption';
 import { FilterSection } from './FilterSection';
+import { FilterOption } from '../options/FilterOption';
 
 type CheckboxOption = {
   id: number;
