@@ -1,9 +1,25 @@
-export function Filter() {
-  // const [isFilterOpen, setIsFilterOpen] = useState(false);
+import type { NumberStem, RangeType } from '@/config/staticFilters';
+import type { ProductFilters } from '@/types/product';
+import { Box, Button, Divider, Drawer } from '@mui/material';
+import { useState } from 'react';
+import { FilterContent } from './FilterContent';
+
+export type FiltersData = ProductFilters & {
+  price: RangeType;
+  height: RangeType;
+  numberStems: NumberStem[];
+};
+
+type FilterProps = {
+  filtersData: FiltersData;
+};
+
+export function Filter({ filtersData }: FilterProps) {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
     <>
-      {/* <Button variant="contained" color="primary" onClick={() => setIsFilterOpen(true)} fullWidth>
+      <Button variant="contained" color="primary" onClick={() => setIsFilterOpen(true)} fullWidth>
         Filters
       </Button>
       <Drawer
@@ -18,7 +34,8 @@ export function Filter() {
         open={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
       >
-        <FilterContent setIsFilterOpen={setIsFilterOpen} showTags />
+        <FilterContent showTags filtersData={filtersData} setIsFilterOpen={setIsFilterOpen} />
+
         <Box mt="auto">
           <Divider />
           <Box sx={{ p: '16px' }}>
@@ -27,7 +44,7 @@ export function Filter() {
             </Button>
           </Box>
         </Box>
-      </Drawer> */}
+      </Drawer>
     </>
   );
 }

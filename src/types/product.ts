@@ -6,6 +6,7 @@ export type BouquetType = {
   name: string;
   packagingTypes: PackagingType[];
 };
+export type OccasionType = { id: number; name: string };
 export type ProductImageType = {
   id: number;
   imageUrl: string;
@@ -45,5 +46,8 @@ export interface ProductDetails extends ProductBase {
 }
 
 export interface ProductFilters {
+  flowerTypes: FlowerType[];
+  colors: ColorType[];
   bouquetTypes: BouquetType[];
+  occasions: OccasionType[];
 }

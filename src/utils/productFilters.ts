@@ -1,43 +1,15 @@
-// import type { FiltersState } from '../types/filter';
-// import {
-//   type BouquetType,
-//   type ColorType,
-//   type FlowerType,
-//   type OccasionType,
-// } from '../types/product';
-// import type { SortOption } from '../types/sort';
-// import { getArrayParam, getNumberParam, getStringParam } from './searchParams';
+import type { FiltersState } from './parseCatalogParams';
 
-// export function parseProductFilters(params: URLSearchParams) {
-//   const parsedPage = Number(params.get('page'));
-//   return {
-//     type: getArrayParam<FlowerType>(params, 'type'),
-//     color: getArrayParam<ColorType>(params, 'color'),
-//     bouquetType: getArrayParam<BouquetType>(params, 'bouquetType'),
-//     occasion: getArrayParam<OccasionType>(params, 'occasion'),
-//     numberStems: getArrayParam(params, 'numberStems'),
-
-//     sort: getStringParam<SortOption>(params, 'sort', 'top'),
-
-//     priceMin: getNumberParam(params, 'priceMin'),
-//     priceMax: getNumberParam(params, 'priceMax'),
-
-//     heightMin: getNumberParam(params, 'heightMin'),
-//     heightMax: getNumberParam(params, 'heightMax'),
-//     page: Number.isNaN(parsedPage) || parsedPage < 1 ? 1 : parsedPage,
-//   };
-// }
-
-// export function isAnyFilterActive(filters: FiltersState) {
-//   return Boolean(
-//     filters.type.length ||
-//     filters.color.length ||
-//     filters.bouquetType.length ||
-//     filters.occasion.length ||
-//     filters.numberStems.length ||
-//     filters.priceMin ||
-//     filters.priceMax ||
-//     filters.heightMin ||
-//     filters.heightMax
-//   );
-// }
+export function isAnyFilter(filters: FiltersState) {
+  return Boolean(
+    filters.flowerTypes.length ||
+    filters.price.min != null ||
+    filters.price.max != null ||
+    filters.colors.length ||
+    filters.bouquetTypes.length ||
+    filters.numberStems.length ||
+    filters.height.min != null ||
+    filters.height.max != null ||
+    filters.occasions.length
+  );
+}

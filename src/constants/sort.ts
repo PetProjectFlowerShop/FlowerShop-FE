@@ -1,4 +1,4 @@
-import type { SortOption } from '../types/sort';
+export type SortOption = 'top' | 'price-desc' | 'price-asc';
 
 export const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: 'top', label: 'Top Rated' },

@@ -21,7 +21,7 @@ export function FilterOption({ checked, onChange, label }: FilterOptionProps) {
           flex: 1,
         },
       }}
-      control={<Checkbox />}
+      control={<Checkbox disableRipple />}
       label={label}
     />
   );

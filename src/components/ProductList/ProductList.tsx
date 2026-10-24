@@ -1,72 +1,78 @@
+import { fetchProducts } from '@/api/flowers';
+import type { SortOption } from '@/constants/sort';
+import { useFilters } from '@/hooks/useFilters';
+import { getProductsFromCache } from '@/lib/products/getProductsFromCache';
+import { normalizeFilters } from '@/utils/normalizeFilters';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { EmptyProductList } from './EmptyProductList';
+import { Box, Button, Pagination } from '@mui/material';
+import { ProductCard } from '../ProductCard';
+
 export function ProductList() {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const queryClient = useQueryClient();
-  // const favorites = useFavoritesStore((s) => s.items);
-  // const filters = useMemo(() => parseProductFilters(searchParams), [searchParams]);
+  const queryClient = useQueryClient();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filters = useFilters();
+  const currentPage = Number(searchParams.get('page') ?? 1);
 
-  // const { page, ...filtersWithoutPage } = filters;
-  // const currentPage = page ?? 1;
+  const [feedAnchorPage, setFeedAnchorPage] = useState(currentPage);
+  const sort = (searchParams.get('sort') ?? 'top') as SortOption;
+  const { data, isPending, isLoading, isFetching, isError } = useQuery({
+    queryKey: ['catalog-products', normalizeFilters(filters), sort, currentPage],
+    queryFn: () =>
+      fetchProducts({ filters: normalizeFilters(filters), sort: sort, page: currentPage }),
+    placeholderData: (prev) => prev,
+  });
 
-  // const [feedAnchorPage, setFeedAnchorPage] = useState(currentPage);
+  if (isError) {
+    return null;
+  }
+  if (isPending || isLoading || isFetching) {
+    return <div>...loading</div>;
+  }
 
-  // const query = useQuery({
-  //   queryKey: ['products', filtersWithoutPage, currentPage],
-  //   queryFn: () =>
-  //     fetchProducts({
-  //       ...filtersWithoutPage,
-  //       page: currentPage,
-  //     }),
-  //   placeholderData: (prev) => prev,
-  // });
+  const totalPages = data.page.totalPages;
 
-  // const totalPages = query.data?.totalPages ?? 0;
+  const products = getProductsFromCache({
+    queryClient,
+    filters: normalizeFilters(filters),
+    sort,
+    currentPage,
+    feedAnchorPage,
+  });
 
-  // const products = useMemo(
-  //   () =>
-  //     getProductsFromCache({
-  //       queryClient,
-  //       filters: filtersWithoutPage,
-  //       currentPage,
-  //       feedAnchorPage,
-  //     }),
-  //   [queryClient, filtersWithoutPage, currentPage, feedAnchorPage]
-  // );
+  const isEmpty = !isLoading && !isFetching && products.length === 0;
 
-  // if (query.isLoading && products.length === 0) {
-  //   return <div>Loading...</div>;
-  // }
+  if (isEmpty) {
+    return <EmptyProductList />;
+  }
 
-  // const isEmpty = !query.isLoading && !query.isFetching && products.length === 0;
+  const changePage = (page: number) => {
+    setFeedAnchorPage(page);
 
-  // if (isEmpty) {
-  //   return <EmptyProductList />;
-  // }
+    const params = new URLSearchParams(searchParams);
+    params.set('page', String(page));
+    setSearchParams(params);
 
-  // const changePage = (page: number) => {
-  //   setFeedAnchorPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  //   const params = new URLSearchParams(searchParams);
-  //   params.set('page', String(page));
-  //   setSearchParams(params);
+  const handleShowMore = () => {
+    const nextPage = currentPage + 1;
 
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // };
+    if (feedAnchorPage === currentPage) {
+      setFeedAnchorPage(currentPage);
+    }
 
-  // const handleShowMore = () => {
-  //   const nextPage = currentPage + 1;
-
-  //   if (feedAnchorPage === currentPage) {
-  //     setFeedAnchorPage(currentPage);
-  //   }
-
-  //   const params = new URLSearchParams(searchParams);
-  //   params.set('page', String(nextPage));
-  //   setSearchParams(params);
-  // };
+    const params = new URLSearchParams(searchParams);
+    params.set('page', String(nextPage));
+    setSearchParams(params);
+  };
 
   return (
     <div>
-      {/* <Box
+      <Box
         display="grid"
         mt={6}
         mb={9}
@@ -77,40 +83,44 @@ export function ProductList() {
         gap={{ xs: '15px', tablet: '24px' }}
       >
         {products.map((product) => (
-          <ProductCard isFavorite={!!favorites[product.id]} key={product.id} product={product} />
+          <ProductCard isFavorite={false} key={product.id} product={product} />
         ))}
       </Box>
 
-      <Button
-        onClick={handleShowMore}
-        variant="outlined"
-        color="secondary"
-        fullWidth
-        disabled={query.isFetching || currentPage >= totalPages}
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          mx: 'auto',
-          mb: 5,
-          maxWidth: { desktop: '526px' },
-        }}
-      >
-        Show more
-      </Button>
+      {currentPage < totalPages && (
+        <Button
+          onClick={handleShowMore}
+          variant="outlined"
+          color="secondary"
+          fullWidth
+          disabled={isFetching || currentPage >= totalPages}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            mx: 'auto',
+            mb: 5,
+            maxWidth: { desktop: '526px' },
+          }}
+        >
+          Show more
+        </Button>
+      )}
 
-      <Pagination
-        color="secondary"
-        size="large"
-        page={currentPage}
-        count={totalPages}
-        onChange={(_, value) => changePage(value)}
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
-          mx: 'auto',
-        }}
-      /> */}
+      {totalPages > 1 && (
+        <Pagination
+          color="secondary"
+          size="large"
+          page={currentPage}
+          count={totalPages}
+          onChange={(_, value) => changePage(value)}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%',
+            mx: 'auto',
+          }}
+        />
+      )}
     </div>
   );
 }
