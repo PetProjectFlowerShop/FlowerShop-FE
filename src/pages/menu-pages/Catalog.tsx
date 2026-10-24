@@ -5,15 +5,19 @@ import TitleWithImageSection from '@/components/common/TitleWithImageSection';
 import { Filter } from '@/components/Filter/Filter';
 import { FilterContent } from '@/components/Filter/FilterContent';
 import { SelectedFilterTags } from '@/components/Filter/SelectedFilterTags/SelectedFilterTags';
+import RecentlyViewedSection from '@/components/home/RecentlyViewedSection';
+import RecommendationsSection from '@/components/home/RecommendationsSection';
 import { PageLayout } from '@/components/layouts/PageLayout';
 import { SectionContainer } from '@/components/layouts/SectionContainer';
 import { ProductList } from '@/components/ProductList/ProductList';
 import { Sort } from '@/components/Sort/Sort';
 import { staticFilters } from '@/config/staticFilters';
+import { useRecentlyStore } from '@/store/recently.store';
 import { Box, Stack } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 
 export function Catalog() {
+  const viewedProducts = useRecentlyStore((store) => store.items);
   const { data: apiFilters, isLoading } = useQuery({
     queryKey: ['product-filters'],
     queryFn: getProductFilters,
@@ -76,6 +80,15 @@ export function Catalog() {
               </Stack>
               <ProductList />
             </Stack>
+          </SectionContainer>
+        </section>
+        <section>
+          <SectionContainer>
+            {viewedProducts.length > 0 ? (
+              <RecentlyViewedSection />
+            ) : (
+              <RecommendationsSection title="Recommendations" />
+            )}
           </SectionContainer>
         </section>
       </PageLayout>
