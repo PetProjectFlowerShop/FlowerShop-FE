@@ -3,14 +3,14 @@ export interface PostSection {
   title: string;
   content: string[];
   imgURL?: string;
-  date?: string;
+  publishedDate?: string;
 }
 
 export interface Post {
   id: number;
   imgURL: string;
   title: string;
-  date: string;
+  publishedDate: string;
   description: string;
   link: string;
   sections: PostSection[];

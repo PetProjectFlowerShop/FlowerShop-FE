@@ -15,21 +15,23 @@ export const PostArticles: React.FC<PostArticlesProps> = ({ posts }) => {
           sx={{ mb: 10, scrollMarginTop: '120px' }}
           component="section"
         >
-          <Typography variant="h3" component="h3" gutterBottom sx={{ fontFamily: 'serif', mb: 6 }}>
+          <Typography variant="h3" component="h3" gutterBottom sx={{ mb: 6 }}>
             {post.title}
           </Typography>
-
-          {post.content.map((paragraph, index) => (
-            <Typography
-              key={index}
-              component="p"
-              variant="body"
-              sx={{ color: 'text.primary', lineHeight: 1.4, mb: 4, display: 'block' }}
-            >
-              {paragraph}
-            </Typography>
-          ))}
-
+          <Box display="flex" flexDirection="column" gap={4}>
+            {post.content.map((paragraph, index) => (
+              <Box display={'flex'} gap={4}>
+                <Typography
+                  key={index}
+                  component="p"
+                  variant="body"
+                  sx={{ color: 'text.primary', lineHeight: 1.4 }}
+                >
+                  {paragraph}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
           {post.imgURL && (
             <CardMedia
               component="img"

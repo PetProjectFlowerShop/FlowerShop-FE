@@ -45,7 +45,7 @@ export const postsData: Post[] = [
     id: 1,
     imgURL: heroPost1,
     title: 'Choosing the right bouquet',
-    date: '14 february 2026',
+    publishedDate: '14 february 2026',
     description:
       'Learn how to select the right flowers for  birthdays, romantic or everyday surprises. This guide helps match flowers to emotions and occasions.',
     link: '/blog/1',
@@ -66,7 +66,6 @@ export const postsData: Post[] = [
           'For romantic occasions such as anniversaries or dates, classic flowers like roses, peonies, or ranunculus are perfect choices. Soft tones such as red, blush pink, or white create an elegant and emotional impression.',
           'For birthdays, brighter and more cheerful flowers work beautifully. Tulips, gerberas, sunflowers, or mixed seasonal bouquets bring energy and joy to the celebration.',
           'For more formal occasions, such as congratulations or professional gifts, neutral and elegant arrangements are ideal. White lilies, orchids, or minimalist bouquets in soft tones feel refined and appropriate.',
-          'If you are sending flowers “just because,” natural and seasonal bouquets are a wonderful choice. They feel effortless, sincere, and full of life.',
         ],
       },
       {
@@ -89,8 +88,7 @@ export const postsData: Post[] = [
         id: 'consider-the-style',
         title: 'Consider the style of the bouquet',
         content: [
-          'Bouquets come in many different styles, from classic round arrangements to modern, organic designs.',
-          'Compact, structured bouquets feel elegant and formal. Loose, natural arrangements feel modern and effortless. Mono-bouquets made with a single type of flower feel minimalist and refined.',
+          'Bouquets come in many different styles, from classic round arrangements to modern, organic designs. Compact, structured bouquets feel elegant and formal. Loose, natural arrangements feel modern and effortless. Mono-bouquets made with a single type of flower feel minimalist and refined.',
         ],
       },
       {
@@ -123,7 +121,7 @@ export const postsData: Post[] = [
     id: 2,
     imgURL: heroPost2,
     title: 'Meaning of popular flowers',
-    date: '14 february 2026',
+    publishedDate: '14 february 2026',
     description:
       'Discover the hidden meanings behind popular flowers and colors, and how each bloom can express feelings without words.',
     link: '/blog/2',
@@ -184,7 +182,7 @@ export const postsData: Post[] = [
     id: 3,
     imgURL: heroPost3,
     title: 'How to keep flowers fresh',
-    date: '14 february 2026',
+    publishedDate: '14 february 2026',
     description:
       'Follow simple steps to extend the life of your bouquet and keep your flowers fresh and beautiful longer.',
     link: '/blog/3',
@@ -227,7 +225,7 @@ export const postsData: Post[] = [
     id: 4,
     imgURL: heroPost4,
     title: 'Most popular flowers',
-    date: '15 february 2026',
+    publishedDate: '15 february 2026',
     description:
       'Discover the flowers people love most and what makes them timeless and meaningful.',
     link: '/blog/4',
@@ -296,7 +294,7 @@ export const postsData: Post[] = [
     id: 5,
     imgURL: heroPost5,
     title: 'Flowers for your home',
-    date: '16 february 2026',
+    publishedDate: '16 february 2026',
     description: 'Learn how to choose flowers that complement your interior.',
     link: '/blog/5',
     sections: [
@@ -338,7 +336,7 @@ export const postsData: Post[] = [
     id: 6,
     imgURL: heroPost6,
     title: 'Why flowers make perfect gift',
-    date: '16 february 2026',
+    publishedDate: '16 february 2026',
     description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
     link: '/blog/6',
     sections: [
@@ -380,7 +378,7 @@ export const postsData: Post[] = [
     id: 7,
     imgURL: heroPost7,
     title: 'Modern flower trends',
-    date: '17 february 2026',
+    publishedDate: '17 february 2026',
     description: 'Discover the latest styles and trends in floral design and bouquet arrangements.',
     link: '/blog/7',
     sections: [
@@ -422,7 +420,7 @@ export const postsData: Post[] = [
     id: 8,
     imgURL: heroPost8,
     title: 'Personalizing your bouquet',
-    date: '18 february 2026',
+    publishedDate: '18 february 2026',
     description: 'Learn how to choose flowers that complement your interior.',
     link: '/blog/8',
     sections: [
@@ -456,7 +454,7 @@ export const postsData: Post[] = [
     id: 9,
     imgURL: heroPost9,
     title: 'Benefits of fresh flowers',
-    date: '18 february 2026',
+    publishedDate: '18 february 2026',
     description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
     link: '/blog/9',
     sections: [
