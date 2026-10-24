@@ -24,7 +24,10 @@ export function PostPage() {
 
   return (
     <>
-      <DynamicBreadcrumbs customLastStep={currentPost?.title} mb={{ xs: 7, tablet: 2 }} />
+      <DynamicBreadcrumbs
+        customLastStep={currentPost?.title}
+        mb={{ xs: 7, tablet: 2, desktop: 2 }}
+      />
       <PageLayout>
         <TitleWithImageSection
           title={currentPost?.title || 'Post'}

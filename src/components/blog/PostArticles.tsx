@@ -9,8 +9,13 @@ export const PostArticles: React.FC<PostArticlesProps> = ({ posts }) => {
   return (
     <Box>
       {posts.map((post) => (
-        <Box key={post.id} id={post.id} sx={{ mb: 6 }} component="section">
-          <Typography variant="h3" component="h3" gutterBottom sx={{ fontFamily: 'serif' }}>
+        <Box
+          key={post.id}
+          id={post.id}
+          sx={{ mb: 10, scrollMarginTop: '120px' }}
+          component="section"
+        >
+          <Typography variant="h3" component="h3" gutterBottom sx={{ fontFamily: 'serif', mb: 6 }}>
             {post.title}
           </Typography>
 
