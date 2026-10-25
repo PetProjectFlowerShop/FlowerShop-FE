@@ -14,7 +14,6 @@ interface CheckoutSectionProps {
   children: ReactNode;
   summary?: ReactNode;
   onEdit: (step: CheckoutStep) => void;
-  onContinue?: () => void;
 }
 
 export function CheckoutSection({
@@ -25,7 +24,6 @@ export function CheckoutSection({
   children,
   summary,
   onEdit,
-  // onContinue,
 }: CheckoutSectionProps) {
   const isActive = activeStep === step;
   const isPending = activeStep < step;
@@ -64,12 +62,6 @@ export function CheckoutSection({
       </Stack>
 
       {!isPending && <Box sx={{ mt: 6 }}>{completed && !isActive ? summary : children}</Box>}
-
-      {/* {isActive && (
-        <Button variant="contained" onClick={onContinue}>
-          {step === 1 ? 'Go to delivery' : step === 2 ? 'Go to payment' : 'Place order'}
-        </Button>
-      )} */}
     </Paper>
   );
 }
