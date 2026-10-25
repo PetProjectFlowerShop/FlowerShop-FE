@@ -6,10 +6,15 @@ import HeartIconOutline from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Badge, Box, IconButton } from '@mui/material';
 import { Icon } from '../common/Icon.tsx';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '@/store/auth.store.ts';
+// import { Link } from 'react-router-dom';
 
 export function UserActions() {
   const { toggleDrawer } = useDrawer();
+  const navigate = useNavigate();
+
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const favoritesCount = useFavoritesStore((state) => Object.keys(state.items).length);
   const cartCount = useCartStore((state) =>
@@ -17,17 +22,31 @@ export function UserActions() {
   );
   const displayedCartCount = cartCount > 99 ? '99+' : cartCount;
 
+  const handleAccountClick = () => {
+    if (isAuthenticated) {
+      navigate('/my-profile');
+    } else {
+      toggleDrawer('register', true)();
+    }
+  };
+
+  const handleFavoritesClick = () => {
+    if (isAuthenticated) {
+      navigate('/user/favorites');
+    } else {
+      toggleDrawer('register', true)();
+    }
+  };
+
   return (
     <Box sx={{ display: 'flex' }}>
       <IconButton
-        component={Link}
         aria-label="My account"
         sx={(theme) => ({
           color: 'text.primary',
           p: theme.spacingTokens.micro,
         })}
-        to="/profile"
-        onClick={toggleDrawer('register', true)}
+        onClick={handleAccountClick}
       >
         <Icon name="person" width={24} height={24} />
       </IconButton>
@@ -38,7 +57,7 @@ export function UserActions() {
           color: favoritesCount > 0 ? 'black' : 'text.primary',
           p: theme.spacingTokens.micro,
         })}
-        onClick={toggleDrawer('login', true)}
+        onClick={handleFavoritesClick}
       >
         {favoritesCount > 0 ? <HeartIconFilled /> : <HeartIconOutline />}
 
