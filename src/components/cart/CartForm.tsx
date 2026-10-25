@@ -4,10 +4,13 @@ import { Box, Button, Typography } from '@mui/material';
 import { CartItemView } from './CartItemView';
 import { CartAccessories } from './CartAccessories';
 import { MOCK_ACCESSORIES } from '@/api/mock-data/mockAccessories';
+import { useNavigate } from 'react-router-dom';
 
 export function CartForm() {
   const { enrichedCartItems, isLoading } = useEnrichedCart();
   const totalSum = useCartStore((state) => state.getTotalSum());
+
+  const navigate = useNavigate();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -16,11 +19,13 @@ export function CartForm() {
   if (enrichedCartItems.length == 0) {
     return (
       <Box>
-        <Typography variant="h2Fixed">Cart</Typography>
-        <Typography variant="body" sx={{ my: 2 }}>
+        <Typography variant="h2Fixed" component="div">
+          Cart
+        </Typography>
+        <Typography variant="body" component="div" sx={{ my: 2 }}>
           Your cart is empty. Let’s find something beautiful.
         </Typography>
-        <Button variant="contained" color="primary" fullWidth>
+        <Button variant="contained" color="primary" fullWidth onClick={() => navigate('/catalog')}>
           To catalog
         </Button>
       </Box>
@@ -77,7 +82,7 @@ export function CartForm() {
           <Typography variant="h4">${totalSum}</Typography>
         </Box>
 
-        <Button variant="contained" color="primary" fullWidth>
+        <Button variant="contained" color="primary" fullWidth onClick={() => navigate('/checkout')}>
           Submit the order
         </Button>
       </Box>
