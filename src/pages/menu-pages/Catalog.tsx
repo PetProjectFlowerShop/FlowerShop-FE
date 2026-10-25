@@ -1,42 +1,97 @@
+import { getProductFilters } from '@/api/flowers';
+import catalogBaner from '@/assets/images/catalog-banner.webp';
+import { DynamicBreadcrumbs } from '@/components/common/DynamicBreadcrumbs';
+import TitleWithImageSection from '@/components/common/TitleWithImageSection';
+import { Filter } from '@/components/Filter/Filter';
+import { FilterContent } from '@/components/Filter/FilterContent';
+import { SelectedFilterTags } from '@/components/Filter/SelectedFilterTags/SelectedFilterTags';
+import RecentlyViewedSection from '@/components/home/RecentlyViewedSection';
+import RecommendationsSection from '@/components/home/RecommendationsSection';
+import { PageLayout } from '@/components/layouts/PageLayout';
+import { SectionContainer } from '@/components/layouts/SectionContainer';
+import { ProductList } from '@/components/ProductList/ProductList';
+import { Sort } from '@/components/Sort/Sort';
+import { staticFilters } from '@/config/staticFilters';
+import { useRecentlyStore } from '@/store/recently.store';
+import { Box, Stack } from '@mui/material';
+import { useQuery } from '@tanstack/react-query';
+
 export function Catalog() {
-  // const viewedProducts = useRecentlyStore((store) => store.items);
+  const viewedProducts = useRecentlyStore((store) => store.items);
+  const { data: apiFilters, isLoading } = useQuery({
+    queryKey: ['product-filters'],
+    queryFn: getProductFilters,
+    staleTime: Infinity,
+  });
+  if (isLoading) {
+    return <>... Loading</>;
+  }
+
+  const filtersData = {
+    ...staticFilters,
+    flowerTypes: apiFilters?.flowerTypes ?? [],
+    colors: apiFilters?.colors ?? [],
+    bouquetTypes: apiFilters?.bouquetTypes ?? [],
+    occasions: apiFilters?.occasions ?? [],
+  };
+
   return (
     <>
-      {/* <DynamicBreadcrumbs mb={2} />
-      <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
-      <Box
-        sx={{
-          display: { tablet: 'flex' },
-          flexDirection: { tablet: 'row' },
-          justifyContent: { tablet: 'space-between' },
-        }}
-      >
-        <Box mb="16px" minWidth="242px" display={{ desktop: 'none' }}>
-          <Filter />
-        </Box>
-        <Box mb="24px" minWidth="242px" ml="auto">
-          <Sort />
-        </Box>
-      </Box>
-      <Box display="flex" flexDirection="column" gap={6} mb={16}>
-        <FilteredTags />
-        <Box display="flex" gap={6}>
-          <Box
-            display={{ xs: 'none', desktop: 'flex' }}
-            flexDirection={{ desktop: 'column' }}
-            width={306}
-            flexShrink={0}
+      <DynamicBreadcrumbs mb={2} />
+      <PageLayout>
+        <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
+        <section>
+          <SectionContainer
+            sx={{
+              display: { xs: 'flex', desktop: 'grid' },
+              flexDirection: 'column',
+              gridTemplateColumns: { desktop: '306px minmax(0, 1fr)' },
+              gap: 6,
+            }}
           >
-            <FilterContent defaultExpanded />
-          </Box>
-          <ProductList />
-        </Box>
-      </Box>
-      {viewedProducts.length > 0 ? (
-        <RecentlyViewedSection />
-      ) : (
-        <RecommendationsSection title="Recommendations" />
-      )} */}
+            <Box display={{ xs: 'none', desktop: 'flex' }} flexDirection="column">
+              <FilterContent defaultExpanded filtersData={filtersData} />
+            </Box>
+            <Stack
+              spacing={{ xs: 4, tablet: 0 }}
+              flexDirection={{ tablet: 'row' }}
+              justifyContent={{ tablet: 'space-between' }}
+              display={{ desktop: 'none' }}
+            >
+              <Box sx={{ width: { tablet: '243px' } }}>
+                <Filter filtersData={filtersData} />
+              </Box>
+
+              <Box sx={{ width: { tablet: '243px' } }}>
+                <Sort />
+              </Box>
+            </Stack>
+            <Stack spacing={6}>
+              <Stack flexDirection="row" justifyContent="space-between" spacing={0} gap={6}>
+                <SelectedFilterTags filtersData={filtersData} />
+                <Box
+                  display={{ xs: 'none', desktop: 'flex' }}
+                  width="100%"
+                  maxWidth={{ desktop: '196px' }}
+                  marginLeft="auto"
+                >
+                  <Sort />
+                </Box>
+              </Stack>
+              <ProductList />
+            </Stack>
+          </SectionContainer>
+        </section>
+        <section>
+          <SectionContainer>
+            {viewedProducts.length > 0 ? (
+              <RecentlyViewedSection />
+            ) : (
+              <RecommendationsSection title="Recommendations" />
+            )}
+          </SectionContainer>
+        </section>
+      </PageLayout>
     </>
   );
 }
