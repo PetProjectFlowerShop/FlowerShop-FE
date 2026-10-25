@@ -21,7 +21,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) =>
 
   return (
     <Box sx={{ position: 'sticky', top: 100 }}>
-      <Typography variant="h4" component={'h4'} sx={{ mb: 6 }}>
+      <Typography variant="h4" component={'h4'} sx={{ mb: 6, px: 4, py: 2 }}>
         Table of content
       </Typography>
       <List sx={{ p: 0 }}>
