@@ -12,6 +12,7 @@ import { Blog } from '../pages/menu-pages/Blog';
 import { Catalog } from '../pages/menu-pages/Catalog';
 import { Contacts } from '../pages/menu-pages/Contacts';
 import { DeliveryAndPayment } from '../pages/menu-pages/DeliveryAndPayment';
+import { PostPage } from '@/pages/PostPage';
 
 export function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ export function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<PostPage />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:id" element={<ProductPage />} />
         <Route path="/contacts" element={<Contacts />} />

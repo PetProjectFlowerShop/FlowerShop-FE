@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { SectionContainer } from '../layouts/SectionContainer';
 import type { CSSProperties } from 'react';
+import { SocialLinks } from '../footer/SocialLinks';
 
 const getContainerStyles = () => ({
   position: 'relative',
@@ -30,6 +31,8 @@ interface TitleWithImageSectionProps {
   imageSrc: string;
   imageAlt: string;
   imageObjectPosition?: CSSProperties['objectPosition'];
+  subMenu?: boolean;
+  date?: string;
 }
 
 export default function TitleWithImageSection({
@@ -37,6 +40,8 @@ export default function TitleWithImageSection({
   imageSrc,
   imageAlt,
   imageObjectPosition,
+  subMenu,
+  date,
 }: TitleWithImageSectionProps) {
   return (
     <section>
@@ -54,6 +59,33 @@ export default function TitleWithImageSection({
             />
           </Box>
         </Box>
+        {subMenu && (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: { xs: 6, tablet: 2 },
+              mt: 6,
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Typography variant="body" sx={{ fontWeight: 600 }}>
+                Published on:
+              </Typography>
+              <Typography variant="body" color={'text.secondary'}>
+                {date}
+              </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Typography variant="body" sx={{ fontWeight: 600 }}>
+                Share post:
+              </Typography>
+              <SocialLinks />
+            </Box>
+          </Box>
+        )}
       </SectionContainer>
     </section>
   );
