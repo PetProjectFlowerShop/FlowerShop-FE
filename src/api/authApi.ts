@@ -1,6 +1,6 @@
 import { apiClient } from './axios';
 import type { UserRole } from '@/types/auth';
-import type { RegisterFormValues } from '@/validation/registerSchema';
+import type { RegisterFormValues } from '@/components/forms/schemas/registerSchema';
 
 export interface LoginRequest {
   email: string;

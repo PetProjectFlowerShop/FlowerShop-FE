@@ -5,7 +5,10 @@ import { FormHeader } from '../components/FormHeader';
 import { SubmitButton } from '../SubmitButton';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { newPasswordSchema, type NewPasswordFormValues } from '@/validation/newPasswordSchema';
+import {
+  newPasswordSchema,
+  type NewPasswordFormValues,
+} from '@/components/forms/schemas/newPasswordSchema';
 
 export function NewPasswordForm() {
   const defaultValues: NewPasswordFormValues = {

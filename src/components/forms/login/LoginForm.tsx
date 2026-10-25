@@ -13,7 +13,7 @@ import { useAuthStore } from '@/store/auth.store';
 import { useState } from 'react';
 import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginSchema } from '@/validation/loginSchema';
+import { loginSchema } from '@/components/forms/schemas/loginSchema';
 
 import { LoginFields } from './LoginFields';
 

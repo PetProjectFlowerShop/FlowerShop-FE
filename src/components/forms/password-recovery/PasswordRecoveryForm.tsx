@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   passwordRecoverySchema,
   type PasswordRecoveryFormValues,
-} from '@/validation/passwordRecoverySchema';
+} from '@/components/forms/schemas/passwordRecoverySchema';
 
 export function PasswordRecoveryForm() {
   const defaultValues: PasswordRecoveryFormValues = {
