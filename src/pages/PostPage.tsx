@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import { BlogFlowersGallerySection } from '@/components/blog/BlogFlowersGallerySection';
 
 export function PostPage() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
 
   const currentPost = postsData.find((post) => post.id === Number(id));
 
@@ -26,7 +26,7 @@ export function PostPage() {
     <>
       <DynamicBreadcrumbs
         customLastStep={currentPost?.title}
-        mb={{ xs: 7, tablet: 2, desktop: 2 }}
+        mb={{ xs: 2, tablet: 2, desktop: 2 }}
       />
       <PageLayout>
         <TitleWithImageSection

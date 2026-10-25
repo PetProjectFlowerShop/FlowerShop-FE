@@ -1,15 +1,14 @@
+import type { PostSection } from '@/types/post';
 import { Box } from '@mui/material';
 import { SectionContainer } from '../layouts/SectionContainer';
-import type { PostSection } from '@/types/post';
-import { TableOfContents } from './TableOfContents';
 import { PostArticles } from './PostArticles';
-import React from 'react';
+import { TableOfContents } from './TableOfContents';
 
 interface PostContentProps {
   posts: PostSection[];
 }
 
-export const PostContentSection: React.FC<PostContentProps> = ({ posts }) => {
+export const PostContentSection = ({ posts }: PostContentProps) => {
   return (
     <section data-testid="product-details-section">
       <SectionContainer>

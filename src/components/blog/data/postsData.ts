@@ -45,7 +45,7 @@ export const postsData: Post[] = [
     id: 1,
     imgURL: heroPost1,
     title: 'Choosing the right bouquet',
-    publishedDate: '14 february 2026',
+    publishedDate: '14 February 2026',
     description:
       'Learn how to select the right flowers for  birthdays, romantic or everyday surprises. This guide helps match flowers to emotions and occasions.',
     link: '/blog/1',
@@ -121,7 +121,7 @@ export const postsData: Post[] = [
     id: 2,
     imgURL: heroPost2,
     title: 'Meaning of popular flowers',
-    publishedDate: '14 february 2026',
+    publishedDate: '14 February 2026',
     description:
       'Discover the hidden meanings behind popular flowers and colors, and how each bloom can express feelings without words.',
     link: '/blog/2',
@@ -182,7 +182,7 @@ export const postsData: Post[] = [
     id: 3,
     imgURL: heroPost3,
     title: 'How to keep flowers fresh',
-    publishedDate: '14 february 2026',
+    publishedDate: '14 February 2026',
     description:
       'Follow simple steps to extend the life of your bouquet and keep your flowers fresh and beautiful longer.',
     link: '/blog/3',
@@ -225,7 +225,7 @@ export const postsData: Post[] = [
     id: 4,
     imgURL: heroPost4,
     title: 'Most popular flowers',
-    publishedDate: '15 february 2026',
+    publishedDate: '15 February 2026',
     description:
       'Discover the flowers people love most and what makes them timeless and meaningful.',
     link: '/blog/4',
@@ -294,7 +294,7 @@ export const postsData: Post[] = [
     id: 5,
     imgURL: heroPost5,
     title: 'Flowers for your home',
-    publishedDate: '16 february 2026',
+    publishedDate: '16 February 2026',
     description: 'Learn how to choose flowers that complement your interior.',
     link: '/blog/5',
     sections: [
@@ -336,7 +336,7 @@ export const postsData: Post[] = [
     id: 6,
     imgURL: heroPost6,
     title: 'Why flowers make perfect gift',
-    publishedDate: '16 february 2026',
+    publishedDate: '16 February 2026',
     description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
     link: '/blog/6',
     sections: [
@@ -378,7 +378,7 @@ export const postsData: Post[] = [
     id: 7,
     imgURL: heroPost7,
     title: 'Modern flower trends',
-    publishedDate: '17 february 2026',
+    publishedDate: '17 February 2026',
     description: 'Discover the latest styles and trends in floral design and bouquet arrangements.',
     link: '/blog/7',
     sections: [
@@ -420,7 +420,7 @@ export const postsData: Post[] = [
     id: 8,
     imgURL: heroPost8,
     title: 'Personalizing your bouquet',
-    publishedDate: '18 february 2026',
+    publishedDate: '18 February 2026',
     description: 'Learn how to choose flowers that complement your interior.',
     link: '/blog/8',
     sections: [
@@ -454,7 +454,7 @@ export const postsData: Post[] = [
     id: 9,
     imgURL: heroPost9,
     title: 'Benefits of fresh flowers',
-    publishedDate: '18 february 2026',
+    publishedDate: '18 February 2026',
     description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
     link: '/blog/9',
     sections: [

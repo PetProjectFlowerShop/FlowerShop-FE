@@ -1,5 +1,4 @@
 import { Box, Card, CardContent, CardMedia, Link, Typography } from '@mui/material';
-import React from 'react';
 
 interface Post {
   id: number;
@@ -14,7 +13,7 @@ interface PostCardProps {
   variant?: 'vertical' | 'horizontal' | 'large';
 }
 
-export const PostCard: React.FC<PostCardProps> = ({ post, variant = 'vertical' }) => {
+export const PostCard = ({ post, variant = 'vertical' }: PostCardProps) => {
   const isHorizontal = variant === 'horizontal';
   const isLarge = variant === 'large';
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
 import type { PostSection } from '@/types/post';
 
@@ -6,22 +6,44 @@ interface TableOfContentsProps {
   sections: PostSection[];
 }
 
-export const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) => {
-  const [activeId, setActiveId] = useState<string>('');
+export const TableOfContents = ({ sections }: TableOfContentsProps) => {
+  const [activeId, setActiveId] = useState('');
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveId(id);
-      window.history.pushState(null, '', `#${id}`);
-    }
-  };
+  useEffect(() => {
+    const elements = sections
+      .map((section) => document.getElementById(section.id))
+      .filter((element) => element !== null);
 
+    if (!elements.length) return;
+
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      const activeElement = [...elements]
+        .filter((element) => element.getBoundingClientRect().top <= 150)
+        .at(-1);
+
+      setActiveId(activeElement?.id ?? elements[0].id);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) return;
+
+      ticking = true;
+      requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [sections]);
   return (
     <Box sx={{ position: 'sticky', top: 100 }}>
-      <Typography variant="h4" component={'h4'} sx={{ mb: 6, px: 4, py: 2 }}>
+      <Typography variant="h4" component={'h4'} sx={{ mb: 6, px: 4, py: 0 }}>
         Table of content
       </Typography>
       <List sx={{ p: 0 }}>
@@ -33,7 +55,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) =>
               key={section.id}
               sx={{
                 px: 4,
-                py: 2,
+                py: 3,
               }}
             >
               <ListItemText
@@ -43,7 +65,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ sections }) =>
                     variant="bodyFixed"
                     component="a"
                     href={`#${section.id}`}
-                    onClick={(e) => handleClick(e, section.id)}
+
                     sx={{
                       textDecoration: 'none',
                       color: isActive ? 'text.primary' : 'text.secondary',

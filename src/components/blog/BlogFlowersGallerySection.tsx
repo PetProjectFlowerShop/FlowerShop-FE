@@ -10,11 +10,11 @@ interface BlogFlowersGallerySectionProps {
   currentPostId?: number;
 }
 
-export const BlogFlowersGallerySection: React.FC<BlogFlowersGallerySectionProps> = ({
+export const BlogFlowersGallerySection = ({
   title,
   shotPreview,
   currentPostId,
-}) => {
+}: BlogFlowersGallerySectionProps) => {
   if (!postsData || postsData.length < 3) {
     return null;
   }
@@ -34,7 +34,7 @@ export const BlogFlowersGallerySection: React.FC<BlogFlowersGallerySectionProps>
       <SectionContainer>
         {displayPosts.length > 0 && (
           <Box component="section">
-            <SectionHeader title={title} mb={10} />
+            <SectionHeader title={title} mb={{ xs: shotPreview ? 7 : 10, tablet: 10 }} />
             <Grid container columnSpacing={{ xs: 4, tablet: 6 }} rowSpacing={{ xs: 6, tablet: 10 }}>
               {displayPosts.map((post, index) => (
                 <Grid
