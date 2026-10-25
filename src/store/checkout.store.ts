@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-import type { CustomerDetailsFormValues } from '../schemas/customerDetailsSchema';
-import type { ValidDeliveryFormValues } from '../schemas/deliverySchema';
+import type { CustomerDetailsFormValues } from '../components/checkout/schemas/customerDetailsSchema';
+import type { ValidDeliveryFormValues } from '../components/checkout/schemas/deliverySchema';
 
 export type CheckoutStep = 1 | 2 | 3;
 

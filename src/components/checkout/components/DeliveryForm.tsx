@@ -14,7 +14,7 @@ import {
   type ValidDeliveryFormValues,
 } from '../schemas/deliverySchema';
 
-import { useCheckoutStore } from '../store/checkout.store';
+import { useCheckoutStore } from '@/store/checkout.store';
 
 export function DeliveryForm() {
   const deliveryDetails = useCheckoutStore((state) => state.deliveryDetails);

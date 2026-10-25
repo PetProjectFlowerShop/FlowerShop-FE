@@ -24,7 +24,7 @@ import {
   type PaymentFormValues,
 } from '../schemas/paymentSchema';
 
-import { useCheckoutStore } from '../store/checkout.store';
+import { useCheckoutStore } from '@/store/checkout.store';
 
 interface PaymentFormProps {
   onPaymentValid: (data: PaymentFormValues) => void;

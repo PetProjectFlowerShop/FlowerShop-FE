@@ -21,7 +21,7 @@ import {
   type CustomerDetailsFormValues,
 } from '../schemas/customerDetailsSchema';
 
-import { useCheckoutStore } from '../store/checkout.store';
+import { useCheckoutStore } from '@/store/checkout.store';
 
 export function CustomerDetailsForm() {
   const saveCustomerDetails = useCheckoutStore((state) => state.saveCustomerDetails);

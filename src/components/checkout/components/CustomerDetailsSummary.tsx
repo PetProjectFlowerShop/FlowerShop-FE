@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Box, Typography } from '@mui/material';
-import { useCheckoutStore } from '../store/checkout.store';
+import { useCheckoutStore } from '@/store/checkout.store';
 
 export function CustomerDetailsSummary() {
   const customerDetails = useCheckoutStore((state) => state.customerDetails);

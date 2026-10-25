@@ -7,7 +7,7 @@ import { DeliveryForm } from './components/DeliveryForm';
 
 import { PaymentForm } from './components/PaymentForm';
 import { type PaymentFormValues } from './schemas/paymentSchema';
-import { useCheckoutStore } from './store/checkout.store';
+import { useCheckoutStore } from '@/store/checkout.store';
 
 import { CustomerDetailsSummary } from './components/CustomerDetailsSummary';
 import { DeliveryFormSummary } from './components/DeliveryFormSummary';
@@ -20,36 +20,45 @@ export function CheckoutPage() {
 
   const customerDetails = useCheckoutStore((state) => state.customerDetails);
   const deliveryDetails = useCheckoutStore((state) => state.deliveryDetails);
+  const paymentDetails = useCheckoutStore((state) => state.paymentDetails);
+
+  const resetCheckout = useCheckoutStore((state) => state.resetCheckout);
 
   const [paymentCompleted, setPaymentCompleted] = useState(false);
+
+  const [isPaymentValid, setIsPaymentValid] = useState(false);
 
   const handleEditStep = (step: CheckoutStep) => {
     setActiveStep(step);
   };
 
-  const [isPaymentValid, setIsPaymentValid] = useState(false);
-
   const handlePlaceOrder = (payment: PaymentFormValues) => {
-    console.log('Форма оплати заповнена успішно!');
-    console.log('Обраний спосіб оплати:', payment.paymentMethod);
+    const orderData = {
+      customerDetails,
+      deliveryDetails,
+      paymentDetails: {
+        ...paymentDetails,
+        paymentMethod: payment.paymentMethod,
+        cardNumber: payment.cardNumber,
+        expiryDate: payment.expiryDate,
+      },
+    };
 
-    setPaymentCompleted(true);
+    try {
+      console.log('Форма оплати заповнена успішно!');
+      console.log('Order data:', orderData);
+
+      setPaymentCompleted(true);
+
+      // Очистити CheckoutStore після успішної відправки данних на бек
+      resetCheckout();
+
+      setPaymentCompleted(false);
+      setIsPaymentValid(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  // const handlePlaceOrder = async (payment: PaymentFormValues) => {
-  //   try {
-  //     // 1. Надіслати дані замовлення на сервер.
-  //     // 2. Дочекатися успішної відповіді.
-
-  //     // 3. Очистити CheckoutStore.
-  //     resetCheckout();
-
-  //     // 4. Перейти на сторінку успішного оформлення.
-  //   } catch (error) {
-  //     // Показати помилку.
-  //     // Не очищувати CheckoutStore, щоб користувач не втратив введені дані.
-  //   }
-  // };
 
   const savePaymentDetails = useCheckoutStore((state) => state.savePaymentDetails);
 
@@ -115,7 +124,13 @@ export function CheckoutPage() {
         </Box>
 
         <Box sx={{ flexGrow: 1, width: '100%' }}>
-          <Typography component="div" variant="body" mb={6} sx={{ color: 'text.secondary' }}>
+          <Typography
+            component="div"
+            variant="body"
+            m={6}
+            mt={{ xs: 0, desktop: 6 }}
+            sx={{ color: 'text.secondary' }}
+          >
             By clicking Submit, I agree to{' '}
             <Typography sx={{ fontWeight: '500' }}>the Terms of Service</Typography> and{' '}
             <Typography sx={{ fontWeight: '500' }}>Privacy Policy</Typography>
