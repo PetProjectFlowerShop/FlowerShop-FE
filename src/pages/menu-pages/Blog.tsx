@@ -17,7 +17,7 @@ export function Blog() {
           imageObjectPosition={'0 50%'}
         />
         <HelpfulTipsSection />
-        <BlogFlowersGallerySection />
+        <BlogFlowersGallerySection title="Our flowers posts" />
       </PageLayout>
     </>
   );
