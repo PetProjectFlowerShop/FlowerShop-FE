@@ -40,10 +40,10 @@ export default function AboutUsSection() {
           <Box>
             <SectionHeader title="About us" />
 
-            <Typography variant="h4" sx={{ mt: 3, mb: 2 }}>
+            <Typography variant="h4" sx={{ mt: 3, mb: 2 }} color="text.secondary">
               Our Philosophy
             </Typography>
-            <Typography variant="body" sx={{ mb: 4 }}>
+            <Typography variant="body" component="div" sx={{ mb: 4 }}>
               At Floria, we believe that flowers are more than just decoration—they are a way to
               express emotions, celebrate moments, and bring joy to everyday life. Each bouquet we
               craft is a blend of creativity, passion, and care, designed to make every occasion
@@ -51,7 +51,7 @@ export default function AboutUsSection() {
             </Typography>
 
             <Box sx={{ mb: 6 }}>
-              <Typography variant="h4" sx={{ mb: 2 }}>
+              <Typography variant="h4" sx={{ mb: 2 }} color="text.secondary">
                 Our Values
               </Typography>
               <ValuesList

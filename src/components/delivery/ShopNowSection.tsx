@@ -32,6 +32,7 @@ export function ShopNowSection() {
           <Box>
             <Typography
               variant="body"
+              component="div"
               sx={{
                 mb: { xs: 6, tablet: 9 },
                 maxWidth: { tablet: '640px', desktop: '635px' },
