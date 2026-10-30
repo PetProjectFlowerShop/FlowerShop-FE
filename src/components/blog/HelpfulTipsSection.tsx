@@ -7,6 +7,7 @@ export const HelpfulTipsSection = () => {
   if (!postsData || postsData.length < 3) return null;
 
   const recentPosts = postsData.slice(0, 3);
+  const leftColumnPosts = [recentPosts[1], recentPosts[2]];
 
   return (
     <section>
@@ -19,7 +20,7 @@ export const HelpfulTipsSection = () => {
               </Typography>
 
               <Grid container spacing={{ xs: 4, tablet: 6 }}>
-                {recentPosts.slice(0, 2).map((post) => (
+                {leftColumnPosts.slice(0, 2).map((post) => (
                   <Grid size={{ xs: 6, tablet: 12 }} key={post.id}>
                     <PostCard post={post} variant="horizontal" />
                   </Grid>
@@ -29,7 +30,7 @@ export const HelpfulTipsSection = () => {
           </Grid>
 
           <Grid size={{ xs: 12, desktop: 6 }}>
-            <PostCard post={recentPosts[2]} variant="large" />
+            <PostCard post={recentPosts[0]} variant="large" />
           </Grid>
         </Grid>
       </SectionContainer>
