@@ -1,4 +1,4 @@
-import type { Theme } from '@mui/material/styles';
+import { alpha, type Theme } from '@mui/material/styles';
 import type { Components } from '@mui/material/styles';
 import { Icon } from '@/components/common/Icon';
 
@@ -21,6 +21,9 @@ export const chipOverrides: Components<Theme>['MuiChip'] = {
       },
       '&.MuiChip-filled': {
         borderWidth: 2,
+        '&:hover': {
+          backgroundColor: alpha(theme.palette.primary.main, 0.2),
+        },
       },
       '& .MuiChip-deleteIcon': {
         fontSize: 16,
