@@ -5,11 +5,13 @@ import { CartItemView } from './CartItemView';
 import { CartAccessories } from './CartAccessories';
 import { MOCK_ACCESSORIES } from '@/api/mock-data/mockAccessories';
 import { useNavigate } from 'react-router-dom';
+import { useDrawer } from '@/hooks/useDrawer.ts';
 
 export function CartForm() {
   const { enrichedCartItems, isLoading } = useEnrichedCart();
   const totalSum = useCartStore((state) => state.getTotalSum());
 
+  const { closeDrawer } = useDrawer();
   const navigate = useNavigate();
 
   if (isLoading) {
@@ -25,7 +27,15 @@ export function CartForm() {
         <Typography variant="body" component="div" sx={{ my: 2 }}>
           Your cart is empty. Let’s find something beautiful.
         </Typography>
-        <Button variant="contained" color="primary" fullWidth onClick={() => navigate('/catalog')}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => {
+            closeDrawer();
+            navigate('/catalog');
+          }}
+        >
           To catalog
         </Button>
       </Box>
@@ -82,7 +92,15 @@ export function CartForm() {
           <Typography variant="h4">${totalSum}</Typography>
         </Box>
 
-        <Button variant="contained" color="primary" fullWidth onClick={() => navigate('/checkout')}>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => {
+            closeDrawer();
+            navigate('/checkout');
+          }}
+        >
           Submit the order
         </Button>
       </Box>
