@@ -2,6 +2,7 @@ import type { CheckboxFilterKey } from '@/config/filterConfig';
 import { memo } from 'react';
 import { FilterSection } from './FilterSection';
 import { FilterOption } from '../options/FilterOption';
+import { ColorLabel } from '../ColorLabel';
 
 type CheckboxOption = {
   id: number;
@@ -36,7 +37,7 @@ export const CheckboxFilterSection = memo(function CheckboxFilterSection({
             key={option.id}
             checked={isChecked}
             onChange={() => onToggle(filterKey, String(option.id))}
-            label={option.name}
+            label={title === 'Color' ? <ColorLabel option={option.name} /> : option.name}
           />
         );
       })}

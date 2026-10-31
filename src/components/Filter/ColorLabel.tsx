@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 
 type Props = {
-  option: { value: string; label: string };
+  option: string;
 };
-//TODO: Rewrite the outdated component according to the new specifications after consulting with the backend team
+
 const getColorStyle = (value: string) => {
   switch (value) {
     case 'red':
@@ -32,20 +32,21 @@ const getColorStyle = (value: string) => {
 };
 
 export function ColorLabel({ option }: Props) {
-  const needBorder = ['cream', 'white'].includes(option.value);
+  const lowerOption = typeof option === 'string' ? option.toLowerCase() : 'another';
+  const needBorder = ['cream', 'white'].includes(lowerOption);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
       <Box
         sx={{
           width: 24,
           height: 24,
           borderRadius: '50%',
-          background: getColorStyle(option.value),
+          background: getColorStyle(lowerOption),
           border: needBorder ? '1px solid #ccc' : 'none',
         }}
       />
-      {option.label}
+      {option}
     </Box>
   );
 }
