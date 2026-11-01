@@ -6,6 +6,7 @@ export function LegalLink() {
   return (
     <Box
       sx={{
+        mt: 15,
         display: 'flex',
         gap: '40px',
         justifyContent: 'center',

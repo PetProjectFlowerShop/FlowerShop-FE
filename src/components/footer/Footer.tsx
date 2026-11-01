@@ -21,7 +21,7 @@ export function Footer() {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          marginBottom: 15,
+          p: 0,
         }}
       >
         <Box
@@ -52,13 +52,13 @@ export function Footer() {
             <ContactInfo />
           </Box>
         </Box>
+        <LegalLink />
+        <Box sx={{ textAlign: 'center', mt: 4 }}>
+          <Typography variant="caption" color="white" sx={{ opacity: 0.8 }}>
+            © 2026 Floria. All rights reserved
+          </Typography>
+        </Box>{' '}
       </Container>
-      <LegalLink />
-      <Box sx={{ textAlign: 'center', mt: 4 }}>
-        <Typography variant="caption" color="white" sx={{ opacity: 0.8 }}>
-          © 2026 Floria. All rights reserved
-        </Typography>
-      </Box>
     </Box>
   );
 }
