@@ -421,7 +421,7 @@ export const postsData: Post[] = [
     imgURL: heroPost8,
     title: 'Personalizing your bouquet',
     publishedDate: '18 February 2026',
-    description: 'Learn how to choose flowers that complement your interior.',
+    description: 'Learn how to make your bouquet more meaningful with custom choices.',
     link: '/blog/8',
     sections: [
       {
@@ -455,7 +455,8 @@ export const postsData: Post[] = [
     imgURL: heroPost9,
     title: 'Benefits of fresh flowers',
     publishedDate: '18 February 2026',
-    description: 'Explore why flowers remain one of the most meaningful and emotional gifts.',
+    description:
+      'Find out how fresh flowers improve mood, reduce stress, and bring beauty into life.',
     link: '/blog/9',
     sections: [
       {
