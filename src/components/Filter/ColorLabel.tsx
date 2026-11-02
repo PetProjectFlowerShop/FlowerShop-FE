@@ -32,7 +32,7 @@ const getColorStyle = (value: string) => {
 };
 
 export function ColorLabel({ option }: Props) {
-  const lowerOption = typeof option === 'string' ? option.toLowerCase() : 'another';
+  const lowerOption = option.toLowerCase();
   const needBorder = ['cream', 'white'].includes(lowerOption);
 
   return (

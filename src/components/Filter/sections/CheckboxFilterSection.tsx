@@ -37,7 +37,7 @@ export const CheckboxFilterSection = memo(function CheckboxFilterSection({
             key={option.id}
             checked={isChecked}
             onChange={() => onToggle(filterKey, String(option.id))}
-            label={title === 'Color' ? <ColorLabel option={option.name} /> : option.name}
+            label={filterKey === 'colors' ? <ColorLabel option={option.name} /> : option.name}
           />
         );
       })}
