@@ -17,11 +17,17 @@ export function SearchFlowers() {
       variant="outlined"
       slotProps={{
         input: {
+          sx: {
+            '& .MuiOutlinedInput-input': {
+              paddingRight: 0.5,
+              paddingLeft: 2,
+            },
+          },
           startAdornment: (
             <InputAdornment
               position="start"
               sx={{
-                mr: (theme) => theme.spacingTokens.microX,
+                transform: (theme) => `translateX(${theme.spacing(3)})`,
               }}
             >
               <Icon name="search" width={24} height={24} />
@@ -34,6 +40,7 @@ export function SearchFlowers() {
                   onClick={handleClear}
                   edge="end"
                   sx={{
+                    transform: (theme) => `translateX(${theme.spacing(-3)})`,
                     '&:hover': { color: 'text.primary' },
                   }}
                 >
