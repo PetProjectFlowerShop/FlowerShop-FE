@@ -15,8 +15,8 @@ export const PostArticles = ({ posts }: PostArticlesProps) => {
           </Typography>
           <Box display="flex" flexDirection="column" gap={4}>
             {post.content.map((paragraph, index) => (
-              <Box display={'flex'} gap={4}>
-                <Typography key={index} component="p" variant="body">
+              <Box key={index} display={'flex'} gap={4}>
+                <Typography component="p" variant="body">
                   {paragraph}
                 </Typography>
               </Box>
