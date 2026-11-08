@@ -10,7 +10,7 @@ export default function FooterMenu() {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 2,
+          gap: { xs: 5, tablet: 3, desktop: 3 },
           listStyle: 'none',
           p: 0,
           m: 0,
@@ -23,6 +23,7 @@ export default function FooterMenu() {
                 component={RouterLink}
                 to={item.path}
                 underline="none"
+                variant="bodyFixed"
                 sx={{
                   color: 'common.white',
                   '&:hover': { opacity: 0.6 },

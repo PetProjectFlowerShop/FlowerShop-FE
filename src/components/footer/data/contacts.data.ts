@@ -11,8 +11,8 @@ export const contacts: ContactsData[] = [
   {
     label: 'Email',
     icon: 'mail',
-    value: 'hello@floria.com.ua',
-    href: 'mailto:hello@floria.com.ua',
+    value: 'floria@gmail.com',
+    href: 'mailto:floria@gmail.com',
     iconSize: 26,
   },
   {

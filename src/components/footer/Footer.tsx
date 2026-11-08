@@ -39,14 +39,14 @@ export function Footer() {
             <SocialLinks />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'baseline' }}>
-            <Typography variant="h4" color={theme.palette.primary.contrastText}>
+            <Typography variant="h4Fixed" color={theme.palette.primary.contrastText}>
               Explore
             </Typography>
             <FooterMenu />
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'baseline' }}>
-            <Typography variant="h4" color={theme.palette.primary.contrastText}>
+            <Typography variant="h4Fixed" color={theme.palette.primary.contrastText}>
               Store Info
             </Typography>
             <ContactInfo />
@@ -54,7 +54,7 @@ export function Footer() {
         </Box>
         <LegalLink />
         <Box sx={{ textAlign: 'center', mt: 4 }}>
-          <Typography variant="caption" color="white" sx={{ opacity: 0.8 }}>
+          <Typography variant="caption2" color="white" sx={{ opacity: 0.8 }}>
             © 2026 Floria. All rights reserved
           </Typography>
         </Box>{' '}
