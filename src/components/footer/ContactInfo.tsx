@@ -12,7 +12,7 @@ function ContactRow({ icon, value, href, iconSize = 24, color = 'common.white' }
       sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
+        gap: 2,
         color: color,
       }}
     >
@@ -33,6 +33,7 @@ function ContactRow({ icon, value, href, iconSize = 24, color = 'common.white' }
       underline="none"
       target="_blank"
       rel="noopener noreferrer"
+      variant="body"
       sx={{
         color: 'inherit',
         '&:hover': { opacity: 0.6 },
@@ -51,7 +52,7 @@ export function ContactInfo() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '24px',
+        gap: 5,
       }}
     >
       {contacts.map((item) => (
