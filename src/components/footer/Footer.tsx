@@ -22,13 +22,14 @@ export function Footer() {
           display: 'flex',
           flexDirection: 'column',
           p: 0,
+          px: { tablet: 18 },
         }}
       >
         <Box
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', sm: 'row' },
-            gap: 9,
+            gap: { xs: 9, tablet: 7 },
             justifyContent: { xs: 'center', sm: 'space-between' },
             alignItems: { xs: 'baseline', sm: 'flex-start' },
             mx: { xs: 'auto', sm: 'unset' },
@@ -39,25 +40,25 @@ export function Footer() {
             <SocialLinks />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'baseline' }}>
-            <Typography variant="h4Fixed" color={theme.palette.primary.contrastText}>
+            <Typography variant="h4" color={theme.palette.primary.contrastText}>
               Explore
             </Typography>
             <FooterMenu />
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'baseline' }}>
-            <Typography variant="h4Fixed" color={theme.palette.primary.contrastText}>
+            <Typography variant="h4" color={theme.palette.primary.contrastText}>
               Store Info
             </Typography>
             <ContactInfo />
           </Box>
         </Box>
         <LegalLink />
-        <Box sx={{ textAlign: 'center', mt: 4 }}>
+        <Box sx={{ textAlign: 'center', mt: 4, lineHeight: 0 }}>
           <Typography variant="caption2" color="white" sx={{ opacity: 0.8 }}>
             © 2026 Floria. All rights reserved
           </Typography>
-        </Box>{' '}
+        </Box>
       </Container>
     </Box>
   );

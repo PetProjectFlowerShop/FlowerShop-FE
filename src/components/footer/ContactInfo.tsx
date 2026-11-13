@@ -23,7 +23,7 @@ function ContactRow({ icon, value, href, iconSize = 24, color = 'common.white' }
         style={{ flexShrink: 0, fill: 'currentColor' }}
       />
 
-      <Typography variant="bodyFixed">{value}</Typography>
+      <Typography variant="body">{value}</Typography>
     </Box>
   );
 
@@ -33,7 +33,7 @@ function ContactRow({ icon, value, href, iconSize = 24, color = 'common.white' }
       underline="none"
       target="_blank"
       rel="noopener noreferrer"
-      variant="bodyFixed"
+      variant="body"
       sx={{
         color: 'inherit',
         '&:hover': { opacity: 0.6 },

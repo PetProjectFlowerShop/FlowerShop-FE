@@ -19,7 +19,7 @@ export function LegalLink() {
           component={RouterLink}
           to={link.path}
           underline="none"
-          variant="captionFixed"
+          variant="caption"
           sx={{
             color: 'common.white',
             '&:hover': { opacity: 0.6 },
