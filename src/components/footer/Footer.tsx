@@ -21,14 +21,15 @@ export function Footer() {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          marginBottom: 15,
+          p: 0,
+          px: { tablet: 18 },
         }}
       >
         <Box
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', sm: 'row' },
-            gap: 9,
+            gap: { xs: 9, tablet: 7 },
             justifyContent: { xs: 'center', sm: 'space-between' },
             alignItems: { xs: 'baseline', sm: 'flex-start' },
             mx: { xs: 'auto', sm: 'unset' },
@@ -52,13 +53,13 @@ export function Footer() {
             <ContactInfo />
           </Box>
         </Box>
+        <LegalLink />
+        <Box sx={{ textAlign: 'center', mt: 4, lineHeight: 0 }}>
+          <Typography variant="caption2" color="white" sx={{ opacity: 0.8 }}>
+            © 2026 Floria. All rights reserved
+          </Typography>
+        </Box>
       </Container>
-      <LegalLink />
-      <Box sx={{ textAlign: 'center', mt: 4 }}>
-        <Typography variant="caption" color="white" sx={{ opacity: 0.8 }}>
-          © 2026 Floria. All rights reserved
-        </Typography>
-      </Box>
     </Box>
   );
 }

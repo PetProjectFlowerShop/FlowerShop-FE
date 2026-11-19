@@ -6,6 +6,7 @@ export function LegalLink() {
   return (
     <Box
       sx={{
+        mt: 15,
         display: 'flex',
         gap: '40px',
         justifyContent: 'center',
@@ -18,6 +19,7 @@ export function LegalLink() {
           component={RouterLink}
           to={link.path}
           underline="none"
+          variant="caption"
           sx={{
             color: 'common.white',
             '&:hover': { opacity: 0.6 },
