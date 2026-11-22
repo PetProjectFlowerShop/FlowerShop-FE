@@ -15,14 +15,17 @@ import { staticFilters } from '@/config/staticFilters';
 import { useRecentlyStore } from '@/store/recently.store';
 import { Box, Stack } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
+import { useRef } from 'react';
 
 export function Catalog() {
+  const catalogTopRef = useRef<HTMLElement>(null);
   const viewedProducts = useRecentlyStore((store) => store.items);
   const { data: apiFilters, isLoading } = useQuery({
     queryKey: ['product-filters'],
     queryFn: getProductFilters,
     staleTime: Infinity,
   });
+
   if (isLoading) {
     return <>... Loading</>;
   }
@@ -40,7 +43,17 @@ export function Catalog() {
       <DynamicBreadcrumbs mb={2} />
       <PageLayout>
         <TitleWithImageSection title="Flower Catalog" imageSrc={catalogBaner} imageAlt="Flowers" />
-        <section>
+        <Box
+          component="section"
+          ref={catalogTopRef}
+          sx={{
+            scrollMarginTop: {
+              xs: '180px',
+              tablet: '180px',
+              desktop: '120px',
+            },
+          }}
+        >
           <SectionContainer
             sx={{
               display: { xs: 'flex', desktop: 'grid' },
@@ -78,10 +91,10 @@ export function Catalog() {
                   <Sort />
                 </Box>
               </Stack>
-              <ProductList />
+              <ProductList scrollTargetRef={catalogTopRef} />
             </Stack>
           </SectionContainer>
-        </section>
+        </Box>
         <section>
           <SectionContainer>
             {viewedProducts.length > 0 ? (

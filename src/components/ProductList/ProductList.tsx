@@ -10,7 +10,11 @@ import { EmptyProductList } from './EmptyProductList';
 import { Box, Button, Pagination } from '@mui/material';
 import { ProductCard } from '../ProductCard';
 
-export function ProductList() {
+interface ProductListProps {
+  scrollTargetRef?: React.RefObject<HTMLElement | null>;
+}
+
+export function ProductList({ scrollTargetRef }: ProductListProps) {
   const queryClient = useQueryClient();
   const [searchParams, setSearchParams] = useSearchParams();
   const filters = useFilters();
@@ -55,7 +59,10 @@ export function ProductList() {
     params.set('page', String(page));
     setSearchParams(params);
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollTargetRef?.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   const handleShowMore = () => {
