@@ -13,7 +13,7 @@ export function UserActions() {
 
   const favoritesCount = useFavoritesStore((state) => Object.keys(state.items).length);
   const cartCount = useCartStore((state) =>
-    Object.values(state.items).reduce((total, item) => total + item.quantity, 0)
+    Object.values(state.items).reduce((total, item) => total + item.selectedQuantity, 0)
   );
   const displayedCartCount = cartCount > 99 ? '99+' : cartCount;
 

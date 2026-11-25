@@ -6,7 +6,7 @@ import { persist } from 'zustand/middleware';
 type CartState = {
   items: Record<string, CartItem>;
   addToCart: (item: CartItem) => void;
-  updateQuantity: (cartItemId: string, quantity: number) => void;
+  updateQuantity: (cartItemId: string, selectedQuantity: number) => void;
   updatePackagingType: (cartItemId: string, packagingType: PackagingType) => void;
   getTotalSum: () => number;
   removeFromCart: (cartItemId: string) => void;
@@ -30,12 +30,15 @@ export const useCartStore = create<CartState>()(
             items: {
               ...state.items,
               [id]: existingItem
-                ? { ...existingItem, quantity: existingItem.quantity + item.quantity }
+                ? {
+                    ...existingItem,
+                    selectedQuantity: existingItem.selectedQuantity + item.selectedQuantity,
+                  }
                 : item,
             },
           };
         }),
-      updateQuantity: (cartItemId, quantity) =>
+      updateQuantity: (cartItemId, selectedQuantity) =>
         set((state) => {
           const item = state.items[cartItemId];
 
@@ -44,7 +47,7 @@ export const useCartStore = create<CartState>()(
           return {
             items: {
               ...state.items,
-              [cartItemId]: { ...item, quantity },
+              [cartItemId]: { ...item, selectedQuantity },
             },
           };
         }),
@@ -67,7 +70,7 @@ export const useCartStore = create<CartState>()(
           newItems[newCartItemId] = existingItem
             ? {
                 ...existingItem,
-                quantity: existingItem.quantity + item.quantity,
+                selectedQuantity: existingItem.selectedQuantity + item.selectedQuantity,
               }
             : {
                 ...item,
@@ -85,7 +88,7 @@ export const useCartStore = create<CartState>()(
               ? item.productPrice + item.packagingType.price
               : item.productPrice;
 
-          return total + itemPrice * item.quantity;
+          return total + itemPrice * item.selectedQuantity;
         }, 0),
       removeFromCart: (cartItemId) =>
         set((state) => {

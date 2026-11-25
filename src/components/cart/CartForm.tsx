@@ -41,8 +41,7 @@ export function CartForm() {
                   type={item.type}
                   product={item.product}
                   packagingType={item.packagingType}
-                  quantity={item.quantity}
-                  productId={item.productId}
+                  selectedQuantity={item.selectedQuantity}
                 />
               );
             }
@@ -52,8 +51,7 @@ export function CartForm() {
                 key={`${item.product.id}_no-packaging`}
                 type={item.type}
                 product={item.product}
-                quantity={item.quantity}
-                productId={item.productId}
+                selectedQuantity={item.selectedQuantity}
               />
             );
           })}

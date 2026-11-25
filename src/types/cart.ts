@@ -2,7 +2,7 @@ import type { PackagingType } from './product';
 
 type BaseCartItem = {
   productId: number;
-  quantity: number;
+  selectedQuantity: number;
   productPrice: number;
 };
 
