@@ -11,24 +11,24 @@ export const ProductCardPrice = ({
   price,
   currencySymbol = '$',
 }: ProductCardPriceProps) => {
-  const oldPrice = discountPercent ? Math.round(price / (1 - discountPercent / 100)) : undefined;
+  const newPrice = discountPercent ? Math.round(price * (1 - discountPercent / 100)) : undefined;
   return (
     <Stack direction="row" spacing={1.5} alignItems="baseline">
-      {oldPrice && (
+      {newPrice && (
         <Typography
           variant="caption"
           component="span"
-          color="text.secondary"
+          color="text.disabled"
           sx={{ textDecoration: 'line-through' }}
         >
           {currencySymbol}
-          {oldPrice}
+          {price}
         </Typography>
       )}
 
-      <Typography variant="h4" component="span" color={oldPrice ? 'primary.main' : 'text.primary'}>
+      <Typography variant="h4" component="span" color={newPrice ? 'primary.main' : 'text.primary'}>
         {currencySymbol}
-        {price}
+        {newPrice ? newPrice : price}
       </Typography>
     </Stack>
   );
