@@ -8,7 +8,7 @@ import { Box, Button, IconButton, Typography } from '@mui/material';
 
 type ProductQuantityControlsProps = {
   maxQuantity: number;
-  quantity: number;
+  selectedQuantity: number;
   productId: number;
   price: number;
   selectedWrap: PackagingType;
@@ -17,14 +17,14 @@ type ProductQuantityControlsProps = {
 
 export function ProductQuantityControls({
   maxQuantity,
-  quantity,
+  selectedQuantity,
   productId,
   price,
   selectedWrap,
   onQuantityChange,
 }: ProductQuantityControlsProps) {
   const handleDecrease = () => {
-    if (quantity <= 1) return;
+    if (selectedQuantity <= 1) return;
 
     onQuantityChange((prev) => prev - 1);
   };
@@ -32,7 +32,7 @@ export function ProductQuantityControls({
   const addItemToCart = useCartStore((state) => state.addToCart);
   const { toggleDrawer } = useDrawer();
   const handleIncrease = () => {
-    if (quantity >= maxQuantity) return;
+    if (selectedQuantity >= maxQuantity) return;
     onQuantityChange((prev) => prev + 1);
   };
   return (
@@ -79,7 +79,7 @@ export function ProductQuantityControls({
           }}
           variant="button"
         >
-          {quantity}
+          {selectedQuantity}
         </Typography>
         <IconButton
           sx={{ width: 24, height: 24, color: 'primary.dark' }}
@@ -96,7 +96,7 @@ export function ProductQuantityControls({
           addItemToCart({
             productId,
             packagingType: selectedWrap,
-            quantity,
+            selectedQuantity,
             productPrice: price,
             type: 'product',
           });

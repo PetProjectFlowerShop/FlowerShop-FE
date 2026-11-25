@@ -37,7 +37,7 @@ export function ProductInfo({
         price={price}
         selectedWrap={selectedWrap}
         maxQuantity={maxQuantity}
-        quantity={quantity}
+        selectedQuantity={quantity}
         onQuantityChange={setQuantity}
       />
       <ProductAccordion description={description} type={bouquetType} title={name} />

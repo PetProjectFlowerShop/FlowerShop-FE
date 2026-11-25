@@ -100,7 +100,7 @@ export const ProductCard = ({ product, isFavorite = false }: ProductCardProps) =
               type: 'product',
               productId: id,
               packagingType: defaultPackagingType,
-              quantity: 1,
+              selectedQuantity: 1,
               productPrice: price,
             });
             toggleDrawer('cart', true)();

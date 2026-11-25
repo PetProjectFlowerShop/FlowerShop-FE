@@ -1,26 +1,37 @@
 import { getProductFilters } from '@/api/flowers';
-import type { MOCK_ACCESSORIES } from '@/api/mock-data/mockAccessories';
 import { useCartStore } from '@/store/cart.store';
-import type { AccessoryCartItem, ProductCartItem } from '@/types/cart';
-import type { ProductCardType } from '@/types/product';
+import type { PackagingType, ProductCardType } from '@/types/product';
 import { Box, IconButton, Stack, Typography } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import { PackagingTypeSelect } from '../PackagingTypeSelect/PackagingTypeSelect';
 import { ProductCardPrice } from '../ProductCard/ProductCardPrice';
 import { Icon } from '../common/Icon';
 
+export type AccessoryType = {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+};
+
 export type CartItemViewProps =
-  | (Omit<AccessoryCartItem, 'productPrice'> & {
-      product: (typeof MOCK_ACCESSORIES)[number];
-    })
-  | (Omit<ProductCartItem, 'productPrice'> & {
+  | {
+      type: 'product';
       product: ProductCardType;
-    });
+      selectedQuantity: number;
+      packagingType: PackagingType;
+    }
+  | {
+      type: 'accessory';
+      product: AccessoryType;
+      selectedQuantity: number;
+    };
 
 export const CartItemView = (props: CartItemViewProps) => {
-  const { product, quantity, type } = props;
+  const { product, selectedQuantity, type } = props;
 
   const { name, price, imageUrl } = product;
+  const discountPercent = type === 'product' ? product.discountPercent : undefined;
 
   const { data } = useQuery({
     queryKey: ['product-filters'],
@@ -112,8 +123,7 @@ export const CartItemView = (props: CartItemViewProps) => {
               alignItems: 'center',
             }}
           >
-            <ProductCardPrice price={price} discountPercent={10} />
-            {/*TODO: replace 10 with real discount percent when api will be ready  */}
+            <ProductCardPrice price={price} discountPercent={discountPercent} />
             <Stack
               direction="row"
               alignItems="center"
@@ -127,9 +137,9 @@ export const CartItemView = (props: CartItemViewProps) => {
             >
               <IconButton
                 size="small"
-                disabled={quantity <= 1}
+                disabled={selectedQuantity <= 1}
                 sx={{ p: '4px' }}
-                onClick={() => updateQuantity(cartItemId, quantity - 1)}
+                onClick={() => updateQuantity(cartItemId, selectedQuantity - 1)}
               >
                 <Icon name="minus" width={16} height={16} />
               </IconButton>
@@ -144,12 +154,14 @@ export const CartItemView = (props: CartItemViewProps) => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>{quantity}</Typography>
+                <Typography sx={{ fontSize: '14px', fontWeight: 500 }}>
+                  {selectedQuantity}
+                </Typography>
               </Box>
               <IconButton
                 size="small"
                 sx={{ p: '4px' }}
-                onClick={() => updateQuantity(cartItemId, quantity + 1)}
+                onClick={() => updateQuantity(cartItemId, selectedQuantity + 1)}
               >
                 <Icon name="add" width={16} height={16} />
               </IconButton>

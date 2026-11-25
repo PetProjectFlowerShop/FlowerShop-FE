@@ -22,7 +22,7 @@ export interface ProductBase {
   isNew: boolean;
   isPopular: boolean;
   isSeasonOffer: boolean;
-
+  quantity: number;
   discountPercent?: number;
 }
 
@@ -35,7 +35,7 @@ export interface ProductCardType extends ProductBase {
 
 export interface ProductDetails extends ProductBase {
   description: string;
-  quantity: number;
+
   stemsCount: number;
   isAvailable: boolean;
   height: number;

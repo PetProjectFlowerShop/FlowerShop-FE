@@ -70,7 +70,7 @@ export const AccessoryCard = ({ item, currencySymbol = '$' }: AccessoryCardProps
               addItemToCart({
                 type: 'accessory',
                 productId: item.id,
-                quantity: 1,
+                selectedQuantity: 1,
                 productPrice: item.price,
               })
             }
